@@ -1,0 +1,37 @@
+{{- $defaultLang := .defaultLang | default "en" -}}
+{{- $supportedLangs := slice -}}
+{{- $pathLangMap := dict -}}
+{{- $routeMap := dict -}}
+{{- $copy := dict -}}
+
+{{- range site.Languages -}}
+  {{- $langMeta := partial "lang-meta.html" (dict "lang" . "defaultLang" $defaultLang) -}}
+  {{- $supportedLangs = $supportedLangs | append $langMeta.appLang -}}
+  {{- $routeMap = merge $routeMap (dict $langMeta.appLang $langMeta.route) -}}
+  {{- $pathLangMap = merge $pathLangMap (dict (lower $langMeta.htmlLang) $langMeta.appLang) -}}
+  {{- $pathLangMap = merge $pathLangMap (dict (lower $langMeta.appLang) $langMeta.appLang) -}}
+  {{- if ne $langMeta.route "/" -}}
+    {{- $pathKey := strings.TrimSuffix "/" (strings.TrimPrefix "/" $langMeta.route) -}}
+    {{- $pathLangMap = merge $pathLangMap (dict $pathKey $langMeta.appLang) -}}
+  {{- end -}}
+
+  {{- $rawMessages := readFile (printf "i18n/%s.json" .Lang) | transform.Unmarshal -}}
+  {{- $flatMessages := dict -}}
+  {{- range $key, $value := $rawMessages -}}
+    {{- $entry := $value -}}
+    {{- if and (reflect.IsMap $value) (isset $value "other") -}}
+      {{- $entry = index $value "other" -}}
+    {{- end -}}
+    {{- $flatMessages = merge $flatMessages (dict $key $entry) -}}
+  {{- end -}}
+  {{- $copy = merge $copy (dict $langMeta.appLang $flatMessages) -}}
+{{- end -}}
+
+{{- $pathLangMap = merge $pathLangMap (dict "zh" "zh-Hans" "zh-cn" "zh-Hans" "zh-hans" "zh-Hans" "zh-hant" "zh-Hant-HK") -}}
+
+{{- return (dict
+  "supportedLangs" $supportedLangs
+  "pathLangMap" $pathLangMap
+  "routeMap" $routeMap
+  "copy" $copy
+) -}}

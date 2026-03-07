@@ -1,0 +1,6 @@
+{{- $siteURL := site.Params.seo.siteURL | default site.BaseURL -}}
+{{- $hasAbsoluteSiteURL := or (hasPrefix $siteURL "https://") (hasPrefix $siteURL "http://") -}}
+User-agent: *
+Allow: /
+
+Sitemap: {{ cond $hasAbsoluteSiteURL (printf "%s/sitemap.xml" (strings.TrimSuffix "/" $siteURL)) "/sitemap.xml" }}

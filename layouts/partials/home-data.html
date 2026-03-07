@@ -1,0 +1,10 @@
+{{- $page := .page -}}
+{{- $defaultLang := .defaultLang | default "en" -}}
+{{- $currentHome := $page.Params.home | default dict -}}
+{{- $defaultHome := dict -}}
+{{- $defaultSites := where site.Sites "Language.Lang" $defaultLang -}}
+{{- if gt (len $defaultSites) 0 -}}
+  {{- $defaultHome = ((index $defaultSites 0).Home.Params.home) | default dict -}}
+{{- end -}}
+{{- $home := merge $defaultHome $currentHome -}}
+{{- return $home -}}

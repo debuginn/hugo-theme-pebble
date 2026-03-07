@@ -1,0 +1,59 @@
+{{- $lang := .lang -}}
+{{- $defaultLang := .defaultLang -}}
+{{- $key := $lang.Lang -}}
+{{- $route := cond (eq $key $defaultLang) "/" (printf "/%s/" $key) -}}
+{{- $appLang := "" -}}
+{{- $htmlLang := "" -}}
+{{- $ogLocale := "" -}}
+{{- $jsonLdLanguage := "" -}}
+
+{{- if eq $key "zh" -}}
+  {{- $appLang = "zh-Hans" -}}
+  {{- $htmlLang = "zh-CN" -}}
+  {{- $ogLocale = "zh_CN" -}}
+  {{- $jsonLdLanguage = "zh-Hans" -}}
+{{- else if eq $key "tw" -}}
+  {{- $appLang = "zh-Hant-TW" -}}
+  {{- $htmlLang = "zh-TW" -}}
+  {{- $ogLocale = "zh_TW" -}}
+  {{- $jsonLdLanguage = "zh-Hant" -}}
+{{- else if eq $key "hk" -}}
+  {{- $appLang = "zh-Hant-HK" -}}
+  {{- $htmlLang = "zh-HK" -}}
+  {{- $ogLocale = "zh_HK" -}}
+  {{- $jsonLdLanguage = "zh-Hant" -}}
+{{- else if eq $key "mo" -}}
+  {{- $appLang = "zh-Hant-MO" -}}
+  {{- $htmlLang = "zh-MO" -}}
+  {{- $ogLocale = "zh_MO" -}}
+  {{- $jsonLdLanguage = "zh-Hant" -}}
+{{- else if eq $key "sg" -}}
+  {{- $appLang = "zh-Hant-SG" -}}
+  {{- $htmlLang = "zh-SG" -}}
+  {{- $ogLocale = "zh_SG" -}}
+  {{- $jsonLdLanguage = "zh-Hant" -}}
+{{- else if eq $key "ja" -}}
+  {{- $appLang = "ja" -}}
+  {{- $htmlLang = "ja" -}}
+  {{- $ogLocale = "ja_JP" -}}
+  {{- $jsonLdLanguage = "ja" -}}
+{{- else if eq $key "ko" -}}
+  {{- $appLang = "ko" -}}
+  {{- $htmlLang = "ko" -}}
+  {{- $ogLocale = "ko_KR" -}}
+  {{- $jsonLdLanguage = "ko" -}}
+{{- else -}}
+  {{- $appLang = "en" -}}
+  {{- $htmlLang = "en" -}}
+  {{- $ogLocale = "en_US" -}}
+  {{- $jsonLdLanguage = "en" -}}
+{{- end -}}
+
+{{- return (dict
+  "key" $key
+  "route" $route
+  "appLang" $appLang
+  "htmlLang" $htmlLang
+  "ogLocale" $ogLocale
+  "jsonLdLanguage" $jsonLdLanguage
+) -}}

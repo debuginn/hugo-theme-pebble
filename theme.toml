@@ -1,0 +1,13 @@
+name = "Pebble"
+license = "Apache-2.0"
+licenselink = "https://github.com/debuginn/hugo-theme-pebble/blob/main/LICENSE"
+description = "A product showcase Hugo theme."
+homepage = "https://github.com/debuginn/hugo-theme-pebble"
+demosite = ""
+tags = ["landing-page", "product", "showcase", "responsive", "multilingual"]
+features = ["multilingual", "product-showcase", "legal-pages"]
+min_version = "0.147.1"
+
+[author]
+  name = "debuginn"
+  homepage = "https://github.com/debuginn"

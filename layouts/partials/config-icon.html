@@ -1,0 +1,19 @@
+{{- $icon := .icon -}}
+{{- $class := .class | default "" -}}
+{{- $alt := .alt | default "" -}}
+{{- if not $icon -}}
+{{- else if reflect.IsMap $icon -}}
+  {{- $src := index $icon "src" -}}
+  {{- $name := index $icon "name" -}}
+  {{- $iconAlt := index $icon "alt" | default $alt -}}
+  {{- $iconClass := index $icon "class" | default $class -}}
+  {{- if $src -}}
+    <img src="{{ $src }}" alt="{{ $iconAlt }}"{{ if $iconClass }} class="{{ $iconClass }}"{{ end }} />
+  {{- else if $name -}}
+    {{- partial "icon.html" (dict "name" $name "class" $iconClass) -}}
+  {{- end -}}
+{{- else if or (hasPrefix $icon "/") (in $icon ".svg") (in $icon ".png") (in $icon ".jpg") (in $icon ".jpeg") (in $icon ".webp") -}}
+  <img src="{{ $icon }}" alt="{{ $alt }}"{{ if $class }} class="{{ $class }}"{{ end }} />
+{{- else -}}
+  {{- partial "icon.html" (dict "name" $icon "class" $class) -}}
+{{- end -}}
