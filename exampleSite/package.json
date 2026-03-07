@@ -1,9 +1,0 @@
-{
-  "name": "pebble-example-site",
-  "private": true,
-  "scripts": {
-    "build": "hugo --source .",
-    "dev": "hugo server --source . --disableFastRender",
-    "check": "hugo --source . --destination /tmp/pebble-example-check"
-  }
-}

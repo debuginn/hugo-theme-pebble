@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Privacy Policy on Pebble</title>
-    <link>http://localhost:1313/privacy/</link>
+    <link>https://example.com/privacy/</link>
     <description>Recent content in Privacy Policy on Pebble</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="http://localhost:1313/privacy/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://example.com/privacy/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

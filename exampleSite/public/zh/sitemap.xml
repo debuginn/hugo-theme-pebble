@@ -2,103 +2,103 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/zh/blog/post-one/</loc>
+    <loc>https://example.com/zh/blog/post-one/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/blog/post-one/"
+                href="https://example.com/blog/post-one/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/blog/post-one/"
+                href="https://example.com/zh/blog/post-one/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/</loc>
+    <loc>https://example.com/zh/</loc>
     <lastmod>2026-03-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/"
+                href="https://example.com/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/"
+                href="https://example.com/zh/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/terms/</loc>
+    <loc>https://example.com/zh/terms/</loc>
     <lastmod>2026-03-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/terms/"
+                href="https://example.com/terms/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/terms/"
+                href="https://example.com/zh/terms/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/privacy/</loc>
+    <loc>https://example.com/zh/privacy/</loc>
     <lastmod>2026-02-18T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/privacy/"
+                href="https://example.com/privacy/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/privacy/"
+                href="https://example.com/zh/privacy/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/blog/</loc>
+    <loc>https://example.com/zh/blog/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/blog/"
+                href="https://example.com/blog/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/blog/"
+                href="https://example.com/zh/blog/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/tags/example/</loc>
+    <loc>https://example.com/zh/tags/example/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/tags/example/"
+                href="https://example.com/tags/example/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/tags/example/"
+                href="https://example.com/zh/tags/example/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/tags/</loc>
+    <loc>https://example.com/zh/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/tags/"
+                href="https://example.com/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/tags/"
+                href="https://example.com/zh/tags/"
                 />
   </url><url>
-    <loc>http://localhost:1313/zh/tags/theme/</loc>
+    <loc>https://example.com/zh/tags/theme/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/tags/theme/"
+                href="https://example.com/tags/theme/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="http://localhost:1313/zh/tags/theme/"
+                href="https://example.com/zh/tags/theme/"
                 />
   </url>
 </urlset>
