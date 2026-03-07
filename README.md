@@ -37,6 +37,9 @@ Run the bundled example site locally from the theme repository:
 hugo server --source exampleSite --themesDir ../..
 ```
 
+The bundled `exampleSite/` does not use a directory-per-language content layout such as `content/zh/_index.md`.
+It keeps the sample setup smaller by using Hugo translation files like `content/_index.zh.md` and `content/privacy/_index.zh.md`.
+
 ## Quick Start
 
 Minimum working structure in the consuming site:
@@ -44,15 +47,19 @@ Minimum working structure in the consuming site:
 ```text
 content/
   _index.md
+  _index.zh.md
   privacy/_index.md
+  privacy/_index.zh.md
   terms/_index.md
+  terms/_index.zh.md
 i18n/
   en.json
+  zh.json
 static/
   assets/
     logo.png
     qr-download.png
-    hero.png
+    ia-home.png
 hugo.toml
 ```
 
@@ -61,7 +68,7 @@ Example `hugo.toml`:
 ```toml
 baseURL = "https://example.com/"
 languageCode = "en-us"
-title = "Pebble Demo"
+title = "Pebble"
 theme = "hugo-theme-pebble"
 defaultContentLanguage = "en"
 
@@ -69,11 +76,11 @@ defaultContentLanguage = "en"
 defaultLang = "en"
 
 [params.assets]
-brandName = "Pebble Demo"
+brandName = "Pebble"
 logo = "/assets/logo.png"
-logoAlt = "Pebble Demo logo"
+logoAlt = "Pebble logo"
 downloadQr = "/assets/qr-download.png"
-version = "20260307"
+version = "example-1"
 
 [params.contact]
 email = "hello@example.com"
@@ -91,7 +98,7 @@ googleTagID = "G-XXXXXXXXXX"
 
 [params.seo]
 siteURL = "https://example.com"
-defaultSocialTitle = "Pebble Demo"
+defaultSocialTitle = "Pebble"
 
 [params.pricing]
 currency = "$"
@@ -126,24 +133,24 @@ Example `content/_index.md`:
 
 ```yaml
 ---
-title: "Pebble Demo"
-description: "A clean landing page built with Hugo."
-keywords: "hugo, landing page, product"
+title: "Pebble"
+description: "A demo site for the Pebble Hugo theme."
+keywords: "hugo theme, landing page, multilingual"
 home:
   hero:
-    eyebrow: "Track What Matters"
-    title: "A product landing page for your app"
-    description: "Pebble is built for product showcase websites with multilingual support."
+    eyebrow: "Pebble"
+    title: "A polished Hugo theme for product websites"
+    description: "Pebble gives you a fast starting point for shipping a multilingual landing page with pricing, FAQ, legal pages, and lightweight content lists."
     ctaHref: "#download"
     ctaOverline: "Download on the"
     ctaTitle: "App Store"
     image:
-      src: "/assets/hero.png"
-      alt: "App screenshot"
+      src: "/assets/ia-home.png"
+      alt: "iAssets app screenshot"
     cards:
       - number: "01"
         title: "Fast setup"
-        description: "Install the theme and start with a single homepage file."
+        description: "Drop the theme into your site and drive the homepage from front matter."
         icon: "sparkles"
   features:
     eyebrow: "Features"
@@ -162,31 +169,51 @@ home:
         description: "Mix and match sections."
         icon: "layers"
   download:
-    title: "Ready to try it?"
-    description: "Point users to your store listing."
-    ctaHref: "https://apps.apple.com/app/id123456789"
+    title: "Use Pebble as your starting point"
+    description: "Swap the placeholder copy and assets for your product and you are close to a production landing page."
+    ctaHref: "https://apps.apple.com/"
   pricing:
     title: "Simple pricing"
     plans:
       - title: "Yearly"
         priceKey: "yearly"
+        badge: "Popular"
         suffix: "/year"
         description: "Best for most users."
         cta:
-          label: "Choose plan"
+          label: "Choose yearly"
           href: "#download"
       - title: "Lifetime"
         priceKey: "lifetime"
         featured: true
-        description: "One payment."
+        description: "A one-time purchase for users who prefer permanent access."
         cta:
+          highlight: true
           label: "Buy lifetime"
           href: "#download"
+  reviews:
+    title: "People build better financial habits with iAssets."
+  trust:
+    title: "Trusted by leading banks and finance platforms"
   faq:
     title: "FAQ"
     items:
       - question: "Can I customize the content?"
         answer: "Yes. The homepage is driven by front matter."
+---
+```
+
+Example translated homepage file:
+
+```yaml
+---
+title: "Pebble"
+description: "Pebble Hugo 主题的演示站点。"
+keywords: "hugo 主题, 落地页, 多语言"
+home:
+  hero:
+    eyebrow: "Pebble"
+    title: "为产品官网准备的 Hugo 主题"
 ---
 ```
 
@@ -201,7 +228,9 @@ The homepage uses `content/_index.md` and reads section data from `.Params.home`
 Pebble expects these pages if you link them from the footer:
 
 - `content/privacy/_index.md`
+- `content/privacy/_index.zh.md`
 - `content/terms/_index.md`
+- `content/terms/_index.zh.md`
 
 Example:
 
@@ -228,6 +257,9 @@ These are intentionally simple and reuse the theme's card styling.
 ## i18n
 
 Pebble expects translation files in `i18n/<lang>.json`.
+
+Use `i18n/` for UI copy and labels, and use Hugo translation content files for page-specific body content.
+The example site intentionally does not use a directory-per-language content structure such as `content/zh/_index.md`.
 
 Minimum English example:
 
