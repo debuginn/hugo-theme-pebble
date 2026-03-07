@@ -1,22 +1,22 @@
 [assets]
   logo = '/assets/logo.png'
-  logoAlt = 'iAssets logo'
-  brandName = 'iAssets'
+  logoAlt = 'Pebble logo'
+  brandName = 'Pebble'
   downloadQr = '/assets/qr-download.png'
 
 [contact]
-  email = 'idebuginn@gmail.com'
+  email = 'hello@example.com'
 
 [social]
   wechatQr = '/assets/wechat-qr.jpg?v=20260303d'
-  x = 'https://x.com/idebuginn'
-  telegram = 'https://t.me/iAssetsApp'
-  xiaohongshu = 'https://www.xiaohongshu.com/user/profile/5d4057fd0000000012007068'
-  weibo = 'https://weibo.com/u/7096209693'
-  zhihu = 'https://www.zhihu.com/people/debuginn'
+  x = 'https://example.com/x'
+  telegram = 'https://t.me/PebbleApp'
+  xiaohongshu = 'https://example.com/stories'
+  weibo = 'https://example.com/updates'
+  zhihu = 'https://example.com/faq'
 
 [seo]
-  defaultSocialTitle = 'iAssets'
+  defaultSocialTitle = 'Pebble'
   siteURL = ''
 
 [i18n]

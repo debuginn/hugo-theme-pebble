@@ -1,20 +1,20 @@
 +++
-title = "iAssets - 家族資産の全体像を、すばやく把握。"
+title = "Pebble - 家族資産の全体像を、すばやく把握。"
 description = "家族資産を可視化して管理できるアプリ。資産・負債・構成・目標・推移を1画面で把握できます。"
-keywords = "iAssets,家計管理,資産管理,純資産,家族資産"
+keywords = "Pebble,家計管理,資産管理,純資産,家族資産"
 type = "home"
 
 [home.hero]
-eyebrow = "iAssets"
+eyebrow = "Pebble"
 title = "家族資産の全体像を、すばやく把握。"
 description = "視覚的に使える資産管理ツールで、家族の資産管理にも対応しています。資産・負債・構成・目標・推移を1画面で確認できます。"
 ctaHref = "#download"
 ctaOverline = "Download on the"
-ctaTitle = "App Store"
+ctaTitle = "App"
 
 [home.hero.image]
 src = "/assets/ia-home.png"
-alt = "iAssets app screenshot"
+alt = "Pebble app screenshot"
 
 [[home.hero.cards]]
 number = "01"
@@ -77,7 +77,7 @@ title = "プライバシー保護"
 description = "パスコード、生体認証、自動ロック対応。"
 
 [home.details]
-eyebrow = "Product details"
+eyebrow = "How it works"
 title = "長期の資産レビューを今すぐ開始。"
 description = "分散したデータを同じ指標系に統合します。"
 
@@ -109,19 +109,19 @@ description = "ホームの表示順と表示可否を調整可能。"
 [[home.details.items]]
 icon = "detail-lock"
 title = "ローカル優先"
-description = "データはローカル保存、必要時に iCloud 同期。"
+description = "データはローカル保存、必要時に cloud 同期。"
 
 [home.download]
 eyebrow = "ダウンロード"
 title = "今すぐ開始"
-description = "iAssets をダウンロードして資産管理を開始。"
+description = "Pebble をダウンロードして資産管理を開始。"
 ctaHref = "#"
 ctaOverline = "Download on the"
-ctaTitle = "App Store"
+ctaTitle = "App"
 
 [home.reviews]
 eyebrow = "評価"
-title = "iAssets で資産習慣が変わる。"
+title = "Pebble で資産習慣が変わる。"
 description = "記録から全体理解まで、最短でつながる。"
 
 [home.reviews.tracks]
@@ -319,7 +319,7 @@ description = "よくある疑問を先に確認できます。"
 [[home.faq.items]]
 icon = "faq"
 question = "対応言語は？"
-answer = "iAssets と同じく、簡体字・繁体字（台湾/香港/マカオ/シンガポール）・英語・日本語・韓国語に対応。"
+answer = "Pebble と同じく、簡体字・繁体字（台湾/香港/マカオ/シンガポール）・英語・日本語・韓国語に対応。"
 
 [[home.faq.items]]
 icon = "faq"
@@ -329,7 +329,7 @@ answer = "はい。オフラインで作成・編集し、オンライン時に�
 [[home.faq.items]]
 icon = "faq"
 question = "データはどこに保存されますか？"
-answer = "ローカル優先保存で、必要に応じて iCloud 同期。"
+answer = "ローカル優先保存で、必要に応じて cloud 同期。"
 
 [[home.faq.items]]
 icon = "faq"
@@ -339,7 +339,7 @@ answer = "はい。家族モードでメンバー管理と共有帳簿が可能�
 [[home.faq.items]]
 icon = "faq"
 question = "Android 版はありますか？"
-answer = "現在は主に Apple エコシステム向けです。"
+answer = "現在は主に 主要プラットフォーム向けです。"
 
 [[home.faq.items]]
 icon = "faq"

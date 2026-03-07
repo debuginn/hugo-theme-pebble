@@ -1,6 +1,6 @@
 {
   "brand": {
-    "other": "iAssets"
+    "other": "Pebble"
   },
   "navFeatures": {
     "other": "Features"
@@ -24,7 +24,7 @@
     "other": "Terms"
   },
   "heroEyebrow": {
-    "other": "iAssets"
+    "other": "Pebble"
   },
   "heroTitle": {
     "other": "Understand your family balance sheet at a glance."
@@ -33,7 +33,7 @@
     "other": "A visual asset management tool that also supports family asset management. Assets, liabilities, structure, goals, and trends are visible on one screen."
   },
   "heroCta": {
-    "other": "Download App"
+    "other": "Get Started"
   },
   "heroCard1Title": {
     "other": "Capture changes fast"
@@ -129,7 +129,7 @@
     "other": "Passcode, biometric unlock and auto-lock."
   },
   "detailsEyebrow": {
-    "other": "Product details"
+    "other": "How it works"
   },
   "detailsTitle": {
     "other": "Start long-term asset review today."
@@ -171,7 +171,7 @@
     "other": "Local-first"
   },
   "d6d": {
-    "other": "Data is local by default with optional iCloud sync."
+    "other": "Data is local by default with optional cloud sync."
   },
   "downloadEyebrow": {
     "other": "Download"
@@ -180,7 +180,7 @@
     "other": "Start now"
   },
   "downloadDesc": {
-    "other": "Install iAssets and build your family asset system."
+    "other": "Install Pebble and build your family asset system."
   },
   "downloadBtn": {
     "other": "Download"
@@ -189,7 +189,7 @@
     "other": "Reviews"
   },
   "reviewsTitle": {
-    "other": "People build better financial habits with iAssets."
+    "other": "People build better financial habits with Pebble."
   },
   "reviewsDesc": {
     "other": "From recording one item to understanding full trends."
@@ -267,7 +267,7 @@
     "other": "All core features"
   },
   "p2f2": {
-    "other": "iCloud sync"
+    "other": "cloud sync"
   },
   "p2f3": {
     "other": "Unlimited books"
@@ -303,7 +303,7 @@
     "other": "Which languages are supported?"
   },
   "a1": {
-    "other": "Same as iAssets app: zh-Hans, zh-Hant-TW, zh-Hant-HK, zh-Hant-MO, zh-Hant-SG, English, Japanese, Korean."
+    "other": "Same as Pebble app: zh-Hans, zh-Hant-TW, zh-Hant-HK, zh-Hant-MO, zh-Hant-SG, English, Japanese, Korean."
   },
   "q2": {
     "other": "Does it work offline?"
@@ -315,7 +315,7 @@
     "other": "Where is data stored?"
   },
   "a3": {
-    "other": "Local-first by default, with optional iCloud sync."
+    "other": "Local-first by default, with optional cloud sync."
   },
   "q4": {
     "other": "Can a family collaborate?"
@@ -327,7 +327,7 @@
     "other": "Is Android supported?"
   },
   "a5": {
-    "other": "Currently focused on Apple ecosystem."
+    "other": "Platform support can be customized for your product."
   },
   "q6": {
     "other": "How do I start?"
@@ -339,7 +339,7 @@
     "other": "Your household asset management companion"
   },
   "downloadHint": {
-    "other": "Scan to open App Store"
+    "other": "Scan to learn more"
   },
   "footerLinks": {
     "other": "Pages"
@@ -378,13 +378,13 @@
     "other": "Privacy Policy"
   },
   "privacyIntro": {
-    "other": "Welcome to iAssets. We value your privacy and are committed to protecting your personal data. This policy explains how iAssets handles data."
+    "other": "Welcome to Pebble. We value your privacy and are committed to protecting your personal data. This policy explains how Pebble handles data."
   },
   "privacyS1Title": {
     "other": "1. Data We Collect"
   },
   "privacyS1P": {
-    "other": "iAssets follows a local-first data model. Asset, liability, account, and category data you enter is stored on your device by default."
+    "other": "Pebble follows a local-first data model. Asset, liability, account, and category data you enter is stored on your device by default."
   },
   "privacyS1L1": {
     "other": "By default, data is not uploaded to our servers."
@@ -396,7 +396,7 @@
     "other": "2. Sync and Backup"
   },
   "privacyS2P": {
-    "other": "If you enable iCloud sync, your data is synced across devices via Apple iCloud, subject to Apple's terms and privacy policy."
+    "other": "If you enable cloud sync, your data may sync across devices through your chosen cloud provider, subject to that provider's terms and privacy policy."
   },
   "privacyS3Title": {
     "other": "3. Third-Party Services"
@@ -408,7 +408,7 @@
     "other": "4. Data Security"
   },
   "privacyS4P": {
-    "other": "We recommend enabling device passcode, biometric unlock, and system security settings. iAssets supports passcode protection and auto-lock."
+    "other": "We recommend enabling device passcode, biometric unlock, and system security settings. Pebble supports passcode protection and auto-lock."
   },
   "privacyS5Title": {
     "other": "5. Data Sharing and Disclosure"
@@ -426,7 +426,7 @@
     "other": "7. Contact"
   },
   "privacyS7P": {
-    "other": "If you have questions about this policy, contact us at: idebuginn@gmail.com"
+    "other": "If you have questions about this policy, contact us at: hello@example.com"
   },
   "termsEyebrow": {
     "other": "Terms"
@@ -435,13 +435,13 @@
     "other": "Terms and Conditions"
   },
   "termsIntro": {
-    "other": "Welcome to iAssets. Please read these terms carefully before using the app and related services. By using iAssets, you agree to these terms."
+    "other": "Welcome to Pebble. Please read these terms carefully before using the app and related services. By using Pebble, you agree to these terms."
   },
   "termsS1Title": {
     "other": "1. Service Scope"
   },
   "termsS1P": {
-    "other": "iAssets provides household asset management features, including asset records, liability management, analytics, goal tracking, and multi-book collaboration."
+    "other": "Pebble provides household asset management features, including asset records, liability management, analytics, goal tracking, and multi-book collaboration."
   },
   "termsS2Title": {
     "other": "2. Account and Data Responsibility"
@@ -453,7 +453,7 @@
     "other": "3. Acceptable Use"
   },
   "termsS3L1": {
-    "other": "Do not use iAssets for illegal activities."
+    "other": "Do not use Pebble for illegal activities."
   },
   "termsS3L2": {
     "other": "Do not interfere with or attack normal app operation."
@@ -465,19 +465,19 @@
     "other": "4. Subscription and Lifetime Purchase"
   },
   "termsS4P": {
-    "other": "iAssets may offer yearly subscription and lifetime purchase options. Actual pricing and features are subject to in-app display."
+    "other": "Pebble may offer yearly subscription and lifetime purchase options. Actual pricing and features are subject to in-app display."
   },
   "termsS5Title": {
     "other": "5. Intellectual Property"
   },
   "termsS5P": {
-    "other": "iAssets and related design, code, trademarks, and content are protected by intellectual property laws."
+    "other": "Pebble and related design, code, trademarks, and content are protected by intellectual property laws."
   },
   "termsS6Title": {
     "other": "6. Disclaimer"
   },
   "termsS6P": {
-    "other": "iAssets is an information management tool and does not constitute investment, tax, legal, or financial advice."
+    "other": "Pebble is an information management tool and does not constitute investment, tax, legal, or financial advice."
   },
   "termsS7Title": {
     "other": "7. Changes and Termination"
@@ -489,6 +489,6 @@
     "other": "8. Contact"
   },
   "termsS8P": {
-    "other": "If you have questions about these terms, contact: idebuginn@gmail.com"
+    "other": "If you have questions about these terms, contact: hello@example.com"
   }
 }

@@ -1,6 +1,6 @@
 {
   "brand": {
-    "other": "iAssets"
+    "other": "Pebble"
   },
   "navFeatures": {
     "other": "特性"
@@ -24,7 +24,7 @@
     "other": "條款及細則"
   },
   "heroEyebrow": {
-    "other": "iAssets"
+    "other": "Pebble"
   },
   "heroTitle": {
     "other": "快速掌握你的資產全景、守護你的財富"
@@ -171,7 +171,7 @@
     "other": "本地優先"
   },
   "d6d": {
-    "other": "資料預設本地儲存，可選 iCloud 同步。"
+    "other": "資料預設本地儲存，可選 雲端同步。"
   },
   "downloadEyebrow": {
     "other": "下載"
@@ -180,7 +180,7 @@
     "other": "立即開始"
   },
   "downloadDesc": {
-    "other": "下載 iAssets，快速建立你的家庭資產體系。"
+    "other": "下載 Pebble，快速建立你的家庭資產體系。"
   },
   "downloadBtn": {
     "other": "下載應用"
@@ -189,7 +189,7 @@
     "other": "評價"
   },
   "reviewsTitle": {
-    "other": "使用者正在用 iAssets 建立更好的資產習慣。"
+    "other": "使用者正在用 Pebble 建立更好的資產習慣。"
   },
   "reviewsDesc": {
     "other": "從記一筆，到讀懂全局資產變化。"
@@ -267,7 +267,7 @@
     "other": "全部核心功能"
   },
   "p2f2": {
-    "other": "iCloud 同步"
+    "other": "雲端同步"
   },
   "p2f3": {
     "other": "無限帳本"
@@ -303,7 +303,7 @@
     "other": "支援哪些語言？"
   },
   "a1": {
-    "other": "與 iAssets 一致：中文簡體、中文繁體台灣、中文繁體香港、中文繁體澳門、中文繁體新加坡、English、日本語、한국어。"
+    "other": "與 Pebble 一致：中文簡體、中文繁體台灣、中文繁體香港、中文繁體澳門、中文繁體新加坡、English、日本語、한국어。"
   },
   "q2": {
     "other": "支援離線使用嗎？"
@@ -315,7 +315,7 @@
     "other": "資料存在哪裡？"
   },
   "a3": {
-    "other": "預設本地儲存，可按需開啟 iCloud 同步。"
+    "other": "預設本地儲存，可按需開啟 雲端同步。"
   },
   "q4": {
     "other": "可以多人協作嗎？"
@@ -327,7 +327,7 @@
     "other": "Android 可用嗎？"
   },
   "a5": {
-    "other": "目前主要面向 Apple 生態。"
+    "other": "可按需扩展到不同平台。"
   },
   "q6": {
     "other": "如何開始？"
@@ -339,7 +339,7 @@
     "other": "做您的家庭資產管理管家"
   },
   "downloadHint": {
-    "other": "掃碼後可前往 App Store 下載"
+    "other": "掃碼後即可了解詳情"
   },
   "footerLinks": {
     "other": "頁面"
@@ -378,13 +378,13 @@
     "other": "私隱政策"
   },
   "privacyIntro": {
-    "other": "歡迎使用 iAssets。我們重視您的隱私，並致力於保護您的個人資料。本隱私政策說明 iAssets 在資料處理方面的原則與方式。"
+    "other": "歡迎使用 Pebble。我們重視您的隱私，並致力於保護您的個人資料。本隱私政策說明 Pebble 在資料處理方面的原則與方式。"
   },
   "privacyS1Title": {
     "other": "1. 我們收集的資料"
   },
   "privacyS1P": {
-    "other": "iAssets 採用本地優先的資料策略。您在應用中錄入的資產、負債、帳戶與分類等資料，預設儲存在您的裝置本地。"
+    "other": "Pebble 採用本地優先的資料策略。您在應用中錄入的資產、負債、帳戶與分類等資料，預設儲存在您的裝置本地。"
   },
   "privacyS1L1": {
     "other": "預設不會上傳到我們的伺服器。"
@@ -396,7 +396,7 @@
     "other": "2. 同步與備份"
   },
   "privacyS2P": {
-    "other": "若您主動啟用 iCloud 同步，資料將透過 Apple iCloud 進行跨裝置同步。該過程受 Apple 的服務條款與隱私政策約束。"
+    "other": "若您主動啟用 雲端同步，資料將透過 您選擇的雲端服務 進行跨裝置同步。該過程受 Apple 的服務條款與隱私政策約束。"
   },
   "privacyS3Title": {
     "other": "3. 第三方服務"
@@ -408,7 +408,7 @@
     "other": "4. 資料安全"
   },
   "privacyS4P": {
-    "other": "我們建議您啟用裝置密碼、生物識別解鎖與系統級安全策略。iAssets 支援密碼保護、自動鎖定等安全機制，幫助提升資料安全性。"
+    "other": "我們建議您啟用裝置密碼、生物識別解鎖與系統級安全策略。Pebble 支援密碼保護、自動鎖定等安全機制，幫助提升資料安全性。"
   },
   "privacyS5Title": {
     "other": "5. 資料共享與揭露"
@@ -426,7 +426,7 @@
     "other": "7. 聯絡我們"
   },
   "privacyS7P": {
-    "other": "如果您對本政策有任何問題，請透過官方管道聯絡我們：idebuginn@gmail.com"
+    "other": "如果您對本政策有任何問題，請透過官方管道聯絡我們：hello@example.com"
   },
   "termsEyebrow": {
     "other": "Terms"
@@ -435,13 +435,13 @@
     "other": "條款及細則"
   },
   "termsIntro": {
-    "other": "歡迎使用 iAssets。在使用本應用及相關服務前，請您仔細閱讀並理解本條款。您使用 iAssets 即表示同意受本條款約束。"
+    "other": "歡迎使用 Pebble。在使用本應用及相關服務前，請您仔細閱讀並理解本條款。您使用 Pebble 即表示同意受本條款約束。"
   },
   "termsS1Title": {
     "other": "1. 服務內容"
   },
   "termsS1P": {
-    "other": "iAssets 提供家庭資產管理相關功能，包括但不限於資產記錄、負債管理、統計分析、目標追蹤與多帳本協作能力。"
+    "other": "Pebble 提供家庭資產管理相關功能，包括但不限於資產記錄、負債管理、統計分析、目標追蹤與多帳本協作能力。"
   },
   "termsS2Title": {
     "other": "2. 帳戶與資料責任"
@@ -453,7 +453,7 @@
     "other": "3. 使用規範"
   },
   "termsS3L1": {
-    "other": "不得利用 iAssets 從事違法違規活動。"
+    "other": "不得利用 Pebble 從事違法違規活動。"
   },
   "termsS3L2": {
     "other": "不得以技術手段干擾、攻擊或破壞應用正常運行。"
@@ -465,19 +465,19 @@
     "other": "4. 訂閱與買斷"
   },
   "termsS4P": {
-    "other": "iAssets 可能提供按年訂閱與終身買斷等購買方式。具體權益、價格與可用功能以應用內展示為準。"
+    "other": "Pebble 可能提供按年訂閱與終身買斷等購買方式。具體權益、價格與可用功能以應用內展示為準。"
   },
   "termsS5Title": {
     "other": "5. 知識產權"
   },
   "termsS5P": {
-    "other": "iAssets 及其相關設計、代碼、商標和內容受知識產權法律保護。未經許可，不得擅自使用。"
+    "other": "Pebble 及其相關設計、代碼、商標和內容受知識產權法律保護。未經許可，不得擅自使用。"
   },
   "termsS6Title": {
     "other": "6. 免責聲明"
   },
   "termsS6P": {
-    "other": "iAssets 僅作為資訊管理工具，不構成投資、稅務、法律或財務建議。您應基於自身判斷承擔決策風險。"
+    "other": "Pebble 僅作為資訊管理工具，不構成投資、稅務、法律或財務建議。您應基於自身判斷承擔決策風險。"
   },
   "termsS7Title": {
     "other": "7. 條款變更與終止"
@@ -489,6 +489,6 @@
     "other": "8. 聯絡方式"
   },
   "termsS8P": {
-    "other": "如對本條款有疑問，請聯絡：idebuginn@gmail.com"
+    "other": "如對本條款有疑問，請聯絡：hello@example.com"
   }
 }

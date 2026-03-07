@@ -1,6 +1,6 @@
 {
   "brand": {
-    "other": "iAssets"
+    "other": "Pebble"
   },
   "navFeatures": {
     "other": "特性"
@@ -24,7 +24,7 @@
     "other": "用户条款"
   },
   "heroEyebrow": {
-    "other": "iAssets"
+    "other": "Pebble"
   },
   "heroTitle": {
     "other": "快速掌握你的资产全景、守护你的财富"
@@ -129,7 +129,7 @@
     "other": "密码保护、生物解锁、自动锁定。"
   },
   "detailsEyebrow": {
-    "other": "Product details"
+    "other": "How it works"
   },
   "detailsTitle": {
     "other": "现在就开始长期资产复盘。"
@@ -171,7 +171,7 @@
     "other": "本地优先"
   },
   "d6d": {
-    "other": "数据默认本地存储，可选 iCloud 同步。"
+    "other": "数据默认本地存储，可选云同步。"
   },
   "downloadEyebrow": {
     "other": "下载"
@@ -180,7 +180,7 @@
     "other": "立即开始"
   },
   "downloadDesc": {
-    "other": "下载 iAssets，快速建立你的家庭资产体系。"
+    "other": "下载 Pebble，快速建立你的家庭资产体系。"
   },
   "downloadBtn": {
     "other": "下载应用"
@@ -189,7 +189,7 @@
     "other": "评价"
   },
   "reviewsTitle": {
-    "other": "用户正在用 iAssets 养成更好的资产习惯。"
+    "other": "用户正在用 Pebble 养成更好的资产习惯。"
   },
   "reviewsDesc": {
     "other": "从记一笔，到读懂全局资产变化。"
@@ -267,7 +267,7 @@
     "other": "全部核心功能"
   },
   "p2f2": {
-    "other": "iCloud 同步"
+    "other": "云同步"
   },
   "p2f3": {
     "other": "无限账本"
@@ -303,7 +303,7 @@
     "other": "支持哪些语言？"
   },
   "a1": {
-    "other": "和 iAssets 一致：中文简体、中文繁体台湾、中文繁体香港、中文繁体澳门、中文繁体新加坡、English、日本語、한국어。"
+    "other": "和 Pebble 一致：中文简体、中文繁体台湾、中文繁体香港、中文繁体澳门、中文繁体新加坡、English、日本語、한국어。"
   },
   "q2": {
     "other": "支持离线使用吗？"
@@ -315,7 +315,7 @@
     "other": "数据存在哪里？"
   },
   "a3": {
-    "other": "默认本地存储，可按需开启 iCloud 同步。"
+    "other": "默认本地存储，可按需开启云同步。"
   },
   "q4": {
     "other": "可以多人协作吗？"
@@ -327,7 +327,7 @@
     "other": "Android 可用吗？"
   },
   "a5": {
-    "other": "目前主要面向 Apple 生态。"
+    "other": "可按需扩展到不同平台。"
   },
   "q6": {
     "other": "如何开始？"
@@ -339,7 +339,7 @@
     "other": "做您的家庭资产管理管家"
   },
   "downloadHint": {
-    "other": "扫码后可前往 App Store 下载"
+    "other": "扫码后即可了解详情"
   },
   "footerLinks": {
     "other": "页面"
@@ -378,13 +378,13 @@
     "other": "隐私政策"
   },
   "privacyIntro": {
-    "other": "欢迎使用 iAssets。我们重视您的隐私，并致力于保护您的个人数据。本隐私政策说明 iAssets 在数据处理方面的原则与方式。"
+    "other": "欢迎使用 Pebble。我们重视您的隐私，并致力于保护您的个人数据。本隐私政策说明 Pebble 在数据处理方面的原则与方式。"
   },
   "privacyS1Title": {
     "other": "1. 我们收集的数据"
   },
   "privacyS1P": {
-    "other": "iAssets 采用本地优先的数据策略。您在应用中录入的资产、负债、账户与分类等数据，默认存储在您的设备本地。"
+    "other": "Pebble 采用本地优先的数据策略。您在应用中录入的资产、负债、账户与分类等数据，默认存储在您的设备本地。"
   },
   "privacyS1L1": {
     "other": "默认不上传到我们的服务器。"
@@ -396,7 +396,7 @@
     "other": "2. 同步与备份"
   },
   "privacyS2P": {
-    "other": "若您主动启用 iCloud 同步，数据将通过 Apple iCloud 进行跨设备同步。该过程受 Apple 的服务条款与隐私政策约束。"
+    "other": "若您主动启用云同步，数据可能通过您选择的云服务在设备间同步，并受该服务的条款与隐私政策约束。"
   },
   "privacyS3Title": {
     "other": "3. 第三方服务"
@@ -408,7 +408,7 @@
     "other": "4. 数据安全"
   },
   "privacyS4P": {
-    "other": "我们建议您启用设备密码、生物识别解锁和系统级安全策略。iAssets 支持密码保护、自动锁定等安全机制，帮助提升数据安全性。"
+    "other": "我们建议您启用设备密码、生物识别解锁和系统级安全策略。Pebble 支持密码保护、自动锁定等安全机制，帮助提升数据安全性。"
   },
   "privacyS5Title": {
     "other": "5. 数据共享与披露"
@@ -426,7 +426,7 @@
     "other": "7. 联系我们"
   },
   "privacyS7P": {
-    "other": "如果您对本政策有任何问题，请通过官方渠道联系我们：idebuginn@gmail.com"
+    "other": "如果您对本政策有任何问题，请通过官方渠道联系我们：hello@example.com"
   },
   "termsEyebrow": {
     "other": "Terms"
@@ -435,13 +435,13 @@
     "other": "用户条款和条件"
   },
   "termsIntro": {
-    "other": "欢迎使用 iAssets。在使用本应用及相关服务前，请您仔细阅读并理解本条款。您使用 iAssets 即表示同意受本条款约束。"
+    "other": "欢迎使用 Pebble。在使用本应用及相关服务前，请您仔细阅读并理解本条款。您使用 Pebble 即表示同意受本条款约束。"
   },
   "termsS1Title": {
     "other": "1. 服务内容"
   },
   "termsS1P": {
-    "other": "iAssets 提供家庭资产管理相关功能，包括但不限于资产记录、负债管理、统计分析、目标追踪与多账本协作能力。"
+    "other": "Pebble 提供家庭资产管理相关功能，包括但不限于资产记录、负债管理、统计分析、目标追踪与多账本协作能力。"
   },
   "termsS2Title": {
     "other": "2. 账户与数据责任"
@@ -453,7 +453,7 @@
     "other": "3. 使用规范"
   },
   "termsS3L1": {
-    "other": "不得利用 iAssets 从事违法违规活动。"
+    "other": "不得利用 Pebble 从事违法违规活动。"
   },
   "termsS3L2": {
     "other": "不得以技术手段干扰、攻击或破坏应用正常运行。"
@@ -465,19 +465,19 @@
     "other": "4. 订阅与买断"
   },
   "termsS4P": {
-    "other": "iAssets 可能提供按年订阅与终身买断等购买方式。具体权益、价格与可用功能以应用内展示为准。"
+    "other": "Pebble 可能提供按年订阅与终身买断等购买方式。具体权益、价格与可用功能以应用内展示为准。"
   },
   "termsS5Title": {
     "other": "5. 知识产权"
   },
   "termsS5P": {
-    "other": "iAssets 及其相关设计、代码、商标和内容受知识产权法律保护。未经许可，不得擅自使用。"
+    "other": "Pebble 及其相关设计、代码、商标和内容受知识产权法律保护。未经许可，不得擅自使用。"
   },
   "termsS6Title": {
     "other": "6. 免责声明"
   },
   "termsS6P": {
-    "other": "iAssets 仅作为信息管理工具，不构成投资、税务、法律或财务建议。您应基于自身判断承担决策风险。"
+    "other": "Pebble 仅作为信息管理工具，不构成投资、税务、法律或财务建议。您应基于自身判断承担决策风险。"
   },
   "termsS7Title": {
     "other": "7. 条款变更与终止"
@@ -489,6 +489,6 @@
     "other": "8. 联系方式"
   },
   "termsS8P": {
-    "other": "如对本条款有疑问，请联系：idebuginn@gmail.com"
+    "other": "如对本条款有疑问，请联系：hello@example.com"
   }
 }

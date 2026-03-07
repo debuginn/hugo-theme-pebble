@@ -1,20 +1,20 @@
 +++
-title = "iAssets - 가족 자산 전경을 빠르게 파악하세요."
+title = "Pebble - 가족 자산 전경을 빠르게 파악하세요."
 description = "가족 자산을 시각적으로 관리하는 앱입니다. 자산, 부채, 구조, 목표, 추이를 한 화면에서 확인하세요."
-keywords = "iAssets,자산관리,가계관리,순자산,가족자산"
+keywords = "Pebble,자산관리,가계관리,순자산,가족자산"
 type = "home"
 
 [home.hero]
-eyebrow = "iAssets"
+eyebrow = "Pebble"
 title = "가족 자산 전경을 빠르게 파악하세요."
 description = "시각화된 자산 관리 도구이며, 가족 자산 관리도 지원합니다. 자산, 부채, 구조, 목표, 추이를 한 화면에서 확인할 수 있습니다."
 ctaHref = "#download"
 ctaOverline = "Download on the"
-ctaTitle = "App Store"
+ctaTitle = "App"
 
 [home.hero.image]
 src = "/assets/ia-home.png"
-alt = "iAssets app screenshot"
+alt = "Pebble app screenshot"
 
 [[home.hero.cards]]
 number = "01"
@@ -77,7 +77,7 @@ title = "보안/프라이버시"
 description = "암호, 생체인증, 자동 잠금을 지원합니다."
 
 [home.details]
-eyebrow = "Product details"
+eyebrow = "How it works"
 title = "지금부터 장기 자산 리뷰를 시작하세요."
 description = "흩어진 데이터를 한 지표 체계로 통합합니다."
 
@@ -109,19 +109,19 @@ description = "홈 카드 순서와 표시 여부를 조절할 수 있습니다.
 [[home.details.items]]
 icon = "detail-lock"
 title = "로컬 우선"
-description = "기본은 로컬 저장, 필요 시 iCloud 동기화."
+description = "기본은 로컬 저장, 필요 시 cloud 동기화."
 
 [home.download]
 eyebrow = "다운로드"
 title = "지금 시작"
-description = "iAssets를 설치하고 가족 자산 체계를 시작하세요."
+description = "Pebble를 설치하고 가족 자산 체계를 시작하세요."
 ctaHref = "#"
 ctaOverline = "Download on the"
-ctaTitle = "App Store"
+ctaTitle = "App"
 
 [home.reviews]
 eyebrow = "후기"
-title = "iAssets로 자산 습관이 달라집니다."
+title = "Pebble로 자산 습관이 달라집니다."
 description = "기록에서 전체 이해까지 빠르게 연결됩니다."
 
 [home.reviews.tracks]
@@ -319,7 +319,7 @@ description = "궁금한 내용을 먼저 확인하세요."
 [[home.faq.items]]
 icon = "faq"
 question = "어떤 언어를 지원하나요?"
-answer = "iAssets와 동일: 중국어 간체, 중국어 번체(대만/홍콩/마카오/싱가포르), 영어, 일본어, 한국어."
+answer = "Pebble와 동일: 중국어 간체, 중국어 번체(대만/홍콩/마카오/싱가포르), 영어, 일본어, 한국어."
 
 [[home.faq.items]]
 icon = "faq"
@@ -329,7 +329,7 @@ answer = "가능합니다. 오프라인에서 작성/수정 후 온라인에서 
 [[home.faq.items]]
 icon = "faq"
 question = "데이터는 어디에 저장되나요?"
-answer = "기본은 로컬 저장이며, 선택적으로 iCloud 동기화를 사용합니다."
+answer = "기본은 로컬 저장이며, 선택적으로 cloud 동기화를 사용합니다."
 
 [[home.faq.items]]
 icon = "faq"

@@ -1,20 +1,20 @@
 +++
-title = "iAssets - Understand your family balance sheet at a glance."
+title = "Pebble - Understand your family balance sheet at a glance."
 description = "A visual asset management app for households. Assets, liabilities, structure, goals, and trends in one clear view."
-keywords = "iAssets,asset management,family finance,net worth tracker,budget app"
+keywords = "Pebble,asset management,family finance,net worth tracker,budget app"
 type = "home"
 
 [home.hero]
-eyebrow = "iAssets"
+eyebrow = "Pebble"
 title = "Understand your family balance sheet at a glance."
 description = "A visual asset management tool that also supports family asset management. Assets, liabilities, structure, goals, and trends are visible on one screen."
 ctaHref = "#download"
 ctaOverline = "Download on the"
-ctaTitle = "App Store"
+ctaTitle = "App"
 
 [home.hero.image]
 src = "/assets/ia-home.png"
-alt = "iAssets app screenshot"
+alt = "Pebble app screenshot"
 
 [[home.hero.cards]]
 number = "01"
@@ -77,7 +77,7 @@ title = "Privacy and security"
 description = "Passcode, biometric unlock and auto-lock."
 
 [home.details]
-eyebrow = "Product details"
+eyebrow = "How it works"
 title = "Start long-term asset review today."
 description = "Aggregate scattered data into one coherent view."
 
@@ -109,19 +109,19 @@ description = "Customize card order and visibility on home screen."
 [[home.details.items]]
 icon = "detail-lock"
 title = "Local-first"
-description = "Data is local by default with optional iCloud sync."
+description = "Data is local by default with optional cloud sync."
 
 [home.download]
 eyebrow = "Download"
 title = "Start now"
-description = "Install iAssets and build your family asset system."
+description = "Install Pebble and build your family asset system."
 ctaHref = "#"
 ctaOverline = "Download on the"
-ctaTitle = "App Store"
+ctaTitle = "App"
 
 [home.reviews]
 eyebrow = "Reviews"
-title = "People build better financial habits with iAssets."
+title = "People build better financial habits with Pebble."
 description = "From recording one item to understanding full trends."
 
 [home.reviews.tracks]
@@ -319,7 +319,7 @@ description = "If you have questions, start here."
 [[home.faq.items]]
 icon = "faq"
 question = "Which languages are supported?"
-answer = "Same as iAssets app: zh-Hans, zh-Hant-TW, zh-Hant-HK, zh-Hant-MO, zh-Hant-SG, English, Japanese, Korean."
+answer = "Same as Pebble app: zh-Hans, zh-Hant-TW, zh-Hant-HK, zh-Hant-MO, zh-Hant-SG, English, Japanese, Korean."
 
 [[home.faq.items]]
 icon = "faq"
@@ -329,7 +329,7 @@ answer = "Yes. You can create and edit offline, then sync when online."
 [[home.faq.items]]
 icon = "faq"
 question = "Where is data stored?"
-answer = "Local-first by default, with optional iCloud sync."
+answer = "Local-first by default, with optional cloud sync."
 
 [[home.faq.items]]
 icon = "faq"
@@ -339,7 +339,7 @@ answer = "Yes. Family mode supports members and shared books."
 [[home.faq.items]]
 icon = "faq"
 question = "Is Android supported?"
-answer = "Currently focused on Apple ecosystem."
+answer = "Platform support can be customized for your product."
 
 [[home.faq.items]]
 icon = "faq"

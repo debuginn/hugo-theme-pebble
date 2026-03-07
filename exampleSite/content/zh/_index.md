@@ -1,20 +1,20 @@
 +++
-title = "iAssets - 快速掌握你的资产全景、守护你的财富"
+title = "Pebble - 快速掌握你的资产全景、守护你的财富"
 description = "这是一款可视化资产管理工具，同时支持家庭资产管理。资产、负债、结构、目标和趋势一屏可见。"
-keywords = "iAssets,家庭资产管理,资产管理,财富管理,净资产,记账"
+keywords = "Pebble,家庭资产管理,资产管理,财富管理,净资产,记账"
 type = "home"
 
 [home.hero]
-eyebrow = "iAssets"
+eyebrow = "Pebble"
 title = "快速掌握你的资产全景、守护你的财富"
 description = "这是一款可视化资产管理工具，同时支持家庭资产管理。资产、负债、结构、目标和趋势一屏可见。"
 ctaHref = "#download"
 ctaOverline = "Download on the"
-ctaTitle = "App Store"
+ctaTitle = "App"
 
 [home.hero.image]
 src = "/assets/ia-home.png"
-alt = "iAssets app screenshot"
+alt = "Pebble app screenshot"
 
 [[home.hero.cards]]
 number = "01"
@@ -77,7 +77,7 @@ title = "隐私与安全"
 description = "密码保护、生物解锁、自动锁定。"
 
 [home.details]
-eyebrow = "Product details"
+eyebrow = "How it works"
 title = "现在就开始长期资产复盘。"
 description = "把分散在各处的数据聚合到同一套视图与指标。"
 
@@ -109,19 +109,19 @@ description = "按个人偏好调整首页卡片顺序和显隐。"
 [[home.details.items]]
 icon = "detail-lock"
 title = "本地优先"
-description = "数据默认本地存储，可选 iCloud 同步。"
+description = "数据默认本地存储，可选云同步。"
 
 [home.download]
 eyebrow = "下载"
 title = "立即开始"
-description = "下载 iAssets，快速建立你的家庭资产体系。"
+description = "下载 Pebble，快速建立你的家庭资产体系。"
 ctaHref = "#"
 ctaOverline = "Download on the"
-ctaTitle = "App Store"
+ctaTitle = "App"
 
 [home.reviews]
 eyebrow = "评价"
-title = "用户正在用 iAssets 养成更好的资产习惯。"
+title = "用户正在用 Pebble 养成更好的资产习惯。"
 description = "从记一笔，到读懂全局资产变化。"
 
 [home.reviews.tracks]
@@ -319,7 +319,7 @@ description = "如果你有疑问，可以先看这里。"
 [[home.faq.items]]
 icon = "faq"
 question = "支持哪些语言？"
-answer = "和 iAssets 一致：中文简体、中文繁体台湾、中文繁体香港、中文繁体澳门、中文繁体新加坡、English、日本語、한국어。"
+answer = "和 Pebble 一致：中文简体、中文繁体台湾、中文繁体香港、中文繁体澳门、中文繁体新加坡、English、日本語、한국어。"
 
 [[home.faq.items]]
 icon = "faq"
@@ -329,7 +329,7 @@ answer = "支持。无网络也可新增和编辑，联网后按策略同步。"
 [[home.faq.items]]
 icon = "faq"
 question = "数据存在哪里？"
-answer = "默认本地存储，可按需开启 iCloud 同步。"
+answer = "默认本地存储，可按需开启云同步。"
 
 [[home.faq.items]]
 icon = "faq"
@@ -339,7 +339,7 @@ answer = "可以。开启家庭模式即可管理成员和共享账本。"
 [[home.faq.items]]
 icon = "faq"
 question = "Android 可用吗？"
-answer = "目前主要面向 Apple 生态。"
+answer = "可按需扩展到不同平台。"
 
 [[home.faq.items]]
 icon = "faq"

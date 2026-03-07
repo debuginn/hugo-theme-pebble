@@ -1,5 +1,5 @@
 baseURL = '/'
-title = 'iAssets'
+title = 'Pebble'
 theme = 'hugo-theme-pebble'
 defaultContentLanguage = 'en'
 defaultContentLanguageInSubdir = false

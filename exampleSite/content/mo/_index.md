@@ -1,20 +1,20 @@
 +++
-title = "iAssets - 快速掌握你的資產全景"
+title = "Pebble - 快速掌握你的資產全景"
 description = "這是一款可視化資產管理工具，同時支援家庭資產管理。資產、負債、結構、目標和趨勢一屏可見。"
-keywords = "iAssets,家庭資產管理,資產管理,財富管理,淨資產,記帳"
+keywords = "Pebble,家庭資產管理,資產管理,財富管理,淨資產,記帳"
 type = "home"
 
 [home.hero]
-eyebrow = "iAssets"
+eyebrow = "Pebble"
 title = "快速掌握你的資產全景、守護你的財富"
 description = "這是一款可視化資產管理工具，同時支援家庭資產管理。資產、負債、結構、目標和趨勢一屏可見。"
 ctaHref = "#download"
 ctaOverline = "Download on the"
-ctaTitle = "App Store"
+ctaTitle = "App"
 
 [home.hero.image]
 src = "/assets/ia-home.png"
-alt = "iAssets app screenshot"
+alt = "Pebble app screenshot"
 
 [[home.hero.cards]]
 number = "01"
@@ -109,19 +109,19 @@ description = "按個人偏好調整首頁卡片順序和顯隱。"
 [[home.details.items]]
 icon = "detail-lock"
 title = "本地優先"
-description = "資料預設本地儲存，可選 iCloud 同步。"
+description = "資料預設本地儲存，可選 雲端同步。"
 
 [home.download]
 eyebrow = "下載"
 title = "立即開始"
-description = "下載 iAssets，快速建立你的家庭資產體系。"
+description = "下載 Pebble，快速建立你的家庭資產體系。"
 ctaHref = "#"
 ctaOverline = "Download on the"
-ctaTitle = "App Store"
+ctaTitle = "App"
 
 [home.reviews]
 eyebrow = "評價"
-title = "使用者正在用 iAssets 建立更好的資產習慣。"
+title = "使用者正在用 Pebble 建立更好的資產習慣。"
 description = "從記一筆，到讀懂全局資產變化。"
 
 [home.reviews.tracks]
@@ -319,7 +319,7 @@ description = "如果你有疑問，可以先看這裡。"
 [[home.faq.items]]
 icon = "faq"
 question = "支援哪些語言？"
-answer = "與 iAssets 一致：中文簡體、中文繁體台灣、中文繁體香港、中文繁體澳門、中文繁體新加坡、English、日本語、한국어。"
+answer = "與 Pebble 一致：中文簡體、中文繁體台灣、中文繁體香港、中文繁體澳門、中文繁體新加坡、English、日本語、한국어。"
 
 [[home.faq.items]]
 icon = "faq"
@@ -329,7 +329,7 @@ answer = "支援。無網路也可新增和編輯，連網後按策略同步。"
 [[home.faq.items]]
 icon = "faq"
 question = "資料存在哪裡？"
-answer = "預設本地儲存，可按需開啟 iCloud 同步。"
+answer = "預設本地儲存，可按需開啟 雲端同步。"
 
 [[home.faq.items]]
 icon = "faq"
@@ -339,7 +339,7 @@ answer = "可以。開啟家庭模式即可管理成員和共享帳本。"
 [[home.faq.items]]
 icon = "faq"
 question = "Android 可用嗎？"
-answer = "目前主要面向 Apple 生態。"
+answer = "可按需扩展到不同平台。"
 
 [[home.faq.items]]
 icon = "faq"
