@@ -7,18 +7,50 @@
     yearly = '18'
     lifetime = '45'
 
-[en.params.ui]
-    navFeatures = 'Features'
-    navReviews = 'Reviews'
-    navPricing = 'Pricing'
-    navFaq = 'FAQ'
-    navDownload = 'Download'
-    navPrivacy = 'Privacy'
-    navTerms = 'Terms'
-    footerTag = 'Your household asset management companion'
-    downloadHint = 'Scan to learn more'
-    legalUpdated = 'Last updated: March 3, 2026'
+[[en.params.menu.header]]
+    name = 'Features'
+    url = '#features'
 
+[[en.params.menu.header]]
+    name = 'Reviews'
+    url = '#reviews'
+
+[[en.params.menu.header]]
+    name = 'Pricing'
+    url = '#pricing'
+
+[[en.params.menu.header]]
+    name = 'FAQ'
+    url = '#faqs'
+
+[[en.params.menu.footer]]
+    name = 'Features'
+    url = '#features'
+
+[[en.params.menu.footer]]
+    name = 'Pricing'
+    url = '#pricing'
+
+[[en.params.menu.footer]]
+    name = 'FAQ'
+    url = '#faqs'
+
+[[en.params.menu.footer]]
+    name = 'Download'
+    url = '#download'
+    id = 'download'
+
+[[en.params.menu.footer]]
+    name = 'Privacy'
+    url = '/privacy/'
+
+[[en.params.menu.footer]]
+    name = 'Terms'
+    url = '/terms/'
+
+[en.params.footer]
+    tag = 'Your household asset management companion'
+    downloadHint = 'Scan to learn more'
 [zh]
     languageName = '中文简体'
     weight = 2
@@ -28,18 +60,50 @@
     yearly = '128'
     lifetime = '328'
 
-[zh.params.ui]
-    navFeatures = '特性'
-    navReviews = '评价'
-    navPricing = '价格'
-    navFaq = '常见问题'
-    navDownload = '下载'
-    navPrivacy = '隐私政策'
-    navTerms = '用户条款'
-    footerTag = '做您的家庭资产管理管家'
-    downloadHint = '扫码后即可了解详情'
-    legalUpdated = '最后更新：2026 年 3 月 3 日'
+[[zh.params.menu.header]]
+    name = '特性'
+    url = '#features'
 
+[[zh.params.menu.header]]
+    name = '评价'
+    url = '#reviews'
+
+[[zh.params.menu.header]]
+    name = '价格'
+    url = '#pricing'
+
+[[zh.params.menu.header]]
+    name = '常见问题'
+    url = '#faqs'
+
+[[zh.params.menu.footer]]
+    name = '特性'
+    url = '#features'
+
+[[zh.params.menu.footer]]
+    name = '价格'
+    url = '#pricing'
+
+[[zh.params.menu.footer]]
+    name = '常见问题'
+    url = '#faqs'
+
+[[zh.params.menu.footer]]
+    name = '下载'
+    url = '#download'
+    id = 'download'
+
+[[zh.params.menu.footer]]
+    name = '隐私政策'
+    url = '/privacy/'
+
+[[zh.params.menu.footer]]
+    name = '用户条款'
+    url = '/terms/'
+
+[zh.params.footer]
+    tag = '做您的家庭资产管理管家'
+    downloadHint = '扫码后即可了解详情'
 [tw]
     languageName = '繁體台灣'
     weight = 3
@@ -49,18 +113,50 @@
     yearly = '568'
     lifetime = '1468'
 
-[tw.params.ui]
-    navFeatures = '特性'
-    navReviews = '評價'
-    navPricing = '價格'
-    navFaq = '常見問題'
-    navDownload = '下載'
-    navPrivacy = '隱私政策'
-    navTerms = '使用條款'
-    footerTag = '做您的家庭資產管理管家'
-    downloadHint = '掃碼後即可了解詳情'
-    legalUpdated = '最後更新：2026 年 3 月 3 日'
+[[tw.params.menu.header]]
+    name = '特性'
+    url = '#features'
 
+[[tw.params.menu.header]]
+    name = '評價'
+    url = '#reviews'
+
+[[tw.params.menu.header]]
+    name = '價格'
+    url = '#pricing'
+
+[[tw.params.menu.header]]
+    name = '常見問題'
+    url = '#faqs'
+
+[[tw.params.menu.footer]]
+    name = '特性'
+    url = '#features'
+
+[[tw.params.menu.footer]]
+    name = '價格'
+    url = '#pricing'
+
+[[tw.params.menu.footer]]
+    name = '常見問題'
+    url = '#faqs'
+
+[[tw.params.menu.footer]]
+    name = '下載'
+    url = '#download'
+    id = 'download'
+
+[[tw.params.menu.footer]]
+    name = '隱私政策'
+    url = '/privacy/'
+
+[[tw.params.menu.footer]]
+    name = '使用條款'
+    url = '/terms/'
+
+[tw.params.footer]
+    tag = '做您的家庭資產管理管家'
+    downloadHint = '掃碼後即可了解詳情'
 [hk]
     languageName = '繁體香港'
     weight = 4
@@ -70,18 +166,50 @@
     yearly = '138'
     lifetime = '358'
 
-[hk.params.ui]
-    navFeatures = '特性'
-    navReviews = '評價'
-    navPricing = '價格'
-    navFaq = '常見問題'
-    navDownload = '下載'
-    navPrivacy = '隱私政策'
-    navTerms = '條款及細則'
-    footerTag = '做您的家庭資產管理管家'
-    downloadHint = '掃碼後即可了解詳情'
-    legalUpdated = '最後更新：2026 年 3 月 3 日'
+[[hk.params.menu.header]]
+    name = '特性'
+    url = '#features'
 
+[[hk.params.menu.header]]
+    name = '評價'
+    url = '#reviews'
+
+[[hk.params.menu.header]]
+    name = '價格'
+    url = '#pricing'
+
+[[hk.params.menu.header]]
+    name = '常見問題'
+    url = '#faqs'
+
+[[hk.params.menu.footer]]
+    name = '特性'
+    url = '#features'
+
+[[hk.params.menu.footer]]
+    name = '價格'
+    url = '#pricing'
+
+[[hk.params.menu.footer]]
+    name = '常見問題'
+    url = '#faqs'
+
+[[hk.params.menu.footer]]
+    name = '下載'
+    url = '#download'
+    id = 'download'
+
+[[hk.params.menu.footer]]
+    name = '隱私政策'
+    url = '/privacy/'
+
+[[hk.params.menu.footer]]
+    name = '條款及細則'
+    url = '/terms/'
+
+[hk.params.footer]
+    tag = '做您的家庭資產管理管家'
+    downloadHint = '掃碼後即可了解詳情'
 [mo]
     languageName = '繁體澳門'
     weight = 5
@@ -91,18 +219,50 @@
     yearly = '142'
     lifetime = '368'
 
-[mo.params.ui]
-    navFeatures = '特性'
-    navReviews = '評價'
-    navPricing = '價格'
-    navFaq = '常見問題'
-    navDownload = '下載'
-    navPrivacy = '隱私政策'
-    navTerms = '使用條款及細則'
-    footerTag = '做您的家庭資產管理管家'
-    downloadHint = '掃碼後即可了解詳情'
-    legalUpdated = '最後更新：2026 年 3 月 3 日'
+[[mo.params.menu.header]]
+    name = '特性'
+    url = '#features'
 
+[[mo.params.menu.header]]
+    name = '評價'
+    url = '#reviews'
+
+[[mo.params.menu.header]]
+    name = '價格'
+    url = '#pricing'
+
+[[mo.params.menu.header]]
+    name = '常見問題'
+    url = '#faqs'
+
+[[mo.params.menu.footer]]
+    name = '特性'
+    url = '#features'
+
+[[mo.params.menu.footer]]
+    name = '價格'
+    url = '#pricing'
+
+[[mo.params.menu.footer]]
+    name = '常見問題'
+    url = '#faqs'
+
+[[mo.params.menu.footer]]
+    name = '下載'
+    url = '#download'
+    id = 'download'
+
+[[mo.params.menu.footer]]
+    name = '隱私政策'
+    url = '/privacy/'
+
+[[mo.params.menu.footer]]
+    name = '使用條款及細則'
+    url = '/terms/'
+
+[mo.params.footer]
+    tag = '做您的家庭資產管理管家'
+    downloadHint = '掃碼後即可了解詳情'
 [sg]
     languageName = '繁體新加坡'
     weight = 6
@@ -112,18 +272,50 @@
     yearly = '25'
     lifetime = '65'
 
-[sg.params.ui]
-    navFeatures = '特性'
-    navReviews = '評價'
-    navPricing = '價格'
-    navFaq = '常見問題'
-    navDownload = '下載'
-    navPrivacy = '隱私政策'
-    navTerms = '使用條款'
-    footerTag = '做您的家庭資產管理管家'
-    downloadHint = '掃碼後即可了解詳情'
-    legalUpdated = '最後更新：2026 年 3 月 3 日'
+[[sg.params.menu.header]]
+    name = '特性'
+    url = '#features'
 
+[[sg.params.menu.header]]
+    name = '評價'
+    url = '#reviews'
+
+[[sg.params.menu.header]]
+    name = '價格'
+    url = '#pricing'
+
+[[sg.params.menu.header]]
+    name = '常見問題'
+    url = '#faqs'
+
+[[sg.params.menu.footer]]
+    name = '特性'
+    url = '#features'
+
+[[sg.params.menu.footer]]
+    name = '價格'
+    url = '#pricing'
+
+[[sg.params.menu.footer]]
+    name = '常見問題'
+    url = '#faqs'
+
+[[sg.params.menu.footer]]
+    name = '下載'
+    url = '#download'
+    id = 'download'
+
+[[sg.params.menu.footer]]
+    name = '隱私政策'
+    url = '/privacy/'
+
+[[sg.params.menu.footer]]
+    name = '使用條款'
+    url = '/terms/'
+
+[sg.params.footer]
+    tag = '做您的家庭資產管理管家'
+    downloadHint = '掃碼後即可了解詳情'
 [ja]
     languageName = '日本語'
     weight = 7
@@ -133,18 +325,50 @@
     yearly = '2680'
     lifetime = '6980'
 
-[ja.params.ui]
-    navFeatures = '機能'
-    navReviews = '評価'
-    navPricing = '料金'
-    navFaq = 'FAQ'
-    navDownload = 'ダウンロード'
-    navPrivacy = 'プライバシー'
-    navTerms = '利用規約'
-    footerTag = '家族資産管理のパートナー'
-    downloadHint = 'QR から詳しく見られます'
-    legalUpdated = '最終更新日：2026年3月3日'
+[[ja.params.menu.header]]
+    name = '機能'
+    url = '#features'
 
+[[ja.params.menu.header]]
+    name = '評価'
+    url = '#reviews'
+
+[[ja.params.menu.header]]
+    name = '料金'
+    url = '#pricing'
+
+[[ja.params.menu.header]]
+    name = 'FAQ'
+    url = '#faqs'
+
+[[ja.params.menu.footer]]
+    name = '機能'
+    url = '#features'
+
+[[ja.params.menu.footer]]
+    name = '料金'
+    url = '#pricing'
+
+[[ja.params.menu.footer]]
+    name = 'FAQ'
+    url = '#faqs'
+
+[[ja.params.menu.footer]]
+    name = 'ダウンロード'
+    url = '#download'
+    id = 'download'
+
+[[ja.params.menu.footer]]
+    name = 'プライバシー'
+    url = '/privacy/'
+
+[[ja.params.menu.footer]]
+    name = '利用規約'
+    url = '/terms/'
+
+[ja.params.footer]
+    tag = '家族資産管理のパートナー'
+    downloadHint = 'QR から詳しく見られます'
 [ko]
     languageName = '한국어'
     weight = 8
@@ -154,14 +378,47 @@
     yearly = '25000'
     lifetime = '65000'
 
-[ko.params.ui]
-    navFeatures = '기능'
-    navReviews = '후기'
-    navPricing = '요금'
-    navFaq = 'FAQ'
-    navDownload = '다운로드'
-    navPrivacy = '개인정보 처리방침'
-    navTerms = '이용약관'
-    footerTag = '가족 자산 관리 파트너'
+[[ko.params.menu.header]]
+    name = '기능'
+    url = '#features'
+
+[[ko.params.menu.header]]
+    name = '후기'
+    url = '#reviews'
+
+[[ko.params.menu.header]]
+    name = '요금'
+    url = '#pricing'
+
+[[ko.params.menu.header]]
+    name = 'FAQ'
+    url = '#faqs'
+
+[[ko.params.menu.footer]]
+    name = '기능'
+    url = '#features'
+
+[[ko.params.menu.footer]]
+    name = '요금'
+    url = '#pricing'
+
+[[ko.params.menu.footer]]
+    name = 'FAQ'
+    url = '#faqs'
+
+[[ko.params.menu.footer]]
+    name = '다운로드'
+    url = '#download'
+    id = 'download'
+
+[[ko.params.menu.footer]]
+    name = '개인정보 처리방침'
+    url = '/privacy/'
+
+[[ko.params.menu.footer]]
+    name = '이용약관'
+    url = '/terms/'
+
+[ko.params.footer]
+    tag = '가족 자산 관리 파트너'
     downloadHint = 'QR로 자세히 보기'
-    legalUpdated = '최종 업데이트: 2026년 3월 3일'

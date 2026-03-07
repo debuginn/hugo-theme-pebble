@@ -11,26 +11,28 @@
     {{- $logo := site.Params.assets.logo | default "/assets/logo.png" -}}
     {{- $logoAlt := site.Params.assets.logoAlt | default "iAssets logo" -}}
     {{- $brandName := site.Params.assets.brandName | default site.Title -}}
-    {{- $ui := site.Params.ui | default dict -}}
+    {{- $menuHeader := site.Params.menu.header | default slice -}}
+    {{- $menuFooter := site.Params.menu.footer | default slice -}}
+    {{- $footerCopy := site.Params.footer | default dict -}}
     {{- $downloadMenu := false -}}
-    {{- range site.Menus.footer -}}
-      {{- if and (not $downloadMenu) (eq .Identifier "navDownload") -}}
+    {{- range $menuFooter -}}
+      {{- if and (not $downloadMenu) (eq (.id | default "") "download") -}}
         {{- $downloadMenu = . -}}
       {{- end -}}
     {{- end -}}
     {{- if not $downloadMenu -}}
-      {{- range site.Menus.main -}}
-        {{- if and (not $downloadMenu) (eq .Identifier "navDownload") -}}
+      {{- range $menuHeader -}}
+        {{- if and (not $downloadMenu) (eq (.id | default "") "download") -}}
           {{- $downloadMenu = . -}}
         {{- end -}}
       {{- end -}}
     {{- end -}}
     {{- $downloadHref := printf "%s%s" ("/" | relLangURL) "#download" -}}
-    {{- $downloadLabel := index $ui "navDownload" | default "Download" -}}
+    {{- $downloadLabel := "Download" -}}
     {{- $downloadExternal := false -}}
     {{- if $downloadMenu -}}
-      {{- $downloadHref = $downloadMenu.URL -}}
-      {{- $downloadLabel = $downloadMenu.Name | default (index $ui $downloadMenu.Identifier) | default $downloadLabel -}}
+      {{- $downloadHref = $downloadMenu.url -}}
+      {{- $downloadLabel = $downloadMenu.name | default $downloadLabel -}}
       {{- $downloadExternal = or (hasPrefix $downloadHref "https://") (hasPrefix $downloadHref "http://") (hasPrefix $downloadHref "mailto:") (hasPrefix $downloadHref "tel:") -}}
       {{- if hasPrefix $downloadHref "#" -}}
         {{- $downloadHref = printf "%s%s" ("/" | relLangURL) $downloadHref -}}
@@ -208,9 +210,9 @@
               <span>{{ $brandName }}</span>
             </a>
             <div class="desktop-nav">
-              {{- range site.Menus.main }}
-              {{- $target := .URL -}}
-              {{- $label := .Name | default (index $ui .Identifier) | default .Identifier -}}
+              {{- range $menuHeader }}
+              {{- $target := .url -}}
+              {{- $label := .name | default $target -}}
               {{- $isExternal := or (hasPrefix $target "https://") (hasPrefix $target "http://") (hasPrefix $target "mailto:") (hasPrefix $target "tel:") -}}
               {{- if hasPrefix $target "#" }}{{ $target = printf "%s%s" ("/" | relLangURL) $target }}{{ end -}}
               <a href="{{ $target }}"{{ if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ $label }}</a>
@@ -254,9 +256,9 @@
           </div>
         </nav>
         <nav id="mobile-menu" class="mobile-menu" aria-hidden="true">
-          {{- range site.Menus.main }}
-          {{- $target := .URL -}}
-          {{- $label := .Name | default (index $ui .Identifier) | default .Identifier -}}
+          {{- range $menuHeader }}
+          {{- $target := .url -}}
+          {{- $label := .name | default $target -}}
           {{- $isExternal := or (hasPrefix $target "https://") (hasPrefix $target "http://") (hasPrefix $target "mailto:") (hasPrefix $target "tel:") -}}
           {{- if hasPrefix $target "#" }}{{ $target = printf "%s%s" ("/" | relLangURL) $target }}{{ end -}}
           <a href="{{ $target }}"{{ if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ $label }}</a>
@@ -278,14 +280,14 @@
                   <img class="logo-mark" src="{{ $logo }}" alt="{{ $logoAlt }}" />
                   <span class="footer-brand-text">
                     <span>{{ $brandName }}</span>
-                    <span class="footer-tag">{{ index $ui "footerTag" | default site.Title }}</span>
+                    <span class="footer-tag">{{ index $footerCopy "tag" | default site.Title }}</span>
                   </span>
                 </a>
               </section>
               <nav class="footer-inline-links" aria-label="Footer links">
-                {{- range site.Menus.footer }}
-                {{- $target := .URL -}}
-                {{- $label := .Name | default (index $ui .Identifier) | default .Identifier -}}
+                {{- range $menuFooter }}
+                {{- $target := .url -}}
+                {{- $label := .name | default $target -}}
                 {{- $isExternal := or (hasPrefix $target "https://") (hasPrefix $target "http://") (hasPrefix $target "mailto:") (hasPrefix $target "tel:") -}}
                 {{- if hasPrefix $target "#" -}}
                   {{- $target = printf "%s%s" ("/" | relLangURL) $target -}}
@@ -325,7 +327,7 @@
               </div>
               <div class="qr-copy">
                 <h4>{{ $downloadLabel }}</h4>
-                <p>{{ index $ui "downloadHint" | default "" }}</p>
+                <p>{{ index $footerCopy "downloadHint" | default "" }}</p>
               </div>
             </section>
           </div>
@@ -354,10 +356,10 @@
               </div>
               </div>
             </div>
+            <p class="footer-copyright">© Copyright {{ site.Params.copyright.year }}. All rights reserved.</p>
             <p class="footer-credit">
               Built with <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>, theme <a href="https://github.com/debuginn/hugo-theme-pebble" target="_blank" rel="noopener noreferrer">Pebble</a> designed by <a href="https://blog.debuginn.com/" target="_blank" rel="noopener noreferrer">Debuginn</a>.
             </p>
-            <p>© Copyright {{ site.Params.copyright.year }}. All rights reserved.</p>
           </div>
         </div>
       </div>

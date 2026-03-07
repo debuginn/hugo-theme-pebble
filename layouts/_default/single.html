@@ -2,11 +2,35 @@
 <main class="legal-main">
   <section class="section">
     <div class="container legal-wrap">
-      {{- $ui := site.Params.ui | default dict -}}
-      {{- $eyebrow := .Params.eyebrow | default (cond (eq .File.BaseFileName "privacy") (index $ui "navPrivacy") (cond (eq .File.BaseFileName "terms") (index $ui "navTerms") .Title)) -}}
+      {{- $menuFooter := site.Params.menu.footer | default slice -}}
+      {{- $eyebrow := .Params.eyebrow | default .Title -}}
+      {{- range $menuFooter -}}
+        {{- if and (eq .File.BaseFileName "privacy") (eq (.url | default "") "/privacy/") -}}
+          {{- $eyebrow = .name | default $eyebrow -}}
+        {{- end -}}
+        {{- if and (eq .File.BaseFileName "terms") (eq (.url | default "") "/terms/") -}}
+          {{- $eyebrow = .name | default $eyebrow -}}
+        {{- end -}}
+      {{- end -}}
+      {{- $updatedText := "" -}}
+      {{- with .Params.updated -}}
+        {{- $updatedDate := time.AsTime . -}}
+        {{- $lang := $.Site.Language.Lang -}}
+        {{- if eq $lang "en" -}}
+          {{- $updatedText = printf "Last updated: %s" ($updatedDate | time.Format "January 2, 2006") -}}
+        {{- else if eq $lang "ja" -}}
+          {{- $updatedText = printf "最終更新日：%s" ($updatedDate | time.Format "2006年1月2日") -}}
+        {{- else if eq $lang "ko" -}}
+          {{- $updatedText = printf "최종 업데이트: %s" ($updatedDate | time.Format "2006년 1월 2일") -}}
+        {{- else if eq $lang "zh" -}}
+          {{- $updatedText = printf "最后更新：%s" ($updatedDate | time.Format "2006 年 1 月 2 日") -}}
+        {{- else -}}
+          {{- $updatedText = printf "最後更新：%s" ($updatedDate | time.Format "2006 年 1 月 2 日") -}}
+        {{- end -}}
+      {{- end -}}
       <p class="eyebrow">{{ $eyebrow }}</p>
       <h1 class="legal-title">{{ .Title }}</h1>
-      <div class="legal-head-row"><p class="legal-updated">{{ index $ui "legalUpdated" | default "" }}</p></div>
+      <div class="legal-head-row"><p class="legal-updated">{{ $updatedText }}</p></div>
       <article class="legal-article">
         {{ .Content }}
       </article>

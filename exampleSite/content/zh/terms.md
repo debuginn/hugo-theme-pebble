@@ -2,6 +2,7 @@
 title: "用户条款和条件"
 description: "阅读 Pebble 的服务范围、用户责任、订阅与买断、知识产权及免责声明。"
 layout: "legal"
+updated: 2026-03-03
 ---
 
 欢迎使用 Pebble。在使用本应用及相关服务前，请您仔细阅读并理解本条款。您使用 Pebble 即表示同意受本条款约束。

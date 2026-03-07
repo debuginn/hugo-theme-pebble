@@ -2,6 +2,7 @@
 title: "Privacy Policy"
 description: "Learn how Pebble handles privacy, local-first data storage, sync, third-party services, and data security."
 layout: "legal"
+updated: 2026-03-03
 ---
 
 Welcome to Pebble. We value your privacy and are committed to protecting your personal data. This policy explains how Pebble handles data.

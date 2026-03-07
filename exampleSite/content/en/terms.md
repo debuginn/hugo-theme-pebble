@@ -2,6 +2,7 @@
 title: "Terms and Conditions"
 description: "Read the Pebble terms covering service scope, user responsibilities, subscriptions, intellectual property, and disclaimers."
 layout: "legal"
+updated: 2026-03-03
 ---
 
 Welcome to Pebble. Please read these terms carefully before using the app and related services. By using Pebble, you agree to these terms.

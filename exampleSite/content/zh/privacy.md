@@ -2,6 +2,7 @@
 title: "隐私政策"
 description: "了解 Pebble 如何处理隐私、本地优先存储、同步、第三方服务与数据安全。"
 layout: "legal"
+updated: 2026-03-03
 ---
 
 欢迎使用 Pebble。我们重视您的隐私，并致力于保护您的个人数据。本隐私政策说明 Pebble 在数据处理方面的原则与方式。
