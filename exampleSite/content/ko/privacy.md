@@ -1,8 +1,6 @@
 ---
 title: "개인정보 처리방침"
 description: "Pebble의 개인정보 처리, 로컬 우선 저장, 동기화, 제3자 서비스, 데이터 보안 방식을 안내합니다."
-pageKey: "privacy"
-pageTitleKey: "privacyPageTitle"
 layout: "legal"
 ---
 

@@ -1,8 +1,6 @@
 ---
 title: "使用條款"
 description: "閱讀 Pebble 的服務範圍、使用者責任、訂閱與買斷、知識產權及免責聲明。"
-pageKey: "terms"
-pageTitleKey: "termsPageTitle"
 layout: "legal"
 ---
 

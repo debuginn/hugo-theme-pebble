@@ -1,8 +1,6 @@
 ---
 title: "Terms and Conditions"
 description: "Read the Pebble terms covering service scope, user responsibilities, subscriptions, intellectual property, and disclaimers."
-pageKey: "terms"
-pageTitleKey: "termsPageTitle"
 layout: "legal"
 ---
 

@@ -20,10 +20,6 @@ function supportedLangs() {
   return Array.isArray(langs) && langs.length ? langs : ["en"];
 }
 
-function copyMap() {
-  return runtimeConfig().copy || {};
-}
-
 function safeStorageGet(key) {
   try {
     return window.localStorage ? window.localStorage.getItem(key) : null;
@@ -108,8 +104,6 @@ function currentPageLang() {
 }
 
 function applyLang(lang) {
-  const messages = copyMap();
-  const dict = messages[lang] || messages.en || {};
   const htmlLang =
     lang === "zh-Hans"
       ? "zh-CN"
@@ -127,10 +121,6 @@ function applyLang(lang) {
   document.documentElement.lang = htmlLang;
   document.documentElement.setAttribute("data-lang", lang);
   if (document.body) document.body.setAttribute("data-lang", lang);
-  document.querySelectorAll("[data-i18n]").forEach((el) => {
-    const k = el.getAttribute("data-i18n");
-    if (dict[k] !== undefined) el.textContent = dict[k];
-  });
   updateHeaderLangDropdown(lang);
   updateFooterLangDropdown(lang);
 }

@@ -2,9 +2,11 @@
 <main class="legal-main">
   <section class="section">
     <div class="container legal-wrap">
-      <p class="eyebrow" data-i18n="{{ .Params.pageKey }}Eyebrow">{{ T (printf "%sEyebrow" .Params.pageKey) }}</p>
+      {{- $ui := site.Params.ui | default dict -}}
+      {{- $eyebrow := .Params.eyebrow | default (cond (eq .File.BaseFileName "privacy") (index $ui "navPrivacy") (cond (eq .File.BaseFileName "terms") (index $ui "navTerms") .Title)) -}}
+      <p class="eyebrow">{{ $eyebrow }}</p>
       <h1 class="legal-title">{{ .Title }}</h1>
-      <div class="legal-head-row"><p class="legal-updated" data-i18n="legalUpdated">{{ T "legalUpdated" }}</p></div>
+      <div class="legal-head-row"><p class="legal-updated">{{ index $ui "legalUpdated" | default "" }}</p></div>
       <article class="legal-article">
         {{ .Content }}
       </article>

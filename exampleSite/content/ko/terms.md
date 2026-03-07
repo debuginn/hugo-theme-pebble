@@ -1,8 +1,6 @@
 ---
 title: "이용약관"
 description: "Pebble의 서비스 범위, 사용자 책임, 구독, 지식재산권, 면책 조항을 확인할 수 있습니다."
-pageKey: "terms"
-pageTitleKey: "termsPageTitle"
 layout: "legal"
 ---
 

@@ -1,8 +1,6 @@
 ---
 title: "用户条款和条件"
 description: "阅读 Pebble 的服务范围、用户责任、订阅与买断、知识产权及免责声明。"
-pageKey: "terms"
-pageTitleKey: "termsPageTitle"
 layout: "legal"
 ---
 

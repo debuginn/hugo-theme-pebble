@@ -7,6 +7,18 @@
     yearly = '18'
     lifetime = '45'
 
+[en.params.ui]
+    navFeatures = 'Features'
+    navReviews = 'Reviews'
+    navPricing = 'Pricing'
+    navFaq = 'FAQ'
+    navDownload = 'Download'
+    navPrivacy = 'Privacy'
+    navTerms = 'Terms'
+    footerTag = 'Your household asset management companion'
+    downloadHint = 'Scan to learn more'
+    legalUpdated = 'Last updated: March 3, 2026'
+
 [zh]
     languageName = '中文简体'
     weight = 2
@@ -15,6 +27,18 @@
     currency = '¥'
     yearly = '128'
     lifetime = '328'
+
+[zh.params.ui]
+    navFeatures = '特性'
+    navReviews = '评价'
+    navPricing = '价格'
+    navFaq = '常见问题'
+    navDownload = '下载'
+    navPrivacy = '隐私政策'
+    navTerms = '用户条款'
+    footerTag = '做您的家庭资产管理管家'
+    downloadHint = '扫码后即可了解详情'
+    legalUpdated = '最后更新：2026 年 3 月 3 日'
 
 [tw]
     languageName = '繁體台灣'
@@ -25,6 +49,18 @@
     yearly = '568'
     lifetime = '1468'
 
+[tw.params.ui]
+    navFeatures = '特性'
+    navReviews = '評價'
+    navPricing = '價格'
+    navFaq = '常見問題'
+    navDownload = '下載'
+    navPrivacy = '隱私政策'
+    navTerms = '使用條款'
+    footerTag = '做您的家庭資產管理管家'
+    downloadHint = '掃碼後即可了解詳情'
+    legalUpdated = '最後更新：2026 年 3 月 3 日'
+
 [hk]
     languageName = '繁體香港'
     weight = 4
@@ -33,6 +69,18 @@
     currency = 'HK$'
     yearly = '138'
     lifetime = '358'
+
+[hk.params.ui]
+    navFeatures = '特性'
+    navReviews = '評價'
+    navPricing = '價格'
+    navFaq = '常見問題'
+    navDownload = '下載'
+    navPrivacy = '隱私政策'
+    navTerms = '條款及細則'
+    footerTag = '做您的家庭資產管理管家'
+    downloadHint = '掃碼後即可了解詳情'
+    legalUpdated = '最後更新：2026 年 3 月 3 日'
 
 [mo]
     languageName = '繁體澳門'
@@ -43,6 +91,18 @@
     yearly = '142'
     lifetime = '368'
 
+[mo.params.ui]
+    navFeatures = '特性'
+    navReviews = '評價'
+    navPricing = '價格'
+    navFaq = '常見問題'
+    navDownload = '下載'
+    navPrivacy = '隱私政策'
+    navTerms = '使用條款及細則'
+    footerTag = '做您的家庭資產管理管家'
+    downloadHint = '掃碼後即可了解詳情'
+    legalUpdated = '最後更新：2026 年 3 月 3 日'
+
 [sg]
     languageName = '繁體新加坡'
     weight = 6
@@ -51,6 +111,18 @@
     currency = 'S$'
     yearly = '25'
     lifetime = '65'
+
+[sg.params.ui]
+    navFeatures = '特性'
+    navReviews = '評價'
+    navPricing = '價格'
+    navFaq = '常見問題'
+    navDownload = '下載'
+    navPrivacy = '隱私政策'
+    navTerms = '使用條款'
+    footerTag = '做您的家庭資產管理管家'
+    downloadHint = '掃碼後即可了解詳情'
+    legalUpdated = '最後更新：2026 年 3 月 3 日'
 
 [ja]
     languageName = '日本語'
@@ -61,6 +133,18 @@
     yearly = '2680'
     lifetime = '6980'
 
+[ja.params.ui]
+    navFeatures = '機能'
+    navReviews = '評価'
+    navPricing = '料金'
+    navFaq = 'FAQ'
+    navDownload = 'ダウンロード'
+    navPrivacy = 'プライバシー'
+    navTerms = '利用規約'
+    footerTag = '家族資産管理のパートナー'
+    downloadHint = 'QR から詳しく見られます'
+    legalUpdated = '最終更新日：2026年3月3日'
+
 [ko]
     languageName = '한국어'
     weight = 8
@@ -69,3 +153,15 @@
     currency = '₩'
     yearly = '25000'
     lifetime = '65000'
+
+[ko.params.ui]
+    navFeatures = '기능'
+    navReviews = '후기'
+    navPricing = '요금'
+    navFaq = 'FAQ'
+    navDownload = '다운로드'
+    navPrivacy = '개인정보 처리방침'
+    navTerms = '이용약관'
+    footerTag = '가족 자산 관리 파트너'
+    downloadHint = 'QR로 자세히 보기'
+    legalUpdated = '최종 업데이트: 2026년 3월 3일'

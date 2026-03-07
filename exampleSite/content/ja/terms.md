@@ -1,8 +1,6 @@
 ---
 title: "利用規約"
 description: "Pebble のサービス範囲、利用者責任、サブスクリプション、知的財産、免責事項を確認できます。"
-pageKey: "terms"
-pageTitleKey: "termsPageTitle"
 layout: "legal"
 ---
 

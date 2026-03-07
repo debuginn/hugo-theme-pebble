@@ -1,8 +1,6 @@
 ---
 title: "プライバシーポリシー"
 description: "Pebble のプライバシー方針、ローカル優先保存、同期、第三者サービス、データ保護について説明します。"
-pageKey: "privacy"
-pageTitleKey: "privacyPageTitle"
 layout: "legal"
 ---
 

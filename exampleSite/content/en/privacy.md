@@ -1,8 +1,6 @@
 ---
 title: "Privacy Policy"
 description: "Learn how Pebble handles privacy, local-first data storage, sync, third-party services, and data security."
-pageKey: "privacy"
-pageTitleKey: "privacyPageTitle"
 layout: "legal"
 ---
 

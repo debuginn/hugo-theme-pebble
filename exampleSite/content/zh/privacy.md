@@ -1,8 +1,6 @@
 ---
 title: "隐私政策"
 description: "了解 Pebble 如何处理隐私、本地优先存储、同步、第三方服务与数据安全。"
-pageKey: "privacy"
-pageTitleKey: "privacyPageTitle"
 layout: "legal"
 ---
 
