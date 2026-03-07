@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Pebble</title>
-    <link>https://example.com/blog/</link>
+    <link>http://localhost:1313/blog/</link>
     <description>Recent content in Blog on Pebble</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <atom:link href="https://example.com/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Shipping a small example site</title>
-      <link>https://example.com/blog/post-one/</link>
+      <link>http://localhost:1313/blog/post-one/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.com/blog/post-one/</guid>
+      <guid>http://localhost:1313/blog/post-one/</guid>
       <description>&lt;p&gt;An example site keeps theme documentation honest and makes template regressions easier to catch.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Translation-aware page links</title>
-      <link>https://example.com/blog/post-two/</link>
+      <link>http://localhost:1313/blog/post-two/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.com/blog/post-two/</guid>
+      <guid>http://localhost:1313/blog/post-two/</guid>
       <description>&lt;p&gt;Instead of guessing translated URLs from filenames, the theme uses Hugo translation objects.&lt;/p&gt;</description>
     </item>
   </channel>

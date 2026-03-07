@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>服务条款 on Pebble</title>
-    <link>https://example.com/zh/terms/</link>
+    <link>http://localhost:1313/zh/terms/</link>
     <description>Recent content in 服务条款 on Pebble</description>
     <generator>Hugo</generator>
     <language>zh</language>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="https://example.com/zh/terms/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/zh/terms/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
