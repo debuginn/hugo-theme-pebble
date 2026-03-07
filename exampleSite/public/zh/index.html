@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="zh-CN" data-default-lang="en" data-current-lang="zh-Hans">
+  <head>
+	<meta name="generator" content="Hugo 0.147.1"><meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Pebble</title>
+    <meta name="description" content="Pebble Hugo 主题的演示站点。" /><meta name="keywords" content="[hugo 主题, 落地页, 多语言]" />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="iAssets" />
+    <meta property="og:title" content="Pebble" />
+    <meta property="og:description" content="Pebble Hugo 主题的演示站点。" />
+    <meta property="og:image" content="https://example.com/assets/logo.png" />
+    <meta property="og:url" content="https://example.com/zh/" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pebble" />
+    <meta name="twitter:description" content="Pebble Hugo 主题的演示站点。" />
+    <meta name="twitter:image" content="https://example.com/assets/logo.png" />
+    <link rel="canonical" href="https://example.com/zh/" /><link rel="alternate" hreflang="x-default" href="https://example.com/" /><link rel="alternate" hreflang="en" href="https://example.com/" /><link rel="alternate" hreflang="zh-CN" href="https://example.com/zh/" />
+    <link rel="icon" type="image/png" href="/assets/logo.png" />
+    <link rel="shortcut icon" href="/assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script>
+      (function () {
+        var themeKey = "ia_theme_pref";
+        var pref = "auto";
+        try {
+          var stored = window.localStorage ? window.localStorage.getItem(themeKey) : null;
+          if (stored === "dark" || stored === "light" || stored === "auto") pref = stored;
+        } catch (_) {}
+        var resolved = pref;
+        if (pref === "auto") {
+          resolved = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        }
+        document.documentElement.setAttribute("data-theme", resolved);
+      })();
+    </script>
+    <script>
+      window.__IA_RUNTIME__ = {"pathLangMap":{"en":"en","zh":"zh-Hans","zh-cn":"zh-Hans","zh-hans":"zh-Hans","zh-hant":"zh-Hant-HK"},"routeMap":{"en":"/","zh-Hans":"/zh/"},"supportedLangs":["en","zh-Hans"]};
+    </script>
+    <script>
+      (function () {
+        var userLangKey = "ia_lang_user";
+        var defaultLang = "en";
+        var runtime = window.__IA_RUNTIME__ || {};
+        var routeMap = runtime.routeMap || {};
+        var pathLangMap = runtime.pathLangMap || {};
+
+        function normalizeLang(input) {
+          if (!input) return null;
+          var value = input.toLowerCase().replace("_", "-");
+          return pathLangMap[value] || null;
+        }
+
+        function browserLang() {
+          var langs = Array.isArray(navigator.languages) && navigator.languages.length
+            ? navigator.languages
+            : [navigator.language || "en"];
+          for (var i = 0; i < langs.length; i += 1) {
+            var raw = (langs[i] || "").toLowerCase();
+            var mapped = normalizeLang(raw);
+            if (mapped) return mapped;
+            if (raw.indexOf("zh-tw") === 0) return "zh-Hant-TW";
+            if (raw.indexOf("zh-hk") === 0) return "zh-Hant-HK";
+            if (raw.indexOf("zh-mo") === 0) return "zh-Hant-MO";
+            if (raw.indexOf("zh-sg") === 0) return "zh-Hans-SG";
+            if (raw.indexOf("zh") === 0 && raw.indexOf("hant") >= 0) return "zh-Hant-TW";
+            if (raw.indexOf("zh") === 0) return "zh-Hans";
+            if (raw.indexOf("ja") === 0) return "ja";
+            if (raw.indexOf("ko") === 0) return "ko";
+            if (raw.indexOf("en") === 0) return "en";
+          }
+          return "en";
+        }
+
+        function preferredLang() {
+          try {
+            var stored = window.localStorage ? window.localStorage.getItem(userLangKey) : null;
+            if (stored && routeMap[stored]) return stored;
+          } catch (_) {}
+          return browserLang();
+        }
+
+        var pathname = window.location.pathname;
+        var segments = pathname.split("/").filter(Boolean);
+        var first = segments[0] || "";
+        var explicitLang = normalizeLang(first);
+        if (explicitLang) {
+          return;
+        }
+
+        var preferred = preferredLang();
+        if (!preferred || preferred === defaultLang) {
+          return;
+        }
+
+        var targetBase = routeMap[preferred];
+        if (!targetBase) {
+          return;
+        }
+
+        var targetPath = pathname;
+        if (pathname === "/") {
+          targetPath = targetBase;
+        } else if (pathname === "/privacy/" || pathname === "/terms/") {
+          targetPath = targetBase.replace(/\/$/, "") + pathname;
+        } else {
+          return;
+        }
+
+        if (targetPath && targetPath !== pathname) {
+          document.documentElement.setAttribute("data-lang-pending", "1");
+          window.location.replace(targetPath + window.location.search + window.location.hash);
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="/styles.css?v=example-1" />
+    <script type="application/ld+json" id="seo-jsonld">{"@context":"https://schema.org","@type":"SoftwareApplication","applicationCategory":"FinanceApplication","description":"Pebble Hugo 主题的演示站点。","inLanguage":"zh-Hans","name":"iAssets","operatingSystem":"iOS, iPadOS, macOS","url":"https://example.com/zh/"}</script>
+  </head>
+  <body data-contact-email="hello@example.com">
+    <header class="topbar">
+      <div class="container nav-shell">
+        <nav class="top-pill">
+          <div class="pill-left">
+            <a class="logo" href="/zh/">
+              <img class="logo-mark" src="/assets/logo.png" alt="iAssets logo" />
+              <span data-i18n="brand">Pebble</span>
+            </a>
+            <div class="desktop-nav"><a href="/zh/#features" data-i18n="navFeatures">功能</a><a href="/zh/#pricing" data-i18n="navPricing">价格</a><a href="/zh/#faqs" data-i18n="navFaq">常见问题</a>
+            </div>
+          </div>
+          <div class="pill-right">
+            <button class="mode-btn" type="button" aria-label="Switch theme">◐</button>
+            <button class="menu-btn" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">☰</button>
+            <a class="btn btn-solid header-download-btn" href="/zh/#download" aria-label="Download">
+              <span class="header-download-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M16.1 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.7.8-3.4.8s-1.9-.8-3.1-.7c-1.6 0-3 .9-3.9 2.3-1.7 3-.4 7.3 1.2 9.6.8 1.1 1.8 2.3 3.1 2.3 1.2 0 1.7-.8 3.1-.8s1.8.8 3.1.8c1.3 0 2.1-1.1 2.9-2.2.9-1.3 1.3-2.6 1.4-2.7 0 0-2-.8-2-4.1z"></path>
+                  <path d="M14 5.9c.7-.8 1.2-1.8 1.1-2.9-1 .1-2.1.7-2.9 1.5-.7.8-1.2 1.8-1.1 2.8 1 .1 2.1-.5 2.9-1.4z"></path>
+                </svg>
+              </span>
+              <span data-i18n="navDownload">下载</span>
+            </a>
+            <div class="header-lang-dropdown">
+              <button class="header-lang-trigger" type="button" aria-label="Switch language" aria-haspopup="listbox" aria-expanded="false">
+                <span class="header-lang-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M3 12h18"></path>
+                    <path d="M12 3c2.6 2.4 4 5.6 4 9s-1.4 6.6-4 9c-2.6-2.4-4-5.6-4-9s1.4-6.6 4-9z"></path>
+                  </svg>
+                </span>
+                <span class="header-lang-current">简体中文</span>
+              </button>
+              <div class="header-lang-menu" role="listbox" aria-label="Language options"><a href="/" data-lang-option="en">English</a><a href="/zh/" data-lang-option="zh-Hans">简体中文</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <nav id="mobile-menu" class="mobile-menu" aria-hidden="true"><a href="/zh/#features" data-i18n="navFeatures">功能</a><a href="/zh/#pricing" data-i18n="navPricing">价格</a><a href="/zh/#faqs" data-i18n="navFaq">常见问题</a>
+          <a href="/zh/#download" data-i18n="navDownload">下载</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+  <section class="hero section">
+    <div class="container hero-grid">
+      <div class="hero-copy"><p class="eyebrow">Pebble</p><h1>为产品官网准备的 Hugo 主题</h1><p class="hero-desc">Pebble 提供多语言首页、价格区块、FAQ、法律页面以及轻量列表页，适合作为产品站起点。</p>
+        <div class="hero-cta-row">
+          <a class="btn appstore-code-btn" href="#download" aria-label="Download on the App Store">
+            <span class="appstore-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.1 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.7.8-3.4.8s-1.9-.8-3.1-.7c-1.6 0-3 .9-3.9 2.3-1.7 3-.4 7.3 1.2 9.6.8 1.1 1.8 2.3 3.1 2.3 1.2 0 1.7-.8 3.1-.8s1.8.8 3.1.8c1.3 0 2.1-1.1 2.9-2.2.9-1.3 1.3-2.6 1.4-2.7 0 0-2-.8-2-4.1z"></path><path d="M14 5.9c.7-.8 1.2-1.8 1.1-2.9-1 .1-2.1.7-2.9 1.5-.7.8-1.2 1.8-1.1 2.8 1 .1 2.1-.5 2.9-1.4z"></path></svg>
+            </span>
+            <span class="appstore-text"><span class="appstore-overline">前往</span><span class="appstore-title">App Store</span></span>
+          </a>
+        </div>
+        <div class="hero-mini-cards">
+          
+          <article class="mini-card">
+            <div class="mini-top"><span><svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.8l1.1 3.1 3.1 1.1-3.1 1.1L12 12.2l-1.1-3.1L7.8 8l3.1-1.1L12 3.8z"></path><path d="M18.2 12.8l.7 2 .2.1 2 .7-2 .7-.1.2-.8 2-.7-2-.2-.1-2-.8 2-.7.1-.2.8-1.9z"></path><path d="M7 13.5l1.1 3.1 3.1 1.1-3.1 1.1L7 22l-1.1-3.1-3.1-1.1 3.1-1.1L7 13.5z"></path></svg></span><strong>01</strong></div>
+            <h3>快速接入</h3>
+            <p>把主题接进站点后，首页主要内容都可以由 front matter 驱动。</p>
+          </article>
+          
+          <article class="mini-card">
+            <div class="mini-top"><span><svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.7 2.5 4.2 5.7 4.2 9S14.7 18.5 12 21c-2.7-2.5-4.2-5.7-4.2-9S9.3 5.5 12 3z"></path></svg></span><strong>02</strong></div>
+            <h3>多语言</h3>
+            <p>语言路由、菜单切换和法律页跳转已经连好。</p>
+          </article>
+          
+          <article class="mini-card">
+            <div class="mini-top"><span><svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13.2 2.8L6.8 12h4l-1 9.2 7.4-10.5h-4.1l.1-7.9z"></path></svg></span><strong>03</strong></div>
+            <h3>负担更低</h3>
+            <p>静态资源可缓存，首页文案在构建期输出。</p>
+          </article>
+          
+        </div>
+      </div>
+      <div class="hero-visual"><div class="phone-frame"><img class="hero-shot" src="/assets/ia-home.png" alt="iAssets 应用截图" loading="eager" fetchpriority="high" /></div></div>
+    </div>
+  </section>
+  <section id="features" class="section">
+    <div class="container"><p class="eyebrow">功能</p><h2 class="section-title">面向产品展示页的主题骨架</h2><p class="section-desc">这个示例尽量保持简洁，但覆盖了主题最核心的页面结构。</p>
+      <div class="features-layout">
+        <div class="feature-list">
+          
+          <article class="feature-item">
+            <div class="mini-top"><span><svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l8 4.5-8 4.5-8-4.5L12 4z"></path><path d="M4 12.5l8 4.5 8-4.5"></path><path d="M4 16.5l8 4.5 8-4.5"></path></svg></span><strong>01</strong></div>
+            <h3>首页区块</h3>
+            <p>Hero、价格、FAQ、详情模块都在一个文件里管理。</p>
+          </article>
+          
+          <article class="feature-item">
+            <div class="mini-top"><span><svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3c2.7 2.5 4.2 5.7 4.2 9S14.7 18.5 12 21c-2.7-2.5-4.2-5.7-4.2-9S9.3 5.5 12 3z"></path></svg></span><strong>02</strong></div>
+            <h3>真实翻译链接</h3>
+            <p>语言切换器会跟随翻译后的页面，而不是手工拼接 URL。</p>
+          </article>
+          
+          <article class="feature-item">
+            <div class="mini-top"><span><svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5.5c0 4.1-2.7 7.9-7 9.5-4.3-1.6-7-5.4-7-9.5V6l7-3z"></path><path d="M9.5 12.1l1.8 1.8 3.4-3.7"></path></svg></span><strong>03</strong></div>
+            <h3>可选集成</h3>
+            <p>统计脚本和社交链接只有在站点配置后才会渲染。</p>
+          </article>
+          
+          <article class="feature-item">
+            <div class="mini-top"><span><svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14.8A7.8 7.8 0 0 1 9.2 5a8.7 8.7 0 1 0 9.8 9.8z"></path></svg></span><strong>04</strong></div>
+            <h3>主题偏好</h3>
+            <p>深浅色模式偏好会保存在浏览器本地。</p>
+          </article>
+          
+        </div>
+        <aside class="feature-showcase"><div class="showbox big"></div><div class="showbox mid"></div><div class="showbox small"></div></aside>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container"><p class="eyebrow">细节</p><h2 class="section-title">足够小，容易理解，也足够完整</h2><p class="section-desc">示例数据很克制，但覆盖了主题的主要 UI 路径。</p>
+      <div class="detail-grid">
+        
+        <article class="detail-card"><div class="detail-icon" aria-hidden="true"><svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3.8h6l4 4v12.4H8a2.2 2.2 0 0 1-2.2-2.2V6A2.2 2.2 0 0 1 8 3.8z"></path><path d="M14 3.8V8h4"></path><path d="M9 12h6"></path><path d="M9 15.5h6"></path></svg></div><h3>法律页面</h3><p>隐私与条款页共享同一套布局和翻译键。</p></article>
+        
+        <article class="detail-card"><div class="detail-icon" aria-hidden="true"><svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4l7.5 4L12 12 4.5 8 12 4z"></path><path d="M4.5 12l7.5 4 7.5-4"></path><path d="M4.5 16l7.5 4 7.5-4"></path></svg></div><h3>列表页</h3><p>内置了 section 与 taxonomy 模板，避免额外页面构建时报 warning。</p></article>
+        
+        <article class="detail-card"><div class="detail-icon" aria-hidden="true"><svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="2.2"></rect><circle cx="9" cy="10" r="1.6"></circle><path d="M20.5 15l-4.4-4.4a1.8 1.8 0 0 0-2.5 0L7 17.2"></path></svg></div><h3>本地资源</h3><p>示例站使用轻量 SVG 占位资源，便于本地调试。</p></article>
+        
+      </div>
+    </div>
+  </section>
+  <section id="download" class="section"><div class="container"><div class="cta-box"><p class="eyebrow">下载</p><h2>把 Pebble 当成你的起点</h2><p>换掉占位资源和文案后，这个主题就很接近可上线的产品落地页了。</p><a class="btn appstore-code-btn appstore-code-btn-lg" href="https://apps.apple.com/" aria-label="Download on the App Store"><span class="appstore-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.1 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.7.8-3.4.8s-1.9-.8-3.1-.7c-1.6 0-3 .9-3.9 2.3-1.7 3-.4 7.3 1.2 9.6.8 1.1 1.8 2.3 3.1 2.3 1.2 0 1.7-.8 3.1-.8s1.8.8 3.1.8c1.3 0 2.1-1.1 2.9-2.2.9-1.3 1.3-2.6 1.4-2.7 0 0-2-.8-2-4.1z"></path><path d="M14 5.9c.7-.8 1.2-1.8 1.1-2.9-1 .1-2.1.7-2.9 1.5-.7.8-1.2 1.8-1.1 2.8 1 .1 2.1-.5 2.9-1.4z"></path></svg></span><span class="appstore-text"><span class="appstore-overline">前往</span><span class="appstore-title">App Store</span></span></a></div></div></section>
+  <section id="reviews" class="section"><div class="container"><p class="eyebrow">评价</p><h2 class="section-title">用户正在用 iAssets 养成更好的资产习惯。</h2><p class="section-desc">从记一笔，到读懂全局资产变化。</p><div class="review-marquee" aria-label="User reviews"><div class="review-track"><figure class="review"><div class="stars">★★★★★</div><blockquote>终于把家庭资产放进同一张视图，复盘时不再手忙脚乱。</blockquote><figcaption><span class="social-link review-social-icon" data-social="x"><img src="/assets/review-x.svg" alt="x" loading="lazy" /></span><span>予安</span></figcaption></figure><figure class="review"><div class="stars">★★★★★</div><blockquote>每月檢視從一小時縮到十分鐘，重點一眼就能抓到。</blockquote><figcaption><span class="social-link review-social-icon" data-social="telegram"><img src="/assets/review-telegram.svg" alt="telegram" loading="lazy" /></span><span>若曦</span></figcaption></figure><figure class="review"><div class="stars">★★★★★</div><blockquote>家計と投資口座を分けて管理できて、月次チェックがかなり楽になりました。</blockquote><figcaption><span class="social-link review-social-icon" data-social="weibo"><img src="/assets/review-weibo.svg" alt="weibo" loading="lazy" /></span><span>美咲</span></figcaption></figure><figure class="review"><div class="stars">★★★★★</div><blockquote>가족和 함께 써도 깔끔해요. 공유 장부 덕분에 기록이 훨씬 쉬워졌어요.</blockquote><figcaption><span class="social-link review-social-icon" data-social="wechat"><img src="/assets/review-wechat.svg" alt="wechat" loading="lazy" /></span><span>하린</span></figcaption></figure><figure class="review"><div class="stars">★★★★★</div><blockquote>Net worth snapshots are clear and fast, so weekly reviews finally became a habit.</blockquote><figcaption><span class="social-link review-social-icon" data-social="reddit"><img src="/assets/review-reddit.svg" alt="reddit" loading="lazy" /></span><span>Aurora</span></figcaption></figure><figure class="review"><div class="stars">★★★★★</div><blockquote>分类和结构卡配合得很好，资产配置偏差一下子就能看出来。</blockquote><figcaption><span class="social-link review-social-icon" data-social="x"><img src="/assets/review-x.svg" alt="x" loading="lazy" /></span><span>景行</span></figcaption></figure></div><div class="review-track reverse"><figure class="review"><div class="stars">★★★★★</div><blockquote>介面輕巧順手，天天打開也不會有負擔。</blockquote><figcaption><span class="social-link review-social-icon" data-social="wechat"><img src="/assets/review-wechat.svg" alt="wechat" loading="lazy" /></span><span>芷晴</span></figcaption></figure><figure class="review"><div class="stars">★★★★★</div><blockquote>推移カードが見やすくて、資産の増減を家族にも説明しやすいです。</blockquote><figcaption><span class="social-link review-social-icon" data-social="x"><img src="/assets/review-x.svg" alt="x" loading="lazy" /></span><span>陽翔</span></figcaption></figure><figure class="review"><div class="stars">★★★★★</div><blockquote>오프라인에서도 빠르게 입력돼서 이동 중에도 자산 변동을 바로 남길 수 있어요.</blockquote><figcaption><span class="social-link review-social-icon" data-social="telegram"><img src="/assets/review-telegram.svg" alt="telegram" loading="lazy" /></span><span>서준</span></figcaption></figure><figure class="review"><div class="stars">★★★★★</div><blockquote>The multi-book setup keeps personal and family finances separated without extra effort.</blockquote><figcaption><span class="social-link review-social-icon" data-social="reddit"><img src="/assets/review-reddit.svg" alt="reddit" loading="lazy" /></span><span>Ethan</span></figcaption></figure><figure class="review"><div class="stars">★★★★★</div><blockquote>目标进度可视化以后，存钱这件事终于能长期坚持了。</blockquote><figcaption><span class="social-link review-social-icon" data-social="weibo"><img src="/assets/review-weibo.svg" alt="weibo" loading="lazy" /></span><span>星澜</span></figcaption></figure><figure class="review"><div class="stars">★★★★★</div><blockquote>長期目標拆成可追蹤里程碑後，整個理財節奏更穩定。</blockquote><figcaption><span class="social-link review-social-icon" data-social="x"><img src="/assets/review-x.svg" alt="x" loading="lazy" /></span><span>庭軒</span></figcaption></figure></div></div></div></section>
+  <section id="pricing" class="section"><div class="container"><p class="eyebrow">价格</p><h2 class="section-title">一个简单的价格区块</h2><p class="section-desc">金额来自 site params，布局仍由首页 front matter 控制。</p><div class="pricing-grid"><article class="price-card"><div class="price-head"><div class="plan-title"><img class="plan-logo" src="/assets/logo.png" alt="iAssets logo" /><h3>年付</h3></div><span class="badge">热门</span></div><p class="price"><span>$</span>29<span>/年</span></p><p>适合持续使用并需要更新支持的用户。</p><a class="btn btn-solid" href="#download">选择年付</a></article><article class="price-card featured"><div class="price-head"><div class="plan-title"><img class="plan-logo" src="/assets/logo.png" alt="iAssets logo" /><h3>终身</h3></div></div><p class="price"><span>$</span>99</p><p>一次付费，长期使用。</p><a class="btn btn-solid" href="#download">购买终身</a></article></div></div></section>
+  <section class="section trust-strip"><div class="container"><p class="eyebrow">TRUST</p><h2 class="section-title trust-title">受领先银行、金融平台信赖</h2><p class="trust-subtitle">与知名银行与证券金融平台合作，做看得懂，用得起的平价软件。</p><div class="trust-marquee" aria-label="Trusted partners"><div class="trust-track"><article class="trust-card"><img class="trust-logo" src="/assets/trust-hf-bank.webp" alt="HF Bank logo" loading="lazy" /><span>HF Bank</span></article><article class="trust-card"><img class="trust-logo" src="/assets/trust-za-bank.webp" alt="ZA Bank logo" loading="lazy" /><span>ZA Bank</span></article><article class="trust-card"><img class="trust-logo" src="/assets/trust-fuxi-ecurities.webp" alt="Fuxi Securities logo" loading="lazy" /><span>Fuxi Securities</span></article><article class="trust-card"><img class="trust-logo" src="/assets/trust-standard-chartered-cn.svg" alt="Standard Chartered China logo" loading="lazy" /><span>Standard Chartered Bank</span></article><article class="trust-card"><img class="trust-logo" src="/assets/trust-ikbr.svg" alt="IKBR logo" loading="lazy" /><span>IKBR</span></article><article class="trust-card"><img class="trust-logo" src="/assets/trust-macau-ant-bank.webp" alt="Macau Ant Bank logo" loading="lazy" /><span>Macau Ant Bank</span></article><article class="trust-card"><img class="trust-logo" src="/assets/trust-hsbc-china.webp" alt="HSBC China logo" loading="lazy" /><span>HSBC China</span></article><article class="trust-card"><img class="trust-logo" src="/assets/trust-zhufu-securities.webp" alt="Zhufu Securities logo" loading="lazy" /><span>Zhufu Securities</span></article></div><div class="trust-track reverse"><article class="trust-card"><img class="trust-logo" src="/assets/trust-hsbc-china.webp" alt="HSBC China logo" loading="lazy" /><span>HSBC China</span></article><article class="trust-card"><img class="trust-logo" src="/assets/trust-macau-ant-bank.webp" alt="Macau Ant Bank logo" loading="lazy" /><span>Macau Ant Bank</span></article><article class="trust-card"><img class="trust-logo" src="/assets/trust-standard-chartered-cn.svg" alt="Standard Chartered China logo" loading="lazy" /><span>Standard Chartered Bank</span></article><article class="trust-card"><img class="trust-logo" src="/assets/trust-ikbr.svg" alt="IKBR logo" loading="lazy" /><span>IKBR</span></article><article class="trust-card"><img class="trust-logo" src="/assets/trust-zhufu-securities.webp" alt="Zhufu Securities logo" loading="lazy" /><span>Zhufu Securities</span></article><article class="trust-card"><img class="trust-logo" src="/assets/trust-za-bank.webp" alt="ZA Bank logo" loading="lazy" /><span>ZA Bank</span></article><article class="trust-card"><img class="trust-logo" src="/assets/trust-fuxi-ecurities.webp" alt="Fuxi Securities logo" loading="lazy" /><span>Fuxi Securities</span></article><article class="trust-card"><img class="trust-logo" src="/assets/trust-hf-bank.webp" alt="HF Bank logo" loading="lazy" /><span>HF Bank</span></article></div></div><div class="trust-actions"><a class="btn btn-ghost" href="mailto:hello@example.com">商务合作</a><a class="btn btn-ghost" href="#features">了解详情</a></div></div></section>
+  <section id="faqs" class="section"><div class="container"><p class="eyebrow">FAQ</p><h2 class="section-title">常见问题</h2><p class="section-desc">这些条目足以验证 FAQ 区块和排版是否正常。</p><div class="faq-grid"><article><h3><span class="faq-q-icon" aria-hidden="true"><svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.6 9.2a2.5 2.5 0 1 1 4.2 1.8c-.65.62-1.3 1.05-1.3 2.1"></path><circle cx="12" cy="16.8" r="0.9" fill="currentColor" stroke="none"></circle></svg></span><span>这个主题可以直接用于真实产品站吗？</span></h3><p>可以。exampleSite 很克制，但主题本身就是按真实 Hugo 站点使用方式设计的。</p></article><article><h3><span class="faq-q-icon" aria-hidden="true"><svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.6 9.2a2.5 2.5 0 1 1 4.2 1.8c-.65.62-1.3 1.05-1.3 2.1"></path><circle cx="12" cy="16.8" r="0.9" fill="currentColor" stroke="none"></circle></svg></span><span>首页内容可以做多语言吗？</span></h3><p>可以。为不同语言添加 _index.zh.md、法律页翻译文件即可。</p></article><article><h3><span class="faq-q-icon" aria-hidden="true"><svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9.6 9.2a2.5 2.5 0 1 1 4.2 1.8c-.65.62-1.3 1.05-1.3 2.1"></path><circle cx="12" cy="16.8" r="0.9" fill="currentColor" stroke="none"></circle></svg></span><span>必须接入统计或社交链接吗？</span></h3><p>不需要。只有在站点提供相应配置时，这些模块才会输出。</p></article></div></div></section>
+</main>
+
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-card">
+          <div class="footer-main">
+            <section class="footer-left">
+              <section class="footer-brand-col">
+                <a class="logo footer-brand-wrap" href="/zh/">
+                  <img class="logo-mark" src="/assets/logo.png" alt="iAssets logo" />
+                  <span class="footer-brand-text">
+                    <span data-i18n="brand">Pebble</span>
+                    <span class="footer-tag" data-i18n="footerTag">产品展示主题</span>
+                  </span>
+                </a>
+              </section>
+              <nav class="footer-inline-links" aria-label="Footer links"><a href="/zh/terms/" data-i18n="navTerms">条款</a><a href="/zh/privacy/" data-i18n="navPrivacy">隐私</a>
+              </nav>
+            </section>
+            <section class="qr-box">
+              <div class="fake-qr"><img src="/assets/qr-download.png" alt="Download QR code" loading="lazy" /></div>
+              <div class="qr-copy">
+                <h4 data-i18n="navDownload">下载</h4>
+                <p data-i18n="downloadHint">扫码预览安装流程</p>
+              </div>
+            </section>
+          </div>
+          <div class="footer-bottom">
+            <div class="lang-links">
+              <div class="footer-lang-dropdown">
+              <button class="footer-lang-trigger" type="button" aria-label="Switch language" aria-haspopup="listbox" aria-expanded="false">
+                <span class="footer-lang-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M3 12h18"></path>
+                    <path d="M12 3c2.6 2.4 4 5.6 4 9s-1.4 6.6-4 9c-2.6-2.4-4-5.6-4-9s1.4-6.6 4-9z"></path>
+                  </svg>
+                </span>
+                <span class="footer-lang-current">简体中文</span>
+              </button>
+              <div class="footer-lang-menu" role="listbox" aria-label="Language options"><a href="/" data-footer-lang-option="en">English</a><a href="/zh/" data-footer-lang-option="zh-Hans">简体中文</a>
+              </div>
+            </div>
+            </div>
+            <div class="footer-meta">
+              <p>© Copyright 2026. All rights reserved.</p>
+              <p class="footer-credit">Built with <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>, theme <a href="https://github.com/debuginn/hugo-theme-pebble" target="_blank" rel="noopener noreferrer">Pebble</a> designed by <a href="https://blog.debuginn.com/" target="_blank" rel="noopener noreferrer">Debuginn</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/app.js?v=example-1"></script>
+  </body>
+</html>

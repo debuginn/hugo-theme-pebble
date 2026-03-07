@@ -1,0 +1,14 @@
+{
+  "brand": { "other": "Pebble" },
+  "footerTag": { "other": "Product showcase theme" },
+  "navFeatures": { "other": "Features" },
+  "navPricing": { "other": "Pricing" },
+  "navFaq": { "other": "FAQ" },
+  "navDownload": { "other": "Download" },
+  "navTerms": { "other": "Terms" },
+  "navPrivacy": { "other": "Privacy" },
+  "downloadHint": { "other": "Scan to preview the install flow" },
+  "legalUpdated": { "other": "Last updated" },
+  "privacyEyebrow": { "other": "Privacy" },
+  "termsEyebrow": { "other": "Terms" }
+}

@@ -4,7 +4,7 @@
     <div class="container legal-wrap">
       <p class="eyebrow" data-i18n="{{ .Params.pageKey }}Eyebrow">{{ T (printf "%sEyebrow" .Params.pageKey) }}</p>
       <h1 class="legal-title">{{ .Title }}</h1>
-      <div class="legal-head-row"><p class="legal-updated" data-i18n="legalUpdated">{{ T "legalUpdated" }}</p></div>
+      <div class="legal-head-row"><p class="legal-updated" data-i18n="legalUpdated">{{ T "legalUpdated" }}{{ with .Lastmod }} · {{ .Format "2006-01-02" }}{{ end }}</p></div>
       <article class="legal-article">
         {{ .Content }}
       </article>

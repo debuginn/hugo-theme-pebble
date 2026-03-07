@@ -1,0 +1,27 @@
+{{ define "main" }}
+<main class="list-main">
+  <section class="section">
+    <div class="container list-wrap">
+      <h1 class="list-title">{{ .Title }}</h1>
+      {{- with .Content }}
+      <div class="list-intro">
+        {{ . }}
+      </div>
+      {{- end }}
+      {{- $terms := .Data.Terms.Alphabetical -}}
+      {{- if gt (len $terms) 0 }}
+      <div class="list-grid">
+        {{- range $terms }}
+        <article class="list-card">
+          <h2><a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a></h2>
+          <p>{{ .Count }} item{{ if ne .Count 1 }}s{{ end }}</p>
+        </article>
+        {{- end }}
+      </div>
+      {{- else }}
+      <p class="list-empty">No entries yet.</p>
+      {{- end }}
+    </div>
+  </section>
+</main>
+{{ end }}

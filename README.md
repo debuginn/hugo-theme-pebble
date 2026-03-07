@@ -1,11 +1,325 @@
 # hugo-theme-pebble
 
-Pebble is a Hugo theme for product showcase websites.
+[![Minimum Hugo Version](https://img.shields.io/static/v1?label=min-HUGO-version&message=%3E%3Dv0.147.1&color=blue&logo=hugo)](https://github.com/gohugoio/hugo/releases/tag/v0.147.1)
+[![License](https://img.shields.io/github/license/debuginn/hugo-theme-pebble)](https://github.com/debuginn/hugo-theme-pebble/blob/main/LICENSE)
+[![ExampleSite](https://img.shields.io/badge/exampleSite-included-2b7bff)](/Users/debuginn/Code/src/github.com/debuginn/hugo-theme-pebble/exampleSite)
+[![Multilingual](https://img.shields.io/badge/i18n-supported-1f9d55)](/Users/debuginn/Code/src/github.com/debuginn/hugo-theme-pebble/README.md#i18n)
+
+Pebble is a Hugo theme for product showcase sites with:
+
+- a landing page homepage
+- multilingual routing
+- legal pages
+- lightweight list/taxonomy templates
+
+## Requirements
+
+- Hugo `>= 0.147.1`
+- A Hugo site that provides its own content, `i18n/`, assets, and configuration
+
+## Install
+
+Add the theme to your site:
+
+```bash
+git submodule add https://github.com/debuginn/hugo-theme-pebble themes/hugo-theme-pebble
+```
+
+Then enable it in your site config:
+
+```toml
+theme = "hugo-theme-pebble"
+```
+
+Run the bundled example site locally from the theme repository:
+
+```bash
+hugo server --source exampleSite --themesDir ../..
+```
+
+## Quick Start
+
+Minimum working structure in the consuming site:
+
+```text
+content/
+  _index.md
+  privacy/_index.md
+  terms/_index.md
+i18n/
+  en.json
+static/
+  assets/
+    logo.png
+    qr-download.png
+    hero.png
+hugo.toml
+```
+
+Example `hugo.toml`:
+
+```toml
+baseURL = "https://example.com/"
+languageCode = "en-us"
+title = "Pebble Demo"
+theme = "hugo-theme-pebble"
+defaultContentLanguage = "en"
+
+[params.i18n]
+defaultLang = "en"
+
+[params.assets]
+brandName = "Pebble Demo"
+logo = "/assets/logo.png"
+logoAlt = "Pebble Demo logo"
+downloadQr = "/assets/qr-download.png"
+version = "20260307"
+
+[params.contact]
+email = "hello@example.com"
+
+[params.social]
+wechatQr = "/assets/wechat-qr.jpg"
+x = "https://x.com/example"
+telegram = "https://t.me/example"
+xiaohongshu = "https://www.xiaohongshu.com/user/profile/example"
+weibo = "https://weibo.com/example"
+zhihu = "https://www.zhihu.com/people/example"
+
+[params.analytics]
+googleTagID = "G-XXXXXXXXXX"
+
+[params.seo]
+siteURL = "https://example.com"
+defaultSocialTitle = "Pebble Demo"
+
+[params.pricing]
+currency = "$"
+yearly = "29"
+lifetime = "99"
+
+[params.copyright]
+year = "2026"
+
+[[languages.en.menu.main]]
+identifier = "navFeatures"
+url = "#features"
+weight = 1
+
+[[languages.en.menu.main]]
+identifier = "navPricing"
+url = "#pricing"
+weight = 2
+
+[[languages.en.menu.footer]]
+identifier = "navTerms"
+url = "/terms/"
+weight = 1
+
+[[languages.en.menu.footer]]
+identifier = "navPrivacy"
+url = "/privacy/"
+weight = 2
+```
+
+Example `content/_index.md`:
+
+```yaml
+---
+title: "Pebble Demo"
+description: "A clean landing page built with Hugo."
+keywords: "hugo, landing page, product"
+home:
+  hero:
+    eyebrow: "Track What Matters"
+    title: "A product landing page for your app"
+    description: "Pebble is built for product showcase websites with multilingual support."
+    ctaHref: "#download"
+    ctaOverline: "Download on the"
+    ctaTitle: "App Store"
+    image:
+      src: "/assets/hero.png"
+      alt: "App screenshot"
+    cards:
+      - number: "01"
+        title: "Fast setup"
+        description: "Install the theme and start with a single homepage file."
+        icon: "sparkles"
+  features:
+    eyebrow: "Features"
+    title: "Everything needed for a landing page"
+    description: "Sections are driven by front matter."
+    items:
+      - number: "01"
+        title: "Multilingual"
+        description: "Language-aware routes and switchers."
+        icon: "globe"
+    showcase: true
+  details:
+    title: "More details"
+    items:
+      - title: "Flexible"
+        description: "Mix and match sections."
+        icon: "layers"
+  download:
+    title: "Ready to try it?"
+    description: "Point users to your store listing."
+    ctaHref: "https://apps.apple.com/app/id123456789"
+  pricing:
+    title: "Simple pricing"
+    plans:
+      - title: "Yearly"
+        priceKey: "yearly"
+        suffix: "/year"
+        description: "Best for most users."
+        cta:
+          label: "Choose plan"
+          href: "#download"
+      - title: "Lifetime"
+        priceKey: "lifetime"
+        featured: true
+        description: "One payment."
+        cta:
+          label: "Buy lifetime"
+          href: "#download"
+  faq:
+    title: "FAQ"
+    items:
+      - question: "Can I customize the content?"
+        answer: "Yes. The homepage is driven by front matter."
+---
+```
+
+## Content Types
+
+### Homepage
+
+The homepage uses `content/_index.md` and reads section data from `.Params.home`.
+
+### Legal Pages
+
+Pebble expects these pages if you link them from the footer:
+
+- `content/privacy/_index.md`
+- `content/terms/_index.md`
+
+Example:
+
+```yaml
+---
+title: "Privacy Policy"
+pageKey: "privacy"
+---
+Your privacy content here.
+```
+
+`pageKey` is used with the translation keys `privacyEyebrow` and `termsEyebrow`.
+
+### Section and Taxonomy Pages
+
+The theme includes minimal templates for:
+
+- section list pages
+- taxonomy list pages
+- taxonomy term pages
+
+These are intentionally simple and reuse the theme's card styling.
+
+## i18n
+
+Pebble expects translation files in `i18n/<lang>.json`.
+
+Minimum English example:
+
+```json
+{
+  "brand": { "other": "Pebble Demo" },
+  "footerTag": { "other": "Product showcase" },
+  "navFeatures": { "other": "Features" },
+  "navPricing": { "other": "Pricing" },
+  "navDownload": { "other": "Download" },
+  "navTerms": { "other": "Terms" },
+  "navPrivacy": { "other": "Privacy" },
+  "downloadHint": { "other": "Scan to download" },
+  "legalUpdated": { "other": "Last updated" },
+  "privacyEyebrow": { "other": "Privacy" },
+  "termsEyebrow": { "other": "Terms" }
+}
+```
+
+Supported language route keys in the theme:
+
+- `en`
+- `zh`
+- `tw`
+- `hk`
+- `mo`
+- `sg`
+- `ja`
+- `ko`
+
+`params.i18n.defaultLang` controls which language maps to `/`.
+
+## Parameters
+
+### `params.assets`
+
+- `brandName`: brand name used in metadata and UI
+- `logo`: logo URL
+- `logoAlt`: logo alt text
+- `downloadQr`: QR image shown in the footer
+- `version`: optional static asset version string appended to `/styles.css` and `/app.js`
+
+### `params.contact`
+
+- `email`: used by trust section mailto buttons when `type = "mailto"`
+
+### `params.social`
+
+All are optional. Unset values are not rendered.
+
+- `wechatQr`
+- `x`
+- `telegram`
+- `xiaohongshu`
+- `weibo`
+- `zhihu`
+
+### `params.analytics`
+
+- `googleTagID`: optional Google tag ID. No analytics script is emitted when unset.
+
+### `params.seo`
+
+- `siteURL`: absolute site URL used for canonical and hreflang URLs
+- `defaultSocialTitle`: fallback Open Graph / Twitter title
+
+### `params.pricing`
+
+- `currency`
+- `yearly`
+- `lifetime`
+
+These values are referenced by homepage pricing plans through `priceKey`.
+
+## Menus
+
+Pebble reads:
+
+- `menu.main`
+- `menu.footer`
+
+For in-page homepage links, use fragment URLs like `#features` or `#download`. The theme expands them to the current language root automatically.
+
+## Notes
+
+- This theme does not ship content, images, or translation files beyond the theme code itself.
+- A runnable demo lives in `exampleSite/`.
+- Google Fonts are loaded from `fonts.googleapis.com` and `fonts.gstatic.com`.
+- Homepage copy is rendered at build time. The client-side script handles theme preference, menu toggles, language preference storage, and marquee behavior.
 
 ## Included
 
 - `layouts/`
 - `static/app.js`
 - `static/styles.css`
-
-Site-specific content, translations, assets, and configuration should live in the consuming Hugo site.

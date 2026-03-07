@@ -1,0 +1,33 @@
+{{ define "main" }}
+<main class="list-main">
+  <section class="section">
+    <div class="container list-wrap">
+      <h1 class="list-title">{{ .Title }}</h1>
+      {{- with .Content }}
+      <div class="list-intro">
+        {{ . }}
+      </div>
+      {{- end }}
+      {{- $pages := .Pages.ByTitle -}}
+      {{- if gt (len $pages) 0 }}
+      <div class="list-grid">
+        {{- range $pages }}
+        <article class="list-card">
+          <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+          {{- with .Params.description }}
+          <p>{{ . }}</p>
+          {{- else }}
+          {{- with .Summary }}
+          <p>{{ . | plainify }}</p>
+          {{- end }}
+          {{- end }}
+        </article>
+        {{- end }}
+      </div>
+      {{- else }}
+      <p class="list-empty">No entries yet.</p>
+      {{- end }}
+    </div>
+  </section>
+</main>
+{{ end }}
