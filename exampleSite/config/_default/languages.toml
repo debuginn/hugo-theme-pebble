@@ -1,0 +1,71 @@
+[en]
+    languageName = 'English'
+    weight = 1
+
+[en.params.pricing]
+    currency = '$'
+    yearly = '18'
+    lifetime = '45'
+
+[zh]
+    languageName = '中文简体'
+    weight = 2
+
+[zh.params.pricing]
+    currency = '¥'
+    yearly = '128'
+    lifetime = '328'
+
+[tw]
+    languageName = '繁體台灣'
+    weight = 3
+
+[tw.params.pricing]
+    currency = 'NT$'
+    yearly = '568'
+    lifetime = '1468'
+
+[hk]
+    languageName = '繁體香港'
+    weight = 4
+
+[hk.params.pricing]
+    currency = 'HK$'
+    yearly = '138'
+    lifetime = '358'
+
+[mo]
+    languageName = '繁體澳門'
+    weight = 5
+
+[mo.params.pricing]
+    currency = 'MOP$'
+    yearly = '142'
+    lifetime = '368'
+
+[sg]
+    languageName = '繁體新加坡'
+    weight = 6
+
+[sg.params.pricing]
+    currency = 'S$'
+    yearly = '25'
+    lifetime = '65'
+
+[ja]
+    languageName = '日本語'
+    weight = 7
+
+[ja.params.pricing]
+    currency = '¥'
+    yearly = '2680'
+    lifetime = '6980'
+
+[ko]
+    languageName = '한국어'
+    weight = 8
+
+[ko.params.pricing]
+    currency = '₩'
+    yearly = '25000'
+    lifetime = '65000'

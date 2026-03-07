@@ -1,0 +1,26 @@
+[assets]
+  logo = '/assets/logo.png'
+  logoAlt = 'iAssets logo'
+  brandName = 'iAssets'
+  downloadQr = '/assets/qr-download.png'
+
+[contact]
+  email = 'idebuginn@gmail.com'
+
+[social]
+  wechatQr = '/assets/wechat-qr.jpg?v=20260303d'
+  x = 'https://x.com/idebuginn'
+  telegram = 'https://t.me/iAssetsApp'
+  xiaohongshu = 'https://www.xiaohongshu.com/user/profile/5d4057fd0000000012007068'
+  weibo = 'https://weibo.com/u/7096209693'
+  zhihu = 'https://www.zhihu.com/people/debuginn'
+
+[seo]
+  defaultSocialTitle = 'iAssets'
+  siteURL = ''
+
+[i18n]
+  defaultLang = 'en'
+
+[copyright]
+  year = 2026

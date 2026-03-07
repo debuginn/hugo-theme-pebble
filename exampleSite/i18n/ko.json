@@ -1,0 +1,494 @@
+{
+  "brand": {
+    "other": "iAssets"
+  },
+  "navFeatures": {
+    "other": "기능"
+  },
+  "navReviews": {
+    "other": "후기"
+  },
+  "navPricing": {
+    "other": "요금"
+  },
+  "navFaq": {
+    "other": "FAQ"
+  },
+  "navDownload": {
+    "other": "다운로드"
+  },
+  "navPrivacy": {
+    "other": "개인정보 처리방침"
+  },
+  "navTerms": {
+    "other": "이용약관"
+  },
+  "heroEyebrow": {
+    "other": "iAssets"
+  },
+  "heroTitle": {
+    "other": "가족 자산 전경을 빠르게 파악하세요."
+  },
+  "heroDesc": {
+    "other": "시각화된 자산 관리 도구이며, 가족 자산 관리도 지원합니다. 자산, 부채, 구조, 목표, 추이를 한 화면에서 확인할 수 있습니다."
+  },
+  "heroCta": {
+    "other": "앱 다운로드"
+  },
+  "heroCard1Title": {
+    "other": "변동 즉시 기록"
+  },
+  "heroCard1Desc": {
+    "other": "계정 잔액 변화를 빠르게 입력."
+  },
+  "heroCard2Title": {
+    "other": "장부 컬렉션 정리"
+  },
+  "heroCard2Desc": {
+    "other": "가정/개인/목표 단위로 정리."
+  },
+  "heroCard3Title": {
+    "other": "검색과 필터"
+  },
+  "heroCard3Desc": {
+    "other": "목표 계정을 몇 초 만에 찾습니다."
+  },
+  "trustEyebrow": {
+    "other": "TRUST"
+  },
+  "trustTitle": {
+    "other": "선도적인 은행 및 금융 플랫폼이 신뢰합니다"
+  },
+  "trustDesc": {
+    "other": "유명 은행 및 증권 금융 플랫폼과 협력해, 이해하기 쉽고 부담 없이 쓸 수 있는 소프트웨어를 만듭니다."
+  },
+  "trustCtaBiz": {
+    "other": "비즈니스 제휴"
+  },
+  "trustCtaMore": {
+    "other": "자세히 보기"
+  },
+  "totalAssets": {
+    "other": "총자산"
+  },
+  "netAssets": {
+    "other": "순자산"
+  },
+  "liabilities": {
+    "other": "총부채"
+  },
+  "trend": {
+    "other": "30일 추이"
+  },
+  "members": {
+    "other": "구성원"
+  },
+  "featuresEyebrow": {
+    "other": "기능"
+  },
+  "featuresTitle": {
+    "other": "가족 자산 관리 중심 설계"
+  },
+  "featuresDesc": {
+    "other": "일반 가계부가 아니라 구조 분석과 장기 목표 추적에 최적화했습니다."
+  },
+  "f1t": {
+    "other": "자산 요약"
+  },
+  "f1d": {
+    "other": "총자산, 순자산, 부채를 한 화면에서 확인합니다."
+  },
+  "f2t": {
+    "other": "구조/통화 분석"
+  },
+  "f2d": {
+    "other": "구조 카드와 통화 카드로 편중을 파악합니다."
+  },
+  "f3t": {
+    "other": "흐름/추이"
+  },
+  "f3d": {
+    "other": "순자산 변화 리듬을 계속 추적합니다."
+  },
+  "f4t": {
+    "other": "멀티 장부"
+  },
+  "f4d": {
+    "other": "기본 장부와 멀티 장부를 함께 운영할 수 있습니다."
+  },
+  "f5t": {
+    "other": "가족 협업"
+  },
+  "f5d": {
+    "other": "구성원 관리와 공유로 협업이 쉬워집니다."
+  },
+  "f6t": {
+    "other": "보안/프라이버시"
+  },
+  "f6d": {
+    "other": "암호, 생체인증, 자동 잠금을 지원합니다."
+  },
+  "detailsEyebrow": {
+    "other": "Product details"
+  },
+  "detailsTitle": {
+    "other": "지금부터 장기 자산 리뷰를 시작하세요."
+  },
+  "detailsDesc": {
+    "other": "흩어진 데이터를 한 지표 체계로 통합합니다."
+  },
+  "d1t": {
+    "other": "다양한 계정 유형"
+  },
+  "d1d": {
+    "other": "자금, 투자, 고정, 채권, 채무, 대출 지원."
+  },
+  "d2t": {
+    "other": "목표 카드"
+  },
+  "d2d": {
+    "other": "남은 금액을 자동 계산해 실행력을 높입니다."
+  },
+  "d3t": {
+    "other": "환율 지원"
+  },
+  "d3d": {
+    "other": "기준 통화를 선택해 통합 비교할 수 있습니다."
+  },
+  "d4t": {
+    "other": "장부 공유"
+  },
+  "d4d": {
+    "other": "가족 구성원이 같은 데이터를 함께 관리합니다."
+  },
+  "d5t": {
+    "other": "카드 관리"
+  },
+  "d5d": {
+    "other": "홈 카드 순서와 표시 여부를 조절할 수 있습니다."
+  },
+  "d6t": {
+    "other": "로컬 우선"
+  },
+  "d6d": {
+    "other": "기본은 로컬 저장, 필요 시 iCloud 동기화."
+  },
+  "downloadEyebrow": {
+    "other": "다운로드"
+  },
+  "downloadTitle": {
+    "other": "지금 시작"
+  },
+  "downloadDesc": {
+    "other": "iAssets를 설치하고 가족 자산 체계를 시작하세요."
+  },
+  "downloadBtn": {
+    "other": "앱 다운로드"
+  },
+  "reviewsEyebrow": {
+    "other": "후기"
+  },
+  "reviewsTitle": {
+    "other": "iAssets로 자산 습관이 달라집니다."
+  },
+  "reviewsDesc": {
+    "other": "기록에서 전체 이해까지 빠르게 연결됩니다."
+  },
+  "r1": {
+    "other": "가족 자산을 한 화면에서 볼 수 있게 됐어요."
+  },
+  "r2": {
+    "other": "월간 점검 시간이 크게 줄었습니다."
+  },
+  "r3": {
+    "other": "추이 카드가 직관적이라 이해가 쉽습니다."
+  },
+  "r4": {
+    "other": "멀티 장부로 역할 분담이 편해졌습니다."
+  },
+  "r5": {
+    "other": "목표 카드 덕분에 계획 실행력이 올라갔습니다."
+  },
+  "r6": {
+    "other": "가벼운 UI라 매일 열어보기 좋습니다."
+  },
+  "r7": {
+    "other": "순자산 자동 요약 덕분에 주간 점검이 쉬워졌어요."
+  },
+  "r8": {
+    "other": "구성 분류가 명확해서 자금 위치를 바로 파악할 수 있어요."
+  },
+  "r9": {
+    "other": "공유 장부가 편해서 가족이 같이 써도 헷갈리지 않아요."
+  },
+  "r10": {
+    "other": "목표 진행이 시각화돼 저축 실행률이 높아졌습니다."
+  },
+  "r11": {
+    "other": "오프라인 기록이 안정적이라 이동 중에도 업데이트돼요."
+  },
+  "r12": {
+    "other": "여러 장부 전환이 부드러워 업무/가계를 분리하기 좋습니다."
+  },
+  "pricingEyebrow": {
+    "other": "요금"
+  },
+  "pricingTitle": {
+    "other": "합리적인 가격, 지속적인 업데이트"
+  },
+  "pricingDesc": {
+    "other": "소프트웨어의 건강한 발전을 위해 연간 결제를 권장하며, 평생 구매도 지원합니다."
+  },
+  "monthly": {
+    "other": "월간"
+  },
+  "yearly": {
+    "other": "연간"
+  },
+  "currency": {
+    "other": "₩"
+  },
+  "planYearly": {
+    "other": "Subscribe"
+  },
+  "priceYearlySuffix": {
+    "other": "/년"
+  },
+  "planLifetime": {
+    "other": "Lifetime"
+  },
+  "popular": {
+    "other": "Popular"
+  },
+  "p2d": {
+    "other": "연간 결제로 소프트웨어의 건강한 발전에 함께해 주세요."
+  },
+  "p2f1": {
+    "other": "모든 핵심 기능 포함"
+  },
+  "p2f2": {
+    "other": "iCloud 동기화"
+  },
+  "p2f3": {
+    "other": "장부 무제한"
+  },
+  "p2cta": {
+    "other": "연간 구독"
+  },
+  "p3d": {
+    "other": "1회 구매, 평생 업데이트."
+  },
+  "p3f1": {
+    "other": "모든 고급 기능"
+  },
+  "p3f2": {
+    "other": "평생 사용"
+  },
+  "p3f3": {
+    "other": "우선 지원"
+  },
+  "p3cta": {
+    "other": "평생 구매"
+  },
+  "faqEyebrow": {
+    "other": "자주 묻는 질문"
+  },
+  "faqTitle": {
+    "other": "자주 묻는 질문"
+  },
+  "faqDesc": {
+    "other": "궁금한 내용을 먼저 확인하세요."
+  },
+  "q1": {
+    "other": "어떤 언어를 지원하나요?"
+  },
+  "a1": {
+    "other": "iAssets와 동일: 중국어 간체, 중국어 번체(대만/홍콩/마카오/싱가포르), 영어, 일본어, 한국어."
+  },
+  "q2": {
+    "other": "오프라인에서 사용 가능한가요?"
+  },
+  "a2": {
+    "other": "가능합니다. 오프라인에서 작성/수정 후 온라인에서 동기화됩니다."
+  },
+  "q3": {
+    "other": "데이터는 어디에 저장되나요?"
+  },
+  "a3": {
+    "other": "기본은 로컬 저장이며, 선택적으로 iCloud 동기화를 사용합니다."
+  },
+  "q4": {
+    "other": "가족이 함께 사용할 수 있나요?"
+  },
+  "a4": {
+    "other": "가능합니다. 가족 모드에서 구성원과 공유 장부를 관리합니다."
+  },
+  "q5": {
+    "other": "Android를 지원하나요?"
+  },
+  "a5": {
+    "other": "현재는 Apple 생태계 중심입니다."
+  },
+  "q6": {
+    "other": "어떻게 시작하나요?"
+  },
+  "a6": {
+    "other": "앱을 설치한 뒤 첫 장부를 생성하면 됩니다."
+  },
+  "footerTag": {
+    "other": "가족 자산 관리 파트너"
+  },
+  "downloadHint": {
+    "other": "QR로 App Store 이동"
+  },
+  "footerLinks": {
+    "other": "페이지"
+  },
+  "footerCompare": {
+    "other": "비교"
+  },
+  "socialTitle": {
+    "other": "媒体"
+  },
+  "socialWechat": {
+    "other": "微信"
+  },
+  "socialWeibo": {
+    "other": "微博"
+  },
+  "socialXiaohongshu": {
+    "other": "小红书"
+  },
+  "socialZhihu": {
+    "other": "知乎"
+  },
+  "privacyPageTitle": {
+    "other": "개인정보 처리방침"
+  },
+  "termsPageTitle": {
+    "other": "이용약관"
+  },
+  "legalUpdated": {
+    "other": "최종 업데이트: 2026년 3월 3일"
+  },
+  "privacyEyebrow": {
+    "other": "Policy"
+  },
+  "privacyTitle": {
+    "other": "개인정보 처리방침"
+  },
+  "privacyIntro": {
+    "other": "iAssets를 이용해 주셔서 감사합니다. 우리는 사용자의 개인정보를 중요하게 여기며 개인 데이터 보호에 최선을 다합니다."
+  },
+  "privacyS1Title": {
+    "other": "1. 수집하는 데이터"
+  },
+  "privacyS1P": {
+    "other": "iAssets는 로컬 우선 모델을 따릅니다. 입력한 자산, 부채, 계정, 분류 데이터는 기본적으로 기기에 저장됩니다."
+  },
+  "privacyS1L1": {
+    "other": "기본 설정에서 서버로 업로드하지 않습니다."
+  },
+  "privacyS1L2": {
+    "other": "기본 설정에서 신원 연계 원격 프로파일을 만들지 않습니다."
+  },
+  "privacyS2Title": {
+    "other": "2. 동기화 및 백업"
+  },
+  "privacyS2P": {
+    "other": "iCloud 동기화를 활성화하면 데이터는 Apple iCloud를 통해 기기 간 동기화되며, Apple 정책이 적용됩니다."
+  },
+  "privacyS3Title": {
+    "other": "3. 제3자 서비스"
+  },
+  "privacyS3P": {
+    "other": "핵심 기능 제공을 위해 필요한 제3자 인프라(예: Apple 플랫폼 기능)를 사용할 수 있으며, 개인정보를 판매하지 않습니다."
+  },
+  "privacyS4Title": {
+    "other": "4. 데이터 보안"
+  },
+  "privacyS4P": {
+    "other": "기기 암호, 생체인증, 시스템 보안 설정 활성화를 권장합니다. iAssets는 암호 보호와 자동 잠금을 지원합니다."
+  },
+  "privacyS5Title": {
+    "other": "5. 공유 및 공개"
+  },
+  "privacyS5P": {
+    "other": "법적 의무 또는 안전 확보가 필요한 경우를 제외하고, 로컬 데이터 내용을 제3자에게 적극적으로 공개하지 않습니다."
+  },
+  "privacyS6Title": {
+    "other": "6. 정책 업데이트"
+  },
+  "privacyS6P": {
+    "other": "본 정책은 수시로 업데이트될 수 있으며, 중요 변경 시 앱 또는 웹사이트에서 안내합니다."
+  },
+  "privacyS7Title": {
+    "other": "7. 문의"
+  },
+  "privacyS7P": {
+    "other": "본 정책 관련 문의: idebuginn@gmail.com"
+  },
+  "termsEyebrow": {
+    "other": "Terms"
+  },
+  "termsTitle": {
+    "other": "이용약관"
+  },
+  "termsIntro": {
+    "other": "iAssets를 사용하기 전에 본 약관을 주의 깊게 읽어주세요. 서비스를 사용하면 약관에 동의한 것으로 간주됩니다."
+  },
+  "termsS1Title": {
+    "other": "1. 서비스 범위"
+  },
+  "termsS1P": {
+    "other": "iAssets는 가계 자산 관리 기능(자산 기록, 부채 관리, 분석, 목표 추적, 다중 장부 협업)을 제공합니다."
+  },
+  "termsS2Title": {
+    "other": "2. 계정 및 데이터 책임"
+  },
+  "termsS2P": {
+    "other": "입력 데이터의 정확성과 적법성은 사용자 책임입니다. 기기 및 계정 정보를 안전하게 관리해 주세요."
+  },
+  "termsS3Title": {
+    "other": "3. 사용 규칙"
+  },
+  "termsS3L1": {
+    "other": "불법 또는 부정한 목적으로 iAssets를 사용하지 마세요."
+  },
+  "termsS3L2": {
+    "other": "앱의 정상 동작을 방해하거나 공격하지 마세요."
+  },
+  "termsS3L3": {
+    "other": "허가 없이 보호 콘텐츠를 복제·역공학·배포하지 마세요."
+  },
+  "termsS4Title": {
+    "other": "4. 구독 및 평생 구매"
+  },
+  "termsS4P": {
+    "other": "iAssets는 연간 구독 또는 평생 구매를 제공할 수 있으며, 실제 가격/기능은 앱 내 표시 기준입니다."
+  },
+  "termsS5Title": {
+    "other": "5. 지식재산권"
+  },
+  "termsS5P": {
+    "other": "iAssets의 디자인, 코드, 상표, 콘텐츠는 관련 지식재산권법의 보호를 받습니다."
+  },
+  "termsS6Title": {
+    "other": "6. 면책"
+  },
+  "termsS6P": {
+    "other": "iAssets는 정보 관리 도구이며 투자·세무·법률·재무 자문을 제공하지 않습니다."
+  },
+  "termsS7Title": {
+    "other": "7. 약관 변경 및 종료"
+  },
+  "termsS7P": {
+    "other": "당사는 필요 시 약관을 업데이트할 수 있으며, 업데이트 후 계속 사용하면 동의한 것으로 간주됩니다."
+  },
+  "termsS8Title": {
+    "other": "8. 연락처"
+  },
+  "termsS8P": {
+    "other": "약관 관련 문의: idebuginn@gmail.com"
+  }
+}

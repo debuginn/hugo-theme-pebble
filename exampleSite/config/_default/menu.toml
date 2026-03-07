@@ -1,0 +1,49 @@
+[[main]]
+  identifier = 'navFeatures'
+  url = '#features'
+  weight = 10
+
+[[main]]
+  identifier = 'navReviews'
+  url = '#reviews'
+  weight = 20
+
+[[main]]
+  identifier = 'navPricing'
+  url = '#pricing'
+  weight = 30
+
+[[main]]
+  identifier = 'navFaq'
+  url = '#faqs'
+  weight = 40
+
+[[footer]]
+  identifier = 'navFeatures'
+  url = '#features'
+  weight = 10
+
+[[footer]]
+  identifier = 'navPricing'
+  url = '#pricing'
+  weight = 20
+
+[[footer]]
+  identifier = 'navFaq'
+  url = '#faqs'
+  weight = 30
+
+[[footer]]
+  identifier = 'navDownload'
+  url = '#download'
+  weight = 40
+
+[[footer]]
+  identifier = 'navPrivacy'
+  url = '/privacy/'
+  weight = 50
+
+[[footer]]
+  identifier = 'navTerms'
+  url = '/terms/'
+  weight = 60

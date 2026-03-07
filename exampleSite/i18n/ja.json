@@ -1,0 +1,494 @@
+{
+  "brand": {
+    "other": "iAssets"
+  },
+  "navFeatures": {
+    "other": "機能"
+  },
+  "navReviews": {
+    "other": "評価"
+  },
+  "navPricing": {
+    "other": "料金"
+  },
+  "navFaq": {
+    "other": "FAQ"
+  },
+  "navDownload": {
+    "other": "ダウンロード"
+  },
+  "navPrivacy": {
+    "other": "プライバシー"
+  },
+  "navTerms": {
+    "other": "利用規約"
+  },
+  "heroEyebrow": {
+    "other": "iAssets"
+  },
+  "heroTitle": {
+    "other": "家族資産の全体像を、すばやく把握。"
+  },
+  "heroDesc": {
+    "other": "視覚的に使える資産管理ツールで、家族の資産管理にも対応しています。資産・負債・構成・目標・推移を1画面で確認できます。"
+  },
+  "heroCta": {
+    "other": "アプリを入手"
+  },
+  "heroCard1Title": {
+    "other": "資産変動を即記録"
+  },
+  "heroCard1Desc": {
+    "other": "口座残高の変化をすぐに入力。"
+  },
+  "heroCard2Title": {
+    "other": "帳簿をコレクション整理"
+  },
+  "heroCard2Desc": {
+    "other": "家庭・個人・目標で整理。"
+  },
+  "heroCard3Title": {
+    "other": "検索とフィルタ"
+  },
+  "heroCard3Desc": {
+    "other": "対象口座を数秒で特定。"
+  },
+  "trustEyebrow": {
+    "other": "TRUST"
+  },
+  "trustTitle": {
+    "other": "主要な銀行・金融プラットフォームに信頼されています"
+  },
+  "trustDesc": {
+    "other": "著名な銀行・証券金融プラットフォームと連携し、わかりやすく手頃に使えるソフトを提供します。"
+  },
+  "trustCtaBiz": {
+    "other": "ビジネス提携"
+  },
+  "trustCtaMore": {
+    "other": "詳細を見る"
+  },
+  "totalAssets": {
+    "other": "総資産"
+  },
+  "netAssets": {
+    "other": "純資産"
+  },
+  "liabilities": {
+    "other": "総負債"
+  },
+  "trend": {
+    "other": "30日トレンド"
+  },
+  "members": {
+    "other": "メンバー"
+  },
+  "featuresEyebrow": {
+    "other": "機能"
+  },
+  "featuresTitle": {
+    "other": "家族資産管理に特化した設計。"
+  },
+  "featuresDesc": {
+    "other": "汎用の家計簿ではなく、構造分析と長期目標の追跡に最適化。"
+  },
+  "f1t": {
+    "other": "資産サマリー"
+  },
+  "f1d": {
+    "other": "総資産・純資産・負債を1ページで確認。"
+  },
+  "f2t": {
+    "other": "構成と通貨"
+  },
+  "f2d": {
+    "other": "構成カードと通貨カードで偏りを把握。"
+  },
+  "f3t": {
+    "other": "フローと推移"
+  },
+  "f3d": {
+    "other": "純資産の変化リズムを継続観測。"
+  },
+  "f4t": {
+    "other": "複数帳簿管理"
+  },
+  "f4d": {
+    "other": "デフォルト帳簿と複数帳簿を併用可能。"
+  },
+  "f5t": {
+    "other": "家族コラボ"
+  },
+  "f5d": {
+    "other": "メンバー管理と共有で共同運用。"
+  },
+  "f6t": {
+    "other": "プライバシー保護"
+  },
+  "f6d": {
+    "other": "パスコード、生体認証、自動ロック対応。"
+  },
+  "detailsEyebrow": {
+    "other": "Product details"
+  },
+  "detailsTitle": {
+    "other": "長期の資産レビューを今すぐ開始。"
+  },
+  "detailsDesc": {
+    "other": "分散したデータを同じ指標系に統合します。"
+  },
+  "d1t": {
+    "other": "複数タイプ口座"
+  },
+  "d1d": {
+    "other": "資金、投資、固定、債権、債務、ローンに対応。"
+  },
+  "d2t": {
+    "other": "目標カード"
+  },
+  "d2d": {
+    "other": "残額を自動算出し、計画を継続しやすくします。"
+  },
+  "d3t": {
+    "other": "為替対応"
+  },
+  "d3d": {
+    "other": "基準通貨を選択して横断比較できます。"
+  },
+  "d4t": {
+    "other": "帳簿共有"
+  },
+  "d4d": {
+    "other": "家族で同一データを共同メンテナンス。"
+  },
+  "d5t": {
+    "other": "カード管理"
+  },
+  "d5d": {
+    "other": "ホームの表示順と表示可否を調整可能。"
+  },
+  "d6t": {
+    "other": "ローカル優先"
+  },
+  "d6d": {
+    "other": "データはローカル保存、必要時に iCloud 同期。"
+  },
+  "downloadEyebrow": {
+    "other": "ダウンロード"
+  },
+  "downloadTitle": {
+    "other": "今すぐ開始"
+  },
+  "downloadDesc": {
+    "other": "iAssets をダウンロードして資産管理を開始。"
+  },
+  "downloadBtn": {
+    "other": "ダウンロード"
+  },
+  "reviewsEyebrow": {
+    "other": "評価"
+  },
+  "reviewsTitle": {
+    "other": "iAssets で資産習慣が変わる。"
+  },
+  "reviewsDesc": {
+    "other": "記録から全体理解まで、最短でつながる。"
+  },
+  "r1": {
+    "other": "家族資産を一画面で確認できるようになりました。"
+  },
+  "r2": {
+    "other": "月次レビュー時間が大幅に短縮しました。"
+  },
+  "r3": {
+    "other": "トレンドカードが直感的で見やすいです。"
+  },
+  "r4": {
+    "other": "複数帳簿で夫婦分担がしやすいです。"
+  },
+  "r5": {
+    "other": "目標カードで計画を継続しやすくなりました。"
+  },
+  "r6": {
+    "other": "軽快な UI で毎日開きやすいです。"
+  },
+  "r7": {
+    "other": "純資産の自動集計で週次レビューが楽になりました。"
+  },
+  "r8": {
+    "other": "構成分類が明確で、資金の置き場所が把握しやすいです。"
+  },
+  "r9": {
+    "other": "共有帳簿が便利で、家族で更新しても混乱しません。"
+  },
+  "r10": {
+    "other": "目標進捗の可視化で貯蓄の継続率が上がりました。"
+  },
+  "r11": {
+    "other": "オフライン記録が安定していて通勤中でも更新できます。"
+  },
+  "r12": {
+    "other": "帳簿切替が滑らかで、仕事用と家庭用を分けやすいです。"
+  },
+  "pricingEyebrow": {
+    "other": "料金"
+  },
+  "pricingTitle": {
+    "other": "低価格で、継続的にアップデート。"
+  },
+  "pricingDesc": {
+    "other": "ソフトウェアの健全な発展のため年額払いを推奨していますが、買い切りにも対応しています。"
+  },
+  "monthly": {
+    "other": "月額"
+  },
+  "yearly": {
+    "other": "年額"
+  },
+  "currency": {
+    "other": "￥"
+  },
+  "planYearly": {
+    "other": "Subscribe"
+  },
+  "priceYearlySuffix": {
+    "other": "/年"
+  },
+  "planLifetime": {
+    "other": "Lifetime"
+  },
+  "popular": {
+    "other": "Popular"
+  },
+  "p2d": {
+    "other": "年額で支払い、ソフトウェアの健全な発展を共に支えてください。"
+  },
+  "p2f1": {
+    "other": "主要機能をすべて利用可能"
+  },
+  "p2f2": {
+    "other": "iCloud 同期"
+  },
+  "p2f3": {
+    "other": "帳簿数無制限"
+  },
+  "p2cta": {
+    "other": "年額で購読"
+  },
+  "p3d": {
+    "other": "買い切りで永久アップデート。"
+  },
+  "p3f1": {
+    "other": "全上位機能"
+  },
+  "p3f2": {
+    "other": "永久利用"
+  },
+  "p3f3": {
+    "other": "優先サポート"
+  },
+  "p3cta": {
+    "other": "買い切りで購入"
+  },
+  "faqEyebrow": {
+    "other": "FAQ"
+  },
+  "faqTitle": {
+    "other": "よくある質問"
+  },
+  "faqDesc": {
+    "other": "よくある疑問を先に確認できます。"
+  },
+  "q1": {
+    "other": "対応言語は？"
+  },
+  "a1": {
+    "other": "iAssets と同じく、簡体字・繁体字（台湾/香港/マカオ/シンガポール）・英語・日本語・韓国語に対応。"
+  },
+  "q2": {
+    "other": "オフラインで使えますか？"
+  },
+  "a2": {
+    "other": "はい。オフラインで作成・編集し、オンライン時に同期できます。"
+  },
+  "q3": {
+    "other": "データはどこに保存されますか？"
+  },
+  "a3": {
+    "other": "ローカル優先保存で、必要に応じて iCloud 同期。"
+  },
+  "q4": {
+    "other": "家族で共同利用できますか？"
+  },
+  "a4": {
+    "other": "はい。家族モードでメンバー管理と共有帳簿が可能です。"
+  },
+  "q5": {
+    "other": "Android 版はありますか？"
+  },
+  "a5": {
+    "other": "現在は主に Apple エコシステム向けです。"
+  },
+  "q6": {
+    "other": "始め方は？"
+  },
+  "a6": {
+    "other": "アプリを入手し、最初の帳簿を作成してください。"
+  },
+  "footerTag": {
+    "other": "家族資産管理のパートナー"
+  },
+  "downloadHint": {
+    "other": "QR から App Store を開けます"
+  },
+  "footerLinks": {
+    "other": "ページ"
+  },
+  "footerCompare": {
+    "other": "比較"
+  },
+  "socialTitle": {
+    "other": "媒体"
+  },
+  "socialWechat": {
+    "other": "微信"
+  },
+  "socialWeibo": {
+    "other": "微博"
+  },
+  "socialXiaohongshu": {
+    "other": "小红书"
+  },
+  "socialZhihu": {
+    "other": "知乎"
+  },
+  "privacyPageTitle": {
+    "other": "プライバシーポリシー"
+  },
+  "termsPageTitle": {
+    "other": "利用規約"
+  },
+  "legalUpdated": {
+    "other": "最終更新日：2026年3月3日"
+  },
+  "privacyEyebrow": {
+    "other": "Policy"
+  },
+  "privacyTitle": {
+    "other": "プライバシーポリシー"
+  },
+  "privacyIntro": {
+    "other": "iAssets をご利用いただきありがとうございます。私たちはユーザーのプライバシーを重視し、個人データの保護に努めます。本ポリシーではデータ取扱いの方針を説明します。"
+  },
+  "privacyS1Title": {
+    "other": "1. 収集するデータ"
+  },
+  "privacyS1P": {
+    "other": "iAssets はローカル優先です。入力した資産・負債・口座・分類データは、原則として端末内に保存されます。"
+  },
+  "privacyS1L1": {
+    "other": "初期設定では当社サーバーへアップロードしません。"
+  },
+  "privacyS1L2": {
+    "other": "初期設定では本人特定に紐づく遠隔プロファイルを作成しません。"
+  },
+  "privacyS2Title": {
+    "other": "2. 同期とバックアップ"
+  },
+  "privacyS2P": {
+    "other": "iCloud 同期を有効化した場合、データは Apple iCloud を通じて同期されます。この処理は Apple の規約とポリシーに従います。"
+  },
+  "privacyS3Title": {
+    "other": "3. 第三者サービス"
+  },
+  "privacyS3P": {
+    "other": "コア機能提供のために必要な第三者基盤（例：Apple プラットフォーム機能）を利用する場合があります。個人データを販売することはありません。"
+  },
+  "privacyS4Title": {
+    "other": "4. データ安全性"
+  },
+  "privacyS4P": {
+    "other": "端末パスコード、生体認証、OS のセキュリティ設定の有効化を推奨します。iAssets はパスコード保護や自動ロックをサポートします。"
+  },
+  "privacyS5Title": {
+    "other": "5. 共有と開示"
+  },
+  "privacyS5P": {
+    "other": "法令上の要請または安全確保のために必要な場合を除き、ローカルデータ内容を第三者へ積極的に開示しません。"
+  },
+  "privacyS6Title": {
+    "other": "6. 政策の更新"
+  },
+  "privacyS6P": {
+    "other": "本ポリシーは必要に応じて更新されます。更新版は公開時点で有効となり、重要な変更はアプリまたはサイトで通知します。"
+  },
+  "privacyS7Title": {
+    "other": "7. お問い合わせ"
+  },
+  "privacyS7P": {
+    "other": "本ポリシーに関するお問い合わせ：idebuginn@gmail.com"
+  },
+  "termsEyebrow": {
+    "other": "Terms"
+  },
+  "termsTitle": {
+    "other": "利用規約"
+  },
+  "termsIntro": {
+    "other": "iAssets をご利用いただく前に、本規約をよくお読みください。利用を開始した時点で本規約に同意したものとみなされます。"
+  },
+  "termsS1Title": {
+    "other": "1. サービス内容"
+  },
+  "termsS1P": {
+    "other": "iAssets は家庭資産管理機能（資産記録、負債管理、分析、目標追跡、複数帳簿協業）を提供します。"
+  },
+  "termsS2Title": {
+    "other": "2. アカウントとデータ責任"
+  },
+  "termsS2P": {
+    "other": "入力データの正確性・適法性はユーザーの責任です。端末およびアカウント情報は適切に管理してください。"
+  },
+  "termsS3Title": {
+    "other": "3. 利用ルール"
+  },
+  "termsS3L1": {
+    "other": "違法・不正目的で iAssets を利用しないこと。"
+  },
+  "termsS3L2": {
+    "other": "アプリの正常動作を妨害・攻撃しないこと。"
+  },
+  "termsS3L3": {
+    "other": "許可なく保護対象コンテンツを複製・解析・配布しないこと。"
+  },
+  "termsS4Title": {
+    "other": "4. サブスクと買い切り"
+  },
+  "termsS4P": {
+    "other": "iAssets は年額サブスクと買い切りを提供する場合があります。価格・機能はアプリ内表示に従います。"
+  },
+  "termsS5Title": {
+    "other": "5. 知的財産権"
+  },
+  "termsS5P": {
+    "other": "iAssets のデザイン、コード、商標、コンテンツは知的財産権法により保護されています。"
+  },
+  "termsS6Title": {
+    "other": "6. 免責事項"
+  },
+  "termsS6P": {
+    "other": "iAssets は情報管理ツールであり、投資・税務・法律・財務アドバイスを提供するものではありません。"
+  },
+  "termsS7Title": {
+    "other": "7. 規約変更と終了"
+  },
+  "termsS7P": {
+    "other": "当社は必要に応じて規約を更新します。更新後の継続利用は同意とみなされます。"
+  },
+  "termsS8Title": {
+    "other": "8. 連絡先"
+  },
+  "termsS8P": {
+    "other": "本規約に関するお問い合わせ：idebuginn@gmail.com"
+  }
+}

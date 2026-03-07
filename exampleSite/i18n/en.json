@@ -1,0 +1,494 @@
+{
+  "brand": {
+    "other": "iAssets"
+  },
+  "navFeatures": {
+    "other": "Features"
+  },
+  "navReviews": {
+    "other": "Reviews"
+  },
+  "navPricing": {
+    "other": "Pricing"
+  },
+  "navFaq": {
+    "other": "FAQ"
+  },
+  "navDownload": {
+    "other": "Download"
+  },
+  "navPrivacy": {
+    "other": "Privacy"
+  },
+  "navTerms": {
+    "other": "Terms"
+  },
+  "heroEyebrow": {
+    "other": "iAssets"
+  },
+  "heroTitle": {
+    "other": "Understand your family balance sheet at a glance."
+  },
+  "heroDesc": {
+    "other": "A visual asset management tool that also supports family asset management. Assets, liabilities, structure, goals, and trends are visible on one screen."
+  },
+  "heroCta": {
+    "other": "Download App"
+  },
+  "heroCard1Title": {
+    "other": "Capture changes fast"
+  },
+  "heroCard1Desc": {
+    "other": "Log account updates in seconds."
+  },
+  "heroCard2Title": {
+    "other": "Organize with books"
+  },
+  "heroCard2Desc": {
+    "other": "Manage household, personal and goal books."
+  },
+  "heroCard3Title": {
+    "other": "Search and filter"
+  },
+  "heroCard3Desc": {
+    "other": "Find target accounts in seconds."
+  },
+  "trustEyebrow": {
+    "other": "TRUST"
+  },
+  "trustTitle": {
+    "other": "Trusted by leading banks and finance platforms"
+  },
+  "trustDesc": {
+    "other": "Partnering with well-known banks and securities platforms to build affordable software that is easy to understand and use."
+  },
+  "trustCtaBiz": {
+    "other": "Business cooperation"
+  },
+  "trustCtaMore": {
+    "other": "Learn more"
+  },
+  "totalAssets": {
+    "other": "Total assets"
+  },
+  "netAssets": {
+    "other": "Net assets"
+  },
+  "liabilities": {
+    "other": "Liabilities"
+  },
+  "trend": {
+    "other": "30-day trend"
+  },
+  "members": {
+    "other": "Members"
+  },
+  "featuresEyebrow": {
+    "other": "Features"
+  },
+  "featuresTitle": {
+    "other": "Designed for household asset management."
+  },
+  "featuresDesc": {
+    "other": "Not generic bookkeeping. It is built for structure, risk and long-term goals."
+  },
+  "f1t": {
+    "other": "Asset overview"
+  },
+  "f1d": {
+    "other": "See total assets, net assets and liabilities in one page."
+  },
+  "f2t": {
+    "other": "Structure and currency"
+  },
+  "f2d": {
+    "other": "Structure and currency cards help spot allocation bias."
+  },
+  "f3t": {
+    "other": "Flow and trend"
+  },
+  "f3d": {
+    "other": "Track net-worth rhythm and detect risks earlier."
+  },
+  "f4t": {
+    "other": "Multi-book management"
+  },
+  "f4d": {
+    "other": "Default and multiple books can run together."
+  },
+  "f5t": {
+    "other": "Family collaboration"
+  },
+  "f5d": {
+    "other": "Member management and sharing for multi-person workflows."
+  },
+  "f6t": {
+    "other": "Privacy and security"
+  },
+  "f6d": {
+    "other": "Passcode, biometric unlock and auto-lock."
+  },
+  "detailsEyebrow": {
+    "other": "Product details"
+  },
+  "detailsTitle": {
+    "other": "Start long-term asset review today."
+  },
+  "detailsDesc": {
+    "other": "Aggregate scattered data into one coherent view."
+  },
+  "d1t": {
+    "other": "Multi-type accounts"
+  },
+  "d1d": {
+    "other": "Support cash, investments, fixed, receivable, payable, and loans."
+  },
+  "d2t": {
+    "other": "Goal card"
+  },
+  "d2d": {
+    "other": "Auto-calculate remaining amount to keep goals actionable."
+  },
+  "d3t": {
+    "other": "FX support"
+  },
+  "d3d": {
+    "other": "Optional base currency for multi-currency assets."
+  },
+  "d4t": {
+    "other": "Book sharing"
+  },
+  "d4d": {
+    "other": "Family members can co-maintain one data set."
+  },
+  "d5t": {
+    "other": "Card management"
+  },
+  "d5d": {
+    "other": "Customize card order and visibility on home screen."
+  },
+  "d6t": {
+    "other": "Local-first"
+  },
+  "d6d": {
+    "other": "Data is local by default with optional iCloud sync."
+  },
+  "downloadEyebrow": {
+    "other": "Download"
+  },
+  "downloadTitle": {
+    "other": "Start now"
+  },
+  "downloadDesc": {
+    "other": "Install iAssets and build your family asset system."
+  },
+  "downloadBtn": {
+    "other": "Download"
+  },
+  "reviewsEyebrow": {
+    "other": "Reviews"
+  },
+  "reviewsTitle": {
+    "other": "People build better financial habits with iAssets."
+  },
+  "reviewsDesc": {
+    "other": "From recording one item to understanding full trends."
+  },
+  "r1": {
+    "other": "Finally we can see all household assets in one place."
+  },
+  "r2": {
+    "other": "Monthly review dropped from one hour to ten minutes."
+  },
+  "r3": {
+    "other": "Trend cards are intuitive and family-friendly."
+  },
+  "r4": {
+    "other": "Multi-book mode is perfect for couple collaboration."
+  },
+  "r5": {
+    "other": "Goal card makes long-term planning executable."
+  },
+  "r6": {
+    "other": "Light UI, easy to open every day."
+  },
+  "r7": {
+    "other": "Weekly reviews got much easier after auto net-worth summaries."
+  },
+  "r8": {
+    "other": "Allocation categories are clear, I finally know where money sits."
+  },
+  "r9": {
+    "other": "Shared books work great, the whole family can update without chaos."
+  },
+  "r10": {
+    "other": "Visual goal progress noticeably improved my saving consistency."
+  },
+  "r11": {
+    "other": "Offline logging is reliable, I can update during commute."
+  },
+  "r12": {
+    "other": "Switching between books is smooth, work and home are clearly separated."
+  },
+  "pricingEyebrow": {
+    "other": "Pricing"
+  },
+  "pricingTitle": {
+    "other": "Affordable pricing, continuous updates."
+  },
+  "pricingDesc": {
+    "other": "Yearly payment is recommended to support sustainable development, and lifetime purchase is also available."
+  },
+  "monthly": {
+    "other": "Monthly"
+  },
+  "yearly": {
+    "other": "Yearly"
+  },
+  "currency": {
+    "other": "$"
+  },
+  "planYearly": {
+    "other": "Subscribe"
+  },
+  "priceYearlySuffix": {
+    "other": "/yr"
+  },
+  "planLifetime": {
+    "other": "Lifetime"
+  },
+  "popular": {
+    "other": "Popular"
+  },
+  "p2d": {
+    "other": "Pay yearly to support the healthy growth of the software."
+  },
+  "p2f1": {
+    "other": "All core features"
+  },
+  "p2f2": {
+    "other": "iCloud sync"
+  },
+  "p2f3": {
+    "other": "Unlimited books"
+  },
+  "p2cta": {
+    "other": "Subscribe yearly"
+  },
+  "p3d": {
+    "other": "One-time purchase, lifetime updates."
+  },
+  "p3f1": {
+    "other": "All advanced features"
+  },
+  "p3f2": {
+    "other": "Lifetime access"
+  },
+  "p3f3": {
+    "other": "Priority support"
+  },
+  "p3cta": {
+    "other": "Buy lifetime"
+  },
+  "faqEyebrow": {
+    "other": "FAQ"
+  },
+  "faqTitle": {
+    "other": "Frequently asked questions"
+  },
+  "faqDesc": {
+    "other": "If you have questions, start here."
+  },
+  "q1": {
+    "other": "Which languages are supported?"
+  },
+  "a1": {
+    "other": "Same as iAssets app: zh-Hans, zh-Hant-TW, zh-Hant-HK, zh-Hant-MO, zh-Hant-SG, English, Japanese, Korean."
+  },
+  "q2": {
+    "other": "Does it work offline?"
+  },
+  "a2": {
+    "other": "Yes. You can create and edit offline, then sync when online."
+  },
+  "q3": {
+    "other": "Where is data stored?"
+  },
+  "a3": {
+    "other": "Local-first by default, with optional iCloud sync."
+  },
+  "q4": {
+    "other": "Can a family collaborate?"
+  },
+  "a4": {
+    "other": "Yes. Family mode supports members and shared books."
+  },
+  "q5": {
+    "other": "Is Android supported?"
+  },
+  "a5": {
+    "other": "Currently focused on Apple ecosystem."
+  },
+  "q6": {
+    "other": "How do I start?"
+  },
+  "a6": {
+    "other": "Download the app and create your first book."
+  },
+  "footerTag": {
+    "other": "Your household asset management companion"
+  },
+  "downloadHint": {
+    "other": "Scan to open App Store"
+  },
+  "footerLinks": {
+    "other": "Pages"
+  },
+  "footerCompare": {
+    "other": "Compare"
+  },
+  "socialTitle": {
+    "other": "媒体"
+  },
+  "socialWechat": {
+    "other": "微信"
+  },
+  "socialWeibo": {
+    "other": "微博"
+  },
+  "socialXiaohongshu": {
+    "other": "小红书"
+  },
+  "socialZhihu": {
+    "other": "知乎"
+  },
+  "privacyPageTitle": {
+    "other": "Privacy Policy"
+  },
+  "termsPageTitle": {
+    "other": "Terms and Conditions"
+  },
+  "legalUpdated": {
+    "other": "Last updated: March 3, 2026"
+  },
+  "privacyEyebrow": {
+    "other": "Policy"
+  },
+  "privacyTitle": {
+    "other": "Privacy Policy"
+  },
+  "privacyIntro": {
+    "other": "Welcome to iAssets. We value your privacy and are committed to protecting your personal data. This policy explains how iAssets handles data."
+  },
+  "privacyS1Title": {
+    "other": "1. Data We Collect"
+  },
+  "privacyS1P": {
+    "other": "iAssets follows a local-first data model. Asset, liability, account, and category data you enter is stored on your device by default."
+  },
+  "privacyS1L1": {
+    "other": "By default, data is not uploaded to our servers."
+  },
+  "privacyS1L2": {
+    "other": "By default, we do not build identity-linked remote profiles."
+  },
+  "privacyS2Title": {
+    "other": "2. Sync and Backup"
+  },
+  "privacyS2P": {
+    "other": "If you enable iCloud sync, your data is synced across devices via Apple iCloud, subject to Apple's terms and privacy policy."
+  },
+  "privacyS3Title": {
+    "other": "3. Third-Party Services"
+  },
+  "privacyS3P": {
+    "other": "We may rely on required third-party infrastructure (such as Apple platform capabilities) for core functions. We do not sell your personal data."
+  },
+  "privacyS4Title": {
+    "other": "4. Data Security"
+  },
+  "privacyS4P": {
+    "other": "We recommend enabling device passcode, biometric unlock, and system security settings. iAssets supports passcode protection and auto-lock."
+  },
+  "privacyS5Title": {
+    "other": "5. Data Sharing and Disclosure"
+  },
+  "privacyS5P": {
+    "other": "Except where required by law or necessary for safety, we do not proactively disclose your local data content to third parties."
+  },
+  "privacyS6Title": {
+    "other": "6. Policy Updates"
+  },
+  "privacyS6P": {
+    "other": "We may update this policy from time to time. Updated versions take effect when published. Material changes will be announced in app or on site."
+  },
+  "privacyS7Title": {
+    "other": "7. Contact"
+  },
+  "privacyS7P": {
+    "other": "If you have questions about this policy, contact us at: idebuginn@gmail.com"
+  },
+  "termsEyebrow": {
+    "other": "Terms"
+  },
+  "termsTitle": {
+    "other": "Terms and Conditions"
+  },
+  "termsIntro": {
+    "other": "Welcome to iAssets. Please read these terms carefully before using the app and related services. By using iAssets, you agree to these terms."
+  },
+  "termsS1Title": {
+    "other": "1. Service Scope"
+  },
+  "termsS1P": {
+    "other": "iAssets provides household asset management features, including asset records, liability management, analytics, goal tracking, and multi-book collaboration."
+  },
+  "termsS2Title": {
+    "other": "2. Account and Data Responsibility"
+  },
+  "termsS2P": {
+    "other": "You are responsible for the authenticity and legality of data you enter. Please keep your device and account credentials secure."
+  },
+  "termsS3Title": {
+    "other": "3. Acceptable Use"
+  },
+  "termsS3L1": {
+    "other": "Do not use iAssets for illegal activities."
+  },
+  "termsS3L2": {
+    "other": "Do not interfere with or attack normal app operation."
+  },
+  "termsS3L3": {
+    "other": "Do not copy, reverse-engineer, or distribute protected content without authorization."
+  },
+  "termsS4Title": {
+    "other": "4. Subscription and Lifetime Purchase"
+  },
+  "termsS4P": {
+    "other": "iAssets may offer yearly subscription and lifetime purchase options. Actual pricing and features are subject to in-app display."
+  },
+  "termsS5Title": {
+    "other": "5. Intellectual Property"
+  },
+  "termsS5P": {
+    "other": "iAssets and related design, code, trademarks, and content are protected by intellectual property laws."
+  },
+  "termsS6Title": {
+    "other": "6. Disclaimer"
+  },
+  "termsS6P": {
+    "other": "iAssets is an information management tool and does not constitute investment, tax, legal, or financial advice."
+  },
+  "termsS7Title": {
+    "other": "7. Changes and Termination"
+  },
+  "termsS7P": {
+    "other": "We may update these terms as needed. Continued use after updates means acceptance. If you disagree, stop using the service."
+  },
+  "termsS8Title": {
+    "other": "8. Contact"
+  },
+  "termsS8P": {
+    "other": "If you have questions about these terms, contact: idebuginn@gmail.com"
+  }
+}

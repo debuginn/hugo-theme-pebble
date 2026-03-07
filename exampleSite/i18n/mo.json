@@ -1,0 +1,494 @@
+{
+  "brand": {
+    "other": "iAssets"
+  },
+  "navFeatures": {
+    "other": "特性"
+  },
+  "navReviews": {
+    "other": "評價"
+  },
+  "navPricing": {
+    "other": "價格"
+  },
+  "navFaq": {
+    "other": "常見問題"
+  },
+  "navDownload": {
+    "other": "下載"
+  },
+  "navPrivacy": {
+    "other": "隱私政策"
+  },
+  "navTerms": {
+    "other": "使用條款及細則"
+  },
+  "heroEyebrow": {
+    "other": "iAssets"
+  },
+  "heroTitle": {
+    "other": "快速掌握你的資產全景、守護你的財富"
+  },
+  "heroDesc": {
+    "other": "這是一款可視化資產管理工具，同時支援家庭資產管理。資產、負債、結構、目標和趨勢一屏可見。"
+  },
+  "heroCta": {
+    "other": "下載應用"
+  },
+  "heroCard1Title": {
+    "other": "秒記資產變動"
+  },
+  "heroCard1Desc": {
+    "other": "帳戶餘額變化可快速錄入。"
+  },
+  "heroCard2Title": {
+    "other": "合集化帳本整理"
+  },
+  "heroCard2Desc": {
+    "other": "按家庭、個人、目標管理帳本。"
+  },
+  "heroCard3Title": {
+    "other": "快速搜尋篩選"
+  },
+  "heroCard3Desc": {
+    "other": "幾秒定位到目標帳戶或變更。"
+  },
+  "trustEyebrow": {
+    "other": "TRUST"
+  },
+  "trustTitle": {
+    "other": "受領先銀行、金融平台信賴"
+  },
+  "trustDesc": {
+    "other": "與知名銀行與證券金融平台合作，做看得懂、用得起的平價軟體"
+  },
+  "trustCtaBiz": {
+    "other": "商務合作"
+  },
+  "trustCtaMore": {
+    "other": "了解詳情"
+  },
+  "totalAssets": {
+    "other": "總資產"
+  },
+  "netAssets": {
+    "other": "淨資產"
+  },
+  "liabilities": {
+    "other": "總負債"
+  },
+  "trend": {
+    "other": "30 天趨勢"
+  },
+  "members": {
+    "other": "家庭成員"
+  },
+  "featuresEyebrow": {
+    "other": "特性"
+  },
+  "featuresTitle": {
+    "other": "圍繞家庭資產管理而設計。"
+  },
+  "featuresDesc": {
+    "other": "不是泛記帳，而是資產結構分析、風險感知和長期目標追蹤。"
+  },
+  "f1t": {
+    "other": "資產全景總覽"
+  },
+  "f1d": {
+    "other": "總資產、淨資產、負債與占比一頁看清。"
+  },
+  "f2t": {
+    "other": "結構與貨幣分析"
+  },
+  "f2d": {
+    "other": "結構卡與貨幣卡幫助識別配置偏差。"
+  },
+  "f3t": {
+    "other": "流向與趨勢"
+  },
+  "f3d": {
+    "other": "觀察淨資產變化節奏，提前發現風險。"
+  },
+  "f4t": {
+    "other": "多帳本管理"
+  },
+  "f4d": {
+    "other": "支援預設帳本和多帳本並行管理。"
+  },
+  "f5t": {
+    "other": "家庭協作"
+  },
+  "f5d": {
+    "other": "成員管理與共享讓多人協作更順暢。"
+  },
+  "f6t": {
+    "other": "隱私與安全"
+  },
+  "f6d": {
+    "other": "密碼保護、生物解鎖、自動鎖定。"
+  },
+  "detailsEyebrow": {
+    "other": "產品詳情"
+  },
+  "detailsTitle": {
+    "other": "現在就開始長期資產復盤。"
+  },
+  "detailsDesc": {
+    "other": "把分散在各處的資料聚合到同一套視圖與指標。"
+  },
+  "d1t": {
+    "other": "多類型帳戶"
+  },
+  "d1d": {
+    "other": "支援資金、理財、固定、應收、應付和貸款。"
+  },
+  "d2t": {
+    "other": "目標卡片"
+  },
+  "d2d": {
+    "other": "自動計算還需金額，避免目標失焦。"
+  },
+  "d3t": {
+    "other": "匯率支援"
+  },
+  "d3d": {
+    "other": "可選本位幣，跨幣種資產統一衡量。"
+  },
+  "d4t": {
+    "other": "帳本分享"
+  },
+  "d4d": {
+    "other": "家庭成員可協同維護同一組資產資料。"
+  },
+  "d5t": {
+    "other": "卡片管理"
+  },
+  "d5d": {
+    "other": "按個人偏好調整首頁卡片順序和顯隱。"
+  },
+  "d6t": {
+    "other": "本地優先"
+  },
+  "d6d": {
+    "other": "資料預設本地儲存，可選 iCloud 同步。"
+  },
+  "downloadEyebrow": {
+    "other": "下載"
+  },
+  "downloadTitle": {
+    "other": "立即開始"
+  },
+  "downloadDesc": {
+    "other": "下載 iAssets，快速建立你的家庭資產體系。"
+  },
+  "downloadBtn": {
+    "other": "下載應用"
+  },
+  "reviewsEyebrow": {
+    "other": "評價"
+  },
+  "reviewsTitle": {
+    "other": "使用者正在用 iAssets 建立更好的資產習慣。"
+  },
+  "reviewsDesc": {
+    "other": "從記一筆，到讀懂全局資產變化。"
+  },
+  "r1": {
+    "other": "終於能把家庭資產放在一個地方看全了。"
+  },
+  "r2": {
+    "other": "每月復盤從一小時縮短到十分鐘。"
+  },
+  "r3": {
+    "other": "趨勢卡片很直觀，父母也能看懂。"
+  },
+  "r4": {
+    "other": "多帳本功能非常適合我和伴侶分工維護。"
+  },
+  "r5": {
+    "other": "目標卡片讓長期規劃更有執行力。"
+  },
+  "r6": {
+    "other": "介面輕量，日常打開沒有負擔。"
+  },
+  "r7": {
+    "other": "自動彙總淨資產後，每週復盤更有方向。"
+  },
+  "r8": {
+    "other": "分類結構很清楚，終於知道資金主要放在哪裡。"
+  },
+  "r9": {
+    "other": "共享帳本很好用，家人一起維護也不混亂。"
+  },
+  "r10": {
+    "other": "目標進度可視化後，儲蓄執行率明顯提升。"
+  },
+  "r11": {
+    "other": "離線記錄很穩定，通勤路上也能隨手更新。"
+  },
+  "r12": {
+    "other": "切換多個帳本很順暢，工作和家庭終於分開了。"
+  },
+  "pricingEyebrow": {
+    "other": "價格"
+  },
+  "pricingTitle": {
+    "other": "價格低廉、持續迭代。"
+  },
+  "pricingDesc": {
+    "other": "建議按年支付，共建軟體的良性發展，當然也支援終身買斷。"
+  },
+  "monthly": {
+    "other": "按月"
+  },
+  "yearly": {
+    "other": "按年"
+  },
+  "currency": {
+    "other": "HK$"
+  },
+  "planYearly": {
+    "other": "Subscribe"
+  },
+  "priceYearlySuffix": {
+    "other": "/年"
+  },
+  "planLifetime": {
+    "other": "Lifetime"
+  },
+  "popular": {
+    "other": "熱門"
+  },
+  "p2d": {
+    "other": "按年支付，共建軟體的良性發展。"
+  },
+  "p2f1": {
+    "other": "全部核心功能"
+  },
+  "p2f2": {
+    "other": "iCloud 同步"
+  },
+  "p2f3": {
+    "other": "無限帳本"
+  },
+  "p2cta": {
+    "other": "立即訂閱"
+  },
+  "p3d": {
+    "other": "一次購買，終身更新。"
+  },
+  "p3f1": {
+    "other": "全部進階功能"
+  },
+  "p3f2": {
+    "other": "終身使用"
+  },
+  "p3f3": {
+    "other": "優先支援"
+  },
+  "p3cta": {
+    "other": "立即購買"
+  },
+  "faqEyebrow": {
+    "other": "常見問題"
+  },
+  "faqTitle": {
+    "other": "常見問題"
+  },
+  "faqDesc": {
+    "other": "如果你有疑問，可以先看這裡。"
+  },
+  "q1": {
+    "other": "支援哪些語言？"
+  },
+  "a1": {
+    "other": "與 iAssets 一致：中文簡體、中文繁體台灣、中文繁體香港、中文繁體澳門、中文繁體新加坡、English、日本語、한국어。"
+  },
+  "q2": {
+    "other": "支援離線使用嗎？"
+  },
+  "a2": {
+    "other": "支援。無網路也可新增和編輯，連網後按策略同步。"
+  },
+  "q3": {
+    "other": "資料存在哪裡？"
+  },
+  "a3": {
+    "other": "預設本地儲存，可按需開啟 iCloud 同步。"
+  },
+  "q4": {
+    "other": "可以多人協作嗎？"
+  },
+  "a4": {
+    "other": "可以。開啟家庭模式即可管理成員和共享帳本。"
+  },
+  "q5": {
+    "other": "Android 可用嗎？"
+  },
+  "a5": {
+    "other": "目前主要面向 Apple 生態。"
+  },
+  "q6": {
+    "other": "如何開始？"
+  },
+  "a6": {
+    "other": "下載應用後建立第一個帳本，即可開始記錄。"
+  },
+  "footerTag": {
+    "other": "做您的家庭資產管理管家"
+  },
+  "downloadHint": {
+    "other": "掃碼後可前往 App Store 下載"
+  },
+  "footerLinks": {
+    "other": "頁面"
+  },
+  "footerCompare": {
+    "other": "競品對比"
+  },
+  "socialTitle": {
+    "other": "媒體"
+  },
+  "socialWechat": {
+    "other": "微信"
+  },
+  "socialWeibo": {
+    "other": "微博"
+  },
+  "socialXiaohongshu": {
+    "other": "小紅書"
+  },
+  "socialZhihu": {
+    "other": "知乎"
+  },
+  "privacyPageTitle": {
+    "other": "隱私政策"
+  },
+  "termsPageTitle": {
+    "other": "使用條款及細則"
+  },
+  "legalUpdated": {
+    "other": "最後更新：2026 年 3 月 3 日"
+  },
+  "privacyEyebrow": {
+    "other": "Policy"
+  },
+  "privacyTitle": {
+    "other": "隱私政策"
+  },
+  "privacyIntro": {
+    "other": "歡迎使用 iAssets。我們重視您的隱私，並致力於保護您的個人資料。本隱私政策說明 iAssets 在資料處理方面的原則與方式。"
+  },
+  "privacyS1Title": {
+    "other": "1. 我們收集的資料"
+  },
+  "privacyS1P": {
+    "other": "iAssets 採用本地優先的資料策略。您在應用中錄入的資產、負債、帳戶與分類等資料，預設儲存在您的裝置本地。"
+  },
+  "privacyS1L1": {
+    "other": "預設不會上傳到我們的伺服器。"
+  },
+  "privacyS1L2": {
+    "other": "預設不建立與身份關聯的遠端使用者畫像。"
+  },
+  "privacyS2Title": {
+    "other": "2. 同步與備份"
+  },
+  "privacyS2P": {
+    "other": "若您主動啟用 iCloud 同步，資料將透過 Apple iCloud 進行跨裝置同步。該過程受 Apple 的服務條款與隱私政策約束。"
+  },
+  "privacyS3Title": {
+    "other": "3. 第三方服務"
+  },
+  "privacyS3P": {
+    "other": "我們可能使用必要的第三方基礎設施能力（如 Apple 平台能力）以提供核心功能。我們不會向第三方出售您的個人資料。"
+  },
+  "privacyS4Title": {
+    "other": "4. 資料安全"
+  },
+  "privacyS4P": {
+    "other": "我們建議您啟用裝置密碼、生物識別解鎖與系統級安全策略。iAssets 支援密碼保護、自動鎖定等安全機制，幫助提升資料安全性。"
+  },
+  "privacyS5Title": {
+    "other": "5. 資料共享與揭露"
+  },
+  "privacyS5P": {
+    "other": "除法律法規要求或為維護使用者與平台安全的必要情形外，我們不會主動向第三方揭露您的本地資料內容。"
+  },
+  "privacyS6Title": {
+    "other": "6. 政策更新"
+  },
+  "privacyS6P": {
+    "other": "我們可能不定期更新本政策。更新版本發布後即生效。若涉及重大變更，我們會透過應用或網站進行提示。"
+  },
+  "privacyS7Title": {
+    "other": "7. 聯絡我們"
+  },
+  "privacyS7P": {
+    "other": "如果您對本政策有任何問題，請透過官方管道聯絡我們：idebuginn@gmail.com"
+  },
+  "termsEyebrow": {
+    "other": "Terms"
+  },
+  "termsTitle": {
+    "other": "使用條款及細則"
+  },
+  "termsIntro": {
+    "other": "歡迎使用 iAssets。在使用本應用及相關服務前，請您仔細閱讀並理解本條款。您使用 iAssets 即表示同意受本條款約束。"
+  },
+  "termsS1Title": {
+    "other": "1. 服務內容"
+  },
+  "termsS1P": {
+    "other": "iAssets 提供家庭資產管理相關功能，包括但不限於資產記錄、負債管理、統計分析、目標追蹤與多帳本協作能力。"
+  },
+  "termsS2Title": {
+    "other": "2. 帳戶與資料責任"
+  },
+  "termsS2P": {
+    "other": "您應對自行錄入的資料真實性與合法性負責。請妥善保管裝置及帳戶安全資訊，避免資料遺失或洩露風險。"
+  },
+  "termsS3Title": {
+    "other": "3. 使用規範"
+  },
+  "termsS3L1": {
+    "other": "不得利用 iAssets 從事違法違規活動。"
+  },
+  "termsS3L2": {
+    "other": "不得以技術手段干擾、攻擊或破壞應用正常運行。"
+  },
+  "termsS3L3": {
+    "other": "不得未經授權複製、反編譯或傳播應用受保護內容。"
+  },
+  "termsS4Title": {
+    "other": "4. 訂閱與買斷"
+  },
+  "termsS4P": {
+    "other": "iAssets 可能提供按年訂閱與終身買斷等購買方式。具體權益、價格與可用功能以應用內展示為準。"
+  },
+  "termsS5Title": {
+    "other": "5. 知識產權"
+  },
+  "termsS5P": {
+    "other": "iAssets 及其相關設計、代碼、商標和內容受知識產權法律保護。未經許可，不得擅自使用。"
+  },
+  "termsS6Title": {
+    "other": "6. 免責聲明"
+  },
+  "termsS6P": {
+    "other": "iAssets 僅作為資訊管理工具，不構成投資、稅務、法律或財務建議。您應基於自身判斷承擔決策風險。"
+  },
+  "termsS7Title": {
+    "other": "7. 條款變更與終止"
+  },
+  "termsS7P": {
+    "other": "我們可能根據業務需要更新本條款。更新後繼續使用服務視為接受新條款。若您不同意，應停止使用。"
+  },
+  "termsS8Title": {
+    "other": "8. 聯絡方式"
+  },
+  "termsS8P": {
+    "other": "如對本條款有疑問，請聯絡：idebuginn@gmail.com"
+  }
+}
