@@ -76,22 +76,14 @@ defaultContentLanguage = "en"
 defaultLang = "en"
 
 [params.assets]
-brandName = "Pebble"
+brandName = "iAssets"
 logo = "/assets/logo.png"
-logoAlt = "Pebble logo"
+logoAlt = "iAssets logo"
 downloadQr = "/assets/qr-download.png"
 version = "example-1"
 
 [params.contact]
 email = "hello@example.com"
-
-[params.social]
-wechatQr = "/assets/wechat-qr.jpg"
-x = "https://x.com/example"
-telegram = "https://t.me/example"
-xiaohongshu = "https://www.xiaohongshu.com/user/profile/example"
-weibo = "https://weibo.com/example"
-zhihu = "https://www.zhihu.com/people/example"
 
 [params.analytics]
 googleTagID = "G-XXXXXXXXXX"
@@ -117,6 +109,11 @@ weight = 1
 identifier = "navPricing"
 url = "#pricing"
 weight = 2
+
+[[languages.en.menu.main]]
+identifier = "navFaq"
+url = "#faqs"
+weight = 3
 
 [[languages.en.menu.footer]]
 identifier = "navTerms"
@@ -152,27 +149,48 @@ home:
         title: "Fast setup"
         description: "Drop the theme into your site and drive the homepage from front matter."
         icon: "sparkles"
+      - number: "02"
+        title: "Multilingual"
+        description: "Language-aware routes, menus, and legal pages are already wired."
+        icon: "globe"
+      - number: "03"
+        title: "Low overhead"
+        description: "Static assets stay cacheable and homepage copy renders at build time."
+        icon: "bolt"
   features:
     eyebrow: "Features"
-    title: "Everything needed for a landing page"
-    description: "Sections are driven by front matter."
+    title: "Built for app and product marketing pages"
+    description: "The example stays small, but the content model is enough to exercise the main theme sections."
     items:
       - number: "01"
-        title: "Multilingual"
-        description: "Language-aware routes and switchers."
-        icon: "globe"
+        title: "Homepage sections"
+        description: "Hero, pricing, FAQ, and detail sections are controlled from a single file."
+        icon: "layers"
     showcase: true
   details:
-    title: "More details"
+    eyebrow: "Details"
+    title: "Small enough to understand, complete enough to ship"
+    description: "This example intentionally uses a compact dataset while covering the theme's core UI paths."
     items:
       - title: "Flexible"
         description: "Mix and match sections."
         icon: "layers"
+      - title: "Legal pages"
+        description: "Privacy and terms pages share the same layout and translation keys."
+        icon: "doc"
   download:
+    eyebrow: "Download"
     title: "Use Pebble as your starting point"
     description: "Swap the placeholder copy and assets for your product and you are close to a production landing page."
     ctaHref: "https://apps.apple.com/"
+    ctaOverline: "Get it on the"
+    ctaTitle: "App Store"
+  reviews:
+    eyebrow: "Reviews"
+    title: "People build better financial habits with iAssets."
+    description: "From recording one item to understanding full trends."
   pricing:
+    eyebrow: "Pricing"
     title: "Simple pricing"
     plans:
       - title: "Yearly"
@@ -191,11 +209,12 @@ home:
           highlight: true
           label: "Buy lifetime"
           href: "#download"
-  reviews:
-    title: "People build better financial habits with iAssets."
   trust:
+    eyebrow: "TRUST"
     title: "Trusted by leading banks and finance platforms"
+    description: "Partnering with well-known banks and securities platforms to build affordable software that is easy to understand and use."
   faq:
+    eyebrow: "FAQ"
     title: "FAQ"
     items:
       - question: "Can I customize the content?"
@@ -265,14 +284,15 @@ Minimum English example:
 
 ```json
 {
-  "brand": { "other": "Pebble Demo" },
-  "footerTag": { "other": "Product showcase" },
+  "brand": { "other": "Pebble" },
+  "footerTag": { "other": "Product showcase theme" },
   "navFeatures": { "other": "Features" },
   "navPricing": { "other": "Pricing" },
+  "navFaq": { "other": "FAQ" },
   "navDownload": { "other": "Download" },
   "navTerms": { "other": "Terms" },
   "navPrivacy": { "other": "Privacy" },
-  "downloadHint": { "other": "Scan to download" },
+  "downloadHint": { "other": "Scan to preview the install flow" },
   "legalUpdated": { "other": "Last updated" },
   "privacyEyebrow": { "other": "Privacy" },
   "termsEyebrow": { "other": "Terms" }
@@ -308,7 +328,7 @@ Supported language route keys in the theme:
 
 ### `params.social`
 
-All are optional. Unset values are not rendered.
+Optional social/contact links for the footer and profile area. Unset values are not rendered.
 
 - `wechatQr`
 - `x`
@@ -346,7 +366,7 @@ For in-page homepage links, use fragment URLs like `#features` or `#download`. T
 ## Notes
 
 - This theme does not ship content, images, or translation files beyond the theme code itself.
-- A runnable demo lives in `exampleSite/`.
+- A runnable demo lives in `exampleSite/`, and the current demo uses iAssets sample branding and assets.
 - Google Fonts are loaded from `fonts.googleapis.com` and `fonts.gstatic.com`.
 - Homepage copy is rendered at build time. The client-side script handles theme preference, menu toggles, language preference storage, and marquee behavior.
 
