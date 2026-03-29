@@ -242,6 +242,144 @@ function ensureReviewTwoLines() {
   });
 }
 
+function bindHeroFan() {
+  const stage = document.querySelector("[data-hero-fan]");
+  if (!stage) return;
+  const cards = Array.from(stage.querySelectorAll("[data-hero-card]"));
+  if (!cards.length) return;
+  let swapTimer = null;
+
+  const slotCenters = {
+    0: 0.5,
+    1: 0.34,
+    2: 0.66,
+    3: 0.18,
+    4: 0.82
+  };
+
+  const syncPressedState = () => {
+    cards.forEach((card) => {
+      const on = card.classList.contains("is-active");
+      card.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+  };
+
+  const assignInitialPositions = () => {
+    cards.forEach((card, index) => {
+      card.setAttribute("data-pos", String(index));
+    });
+    if (!cards.some((card) => card.classList.contains("is-active"))) {
+      cards[0].classList.add("is-active");
+    }
+    syncPressedState();
+  };
+
+  const activateCard = (nextCard) => {
+    if (!nextCard) return;
+    if (stage.classList.contains("is-swapping")) return;
+    const activeCard = cards.find((card) => card.classList.contains("is-active")) || cards[0];
+    if (activeCard === nextCard) return;
+
+    const nextPos = Number.parseInt(nextCard.getAttribute("data-pos") || "0", 10);
+    const leftPath = [3, 1, 0];
+    const rightPath = [4, 2, 0];
+    const travelPath = nextPos === 3 ? leftPath : nextPos === 4 ? rightPath : null;
+    const bridgeCard = travelPath ? cardForPos(travelPath[1]) : null;
+
+    stage.classList.add("is-swapping");
+    activeCard.classList.add("is-demoting");
+    nextCard.classList.add("is-promoting");
+    if (bridgeCard && bridgeCard !== activeCard && bridgeCard !== nextCard) {
+      bridgeCard.classList.add("is-bridging");
+    }
+
+    if (travelPath && bridgeCard) {
+      bridgeCard.setAttribute("data-pos", String(travelPath[0]));
+      activeCard.setAttribute("data-pos", String(travelPath[1]));
+      nextCard.setAttribute("data-pos", "0");
+    } else {
+      activeCard.setAttribute("data-pos", String(nextPos));
+      nextCard.setAttribute("data-pos", "0");
+    }
+
+    activeCard.classList.remove("is-active");
+    nextCard.classList.add("is-active");
+    stage.setAttribute("data-active", nextCard.getAttribute("data-card-index") || "1");
+    syncPressedState();
+
+    if (swapTimer) window.clearTimeout(swapTimer);
+    swapTimer = window.setTimeout(() => {
+      activeCard.classList.remove("is-demoting");
+      nextCard.classList.remove("is-promoting");
+      if (bridgeCard) bridgeCard.classList.remove("is-bridging");
+      stage.classList.remove("is-swapping");
+      swapTimer = null;
+    }, 620);
+  };
+
+  const cardForPos = (pos) =>
+    cards.find((card) => (card.getAttribute("data-pos") || "0") === String(pos)) || null;
+
+  const pickCardFromPoint = (clientX) => {
+    const rect = stage.getBoundingClientRect();
+    if (!rect.width) return null;
+    const x = (clientX - rect.left) / rect.width;
+    const candidates = cards.filter((card) => !card.classList.contains("is-active"));
+    if (!candidates.length) return null;
+
+    let bestCard = null;
+    let bestDistance = Number.POSITIVE_INFINITY;
+
+    candidates.forEach((card) => {
+      const pos = Number.parseInt(card.getAttribute("data-pos") || "0", 10);
+      const center = slotCenters[pos];
+      if (!Number.isFinite(center)) return;
+      const distance = Math.abs(x - center);
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        bestCard = card;
+      }
+    });
+
+    return bestCard;
+  };
+
+  assignInitialPositions();
+  stage.setAttribute("data-active", cards.find((card) => card.classList.contains("is-active"))?.getAttribute("data-card-index") || "1");
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => {
+      stage.classList.add("is-ready");
+    });
+  });
+
+  stage.addEventListener("click", (e) => {
+    const slotTarget = e.target instanceof Element ? e.target.closest("[data-hero-slot]") : null;
+    if (slotTarget) {
+      const slotCard = cardForPos(slotTarget.getAttribute("data-hero-slot"));
+      if (slotCard && !slotCard.classList.contains("is-active")) {
+        activateCard(slotCard);
+      }
+      return;
+    }
+    const targetCard = e.target instanceof Element ? e.target.closest("[data-hero-card]") : null;
+    if (targetCard && !targetCard.classList.contains("is-active")) {
+      activateCard(targetCard);
+      return;
+    }
+    const inferredCard = pickCardFromPoint(e.clientX);
+    if (inferredCard) activateCard(inferredCard);
+  });
+
+  cards.forEach((card) => {
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        activateCard(card);
+      }
+    });
+  });
+}
+
 function detectTheme() {
   return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark"
@@ -296,6 +434,7 @@ function updateThemeButton(pref, btn) {
   bindDropdown(".footer-lang-dropdown", ".footer-lang-trigger", "[data-footer-lang-option]", "data-footer-lang-option");
   bindMobileMenu(menuBtn, mobileMenu);
   bindWechatPreview();
+  bindHeroFan();
 
   fillTrack(".trust-track");
   fillTrack(".review-track");

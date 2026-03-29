@@ -14,28 +14,42 @@
         {{- with .eyebrow }}<p class="eyebrow">{{ . }}</p>{{- end }}
         {{- with .title }}<h1>{{ . }}</h1>{{- end }}
         {{- with .description }}<p class="hero-desc">{{ . }}</p>{{- end }}
-        <div class="hero-cta-row">
-          <a class="btn appstore-code-btn" href="{{ .ctaHref | default "#download" }}" aria-label="Download on the App Store">
-            <span class="appstore-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.1 12.7c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.7.8-3.4.8s-1.9-.8-3.1-.7c-1.6 0-3 .9-3.9 2.3-1.7 3-.4 7.3 1.2 9.6.8 1.1 1.8 2.3 3.1 2.3 1.2 0 1.7-.8 3.1-.8s1.8.8 3.1.8c1.3 0 2.1-1.1 2.9-2.2.9-1.3 1.3-2.6 1.4-2.7 0 0-2-.8-2-4.1z"></path><path d="M14 5.9c.7-.8 1.2-1.8 1.1-2.9-1 .1-2.1.7-2.9 1.5-.7.8-1.2 1.8-1.1 2.8 1 .1 2.1-.5 2.9-1.4z"></path></svg>
-            </span>
-            <span class="appstore-text"><span class="appstore-overline">{{ .ctaOverline | default "Download on the" }}</span><span class="appstore-title">{{ .ctaTitle | default "App Store" }}</span></span>
-          </a>
-        </div>
-        {{- with .cards }}
-        <div class="hero-mini-cards">
-          {{ range . }}
-          <article class="mini-card">
-            <div class="mini-top"><span>{{ partial "config-icon.html" (dict "icon" .icon "class" "feature-icon") }}</span><strong>{{ .number }}</strong></div>
-            <h3>{{ .title }}</h3>
-            <p>{{ .description }}</p>
-          </article>
-          {{ end }}
-        </div>
-        {{- end }}
       </div>
       {{- with .image }}
-      <div class="hero-visual"><div class="phone-frame"><img class="hero-shot" src="{{ .src | default "/assets/ia-home.png" }}" alt="{{ .alt | default "iAssets app screenshot" }}" loading="eager" fetchpriority="high" /></div></div>
+      {{- $heroImageSrc := .src | default "/assets/ia-home.png" -}}
+      {{- $heroImageAlt := .alt | default "iAssets app screenshot" -}}
+      {{- $fanImages := .fanImages | default (slice
+        (dict "src" "/assets/hero-fan/hero-1.png" "alt" $heroImageAlt)
+        (dict "src" "/assets/hero-fan/hero-2.png" "alt" $heroImageAlt)
+        (dict "src" "/assets/hero-fan/hero-3.png" "alt" $heroImageAlt)
+        (dict "src" "/assets/hero-fan/hero-4.png" "alt" $heroImageAlt)
+        (dict "src" "/assets/hero-fan/hero-5.png" "alt" $heroImageAlt)
+      ) -}}
+      <div class="hero-visual">
+        <div class="hero-stage" data-hero-fan aria-label="{{ $heroImageAlt }}">
+          {{- range $index, $item := $fanImages }}
+          {{- $cardIndex := add $index 1 -}}
+          <button class="hero-stack-card hero-stack-card-{{ $cardIndex }}{{ if eq $cardIndex 1 }} is-active{{ end }}" type="button" data-hero-card data-card-index="{{ $cardIndex }}" aria-label="{{ printf "Show screenshot %d" $cardIndex }}">
+            <img class="hero-shot" src="{{ $item.src | default $heroImageSrc }}" alt="{{ if eq $cardIndex 1 }}{{ $item.alt | default $heroImageAlt }}{{ else }}{{ "" }}{{ end }}" {{ if ne $cardIndex 1 }}aria-hidden="true"{{ end }} loading="{{ if eq $cardIndex 1 }}eager{{ else }}lazy{{ end }}" {{ if eq $cardIndex 1 }}fetchpriority="high"{{ end }} />
+          </button>
+          {{- end }}
+          <button class="hero-slot-hit hero-slot-hit-left-near" type="button" data-hero-slot="1" aria-label="Show left screenshot"></button>
+          <button class="hero-slot-hit hero-slot-hit-right-near" type="button" data-hero-slot="2" aria-label="Show right screenshot"></button>
+          <button class="hero-slot-hit hero-slot-hit-left-far" type="button" data-hero-slot="3" aria-label="Show far left screenshot"></button>
+          <button class="hero-slot-hit hero-slot-hit-right-far" type="button" data-hero-slot="4" aria-label="Show far right screenshot"></button>
+        </div>
+      </div>
+      {{- end }}
+      {{- with .cards }}
+      <div class="hero-mini-cards">
+        {{ range . }}
+        <article class="mini-card">
+          <div class="mini-top"><span>{{ partial "config-icon.html" (dict "icon" .icon "class" "feature-icon") }}</span><strong>{{ .number }}</strong></div>
+          <h3>{{ .title }}</h3>
+          <p>{{ .description }}</p>
+        </article>
+        {{ end }}
+      </div>
       {{- end }}
     </div>
   </section>
