@@ -7,12 +7,19 @@ home:
     eyebrow: "Pebble"
     title: "为产品官网准备的 Hugo 主题"
     description: "Pebble 提供多语言首页、价格区块、FAQ、法律页面以及轻量列表页，适合作为产品站起点。"
-    ctaHref: "#download"
-    ctaOverline: "前往"
-    ctaTitle: "App Store"
     image:
-      src: "/assets/ia-home.png"
       alt: "iAssets 应用截图"
+    fanImages:
+      - src: "/assets/hero-fan/hero-1.png"
+        alt: "Pebble 截图 1"
+      - src: "/assets/hero-fan/hero-2.png"
+        alt: "Pebble 截图 2"
+      - src: "/assets/hero-fan/hero-3.png"
+        alt: "Pebble 截图 3"
+      - src: "/assets/hero-fan/hero-4.png"
+        alt: "Pebble 截图 4"
+      - src: "/assets/hero-fan/hero-5.png"
+        alt: "Pebble 截图 5"
     cards:
       - number: "01"
         title: "快速接入"

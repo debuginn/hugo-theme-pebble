@@ -7,12 +7,19 @@ home:
     eyebrow: "Pebble"
     title: "A polished Hugo theme for product websites"
     description: "Pebble gives you a fast starting point for shipping a multilingual landing page with pricing, FAQ, legal pages, and lightweight content lists."
-    ctaHref: "#download"
-    ctaOverline: "Download on the"
-    ctaTitle: "App Store"
     image:
-      src: "/assets/ia-home.png"
       alt: "iAssets app screenshot"
+    fanImages:
+      - src: "/assets/hero-fan/hero-1.png"
+        alt: "Pebble screenshot 1"
+      - src: "/assets/hero-fan/hero-2.png"
+        alt: "Pebble screenshot 2"
+      - src: "/assets/hero-fan/hero-3.png"
+        alt: "Pebble screenshot 3"
+      - src: "/assets/hero-fan/hero-4.png"
+        alt: "Pebble screenshot 4"
+      - src: "/assets/hero-fan/hero-5.png"
+        alt: "Pebble screenshot 5"
     cards:
       - number: "01"
         title: "Fast setup"

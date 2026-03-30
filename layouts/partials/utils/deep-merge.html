@@ -1,0 +1,10 @@
+{{- $base := .base | default dict -}}
+{{- $override := .override | default dict -}}
+{{- $result := merge $base $override -}}
+{{- range $key, $overrideVal := $override -}}
+  {{- $baseVal := index $base $key -}}
+  {{- if and (reflect.IsMap $baseVal) (reflect.IsMap $overrideVal) -}}
+    {{- $result = merge $result (dict $key (partial "utils/deep-merge.html" (dict "base" $baseVal "override" $overrideVal))) -}}
+  {{- end -}}
+{{- end -}}
+{{- return $result -}}

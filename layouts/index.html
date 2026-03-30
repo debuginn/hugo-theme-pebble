@@ -15,9 +15,7 @@
         {{- with .title }}<h1>{{ . }}</h1>{{- end }}
         {{- with .description }}<p class="hero-desc">{{ . }}</p>{{- end }}
       </div>
-      {{- with .image }}
-      {{- $heroImageSrc := .src | default "/assets/ia-home.png" -}}
-      {{- $heroImageAlt := .alt | default "iAssets app screenshot" -}}
+      {{- $heroImageAlt := .image.alt | default "iAssets app screenshot" -}}
       {{- $fanImages := .fanImages | default (slice
         (dict "src" "/assets/hero-fan/hero-1.png" "alt" $heroImageAlt)
         (dict "src" "/assets/hero-fan/hero-2.png" "alt" $heroImageAlt)
@@ -25,12 +23,13 @@
         (dict "src" "/assets/hero-fan/hero-4.png" "alt" $heroImageAlt)
         (dict "src" "/assets/hero-fan/hero-5.png" "alt" $heroImageAlt)
       ) -}}
+      {{- if gt (len $fanImages) 0 }}
       <div class="hero-visual">
         <div class="hero-stage" data-hero-fan aria-label="{{ $heroImageAlt }}">
           {{- range $index, $item := $fanImages }}
           {{- $cardIndex := add $index 1 -}}
           <button class="hero-stack-card hero-stack-card-{{ $cardIndex }}{{ if eq $cardIndex 1 }} is-active{{ end }}" type="button" data-hero-card data-card-index="{{ $cardIndex }}" aria-label="{{ printf "Show screenshot %d" $cardIndex }}">
-            <img class="hero-shot" src="{{ $item.src | default $heroImageSrc }}" alt="{{ if eq $cardIndex 1 }}{{ $item.alt | default $heroImageAlt }}{{ else }}{{ "" }}{{ end }}" {{ if ne $cardIndex 1 }}aria-hidden="true"{{ end }} loading="{{ if eq $cardIndex 1 }}eager{{ else }}lazy{{ end }}" {{ if eq $cardIndex 1 }}fetchpriority="high"{{ end }} />
+            <img class="hero-shot" src="{{ $item.src }}" alt="{{ if eq $cardIndex 1 }}{{ $item.alt | default $heroImageAlt }}{{ else }}{{ "" }}{{ end }}" {{ if ne $cardIndex 1 }}aria-hidden="true"{{ end }} loading="{{ if eq $cardIndex 1 }}eager{{ else }}lazy{{ end }}" {{ if eq $cardIndex 1 }}fetchpriority="high"{{ end }} />
           </button>
           {{- end }}
           <button class="hero-slot-hit hero-slot-hit-left-near" type="button" data-hero-slot="1" aria-label="Show left screenshot"></button>

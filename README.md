@@ -39,6 +39,19 @@ hugo server --source exampleSite --themesDir ../..
 
 The bundled `exampleSite/` does not use a directory-per-language content layout such as `content/zh/_index.md`.
 It keeps the sample setup smaller by using Hugo translation files like `content/_index.zh.md` and `content/privacy/_index.zh.md`.
+Homepage `home` data is merged deeply across languages: the default language acts as the fallback, and a language-specific file only needs to override the fields or cards it wants to change.
+
+Example:
+
+- Put the full homepage config in `content/_index.md`
+- Add `content/_index.zh.md`
+- In `content/_index.zh.md`, you can override only:
+  - `home.hero.title`
+  - `home.hero.description`
+  - `home.hero.cards`
+
+If `home.hero.cards` is omitted in the translated file, the default-language cards are reused.
+If `home.hero.cards` is present in the translated file, that language renders its own card list.
 
 ## Quick Start
 
@@ -59,7 +72,12 @@ static/
   assets/
     logo.png
     qr-download.png
-    ia-home.png
+    hero-fan/
+      hero-1.png
+      hero-2.png
+      hero-3.png
+      hero-4.png
+      hero-5.png
 hugo.toml
 ```
 
@@ -138,12 +156,13 @@ home:
     eyebrow: "Pebble"
     title: "A polished Hugo theme for product websites"
     description: "Pebble gives you a fast starting point for shipping a multilingual landing page with pricing, FAQ, legal pages, and lightweight content lists."
-    ctaHref: "#download"
-    ctaOverline: "Download on the"
-    ctaTitle: "App Store"
     image:
-      src: "/assets/ia-home.png"
       alt: "iAssets app screenshot"
+    fanImages:
+      - src: "/assets/hero-fan/hero-1.png"
+        alt: "Pebble screenshot 1"
+      - src: "/assets/hero-fan/hero-2.png"
+        alt: "Pebble screenshot 2"
     cards:
       - number: "01"
         title: "Fast setup"

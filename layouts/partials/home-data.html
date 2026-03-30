@@ -6,5 +6,5 @@
 {{- if gt (len $defaultSites) 0 -}}
   {{- $defaultHome = ((index $defaultSites 0).Home.Params.home) | default dict -}}
 {{- end -}}
-{{- $home := merge $defaultHome $currentHome -}}
+{{- $home := partial "utils/deep-merge.html" (dict "base" $defaultHome "override" $currentHome) -}}
 {{- return $home -}}
