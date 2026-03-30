@@ -736,22 +736,24 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
   gap: 18px;
   align-content: start;
   will-change: transform;
-  animation: cta-column-rise 42s linear infinite;
+  animation: cta-column-rise 54s linear infinite;
 }
 .cta-mosaic-column:nth-child(2) .cta-mosaic-column-track {
-  animation-duration: 48s;
+  animation-duration: 62s;
   animation-delay: -3s;
+  animation-direction: reverse;
 }
 .cta-mosaic-column:nth-child(3) .cta-mosaic-column-track {
-  animation-duration: 45s;
+  animation-duration: 58s;
   animation-delay: -8s;
 }
 .cta-mosaic-column:nth-child(4) .cta-mosaic-column-track {
-  animation-duration: 50s;
+  animation-duration: 64s;
   animation-delay: -6s;
+  animation-direction: reverse;
 }
 .cta-mosaic-column:nth-child(5) .cta-mosaic-column-track {
-  animation-duration: 46s;
+  animation-duration: 60s;
   animation-delay: -11s;
 }
 .cta-mosaic-card {
