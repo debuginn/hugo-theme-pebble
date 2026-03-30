@@ -1448,7 +1448,7 @@ body[data-lang="zh-Hans-SG"] .social-set-hant {
 
 @media (max-width: 1120px) {
   .hero-grid, .features-layout { grid-template-columns: 1fr; }
-  .hero-stage { height: clamp(300px, 46vw, 540px); }
+  .hero-stage { height: clamp(340px, 52vw, 580px); }
   .hero-slot-hit {
     height: min(60vh, 520px);
   }
@@ -1457,7 +1457,7 @@ body[data-lang="zh-Hans-SG"] .social-set-hant {
   .hero-slot-hit-left-far { transform: translate3d(calc(-50% - 186px), 42px, 0) scale(0.86) rotate(-13deg); clip-path: polygon(0 0, 68% 0, 48% 100%, 0 100%); }
   .hero-slot-hit-right-far { transform: translate3d(calc(-50% + 186px), 42px, 0) scale(0.86) rotate(13deg); clip-path: polygon(32% 0, 100% 0, 100% 100%, 52% 100%); }
   .hero-stack-card { width: min(820px, 92%); }
-  .hero-shot { max-height: 520px; }
+  .hero-shot { max-height: 560px; }
   .feature-showcase { position: relative; top: auto; min-height: 440px; }
   .hero-stage.is-ready .hero-stack-card[data-pos="1"] { width: min(460px, 52%); transform: translate3d(calc(-50% - 86px), 18px, 0) scale(0.94) rotate(-8deg); }
   .hero-stage.is-ready .hero-stack-card[data-pos="2"] { width: min(460px, 52%); transform: translate3d(calc(-50% + 86px), 18px, 0) scale(0.94) rotate(8deg); }
