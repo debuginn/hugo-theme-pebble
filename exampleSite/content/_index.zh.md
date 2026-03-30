@@ -7,8 +7,6 @@ home:
     eyebrow: "Pebble"
     title: "为产品官网准备的 Hugo 主题"
     description: "Pebble 提供多语言首页、价格区块、FAQ、法律页面以及轻量列表页，适合作为产品站起点。"
-    image:
-      alt: "iAssets 应用截图"
     fanImages:
       - src: "/assets/hero-fan/hero-1.png"
         alt: "Pebble 截图 1"
@@ -54,7 +52,6 @@ home:
         title: "主题偏好"
         description: "深浅色模式偏好会保存在浏览器本地。"
         icon: "moon"
-    showcase: true
   details:
     eyebrow: "细节"
     title: "足够小，容易理解，也足够完整"

@@ -71,9 +71,30 @@
           {{ end }}
         </div>
         {{- end }}
-        {{- if .showcase }}
-        <aside class="feature-showcase"><div class="showbox big"></div><div class="showbox mid"></div><div class="showbox small"></div></aside>
-        {{- end }}
+        {{- $showcase := .showcase | default false -}}
+        {{- $showcaseEnabled := false -}}
+        {{- $showcaseConfig := dict -}}
+        {{- if reflect.IsMap $showcase -}}
+          {{- $showcaseEnabled = true -}}
+          {{- $showcaseConfig = $showcase -}}
+        {{- else if $showcase -}}
+          {{- $showcaseEnabled = true -}}
+        {{- end -}}
+        {{- if $showcaseEnabled }}
+        {{- $featureShots := $showcaseConfig.images | default (slice
+          (dict "src" "/assets/features-showcase-main.png" "alt" "Pebble feature screenshot main")
+          (dict "src" "/assets/hero-fan/hero-1.png" "alt" "Pebble feature screenshot left")
+          (dict "src" "/assets/hero-fan/hero-5.png" "alt" "Pebble feature screenshot right")
+        ) -}}
+        <aside class="feature-showcase">
+          {{- range $index, $item := first 3 $featureShots }}
+          {{- $slot := cond (eq $index 0) "big" (cond (eq $index 1) "mid" "small") -}}
+          <figure class="showbox {{ $slot }}">
+            <img src="{{ $item.src }}" alt="{{ $item.alt | default "Pebble feature screenshot" }}" loading="lazy" decoding="async" />
+          </figure>
+          {{- end }}
+        </aside>
+        {{- end -}}
       </div>
     </div>
   </section>

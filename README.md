@@ -156,8 +156,6 @@ home:
     eyebrow: "Pebble"
     title: "A polished Hugo theme for product websites"
     description: "Pebble gives you a fast starting point for shipping a multilingual landing page with pricing, FAQ, legal pages, and lightweight content lists."
-    image:
-      alt: "iAssets app screenshot"
     fanImages:
       - src: "/assets/hero-fan/hero-1.png"
         alt: "Pebble screenshot 1"
@@ -185,7 +183,14 @@ home:
         title: "Homepage sections"
         description: "Hero, pricing, FAQ, and detail sections are controlled from a single file."
         icon: "layers"
-    showcase: true
+    showcase:
+      images:
+        - src: "/assets/features-showcase-main.png"
+          alt: "Pebble feature showcase main screenshot"
+        - src: "/assets/hero-fan/hero-1.png"
+          alt: "Pebble feature showcase secondary screenshot"
+        - src: "/assets/hero-fan/hero-5.png"
+          alt: "Pebble feature showcase supporting screenshot"
   details:
     eyebrow: "Details"
     title: "Small enough to understand, complete enough to ship"
@@ -309,6 +314,14 @@ Pebble expects translation files in `i18n/<lang>.json`.
 
 Use `i18n/` for UI copy and labels, and use Hugo translation content files for page-specific body content.
 The example site intentionally does not use a directory-per-language content structure such as `content/zh/_index.md`.
+
+Homepage data under `Params.home` is deep-merged per language, so translated files can override only the fields they need.
+
+- If a translated file omits `home.hero.cards`, the default-language cards are reused.
+- If a translated file provides `home.hero.cards`, that language renders its own card list.
+- The same fallback behavior applies to nested sections such as `home.download.backdrop`.
+- `home.features.showcase.images` follows the same rule: omit it to reuse the default-language screenshots, or define it per language to show different feature screenshots.
+- Older content that still uses `home.features.showcase: true` remains supported and falls back to the built-in default screenshots.
 
 Minimum English example:
 

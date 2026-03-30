@@ -7,8 +7,6 @@ home:
     eyebrow: "Pebble"
     title: "A polished Hugo theme for product websites"
     description: "Pebble gives you a fast starting point for shipping a multilingual landing page with pricing, FAQ, legal pages, and lightweight content lists."
-    image:
-      alt: "iAssets app screenshot"
     fanImages:
       - src: "/assets/hero-fan/hero-1.png"
         alt: "Pebble screenshot 1"
@@ -54,7 +52,14 @@ home:
         title: "Theme preference"
         description: "Dark and light mode preferences are persisted client-side."
         icon: "moon"
-    showcase: true
+    showcase:
+      images:
+        - src: "/assets/features-showcase-main.png"
+          alt: "Pebble feature showcase main screenshot"
+        - src: "/assets/hero-fan/hero-1.png"
+          alt: "Pebble feature showcase secondary screenshot"
+        - src: "/assets/hero-fan/hero-5.png"
+          alt: "Pebble feature showcase supporting screenshot"
   details:
     eyebrow: "Details"
     title: "Small enough to understand, complete enough to ship"
