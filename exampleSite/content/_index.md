@@ -76,6 +76,29 @@ home:
     ctaHref: "https://apps.apple.com/"
     ctaOverline: "Get it on the"
     ctaTitle: "App Store"
+    backdrop:
+      columns: 4
+      rotation: "-16deg"
+      stageWidth: "142%"
+      stageHeight: "274%"
+      stageWidthMobile: "154%"
+      stageHeightMobile: "254%"
+      gap: "14px"
+      gapMobile: "12px"
+      reverseEven: true
+      durations: ["68s", "76s", "72s", "80s"]
+      delays: ["0s", "-3s", "-8s", "-6s"]
+      images:
+        - src: "/assets/hero-fan/hero-1.png"
+          alt: "Pebble download backdrop 1"
+        - src: "/assets/hero-fan/hero-2.png"
+          alt: "Pebble download backdrop 2"
+        - src: "/assets/hero-fan/hero-3.png"
+          alt: "Pebble download backdrop 3"
+        - src: "/assets/hero-fan/hero-4.png"
+          alt: "Pebble download backdrop 4"
+        - src: "/assets/hero-fan/hero-5.png"
+          alt: "Pebble download backdrop 5"
   reviews:
     eyebrow: "Reviews"
     title: "People build better financial habits with iAssets."
