@@ -222,6 +222,15 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
 .header-download-btn {
   gap: 6px;
   padding: 0 18px;
+  animation: download-breath 2.8s ease-in-out infinite;
+}
+.header-download-btn:hover {
+  transform: none;
+  animation-play-state: paused;
+}
+@keyframes download-breath {
+  0%, 100% { box-shadow: 0 4px 18px rgba(43, 123, 255, .30); }
+  50%      { box-shadow: 0 8px 32px rgba(43, 123, 255, .58); }
 }
 .header-download-icon {
   width: 15px;
@@ -248,6 +257,11 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
   border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 0 10px 22px rgba(43, 123, 255, 0.35);
   color: #fff;
+  animation: download-breath 2.8s ease-in-out infinite;
+}
+.appstore-code-btn:hover {
+  transform: none;
+  animation-play-state: paused;
 }
 .appstore-code-btn-lg { width: 192px; height: 64px; border-radius: 16px; }
 .appstore-icon { width: 28px; height: 28px; display: inline-flex; flex: 0 0 auto; }
@@ -908,6 +922,13 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
 .price span { font-size: 16px; color: #6985ab; font-weight: 500; margin-right: 3px; }
 .price-card p { color: #546e90; }
 .price-card ul { margin: 14px 0 18px; padding-left: 18px; color: #2e4c70; line-height: 1.8; }
+.price-card:not(.featured) .btn-solid {
+  animation: download-breath 2.8s ease-in-out infinite;
+}
+.price-card:not(.featured) .btn-solid:hover {
+  transform: none;
+  animation-play-state: paused;
+}
 .price-card.featured { border-color: #94bdff; background: linear-gradient(180deg, #f9fcff 0%, #edf5ff 100%); }
 .price-card .badge {
   position: static; display: inline-block;
