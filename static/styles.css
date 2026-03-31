@@ -913,6 +913,15 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
   position: static; display: inline-block;
   background: #2b7bff; color: #fff; padding: 5px 10px; border-radius: 999px; font-size: 12px;
 }
+.pricing-disclaimer {
+  margin: 18px auto 0;
+  max-width: 760px;
+  color: #7a8694;
+  font-size: 12px;
+  line-height: 1.55;
+  text-align: center;
+  font-weight: 400;
+}
 
 .faq-grid {
   margin-top: 28px;
@@ -1275,6 +1284,10 @@ body[data-lang="zh-Hans-SG"] .social-set-hant {
 
 :root[data-theme="dark"] .trust-subtitle {
   color: #9fb5d4;
+}
+
+:root[data-theme="dark"] .pricing-disclaimer {
+  color: #8f9db0;
 }
 
 :root[data-theme="dark"] .hero-shot { border: 0; background: transparent; box-shadow: none; }

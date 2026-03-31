@@ -227,6 +227,7 @@ home:
   pricing:
     eyebrow: "Pricing"
     title: "Simple pricing"
+    disclaimer: "* Prices vary by region and promotions. The actual price shown in the app download flow applies."
     plans:
       - title: "Yearly"
         priceKey: "yearly"

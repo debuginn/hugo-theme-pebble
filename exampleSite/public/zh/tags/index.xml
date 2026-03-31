@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Pebble</title>
-    <link>https://example.com/zh/tags/</link>
+    <link>http://localhost:1313/zh/tags/</link>
     <description>Recent content in Tags on Pebble</description>
     <generator>Hugo</generator>
     <language>zh</language>
-    <atom:link href="https://example.com/zh/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/zh/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Example</title>
-      <link>https://example.com/zh/tags/example/</link>
+      <link>http://localhost:1313/zh/tags/example/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.com/zh/tags/example/</guid>
+      <guid>http://localhost:1313/zh/tags/example/</guid>
       <description></description>
     </item>
     <item>
       <title>Theme</title>
-      <link>https://example.com/zh/tags/theme/</link>
+      <link>http://localhost:1313/zh/tags/theme/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://example.com/zh/tags/theme/</guid>
+      <guid>http://localhost:1313/zh/tags/theme/</guid>
       <description></description>
     </item>
   </channel>

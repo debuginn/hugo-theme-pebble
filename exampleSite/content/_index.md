@@ -151,6 +151,7 @@ home:
     eyebrow: "Pricing"
     title: "A simple pricing section"
     description: "Values come from site params while plan layout stays in homepage front matter."
+    disclaimer: "* Prices vary by region and promotions. The actual price shown in the app download flow applies."
     plans:
       - title: "Yearly"
         priceKey: "yearly"

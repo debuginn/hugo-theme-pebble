@@ -120,6 +120,7 @@ home:
     eyebrow: "价格"
     title: "一个简单的价格区块"
     description: "金额来自 site params，布局仍由首页 front matter 控制。"
+    disclaimer: "* 因在不同地区销售与活动，价格以实际下载呈现价格为准。"
     plans:
       - title: "年付"
         priceKey: "yearly"
