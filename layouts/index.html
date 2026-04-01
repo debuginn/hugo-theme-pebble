@@ -28,8 +28,10 @@
         <div class="hero-stage" data-hero-fan aria-label="{{ $heroImageAlt }}">
           {{- range $index, $item := $fanImages }}
           {{- $cardIndex := add $index 1 -}}
+          {{- $imgWidth := $item.width | default 1410 -}}
+          {{- $imgHeight := $item.height | default 2770 -}}
           <button class="hero-stack-card hero-stack-card-{{ $cardIndex }}{{ if eq $cardIndex 1 }} is-active{{ end }}" type="button" data-hero-card data-card-index="{{ $cardIndex }}" aria-label="{{ printf "Show screenshot %d" $cardIndex }}">
-            <img class="hero-shot" src="{{ $item.src }}" alt="{{ if eq $cardIndex 1 }}{{ $item.alt | default $heroImageAlt }}{{ else }}{{ "" }}{{ end }}" {{ if ne $cardIndex 1 }}aria-hidden="true"{{ end }} loading="{{ if eq $cardIndex 1 }}eager{{ else }}lazy{{ end }}" {{ if eq $cardIndex 1 }}fetchpriority="high"{{ end }} />
+            <img class="hero-shot" src="{{ $item.src }}" alt="{{ if eq $cardIndex 1 }}{{ $item.alt | default $heroImageAlt }}{{ else }}{{ "" }}{{ end }}" width="{{ $imgWidth }}" height="{{ $imgHeight }}" {{ if ne $cardIndex 1 }}aria-hidden="true"{{ end }} loading="{{ if eq $cardIndex 1 }}eager{{ else }}lazy{{ end }}" decoding="async" {{ if eq $cardIndex 1 }}fetchpriority="high"{{ end }} />
           </button>
           {{- end }}
           <button class="hero-slot-hit hero-slot-hit-left-near" type="button" data-hero-slot="1" aria-label="Show left screenshot"></button>
@@ -89,8 +91,10 @@
         <aside class="feature-showcase">
           {{- range $index, $item := first 3 $featureShots }}
           {{- $slot := cond (eq $index 0) "big" (cond (eq $index 1) "mid" "small") -}}
+          {{- $imgWidth := $item.width | default 1410 -}}
+          {{- $imgHeight := $item.height | default 2770 -}}
           <figure class="showbox {{ $slot }}">
-            <img src="{{ $item.src }}" alt="{{ $item.alt | default "Pebble feature screenshot" }}" loading="lazy" decoding="async" />
+            <img src="{{ $item.src }}" alt="{{ $item.alt | default "Pebble feature screenshot" }}" width="{{ $imgWidth }}" height="{{ $imgHeight }}" loading="lazy" decoding="async" />
           </figure>
           {{- end }}
         </aside>
@@ -153,10 +157,14 @@
             <div class="cta-mosaic-column">
               <div class="cta-mosaic-column-track" style="--cta-column-duration: {{ $duration }}; --cta-column-delay: {{ $delay }}; --cta-column-direction: {{ $direction }};">
                 {{- range $downloadShots }}
-                <figure class="cta-mosaic-card"><img src="{{ .src }}" alt="" loading="lazy" /></figure>
+                {{- $imgWidth := .width | default 1410 -}}
+                {{- $imgHeight := .height | default 2770 -}}
+                <figure class="cta-mosaic-card"><img src="{{ .src }}" alt="" width="{{ $imgWidth }}" height="{{ $imgHeight }}" loading="lazy" decoding="async" /></figure>
                 {{- end }}
                 {{- range $downloadShots }}
-                <figure class="cta-mosaic-card"><img src="{{ .src }}" alt="" loading="lazy" /></figure>
+                {{- $imgWidth := .width | default 1410 -}}
+                {{- $imgHeight := .height | default 2770 -}}
+                <figure class="cta-mosaic-card"><img src="{{ .src }}" alt="" width="{{ $imgWidth }}" height="{{ $imgHeight }}" loading="lazy" decoding="async" /></figure>
                 {{- end }}
               </div>
             </div>
@@ -168,13 +176,13 @@
   </section>
   {{- end }}
   {{- with $home.reviews }}
-  <section id="reviews" class="section"><div class="container">{{- with .eyebrow }}<p class="eyebrow">{{ . }}</p>{{- end }}{{- with .title }}<h2 class="section-title">{{ . }}</h2>{{- end }}{{- with .description }}<p class="section-desc">{{ . }}</p>{{- end }}{{- with .tracks }}<div class="review-marquee" aria-label="User reviews">{{- with .primary }}<div class="review-track">{{ range . }}{{- $social := lower (.social | default "x") -}}{{- $icon := .icon | default (printf "/assets/review-%s.svg" $social) -}}<figure class="review"><div class="stars">★★★★★</div><blockquote>{{ .text }}</blockquote><figcaption><span class="social-link review-social-icon" data-social="{{ $social }}"><img src="{{ $icon }}" alt="{{ $social }}" loading="lazy" /></span><span>{{ .name }}</span></figcaption></figure>{{ end }}</div>{{- end }}{{- with .secondary }}<div class="review-track reverse">{{ range . }}{{- $social := lower (.social | default "x") -}}{{- $icon := .icon | default (printf "/assets/review-%s.svg" $social) -}}<figure class="review"><div class="stars">★★★★★</div><blockquote>{{ .text }}</blockquote><figcaption><span class="social-link review-social-icon" data-social="{{ $social }}"><img src="{{ $icon }}" alt="{{ $social }}" loading="lazy" /></span><span>{{ .name }}</span></figcaption></figure>{{ end }}</div>{{- end }}</div>{{- end }}</div></section>
+  <section id="reviews" class="section"><div class="container">{{- with .eyebrow }}<p class="eyebrow">{{ . }}</p>{{- end }}{{- with .title }}<h2 class="section-title">{{ . }}</h2>{{- end }}{{- with .description }}<p class="section-desc">{{ . }}</p>{{- end }}{{- with .tracks }}<div class="review-marquee" aria-label="User reviews">{{- with .primary }}<div class="review-track">{{ range . }}{{- $social := lower (.social | default "x") -}}{{- $icon := .icon | default (printf "/assets/review-%s.svg" $social) -}}<figure class="review"><div class="stars">★★★★★</div><blockquote>{{ .text }}</blockquote><figcaption><span class="social-link review-social-icon" data-social="{{ $social }}"><img src="{{ $icon }}" alt="{{ $social }}" width="10" height="10" loading="lazy" decoding="async" /></span><span>{{ .name }}</span></figcaption></figure>{{ end }}</div>{{- end }}{{- with .secondary }}<div class="review-track reverse">{{ range . }}{{- $social := lower (.social | default "x") -}}{{- $icon := .icon | default (printf "/assets/review-%s.svg" $social) -}}<figure class="review"><div class="stars">★★★★★</div><blockquote>{{ .text }}</blockquote><figcaption><span class="social-link review-social-icon" data-social="{{ $social }}"><img src="{{ $icon }}" alt="{{ $social }}" width="10" height="10" loading="lazy" decoding="async" /></span><span>{{ .name }}</span></figcaption></figure>{{ end }}</div>{{- end }}</div>{{- end }}</div></section>
   {{- end }}
   {{- with $home.pricing }}
   <section id="pricing" class="section"><div class="container">{{- with .eyebrow }}<p class="eyebrow">{{ . }}</p>{{- end }}{{- with .title }}<h2 class="section-title">{{ . }}</h2>{{- end }}{{- with .description }}<p class="section-desc">{{ . }}</p>{{- end }}{{- with .plans }}<div class="pricing-grid">{{ range . }}{{- $priceValue := cond (eq .priceKey "lifetime") $pricing.lifetime $pricing.yearly -}}{{- $ctaStyle := cond .badge "btn-solid" "btn-ghost" -}}{{- with .cta }}{{- if .style }}{{- $ctaStyle = .style -}}{{- else if .highlight }}{{- $ctaStyle = "btn-solid" -}}{{- end -}}{{- end -}}<article class="price-card{{ if .featured }} featured{{ end }}"><div class="price-head"><div class="plan-title"><img class="plan-logo" src="{{ $logo }}" alt="{{ $logoAlt }}" />{{- with .title }}<h3>{{ . }}</h3>{{- end }}</div>{{- with .badge }}<span class="badge">{{ . }}</span>{{- end }}</div><p class="price"><span>{{ $pricing.currency }}</span>{{ $priceValue }}{{- with .suffix }}<span>{{ . }}</span>{{- end }}</p>{{- with .description }}<p>{{ . }}</p>{{- end }}{{- with .cta }}<a class="btn {{ $ctaStyle }}" href="{{ .href | default "#download" }}">{{ .label }}</a>{{- end }}</article>{{ end }}</div>{{- end }}{{- with .disclaimer }}<p class="pricing-disclaimer">{{ . }}</p>{{- end }}</div></section>
   {{- end }}
   {{- with $home.trust }}
-  <section class="section trust-strip"><div class="container">{{- with .eyebrow }}<p class="eyebrow">{{ . }}</p>{{- end }}{{- with .title }}<h2 class="section-title trust-title">{{ . }}</h2>{{- end }}{{- with .description }}<p class="trust-subtitle">{{ . }}</p>{{- end }}{{- with .tracks }}<div class="trust-marquee" aria-label="Trusted partners">{{- with .primary }}<div class="trust-track">{{ range . }}<article class="trust-card"><img class="trust-logo" src="{{ .src }}" alt="{{ .alt }}" loading="lazy" /><span>{{ .name }}</span></article>{{ end }}</div>{{- end }}{{- with .secondary }}<div class="trust-track reverse">{{ range . }}<article class="trust-card"><img class="trust-logo" src="{{ .src }}" alt="{{ .alt }}" loading="lazy" /><span>{{ .name }}</span></article>{{ end }}</div>{{- end }}</div>{{- end }}{{- with .actions }}<div class="trust-actions">{{ range . }}<a class="btn {{ .style | default "btn-ghost" }}" href="{{ if eq .type "mailto" }}mailto:{{ $contactEmail }}{{ else }}{{ .href }}{{ end }}">{{ .label }}</a>{{ end }}</div>{{- end }}</div></section>
+  <section class="section trust-strip"><div class="container">{{- with .eyebrow }}<p class="eyebrow">{{ . }}</p>{{- end }}{{- with .title }}<h2 class="section-title trust-title">{{ . }}</h2>{{- end }}{{- with .description }}<p class="trust-subtitle">{{ . }}</p>{{- end }}{{- with .tracks }}<div class="trust-marquee" aria-label="Trusted partners">{{- with .primary }}<div class="trust-track">{{ range . }}{{- $imgWidth := .width | default 56 -}}{{- $imgHeight := .height | default 56 -}}<article class="trust-card"><img class="trust-logo" src="{{ .src }}" alt="{{ .alt }}" width="{{ $imgWidth }}" height="{{ $imgHeight }}" loading="lazy" decoding="async" /><span>{{ .name }}</span></article>{{ end }}</div>{{- end }}{{- with .secondary }}<div class="trust-track reverse">{{ range . }}{{- $imgWidth := .width | default 56 -}}{{- $imgHeight := .height | default 56 -}}<article class="trust-card"><img class="trust-logo" src="{{ .src }}" alt="{{ .alt }}" width="{{ $imgWidth }}" height="{{ $imgHeight }}" loading="lazy" decoding="async" /><span>{{ .name }}</span></article>{{ end }}</div>{{- end }}</div>{{- end }}{{- with .actions }}<div class="trust-actions">{{ range . }}<a class="btn {{ .style | default "btn-ghost" }}" href="{{ if eq .type "mailto" }}mailto:{{ $contactEmail }}{{ else }}{{ .href }}{{ end }}">{{ .label }}</a>{{ end }}</div>{{- end }}</div></section>
   {{- end }}
   {{- with $home.faq }}
   <section id="faqs" class="section"><div class="container">{{- with .eyebrow }}<p class="eyebrow">{{ . }}</p>{{- end }}{{- with .title }}<h2 class="section-title">{{ . }}</h2>{{- end }}{{- with .description }}<p class="section-desc">{{ . }}</p>{{- end }}{{- with .items }}<div class="faq-grid">{{ range . }}<article><h3><span class="faq-q-icon" aria-hidden="true">{{ partial "config-icon.html" (dict "icon" (.icon | default "faq")) }}</span><span>{{ .question }}</span></h3><p>{{ .answer }}</p></article>{{ end }}</div>{{- end }}</div></section>

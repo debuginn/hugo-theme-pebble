@@ -792,6 +792,30 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .trust-track,
+  .review-track,
+  .cta-mosaic-column-track,
+  .header-download-btn,
+  .appstore-code-btn,
+  .price-card:not(.featured) .btn-solid {
+    animation: none !important;
+  }
+
+  .hero-stage.is-ready .hero-stack-card {
+    transition: none !important;
+  }
+}
+
 .review-marquee {
   position: relative;
   width: 100dvw;

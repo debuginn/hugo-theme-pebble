@@ -71,7 +71,9 @@
     <link rel="shortcut icon" href="{{ $logo }}" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" /></noscript>
     <script>
       (function () {
         var themeKey = "ia_theme_pref";
@@ -186,7 +188,7 @@
         <nav class="top-pill">
           <div class="pill-left">
             <a class="logo" href="{{ "/" | relLangURL }}">
-              <img class="logo-mark" src="{{ $logo }}" alt="{{ $logoAlt }}" />
+              <img class="logo-mark" src="{{ $logo }}" alt="{{ $logoAlt }}" width="40" height="40" decoding="async" fetchpriority="high" />
               <span data-i18n="brand">{{ T "brand" }}</span>
             </a>
             <div class="desktop-nav">
@@ -250,7 +252,7 @@
             <section class="footer-left">
               <section class="footer-brand-col">
                 <a class="logo footer-brand-wrap" href="{{ "/" | relLangURL }}">
-                  <img class="logo-mark" src="{{ $logo }}" alt="{{ $logoAlt }}" />
+                  <img class="logo-mark" src="{{ $logo }}" alt="{{ $logoAlt }}" width="48" height="48" decoding="async" loading="lazy" />
                   <span class="footer-brand-text">
                     <span data-i18n="brand">{{ T "brand" }}</span>
                     <span class="footer-tag" data-i18n="footerTag">{{ T "footerTag" }}</span>
@@ -276,27 +278,27 @@
                 {{- if or $socialWechatQr $socialWeibo $socialXiaohongshu $socialZhihu }}
                 <div class="social-set social-set-cn">
                   {{- with $socialWechatQr }}
-                  <a class="social-link" data-social="wechat" href="#" aria-label="微信"><img src="/assets/social-wechat.svg" alt="WeChat" /></a>
+                  <a class="social-link" data-social="wechat" href="#" aria-label="微信"><img src="/assets/social-wechat.svg" alt="WeChat" width="24" height="24" loading="lazy" decoding="async" /></a>
                   {{- end }}
-                  {{- with $socialWeibo }}<a class="social-link" data-social="weibo" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="微博"><img src="/assets/social-weibo.svg" alt="Weibo" /></a>{{- end }}
-                  {{- with $socialXiaohongshu }}<a class="social-link" data-social="xiaohongshu" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="小红书"><img src="/assets/social-xiaohongshu.svg" alt="Xiaohongshu" /></a>{{- end }}
-                  {{- with $socialZhihu }}<a class="social-link" data-social="zhihu" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="知乎"><img src="/assets/social-zhihu.svg" alt="Zhihu" /></a>{{- end }}
+                  {{- with $socialWeibo }}<a class="social-link" data-social="weibo" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="微博"><img src="/assets/social-weibo.svg" alt="Weibo" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
+                  {{- with $socialXiaohongshu }}<a class="social-link" data-social="xiaohongshu" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="小红书"><img src="/assets/social-xiaohongshu.svg" alt="Xiaohongshu" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
+                  {{- with $socialZhihu }}<a class="social-link" data-social="zhihu" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="知乎"><img src="/assets/social-zhihu.svg" alt="Zhihu" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
                 </div>
                 {{- end }}
                 {{- if or $socialX $socialTelegram $socialXiaohongshu }}
                 <div class="social-set social-set-global">
-                  {{- with $socialX }}<a class="social-link" data-social="x" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="/assets/social-x.svg" alt="X" /></a>{{- end }}
-                  {{- with $socialTelegram }}<a class="social-link" data-social="telegram" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="/assets/social-telegram.svg" alt="Telegram" /></a>{{- end }}
-                  {{- with $socialXiaohongshu }}<a class="social-link" data-social="xiaohongshu" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="小红书"><img src="/assets/social-xiaohongshu.svg" alt="Xiaohongshu" /></a>{{- end }}
+                  {{- with $socialX }}<a class="social-link" data-social="x" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="/assets/social-x.svg" alt="X" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
+                  {{- with $socialTelegram }}<a class="social-link" data-social="telegram" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="/assets/social-telegram.svg" alt="Telegram" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
+                  {{- with $socialXiaohongshu }}<a class="social-link" data-social="xiaohongshu" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="小红书"><img src="/assets/social-xiaohongshu.svg" alt="Xiaohongshu" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
                 </div>
                 {{- end }}
                 {{- if or $socialX $socialTelegram $socialXiaohongshu $socialWechatQr }}
                 <div class="social-set social-set-hant">
-                  {{- with $socialX }}<a class="social-link" data-social="x" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="/assets/social-x.svg" alt="X" /></a>{{- end }}
-                  {{- with $socialTelegram }}<a class="social-link" data-social="telegram" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="/assets/social-telegram.svg" alt="Telegram" /></a>{{- end }}
-                  {{- with $socialXiaohongshu }}<a class="social-link" data-social="xiaohongshu" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="小红书"><img src="/assets/social-xiaohongshu.svg" alt="Xiaohongshu" /></a>{{- end }}
+                  {{- with $socialX }}<a class="social-link" data-social="x" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="/assets/social-x.svg" alt="X" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
+                  {{- with $socialTelegram }}<a class="social-link" data-social="telegram" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="/assets/social-telegram.svg" alt="Telegram" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
+                  {{- with $socialXiaohongshu }}<a class="social-link" data-social="xiaohongshu" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="小红书"><img src="/assets/social-xiaohongshu.svg" alt="Xiaohongshu" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
                   {{- with $socialWechatQr }}
-                  <a class="social-link" data-social="wechat" href="#" aria-label="微信"><img src="/assets/social-wechat.svg" alt="WeChat" /></a>
+                  <a class="social-link" data-social="wechat" href="#" aria-label="微信"><img src="/assets/social-wechat.svg" alt="WeChat" width="24" height="24" loading="lazy" decoding="async" /></a>
                   {{- end }}
                 </div>
                 {{- end }}
@@ -304,7 +306,7 @@
             </section>
             {{- end }}
             <section class="qr-box">
-              <div class="fake-qr"><img src="{{ $downloadQr }}" alt="Download QR code" loading="lazy" /></div>
+              <div class="fake-qr"><img src="{{ $downloadQr }}" alt="Download QR code" width="88" height="88" loading="lazy" decoding="async" /></div>
               <div class="qr-copy">
                 <h4 data-i18n="navDownload">{{ T "navDownload" }}</h4>
                 <p data-i18n="downloadHint">{{ T "downloadHint" }}</p>

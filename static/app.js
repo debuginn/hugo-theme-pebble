@@ -2,6 +2,7 @@ const THEME_KEY = "ia_theme_pref";
 const USER_LANG_KEY = "ia_lang_user";
 const THEME_PREFS = ["auto", "dark", "light"];
 const DEFAULT_LANG = document.documentElement.getAttribute("data-default-lang") || "en";
+const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 
 function runtimeConfig() {
   return window.__IA_RUNTIME__ || {};
@@ -56,6 +57,35 @@ function setActiveOption(options, attrName, activeLang, fallbackLabel) {
   return activeText;
 }
 
+function isReducedMotion() {
+  return window.matchMedia && window.matchMedia(REDUCED_MOTION_QUERY).matches;
+}
+
+function closeLangDropdown(dropdown) {
+  dropdown.classList.remove("open");
+  const trigger = dropdown.querySelector("button[aria-expanded]");
+  if (trigger) trigger.setAttribute("aria-expanded", "false");
+}
+
+function closeLangDropdowns(exceptTarget) {
+  document.querySelectorAll(".header-lang-dropdown.open, .footer-lang-dropdown.open").forEach((dropdown) => {
+    if (exceptTarget && dropdown.contains(exceptTarget)) return;
+    closeLangDropdown(dropdown);
+  });
+}
+
+function bindLangDropdownGlobals() {
+  document.addEventListener("click", (e) => {
+    if (e.target instanceof Element && e.target.closest(".header-lang-dropdown, .footer-lang-dropdown")) {
+      return;
+    }
+    closeLangDropdowns();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeLangDropdowns();
+  });
+}
+
 function applyLang(lang) {
   const htmlLang =
     lang === "zh-Hans"
@@ -101,12 +131,12 @@ function bindDropdown(dropdownSelector, triggerSelector, optionSelector, attrNam
     if (!trigger || !options.length) return;
 
     const close = () => {
-      dropdown.classList.remove("open");
-      trigger.setAttribute("aria-expanded", "false");
+      closeLangDropdown(dropdown);
     };
 
     trigger.addEventListener("click", (e) => {
       e.stopPropagation();
+      closeLangDropdowns(e.target instanceof Element ? e.target : null);
       const nextOpen = !dropdown.classList.contains("open");
       dropdown.classList.toggle("open", nextOpen);
       trigger.setAttribute("aria-expanded", nextOpen ? "true" : "false");
@@ -119,14 +149,6 @@ function bindDropdown(dropdownSelector, triggerSelector, optionSelector, attrNam
         safeStorageSet(USER_LANG_KEY, next);
         close();
       });
-    });
-
-    document.addEventListener("click", (e) => {
-      if (e.target instanceof Element && e.target.closest(dropdownSelector)) return;
-      close();
-    });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") close();
     });
   });
 }
@@ -210,6 +232,7 @@ function bindWechatPreview() {
 }
 
 function fillTrack(selector) {
+  if (isReducedMotion()) return;
   const tracks = document.querySelectorAll(selector);
   if (!tracks.length) return;
   tracks.forEach((track) => {
@@ -432,12 +455,15 @@ function updateThemeButton(pref, btn) {
 
   bindDropdown(".header-lang-dropdown", ".header-lang-trigger", "[data-lang-option]", "data-lang-option");
   bindDropdown(".footer-lang-dropdown", ".footer-lang-trigger", "[data-footer-lang-option]", "data-footer-lang-option");
+  bindLangDropdownGlobals();
   bindMobileMenu(menuBtn, mobileMenu);
   bindWechatPreview();
   bindHeroFan();
 
-  fillTrack(".trust-track");
-  fillTrack(".review-track");
+  if (!isReducedMotion()) {
+    fillTrack(".trust-track");
+    fillTrack(".review-track");
+  }
   window.requestAnimationFrame(ensureReviewTwoLines);
 
   if (darkMedia) {
@@ -464,6 +490,7 @@ function updateThemeButton(pref, btn) {
 
   let trackTimer = null;
   window.addEventListener("resize", () => {
+    if (isReducedMotion()) return;
     if (trackTimer) window.clearTimeout(trackTimer);
     trackTimer = window.setTimeout(() => {
       fillTrack(".trust-track");
