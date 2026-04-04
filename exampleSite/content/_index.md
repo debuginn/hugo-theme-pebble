@@ -8,15 +8,15 @@ home:
     title: "A polished Hugo theme for product websites"
     description: "Pebble gives you a fast starting point for shipping a multilingual landing page with pricing, FAQ, legal pages, and lightweight content lists."
     fanImages:
-      - src: "/assets/hero-fan/hero-1.png"
+      - src: "/assets/hero-fan-en/hero-1.png"
         alt: "Pebble screenshot 1"
-      - src: "/assets/hero-fan/hero-2.png"
+      - src: "/assets/hero-fan-en/hero-2.png"
         alt: "Pebble screenshot 2"
-      - src: "/assets/hero-fan/hero-3.png"
+      - src: "/assets/hero-fan-en/hero-3.png"
         alt: "Pebble screenshot 3"
-      - src: "/assets/hero-fan/hero-4.png"
+      - src: "/assets/hero-fan-en/hero-4.png"
         alt: "Pebble screenshot 4"
-      - src: "/assets/hero-fan/hero-5.png"
+      - src: "/assets/hero-fan-en/hero-5.png"
         alt: "Pebble screenshot 5"
     cards:
       - number: "01"
@@ -56,9 +56,9 @@ home:
       images:
         - src: "/assets/features-showcase-main.png"
           alt: "Pebble feature showcase main screenshot"
-        - src: "/assets/hero-fan/hero-1.png"
+        - src: "/assets/hero-fan-en/hero-1.png"
           alt: "Pebble feature showcase secondary screenshot"
-        - src: "/assets/hero-fan/hero-5.png"
+        - src: "/assets/hero-fan-en/hero-5.png"
           alt: "Pebble feature showcase supporting screenshot"
   details:
     eyebrow: "Details"
@@ -94,15 +94,15 @@ home:
       durations: ["68s", "76s", "72s", "80s"]
       delays: ["0s", "-3s", "-8s", "-6s"]
       images:
-        - src: "/assets/hero-fan/hero-1.png"
+        - src: "/assets/hero-fan-en/hero-1.png"
           alt: "Pebble download backdrop 1"
-        - src: "/assets/hero-fan/hero-2.png"
+        - src: "/assets/hero-fan-en/hero-2.png"
           alt: "Pebble download backdrop 2"
-        - src: "/assets/hero-fan/hero-3.png"
+        - src: "/assets/hero-fan-en/hero-3.png"
           alt: "Pebble download backdrop 3"
-        - src: "/assets/hero-fan/hero-4.png"
+        - src: "/assets/hero-fan-en/hero-4.png"
           alt: "Pebble download backdrop 4"
-        - src: "/assets/hero-fan/hero-5.png"
+        - src: "/assets/hero-fan-en/hero-5.png"
           alt: "Pebble download backdrop 5"
   reviews:
     eyebrow: "Reviews"
