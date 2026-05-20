@@ -125,11 +125,8 @@
             var raw = (langs[i] || "").toLowerCase();
             var mapped = normalizeLang(raw);
             if (mapped) return mapped;
-            if (raw.indexOf("zh-tw") === 0) return "zh-Hant-TW";
-            if (raw.indexOf("zh-hk") === 0) return "zh-Hant-HK";
-            if (raw.indexOf("zh-mo") === 0) return "zh-Hant-MO";
-            if (raw.indexOf("zh-sg") === 0) return "zh-Hans-SG";
-            if (raw.indexOf("zh") === 0 && raw.indexOf("hant") >= 0) return "zh-Hant-TW";
+            if (raw.indexOf("zh-tw") === 0 || raw.indexOf("zh-hk") === 0 || raw.indexOf("zh-mo") === 0 || raw.indexOf("zh-sg") === 0) return "zh-Hant";
+            if (raw.indexOf("zh") === 0 && raw.indexOf("hant") >= 0) return "zh-Hant";
             if (raw.indexOf("zh") === 0) return "zh-Hans";
             if (raw.indexOf("ja") === 0) return "ja";
             if (raw.indexOf("ko") === 0) return "ko";

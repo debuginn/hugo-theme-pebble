@@ -1,0 +1,14 @@
+{
+  "brand": { "other": "Pebble" },
+  "footerTag": { "other": "產品展示主題" },
+  "navFeatures": { "other": "功能" },
+  "navPricing": { "other": "價格" },
+  "navFaq": { "other": "常見問題" },
+  "navDownload": { "other": "下載" },
+  "navTerms": { "other": "條款" },
+  "navPrivacy": { "other": "隱私" },
+  "downloadHint": { "other": "掃碼預覽安裝流程" },
+  "legalUpdated": { "other": "最近更新" },
+  "privacyEyebrow": { "other": "隱私" },
+  "termsEyebrow": { "other": "條款" }
+}

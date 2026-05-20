@@ -1093,28 +1093,12 @@ body[data-lang="zh-Hans"] .social-set-cn {
 html[lang="zh-Hans"] .social-set-global,
 body[data-lang="zh-Hans"] .social-set-global,
 html[lang="zh-Hant"] .social-set-global,
-body[data-lang="zh-Hant"] .social-set-global,
-html[lang="zh-HK"] .social-set-global,
-html[lang="zh-TW"] .social-set-global,
-html[lang="zh-MO"] .social-set-global,
-html[lang="zh-SG"] .social-set-global,
-body[data-lang="zh-Hant-TW"] .social-set-global,
-body[data-lang="zh-Hant-HK"] .social-set-global,
-body[data-lang="zh-Hant-MO"] .social-set-global,
-body[data-lang="zh-Hans-SG"] .social-set-global {
+body[data-lang="zh-Hant"] .social-set-global {
   display: none;
 }
 
 html[lang="zh-Hant"] .social-set-hant,
-body[data-lang="zh-Hant"] .social-set-hant,
-html[lang="zh-HK"] .social-set-hant,
-html[lang="zh-TW"] .social-set-hant,
-html[lang="zh-MO"] .social-set-hant,
-html[lang="zh-SG"] .social-set-hant,
-body[data-lang="zh-Hant-TW"] .social-set-hant,
-body[data-lang="zh-Hant-HK"] .social-set-hant,
-body[data-lang="zh-Hant-MO"] .social-set-hant,
-body[data-lang="zh-Hans-SG"] .social-set-hant {
+body[data-lang="zh-Hant"] .social-set-hant {
   display: inline-flex;
 }
 .qr-box {
@@ -1590,13 +1574,8 @@ body[data-lang="zh-Hans-SG"] .social-set-hant {
   }
   html[lang="zh-Hans"] .footer-main,
   html[lang="zh-Hant"] .footer-main,
-  html[lang^="zh"] .footer-main,
   body[data-lang="zh-Hans"] .footer-main,
-  body[data-lang="zh-Hant"] .footer-main,
-  body[data-lang="zh-Hant-TW"] .footer-main,
-  body[data-lang="zh-Hant-HK"] .footer-main,
-  body[data-lang="zh-Hant-MO"] .footer-main,
-  body[data-lang="zh-Hans-SG"] .footer-main {
+  body[data-lang="zh-Hant"] .footer-main {
     grid-template-columns: 1fr;
     grid-template-areas:
       "left"

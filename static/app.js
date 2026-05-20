@@ -87,18 +87,7 @@ function bindLangDropdownGlobals() {
 }
 
 function applyLang(lang) {
-  const htmlLang =
-    lang === "zh-Hans"
-      ? "zh-CN"
-      : lang === "zh-Hant-TW"
-        ? "zh-TW"
-        : lang === "zh-Hant-HK"
-          ? "zh-HK"
-          : lang === "zh-Hant-MO"
-            ? "zh-MO"
-            : lang === "zh-Hans-SG"
-              ? "zh-SG"
-            : lang;
+  const htmlLang = lang === "zh-Hans" ? "zh-CN" : lang;
   document.documentElement.lang = htmlLang;
   document.documentElement.setAttribute("data-lang", lang);
   if (document.body) document.body.setAttribute("data-lang", lang);
