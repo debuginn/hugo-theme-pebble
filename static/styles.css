@@ -1160,6 +1160,19 @@ body[data-lang="zh-Hans-SG"] .social-set-hant {
 .footer-credit a:hover {
   color: #27507f;
 }
+.footer-icp {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px 12px;
+  line-height: 1.6;
+}
+.footer-icp a {
+  color: inherit;
+}
+.footer-icp a:hover {
+  color: #27507f;
+}
 .lang-links { display: flex; gap: 10px; flex-wrap: wrap; }
 .footer-lang-dropdown {
   position: relative;

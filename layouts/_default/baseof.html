@@ -348,6 +348,21 @@
             </div>
             <div class="footer-meta">
               <p>© Copyright {{ site.Params.copyright.year }}. All rights reserved.</p>
+              {{- if eq .Site.Language.Lang "zh" }}
+                {{- $icp := site.Params.copyright.icp -}}
+                {{- $psbCode := site.Params.copyright.publicSecurityCode -}}
+                {{- $psbText := site.Params.copyright.publicSecurityText -}}
+                {{- if or $icp $psbCode }}
+              <p class="footer-icp">
+                {{- with $icp }}
+                <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">{{ . }}</a>
+                {{- end }}
+                {{- with $psbCode }}
+                <a href="https://beian.mps.gov.cn/#/query/webSearch?code={{ . }}" target="_blank" rel="noopener noreferrer">{{ $psbText | default (printf "公网安备 %s号" .) }}</a>
+                {{- end }}
+              </p>
+                {{- end }}
+              {{- end }}
               <p class="footer-credit">Built with <a href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a>, theme <a href="https://github.com/debuginn/hugo-theme-pebble" target="_blank" rel="noopener noreferrer">Pebble</a> designed by <a href="https://blog.debuginn.com/" target="_blank" rel="noopener noreferrer">Debuginn</a>.</p>
             </div>
           </div>

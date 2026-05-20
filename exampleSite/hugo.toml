@@ -32,6 +32,10 @@ lifetime = "99"
 
 [params.copyright]
 year = "2026"
+# Optional ICP / 公安备案 (only rendered on the Simplified Chinese site)
+# icp = "京ICP备12345678号-1"
+# publicSecurityCode = "11010502030143"
+# publicSecurityText = "京公网安备 11010502030143号"
 
 [languages.en]
 languageName = "English"
