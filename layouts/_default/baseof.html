@@ -13,6 +13,7 @@
     {{- $brandName := site.Params.assets.brandName | default site.Title -}}
     {{- $logoAlt := site.Params.assets.logoAlt | default (printf "%s logo" $brandName) -}}
     {{- $downloadQr := site.Params.assets.downloadQr | default "https://webp.debuginn.com/20260607huIkvB.png" -}}
+    {{- with site.Language.Params.assets.downloadQr }}{{- $downloadQr = . -}}{{- end -}}
     {{- $contactEmail := site.Params.contact.email -}}
     {{- $socialWechatQr := site.Params.social.wechatQr -}}
     {{- $socialX := site.Params.social.x -}}
