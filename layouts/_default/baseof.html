@@ -9,10 +9,10 @@
 <!doctype html>
 <html lang="{{ $langMeta.htmlLang }}" data-default-lang="{{ $defaultLang }}" data-current-lang="{{ $langMeta.appLang }}">
   <head>
-    {{- $logo := site.Params.assets.logo | default "/assets/logo.png" -}}
+    {{- $logo := site.Params.assets.logo | default "https://webp.debuginn.com/20260607h41bVQ.png" -}}
     {{- $brandName := site.Params.assets.brandName | default site.Title -}}
     {{- $logoAlt := site.Params.assets.logoAlt | default (printf "%s logo" $brandName) -}}
-    {{- $downloadQr := site.Params.assets.downloadQr | default "/assets/qr-download.png" -}}
+    {{- $downloadQr := site.Params.assets.downloadQr | default "https://webp.debuginn.com/20260607huIkvB.png" -}}
     {{- $contactEmail := site.Params.contact.email -}}
     {{- $socialWechatQr := site.Params.social.wechatQr -}}
     {{- $socialX := site.Params.social.x -}}
@@ -289,27 +289,27 @@
                 {{- if or $socialWechatQr $socialWeibo $socialXiaohongshu $socialZhihu }}
                 <div class="social-set social-set-cn">
                   {{- with $socialWechatQr }}
-                  <a class="social-link" data-social="wechat" href="#" aria-label="微信"><img src="/assets/social-wechat.svg" alt="WeChat" width="24" height="24" loading="lazy" decoding="async" /></a>
+                  <a class="social-link" data-social="wechat" href="#" aria-label="微信"><img src="https://webp.debuginn.com/20260607v5H5Ux.svg" alt="WeChat" width="24" height="24" loading="lazy" decoding="async" /></a>
                   {{- end }}
-                  {{- with $socialWeibo }}<a class="social-link" data-social="weibo" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="微博"><img src="/assets/social-weibo.svg" alt="Weibo" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
-                  {{- with $socialXiaohongshu }}<a class="social-link" data-social="xiaohongshu" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="小红书"><img src="/assets/social-xiaohongshu.svg" alt="Xiaohongshu" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
-                  {{- with $socialZhihu }}<a class="social-link" data-social="zhihu" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="知乎"><img src="/assets/social-zhihu.svg" alt="Zhihu" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
+                  {{- with $socialWeibo }}<a class="social-link" data-social="weibo" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="微博"><img src="https://webp.debuginn.com/20260607IoieJf.svg" alt="Weibo" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
+                  {{- with $socialXiaohongshu }}<a class="social-link" data-social="xiaohongshu" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="小红书"><img src="https://webp.debuginn.com/20260607S6dw4u.svg" alt="Xiaohongshu" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
+                  {{- with $socialZhihu }}<a class="social-link" data-social="zhihu" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="知乎"><img src="https://webp.debuginn.com/20260607dP6b5s.svg" alt="Zhihu" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
                 </div>
                 {{- end }}
                 {{- if or $socialX $socialTelegram $socialXiaohongshu }}
                 <div class="social-set social-set-global">
-                  {{- with $socialX }}<a class="social-link" data-social="x" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="/assets/social-x.svg" alt="X" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
-                  {{- with $socialTelegram }}<a class="social-link" data-social="telegram" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="/assets/social-telegram.svg" alt="Telegram" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
-                  {{- with $socialXiaohongshu }}<a class="social-link" data-social="xiaohongshu" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="小红书"><img src="/assets/social-xiaohongshu.svg" alt="Xiaohongshu" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
+                  {{- with $socialX }}<a class="social-link" data-social="x" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="https://webp.debuginn.com/20260607TIEZDC.svg" alt="X" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
+                  {{- with $socialTelegram }}<a class="social-link" data-social="telegram" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="https://webp.debuginn.com/2026060747C8zB.svg" alt="Telegram" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
+                  {{- with $socialXiaohongshu }}<a class="social-link" data-social="xiaohongshu" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="小红书"><img src="https://webp.debuginn.com/20260607S6dw4u.svg" alt="Xiaohongshu" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
                 </div>
                 {{- end }}
                 {{- if or $socialX $socialTelegram $socialXiaohongshu $socialWechatQr }}
                 <div class="social-set social-set-hant">
-                  {{- with $socialX }}<a class="social-link" data-social="x" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="/assets/social-x.svg" alt="X" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
-                  {{- with $socialTelegram }}<a class="social-link" data-social="telegram" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="/assets/social-telegram.svg" alt="Telegram" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
-                  {{- with $socialXiaohongshu }}<a class="social-link" data-social="xiaohongshu" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="小红书"><img src="/assets/social-xiaohongshu.svg" alt="Xiaohongshu" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
+                  {{- with $socialX }}<a class="social-link" data-social="x" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="https://webp.debuginn.com/20260607TIEZDC.svg" alt="X" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
+                  {{- with $socialTelegram }}<a class="social-link" data-social="telegram" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="https://webp.debuginn.com/2026060747C8zB.svg" alt="Telegram" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
+                  {{- with $socialXiaohongshu }}<a class="social-link" data-social="xiaohongshu" href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="小红书"><img src="https://webp.debuginn.com/20260607S6dw4u.svg" alt="Xiaohongshu" width="24" height="24" loading="lazy" decoding="async" /></a>{{- end }}
                   {{- with $socialWechatQr }}
-                  <a class="social-link" data-social="wechat" href="#" aria-label="微信"><img src="/assets/social-wechat.svg" alt="WeChat" width="24" height="24" loading="lazy" decoding="async" /></a>
+                  <a class="social-link" data-social="wechat" href="#" aria-label="微信"><img src="https://webp.debuginn.com/20260607v5H5Ux.svg" alt="WeChat" width="24" height="24" loading="lazy" decoding="async" /></a>
                   {{- end }}
                 </div>
                 {{- end }}

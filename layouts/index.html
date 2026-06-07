@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{- $logo := site.Params.assets.logo | default "/assets/logo.png" -}}
+{{- $logo := site.Params.assets.logo | default "https://webp.debuginn.com/20260607h41bVQ.png" -}}
 {{- $logoAlt := site.Params.assets.logoAlt | default "iAssets logo" -}}
 {{- $contactEmail := site.Params.contact.email | default "idebuginn@gmail.com" -}}
 {{- $defaultLang := site.Params.i18n.defaultLang | default "en" -}}
@@ -17,11 +17,11 @@
       </div>
       {{- $heroImageAlt := .image.alt | default "iAssets app screenshot" -}}
       {{- $fanImages := .fanImages | default (slice
-        (dict "src" "/assets/hero-fan/hero-1.png" "alt" $heroImageAlt)
-        (dict "src" "/assets/hero-fan/hero-2.png" "alt" $heroImageAlt)
-        (dict "src" "/assets/hero-fan/hero-3.png" "alt" $heroImageAlt)
-        (dict "src" "/assets/hero-fan/hero-4.png" "alt" $heroImageAlt)
-        (dict "src" "/assets/hero-fan/hero-5.png" "alt" $heroImageAlt)
+        (dict "src" "https://webp.debuginn.com/20260607bKUTA5.png" "alt" $heroImageAlt)
+        (dict "src" "https://webp.debuginn.com/20260607RB4DlU.png" "alt" $heroImageAlt)
+        (dict "src" "https://webp.debuginn.com/20260607pbC8BI.png" "alt" $heroImageAlt)
+        (dict "src" "https://webp.debuginn.com/20260607Z4kek6.png" "alt" $heroImageAlt)
+        (dict "src" "https://webp.debuginn.com/20260607qszD9v.png" "alt" $heroImageAlt)
       ) -}}
       {{- if gt (len $fanImages) 0 }}
       <div class="hero-visual">
@@ -84,9 +84,9 @@
         {{- end -}}
         {{- if $showcaseEnabled }}
         {{- $featureShots := $showcaseConfig.images | default (slice
-          (dict "src" "/assets/features-showcase-main.png" "alt" "Pebble feature screenshot main")
-          (dict "src" "/assets/hero-fan/hero-1.png" "alt" "Pebble feature screenshot left")
-          (dict "src" "/assets/hero-fan/hero-5.png" "alt" "Pebble feature screenshot right")
+          (dict "src" "https://webp.debuginn.com/20260607wsFhmF.png" "alt" "Pebble feature screenshot main")
+          (dict "src" "https://webp.debuginn.com/20260607bKUTA5.png" "alt" "Pebble feature screenshot left")
+          (dict "src" "https://webp.debuginn.com/20260607qszD9v.png" "alt" "Pebble feature screenshot right")
         ) -}}
         <aside class="feature-showcase">
           {{- range $index, $item := first 3 $featureShots }}
@@ -122,11 +122,11 @@
   {{- with $home.download }}
   {{- $backdrop := .backdrop | default dict -}}
   {{- $downloadShots := $backdrop.images | default (slice
-    (dict "src" "/assets/hero-fan/hero-1.png" "alt" "Pebble screenshot 1")
-    (dict "src" "/assets/hero-fan/hero-2.png" "alt" "Pebble screenshot 2")
-    (dict "src" "/assets/hero-fan/hero-3.png" "alt" "Pebble screenshot 3")
-    (dict "src" "/assets/hero-fan/hero-4.png" "alt" "Pebble screenshot 4")
-    (dict "src" "/assets/hero-fan/hero-5.png" "alt" "Pebble screenshot 5")
+    (dict "src" "https://webp.debuginn.com/20260607bKUTA5.png" "alt" "Pebble screenshot 1")
+    (dict "src" "https://webp.debuginn.com/20260607RB4DlU.png" "alt" "Pebble screenshot 2")
+    (dict "src" "https://webp.debuginn.com/20260607pbC8BI.png" "alt" "Pebble screenshot 3")
+    (dict "src" "https://webp.debuginn.com/20260607Z4kek6.png" "alt" "Pebble screenshot 4")
+    (dict "src" "https://webp.debuginn.com/20260607qszD9v.png" "alt" "Pebble screenshot 5")
   ) -}}
   {{- $columnCount := int ($backdrop.columns | default 4) -}}
   {{- $durations := $backdrop.durations | default (slice "68s" "76s" "72s" "80s") -}}
@@ -176,7 +176,8 @@
   </section>
   {{- end }}
   {{- with $home.reviews }}
-  <section id="reviews" class="section"><div class="container">{{- with .eyebrow }}<p class="eyebrow">{{ . }}</p>{{- end }}{{- with .title }}<h2 class="section-title">{{ . }}</h2>{{- end }}{{- with .description }}<p class="section-desc">{{ . }}</p>{{- end }}{{- with .tracks }}<div class="review-marquee" aria-label="User reviews">{{- with .primary }}<div class="review-track">{{ range . }}{{- $social := lower (.social | default "x") -}}{{- $icon := .icon | default (printf "/assets/review-%s.svg" $social) -}}<figure class="review"><div class="stars">★★★★★</div><blockquote>{{ .text }}</blockquote><figcaption><span class="social-link review-social-icon" data-social="{{ $social }}"><img src="{{ $icon }}" alt="{{ $social }}" width="10" height="10" loading="lazy" decoding="async" /></span><span>{{ .name }}</span></figcaption></figure>{{ end }}</div>{{- end }}{{- with .secondary }}<div class="review-track reverse">{{ range . }}{{- $social := lower (.social | default "x") -}}{{- $icon := .icon | default (printf "/assets/review-%s.svg" $social) -}}<figure class="review"><div class="stars">★★★★★</div><blockquote>{{ .text }}</blockquote><figcaption><span class="social-link review-social-icon" data-social="{{ $social }}"><img src="{{ $icon }}" alt="{{ $social }}" width="10" height="10" loading="lazy" decoding="async" /></span><span>{{ .name }}</span></figcaption></figure>{{ end }}</div>{{- end }}</div>{{- end }}</div></section>
+  {{- $reviewIcons := dict "reddit" "https://webp.debuginn.com/20260607ZRqKuE.svg" "telegram" "https://webp.debuginn.com/20260607GuDBCK.svg" "wechat" "https://webp.debuginn.com/20260607Zl9P7x.svg" "weibo" "https://webp.debuginn.com/20260607DyMteq.svg" "x" "https://webp.debuginn.com/20260607Xh8yS3.svg" -}}
+  <section id="reviews" class="section"><div class="container">{{- with .eyebrow }}<p class="eyebrow">{{ . }}</p>{{- end }}{{- with .title }}<h2 class="section-title">{{ . }}</h2>{{- end }}{{- with .description }}<p class="section-desc">{{ . }}</p>{{- end }}{{- with .tracks }}<div class="review-marquee" aria-label="User reviews">{{- with .primary }}<div class="review-track">{{ range . }}{{- $social := lower (.social | default "x") -}}{{- $icon := .icon | default (index $reviewIcons $social) -}}<figure class="review"><div class="stars">★★★★★</div><blockquote>{{ .text }}</blockquote><figcaption><span class="social-link review-social-icon" data-social="{{ $social }}"><img src="{{ $icon }}" alt="{{ $social }}" width="10" height="10" loading="lazy" decoding="async" /></span><span>{{ .name }}</span></figcaption></figure>{{ end }}</div>{{- end }}{{- with .secondary }}<div class="review-track reverse">{{ range . }}{{- $social := lower (.social | default "x") -}}{{- $icon := .icon | default (index $reviewIcons $social) -}}<figure class="review"><div class="stars">★★★★★</div><blockquote>{{ .text }}</blockquote><figcaption><span class="social-link review-social-icon" data-social="{{ $social }}"><img src="{{ $icon }}" alt="{{ $social }}" width="10" height="10" loading="lazy" decoding="async" /></span><span>{{ .name }}</span></figcaption></figure>{{ end }}</div>{{- end }}</div>{{- end }}</div></section>
   {{- end }}
   {{- with $home.pricing }}
   <section id="pricing" class="section"><div class="container">{{- with .eyebrow }}<p class="eyebrow">{{ . }}</p>{{- end }}{{- with .title }}<h2 class="section-title">{{ . }}</h2>{{- end }}{{- with .description }}<p class="section-desc">{{ . }}</p>{{- end }}{{- with .plans }}<div class="pricing-grid">{{ range . }}{{- $priceValue := cond (eq .priceKey "lifetime") $pricing.lifetime $pricing.yearly -}}{{- $ctaStyle := cond .badge "btn-solid" "btn-ghost" -}}{{- with .cta }}{{- if .style }}{{- $ctaStyle = .style -}}{{- else if .highlight }}{{- $ctaStyle = "btn-solid" -}}{{- end -}}{{- end -}}<article class="price-card{{ if .featured }} featured{{ end }}"><div class="price-head"><div class="plan-title"><img class="plan-logo" src="{{ $logo }}" alt="{{ $logoAlt }}" />{{- with .title }}<h3>{{ . }}</h3>{{- end }}</div>{{- with .badge }}<span class="badge">{{ . }}</span>{{- end }}</div><p class="price"><span>{{ $pricing.currency }}</span>{{ $priceValue }}{{- with .suffix }}<span>{{ . }}</span>{{- end }}</p>{{- with .description }}<p>{{ . }}</p>{{- end }}{{- with .cta }}<a class="btn {{ $ctaStyle }}" href="{{ .href | default "#download" }}"{{ if hasPrefix (.href | default "#download") "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }}</a>{{- end }}</article>{{ end }}</div>{{- end }}{{- with .disclaimer }}<p class="pricing-disclaimer">{{ . }}</p>{{- end }}</div></section>
