@@ -179,7 +179,7 @@ function bindMobileMenu(menuBtn, mobileMenu) {
 function bindWechatPreview() {
   const wechatLinks = document.querySelectorAll('.social-link[data-social="wechat"]');
   if (!wechatLinks.length) return;
-  const qrSrc = (document.body && document.body.getAttribute("data-wechat-qr")) || "/assets/wechat-qr.jpg?v=20260303d";
+  const qrSrc = (document.body && document.body.getAttribute("data-wechat-qr")) || "https://webp.debuginn.com/20260607OpjNs1.jpg?v=20260303d";
   const closeAll = () => {
     document.querySelectorAll(".wechat-popover.open").forEach((el) => el.classList.remove("open"));
   };

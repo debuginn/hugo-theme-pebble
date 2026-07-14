@@ -15,7 +15,7 @@
   {{- end -}}
 {{- end -}}
 
-{{- $pathLangMap = merge $pathLangMap (dict "zh" "zh-Hans" "zh-cn" "zh-Hans" "zh-hans" "zh-Hans" "zh-tw" "zh-Hant" "zh-hk" "zh-Hant" "zh-mo" "zh-Hant" "zh-sg" "zh-Hant") -}}
+{{- $pathLangMap = merge $pathLangMap (dict "zh" "zh-Hans" "zh-cn" "zh-Hans" "zh-hans" "zh-Hans" "zh-hant" "zh-Hant" "zh-tw" "zh-Hant" "zh-hk" "zh-Hant" "zh-mo" "zh-Hant" "zh-sg" "zh-Hant") -}}
 
 {{- return (dict
   "supportedLangs" $supportedLangs
