@@ -138,6 +138,53 @@ home:
           highlight: true
           label: "購買終身"
           href: "#download"
+  pricingCompare:
+    eyebrow: "方案對比"
+    title: "找到適合你的方案"
+    description: "詳細了解每個方案支援的功能。"
+    featureLabel: "功能"
+    includedLabel: "支援"
+    disclaimer: "* 功能範圍可能隨產品迭代調整。"
+    columns:
+      - title: "免費版"
+        priceKey: "free"
+        price: "0"
+        suffix: "/永久"
+        cta:
+          label: "免費開始"
+          href: "#download"
+      - title: "Pro 年度"
+        priceKey: "yearly"
+        badge: "熱門"
+        suffix: "/年"
+        featured: true
+        cta:
+          label: "選擇年付"
+          highlight: true
+          href: "#download"
+      - title: "Pro 永久"
+        priceKey: "lifetime"
+        suffix: "一次性"
+        cta:
+          label: "購買終身"
+          href: "#download"
+    rows:
+      - label: "帳本 / 帳戶數"
+        values: ["最多 1 個", "不限", "不限"]
+      - label: "雲端同步"
+        values: [false, true, true]
+      - label: "自訂分類"
+        values: [true, true, true]
+      - label: "多幣種支援"
+        values: [false, true, true]
+      - label: "資料匯出"
+        values: [false, true, true]
+      - label: "優先客服"
+        note: "24 小時內回應"
+        values: [false, true, true]
+      - label: "終身更新"
+        values: [false, false, true]
+
   trust:
     eyebrow: "TRUST"
     title: "受領先銀行、金融平台信賴"

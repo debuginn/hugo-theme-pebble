@@ -169,6 +169,53 @@ home:
           highlight: true
           label: "Buy lifetime"
           href: "#download"
+  pricingCompare:
+    eyebrow: "Compare plans"
+    title: "Find the plan that fits"
+    description: "A closer look at what each plan includes."
+    featureLabel: "Features"
+    includedLabel: "Included"
+    disclaimer: "* Feature availability may change as the product evolves."
+    columns:
+      - title: "Free"
+        priceKey: "free"
+        price: "0"
+        suffix: "/forever"
+        cta:
+          label: "Get started"
+          href: "#download"
+      - title: "Pro Yearly"
+        priceKey: "yearly"
+        badge: "Popular"
+        suffix: "/year"
+        featured: true
+        cta:
+          label: "Choose yearly"
+          highlight: true
+          href: "#download"
+      - title: "Pro Lifetime"
+        priceKey: "lifetime"
+        suffix: "one-time"
+        cta:
+          label: "Buy lifetime"
+          href: "#download"
+    rows:
+      - label: "Books & accounts"
+        values: ["Up to 1", "Unlimited", "Unlimited"]
+      - label: "Cloud sync"
+        values: [false, true, true]
+      - label: "Custom categories"
+        values: [true, true, true]
+      - label: "Multi-currency support"
+        values: [false, true, true]
+      - label: "Data export"
+        values: [false, true, true]
+      - label: "Priority support"
+        note: "Response within 24h"
+        values: [false, true, true]
+      - label: "Lifetime updates"
+        values: [false, false, true]
+
   trust:
     eyebrow: "TRUST"
     title: "Trusted by leading banks and finance platforms"

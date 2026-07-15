@@ -138,6 +138,53 @@ home:
           highlight: true
           label: "购买终身"
           href: "#download"
+  pricingCompare:
+    eyebrow: "方案对比"
+    title: "找到适合你的方案"
+    description: "详细了解每个方案支持的功能。"
+    featureLabel: "功能"
+    includedLabel: "支持"
+    disclaimer: "* 功能范围可能随产品迭代调整。"
+    columns:
+      - title: "免费版"
+        priceKey: "free"
+        price: "0"
+        suffix: "/永久"
+        cta:
+          label: "免费开始"
+          href: "#download"
+      - title: "Pro 年度"
+        priceKey: "yearly"
+        badge: "热门"
+        suffix: "/年"
+        featured: true
+        cta:
+          label: "选择年付"
+          highlight: true
+          href: "#download"
+      - title: "Pro 永久"
+        priceKey: "lifetime"
+        suffix: "一次性"
+        cta:
+          label: "购买终身"
+          href: "#download"
+    rows:
+      - label: "账本 / 账户数"
+        values: ["最多 1 个", "不限", "不限"]
+      - label: "云端同步"
+        values: [false, true, true]
+      - label: "自定义分类"
+        values: [true, true, true]
+      - label: "多币种支持"
+        values: [false, true, true]
+      - label: "数据导出"
+        values: [false, true, true]
+      - label: "优先客服"
+        note: "24 小时内响应"
+        values: [false, true, true]
+      - label: "终身更新"
+        values: [false, false, true]
+
   trust:
     eyebrow: "TRUST"
     title: "受领先银行、金融平台信赖"

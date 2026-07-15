@@ -182,6 +182,73 @@
   {{- with $home.pricing }}
   <section id="pricing" class="section"><div class="container">{{- with .eyebrow }}<p class="eyebrow">{{ . }}</p>{{- end }}{{- with .title }}<h2 class="section-title">{{ . }}</h2>{{- end }}{{- with .description }}<p class="section-desc">{{ . }}</p>{{- end }}{{- with .plans }}<div class="pricing-grid">{{ range . }}{{- $priceValue := cond (eq .priceKey "lifetime") $pricing.lifetime $pricing.yearly -}}{{- $ctaStyle := cond .badge "btn-solid" "btn-ghost" -}}{{- with .cta }}{{- if .style }}{{- $ctaStyle = .style -}}{{- else if .highlight }}{{- $ctaStyle = "btn-solid" -}}{{- end -}}{{- end -}}<article class="price-card{{ if .featured }} featured{{ end }}"><div class="price-head"><div class="plan-title"><img class="plan-logo" src="{{ $logo }}" alt="{{ $logoAlt }}" />{{- with .title }}<h3>{{ . }}</h3>{{- end }}</div>{{- with .badge }}<span class="badge">{{ . }}</span>{{- end }}</div><p class="price"><span>{{ $pricing.currency }}</span>{{ $priceValue }}{{- with .suffix }}<span>{{ . }}</span>{{- end }}</p>{{- with .description }}<p>{{ . }}</p>{{- end }}{{- with .cta }}<a class="btn {{ $ctaStyle }}" href="{{ .href | default "#download" }}"{{ if hasPrefix (.href | default "#download") "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }}</a>{{- end }}</article>{{ end }}</div>{{- end }}{{- with .disclaimer }}<p class="pricing-disclaimer">{{ . }}</p>{{- end }}</div></section>
   {{- end }}
+  {{- with (index $home "pricingcompare") }}
+  {{- $compare := . -}}
+  <section id="pricing-compare" class="section pricing-compare-section">
+    <div class="container">
+      {{- with $compare.eyebrow }}<p class="eyebrow">{{ . }}</p>{{- end }}
+      {{- with $compare.title }}<h2 class="section-title">{{ . }}</h2>{{- end }}
+      {{- with $compare.description }}<p class="section-desc">{{ . }}</p>{{- end }}
+      {{- with $compare.columns }}
+      {{- $columns := . -}}
+      <div class="pricing-compare-wrap">
+        <table class="pricing-compare-table">
+          <thead>
+            <tr>
+              <th class="pc-feature-col"><span class="sr-only">{{ index $compare "featurelabel" | default "Features" }}</span></th>
+              {{- range $columns }}
+              {{- $col := . -}}
+              {{- $priceValue := "" -}}
+              {{- if eq $col.priceKey "lifetime" -}}
+                {{- $priceValue = $pricing.lifetime -}}
+              {{- else if eq $col.priceKey "yearly" -}}
+                {{- $priceValue = $pricing.yearly -}}
+              {{- else -}}
+                {{- $priceValue = $col.price -}}
+              {{- end -}}
+              <th class="pc-plan-col{{ if $col.featured }} featured{{ end }}">
+                {{- with $col.badge }}<span class="badge">{{ . }}</span>{{- end }}
+                <div class="pc-plan-name">{{ $col.title }}</div>
+                <div class="pc-plan-price"><span class="pc-currency">{{ $pricing.currency }}</span>{{ $priceValue }}{{- with $col.suffix }}<span class="pc-suffix">{{ . }}</span>{{- end }}</div>
+                {{- with $col.description }}<p class="pc-plan-desc">{{ . }}</p>{{- end }}
+                {{- with $col.cta }}
+                {{- $ctaStyle := cond $col.featured "btn-solid" "btn-ghost" -}}
+                {{- if .style }}{{- $ctaStyle = .style -}}{{- else if .highlight }}{{- $ctaStyle = "btn-solid" -}}{{- end -}}
+                <a class="btn {{ $ctaStyle }} pc-cta" href="{{ .href | default "#download" }}"{{ if hasPrefix (.href | default "#download") "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }}</a>
+                {{- end }}
+              </th>
+              {{- end }}
+            </tr>
+          </thead>
+          <tbody>
+            {{- range $compare.rows }}
+            {{- $row := . -}}
+            <tr>
+              <td class="pc-feature-col">{{ $row.label }}{{- with $row.note }}<span class="pc-note">{{ . }}</span>{{- end }}</td>
+              {{- range $i, $col := $columns }}
+              {{- $val := index $row.values $i -}}
+              <td class="pc-cell">
+                {{- if eq (printf "%T" $val) "bool" -}}
+                  {{- if $val -}}
+                  <span class="pc-check" aria-label="{{ index $compare "includedlabel" | default "Included" }}">{{ partial "icon.html" (dict "name" "check") }}</span>
+                  {{- else -}}
+                  <span class="pc-dash" aria-hidden="true">{{ partial "icon.html" (dict "name" "minus") }}</span>
+                  {{- end -}}
+                {{- else -}}
+                  <span class="pc-text">{{ $val }}</span>
+                {{- end -}}
+              </td>
+              {{- end }}
+            </tr>
+            {{- end }}
+          </tbody>
+        </table>
+      </div>
+      {{- end }}
+      {{- with $compare.disclaimer }}<p class="pricing-disclaimer">{{ . }}</p>{{- end }}
+    </div>
+  </section>
+  {{- end }}
   {{- with $home.trust }}{{- if not .disabled }}
   <section class="section trust-strip"><div class="container">{{- with .eyebrow }}<p class="eyebrow">{{ . }}</p>{{- end }}{{- with .title }}<h2 class="section-title trust-title">{{ . }}</h2>{{- end }}{{- with .description }}<p class="trust-subtitle">{{ . }}</p>{{- end }}{{- with .tracks }}<div class="trust-marquee" aria-label="Trusted partners">{{- with .primary }}<div class="trust-track">{{ range . }}{{- $imgWidth := .width | default 56 -}}{{- $imgHeight := .height | default 56 -}}<article class="trust-card"><img class="trust-logo" src="{{ .src }}" alt="{{ .alt }}" width="{{ $imgWidth }}" height="{{ $imgHeight }}" loading="lazy" decoding="async" /><span>{{ .name }}</span></article>{{ end }}</div>{{- end }}{{- with .secondary }}<div class="trust-track reverse">{{ range . }}{{- $imgWidth := .width | default 56 -}}{{- $imgHeight := .height | default 56 -}}<article class="trust-card"><img class="trust-logo" src="{{ .src }}" alt="{{ .alt }}" width="{{ $imgWidth }}" height="{{ $imgHeight }}" loading="lazy" decoding="async" /><span>{{ .name }}</span></article>{{ end }}</div>{{- end }}</div>{{- end }}{{- with .actions }}<div class="trust-actions">{{ range . }}<a class="btn {{ .style | default "btn-ghost" }}" href="{{ if eq .type "mailto" }}mailto:{{ $contactEmail }}{{ else }}{{ .href }}{{ end }}">{{ .label }}</a>{{ end }}</div>{{- end }}</div></section>
   {{- end }}{{- end }}
