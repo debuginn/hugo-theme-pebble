@@ -173,8 +173,6 @@ home:
     eyebrow: "Compare plans"
     title: "Find the plan that fits"
     description: "A closer look at what each plan includes."
-    featureLabel: "Features"
-    includedLabel: "Included"
     disclaimer: "* Feature availability may change as the product evolves."
     columns:
       - title: "Free"

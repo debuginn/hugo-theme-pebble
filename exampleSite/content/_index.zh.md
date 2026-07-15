@@ -142,8 +142,6 @@ home:
     eyebrow: "方案对比"
     title: "找到适合你的方案"
     description: "详细了解每个方案支持的功能。"
-    featureLabel: "功能"
-    includedLabel: "支持"
     disclaimer: "* 功能范围可能随产品迭代调整。"
     columns:
       - title: "免费版"

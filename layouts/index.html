@@ -191,58 +191,52 @@
       {{- with $compare.description }}<p class="section-desc">{{ . }}</p>{{- end }}
       {{- with $compare.columns }}
       {{- $columns := . -}}
-      <div class="pricing-compare-wrap">
-        <table class="pricing-compare-table">
-          <thead>
-            <tr>
-              <th class="pc-feature-col"><span class="sr-only">{{ index $compare "featurelabel" | default "Features" }}</span></th>
-              {{- range $columns }}
-              {{- $col := . -}}
-              {{- $priceValue := "" -}}
-              {{- if eq $col.priceKey "lifetime" -}}
-                {{- $priceValue = $pricing.lifetime -}}
-              {{- else if eq $col.priceKey "yearly" -}}
-                {{- $priceValue = $pricing.yearly -}}
-              {{- else -}}
-                {{- $priceValue = $col.price -}}
-              {{- end -}}
-              <th class="pc-plan-col{{ if $col.featured }} featured{{ end }}">
-                {{- with $col.badge }}<span class="badge">{{ . }}</span>{{- end }}
-                <div class="pc-plan-name">{{ $col.title }}</div>
-                <div class="pc-plan-price"><span class="pc-currency">{{ $pricing.currency }}</span>{{ $priceValue }}{{- with $col.suffix }}<span class="pc-suffix">{{ . }}</span>{{- end }}</div>
-                {{- with $col.description }}<p class="pc-plan-desc">{{ . }}</p>{{- end }}
-                {{- with $col.cta }}
-                {{- $ctaStyle := cond $col.featured "btn-solid" "btn-ghost" -}}
-                {{- if .style }}{{- $ctaStyle = .style -}}{{- else if .highlight }}{{- $ctaStyle = "btn-solid" -}}{{- end -}}
-                <a class="btn {{ $ctaStyle }} pc-cta" href="{{ .href | default "#download" }}"{{ if hasPrefix (.href | default "#download") "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }}</a>
-                {{- end }}
-              </th>
-              {{- end }}
-            </tr>
-          </thead>
-          <tbody>
-            {{- range $compare.rows }}
-            {{- $row := . -}}
-            <tr>
-              <td class="pc-feature-col">{{ $row.label }}{{- with $row.note }}<span class="pc-note">{{ . }}</span>{{- end }}</td>
-              {{- range $i, $col := $columns }}
-              {{- $val := index $row.values $i -}}
-              <td class="pc-cell">
-                {{- if eq (printf "%T" $val) "bool" -}}
-                  {{- if $val -}}
-                  <span class="pc-check" aria-label="{{ index $compare "includedlabel" | default "Included" }}">{{ partial "icon.html" (dict "name" "check") }}</span>
-                  {{- else -}}
-                  <span class="pc-dash" aria-hidden="true">{{ partial "icon.html" (dict "name" "minus") }}</span>
-                  {{- end -}}
-                {{- else -}}
-                  <span class="pc-text">{{ $val }}</span>
-                {{- end -}}
-              </td>
-              {{- end }}
-            </tr>
+      {{- $colCount := len $columns -}}
+      <div class="pc-grid" style="--pc-cols: {{ $colCount }};">
+        {{- range $ci, $col := $columns }}
+        {{- $priceValue := "" -}}
+        {{- if eq $col.priceKey "lifetime" -}}
+          {{- $priceValue = $pricing.lifetime -}}
+        {{- else if eq $col.priceKey "yearly" -}}
+          {{- $priceValue = $pricing.yearly -}}
+        {{- else -}}
+          {{- $priceValue = $col.price -}}
+        {{- end -}}
+        <article class="pc-card{{ if $col.featured }} featured{{ end }}">
+          <header class="pc-card-head">
+            {{- with $col.badge }}<span class="badge">{{ . }}</span>{{- end }}
+            <h3 class="pc-plan-name">{{ $col.title }}</h3>
+            <p class="pc-plan-price"><span class="pc-currency">{{ $pricing.currency }}</span>{{ $priceValue }}{{- with $col.suffix }}<span class="pc-suffix">{{ . }}</span>{{- end }}</p>
+            {{- with $col.description }}<p class="pc-plan-desc">{{ . }}</p>{{- end }}
+            {{- with $col.cta }}
+            {{- $ctaStyle := cond $col.featured "btn-solid" "btn-ghost" -}}
+            {{- if .style }}{{- $ctaStyle = .style -}}{{- else if .highlight }}{{- $ctaStyle = "btn-solid" -}}{{- end -}}
+            <a class="btn {{ $ctaStyle }} pc-cta" href="{{ .href | default "#download" }}"{{ if hasPrefix (.href | default "#download") "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }}</a>
             {{- end }}
-          </tbody>
-        </table>
+          </header>
+          {{- with $compare.rows }}
+          <ul class="pc-feature-list">
+            {{- range . }}
+            {{- $row := . -}}
+            {{- $val := index $row.values $ci -}}
+            <li class="pc-feature-row{{ if eq (printf "%T" $val) "bool" }}{{ if not $val }} is-muted{{ end }}{{ end }}">
+              {{- if eq (printf "%T" $val) "bool" -}}
+                {{- if $val -}}
+                <span class="pc-mark pc-mark-yes" aria-hidden="true">{{ partial "icon.html" (dict "name" "check") }}</span>
+                {{- else -}}
+                <span class="pc-mark pc-mark-no" aria-hidden="true">{{ partial "icon.html" (dict "name" "minus") }}</span>
+                {{- end -}}
+                <span class="pc-feature-label">{{ $row.label }}{{- with $row.note }}<span class="pc-note">{{ . }}</span>{{- end }}</span>
+              {{- else -}}
+                <span class="pc-mark pc-mark-value" aria-hidden="true"></span>
+                <span class="pc-feature-label">{{ $row.label }}<span class="pc-note">{{ $val }}</span></span>
+              {{- end -}}
+            </li>
+            {{- end }}
+          </ul>
+          {{- end }}
+        </article>
+        {{- end }}
       </div>
       {{- end }}
       {{- with $compare.disclaimer }}<p class="pricing-disclaimer">{{ . }}</p>{{- end }}

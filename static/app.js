@@ -176,13 +176,21 @@ function bindMobileMenu(menuBtn, mobileMenu) {
   });
 }
 
+function closeAllPopovers() {
+  document.querySelectorAll(".wechat-popover.open, .qr-popover.open").forEach((el) => {
+    el.classList.remove("open");
+    el.setAttribute("aria-hidden", "true");
+  });
+  document.querySelectorAll(".qr-trigger.open").forEach((el) => {
+    el.classList.remove("open");
+    el.setAttribute("aria-expanded", "false");
+  });
+}
+
 function bindWechatPreview() {
   const wechatLinks = document.querySelectorAll('.social-link[data-social="wechat"]');
   if (!wechatLinks.length) return;
   const qrSrc = (document.body && document.body.getAttribute("data-wechat-qr")) || "https://webp.debuginn.com/20260607OpjNs1.jpg?v=20260303d";
-  const closeAll = () => {
-    document.querySelectorAll(".wechat-popover.open").forEach((el) => el.classList.remove("open"));
-  };
 
   wechatLinks.forEach((link) => {
     const pop = document.createElement("span");
@@ -192,7 +200,7 @@ function bindWechatPreview() {
     link.appendChild(pop);
 
     const open = () => {
-      closeAll();
+      closeAllPopovers();
       pop.classList.add("open");
       pop.setAttribute("aria-hidden", "false");
     };
@@ -213,12 +221,51 @@ function bindWechatPreview() {
 
   document.addEventListener("click", (e) => {
     if (e.target instanceof Element && e.target.closest('.social-link[data-social="wechat"]')) return;
-    closeAll();
+    closeAllPopovers();
   });
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeAll();
+    if (e.key === "Escape") closeAllPopovers();
   });
 }
+
+function bindDownloadQrPreview() {
+  const trigger = document.querySelector(".qr-trigger");
+  if (!trigger) return;
+  const pop = trigger.querySelector(".qr-popover");
+  if (!pop) return;
+
+  const open = () => {
+    closeAllPopovers();
+    pop.classList.add("open");
+    pop.setAttribute("aria-hidden", "false");
+    trigger.classList.add("open");
+    trigger.setAttribute("aria-expanded", "true");
+  };
+  const close = () => {
+    pop.classList.remove("open");
+    pop.setAttribute("aria-hidden", "true");
+    trigger.classList.remove("open");
+    trigger.setAttribute("aria-expanded", "false");
+  };
+
+  trigger.addEventListener("mouseenter", open);
+  trigger.addEventListener("focus", open);
+  trigger.addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (pop.classList.contains("open")) close();
+    else open();
+  });
+
+  document.addEventListener("click", (e) => {
+    if (e.target instanceof Element && e.target.closest(".qr-trigger")) return;
+    closeAllPopovers();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeAllPopovers();
+  });
+}
+
 
 function fillTrack(selector) {
   if (isReducedMotion()) return;
@@ -447,6 +494,7 @@ function updateThemeButton(pref, btn) {
   bindLangDropdownGlobals();
   bindMobileMenu(menuBtn, mobileMenu);
   bindWechatPreview();
+  bindDownloadQrPreview();
   bindHeroFan();
 
   if (!isReducedMotion()) {
