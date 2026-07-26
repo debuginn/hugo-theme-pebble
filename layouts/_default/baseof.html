@@ -207,7 +207,7 @@
               {{- range site.Menus.main }}
               {{- $target := .URL -}}
               {{- if hasPrefix $target "#" }}{{ $target = printf "%s%s" ("/" | relLangURL) $target }}{{ end -}}
-              <a href="{{ $target }}" data-i18n="{{ .Identifier }}">{{ T .Identifier }}</a>
+              <a href="{{ $target }}" data-i18n="{{ .Identifier }}"{{ if hasPrefix $target "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ T .Identifier }}</a>
               {{- end }}
             </div>
           </div>
@@ -248,7 +248,7 @@
           {{- range site.Menus.main }}
           {{- $target := .URL -}}
           {{- if hasPrefix $target "#" }}{{ $target = printf "%s%s" ("/" | relLangURL) $target }}{{ end -}}
-          <a href="{{ $target }}" data-i18n="{{ .Identifier }}">{{ T .Identifier }}</a>
+          <a href="{{ $target }}" data-i18n="{{ .Identifier }}"{{ if hasPrefix $target "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ T .Identifier }}</a>
           {{- end }}
           <a href="{{ "/" | relLangURL }}#download" data-i18n="navDownload">{{ T "navDownload" }}</a>
         </nav>
