@@ -11,6 +11,9 @@ tag = "tags"
 [params.i18n]
 defaultLang = "en"
 
+[params.theme]
+version = "v1.0.1"
+
 [params.assets]
 brandName = "iAssets"
 logo = "/assets/logo.png"
@@ -20,6 +23,14 @@ version = "example-1"
 
 [params.contact]
 email = "hello@example.com"
+
+[params.social]
+wechatQr = "/assets/qr-download.png"
+x = "https://x.com/example"
+telegram = "https://t.me/example"
+xiaohongshu = "https://www.xiaohongshu.com/user/profile/example"
+weibo = "https://weibo.com/example"
+zhihu = "https://www.zhihu.com/people/example"
 
 [params.seo]
 siteURL = "https://example.com"

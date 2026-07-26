@@ -1168,7 +1168,7 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
 }
 .footer-main {
   display: grid;
-  grid-template-columns: 1fr 350px auto;
+  grid-template-columns: 1fr 350px 380px;
   grid-template-areas: "left social qr";
   gap: 36px;
   align-items: center;
@@ -1257,66 +1257,30 @@ body[data-lang="zh-Hant"] .social-set-hant {
 }
 .qr-box {
   grid-area: qr;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-}
-.qr-trigger {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
   border: 1px solid #c9dcf8;
-  border-radius: 999px;
-  padding: 10px 18px;
+  border-radius: 24px;
+  padding: 18px;
   background: #fff;
-  color: #2f4f74;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: .18s ease;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 16px;
+  align-items: center;
 }
-.qr-trigger:hover,
-.qr-trigger.open {
-  border-color: #9ec1f2;
-  background: #f7fbff;
+.fake-qr {
+  width: 88px; height: 88px; border-radius: 8px;
+  background: conic-gradient(from 90deg, #2b7bff 0 25%, #fff 0 50%, #78adff 0 75%, #fff 0 100%);
+  border: 8px solid #f0f6ff;
 }
-.qr-trigger-icon svg { width: 18px; height: 18px; display: block; }
-.qr-popover {
-  position: absolute;
-  right: 0;
-  bottom: calc(100% + 10px);
-  width: 200px;
-  padding: 14px;
-  border-radius: 16px;
-  border: 1px solid #cfe1fb;
-  background: #fff;
-  box-shadow: 0 14px 30px rgba(20, 49, 88, 0.22);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateY(6px);
-  transition: opacity .16s ease, transform .16s ease, visibility .16s ease;
-  z-index: 12;
-  text-align: center;
-}
-.qr-popover.open {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-.qr-popover img {
+.fake-qr img {
   display: block;
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
 }
-.qr-popover-hint {
-  display: block;
-  margin-top: 10px;
-  color: #557193;
-  font-size: 13px;
-  line-height: 1.5;
+.qr-copy h4 { margin: 0; font-size: 24px; line-height: 1.2; }
+.qr-box p { margin: 6px 0 0; color: #557193; font-size: 14px; line-height: 1.6;
 }
 .footer-bottom { margin-top: 26px; border-top: 1px solid #d5e4f9; min-height: 62px; display: flex; align-items: center; justify-content: space-between; color: #6f89a9; font-size: 12px; padding-top: 14px; }
 .footer-meta {
@@ -1481,7 +1445,7 @@ body[data-lang="zh-Hant"] .social-set-hant {
 :root[data-theme="dark"] .btn-ghost,
 :root[data-theme="dark"] .header-lang-trigger,
 :root[data-theme="dark"] .header-lang-menu,
-:root[data-theme="dark"] .qr-trigger,
+:root[data-theme="dark"] .qr-box,
 :root[data-theme="dark"] .footer-social {
   background: rgba(17, 29, 46, 0.9);
   border-color: #314762;
@@ -1615,7 +1579,7 @@ body[data-lang="zh-Hant"] .social-set-hant {
 :root[data-theme="dark"] .list-card p,
 :root[data-theme="dark"] .list-empty,
 :root[data-theme="dark"] .footer-tag,
-:root[data-theme="dark"] .qr-popover-hint,
+:root[data-theme="dark"] .qr-box p,
 :root[data-theme="dark"] .footer-bottom,
 :root[data-theme="dark"] .social-link,
 :root[data-theme="dark"] .metric span,
@@ -1686,10 +1650,8 @@ body[data-lang="zh-Hant"] .social-set-hant {
 
 :root[data-theme="dark"] .showbox { background: transparent; border-color: transparent; box-shadow: none; }
 
-:root[data-theme="dark"] .qr-popover {
-  background: #122239;
-  border-color: #314762;
-  box-shadow: 0 16px 30px rgba(2, 7, 14, 0.48);
+:root[data-theme="dark"] .fake-qr {
+  border-color: #20344f;
 }
 
 :root[data-theme="dark"] .footer-bottom {
@@ -1824,9 +1786,6 @@ body[data-lang="zh-Hant"] .social-set-hant {
     flex-wrap: nowrap;
   }
   .social-link { flex: 0 0 auto; }
-  .qr-box {
-    justify-content: center;
-  }
   .faq-grid {
     column-count: 1;
     column-gap: 0;
@@ -2141,7 +2100,7 @@ body[data-lang="zh-Hant"] .social-set-hant {
   left: 50%;
   bottom: calc(100% + 10px);
   transform: translateX(-50%);
-  width: 220px;
+  width: 140px;
   padding: 8px;
   border-radius: 12px;
   border: 1px solid #cfe1fb;
@@ -2204,12 +2163,7 @@ body[data-lang="zh-Hant"] .social-set-hant {
   }
 
   .wechat-popover {
-    width: 180px;
-    bottom: calc(100% + 8px);
-  }
-
-  .qr-popover {
-    width: 180px;
+    width: 140px;
     bottom: calc(100% + 8px);
   }
 }

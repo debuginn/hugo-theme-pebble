@@ -177,18 +177,14 @@ function bindMobileMenu(menuBtn, mobileMenu) {
 }
 
 function closeAllPopovers() {
-  document.querySelectorAll(".wechat-popover.open, .qr-popover.open").forEach((el) => {
+  document.querySelectorAll(".wechat-popover.open").forEach((el) => {
     el.classList.remove("open");
     el.setAttribute("aria-hidden", "true");
-  });
-  document.querySelectorAll(".qr-trigger.open").forEach((el) => {
-    el.classList.remove("open");
-    el.setAttribute("aria-expanded", "false");
   });
 }
 
 function bindWechatPreview() {
-  const wechatLinks = document.querySelectorAll('.social-link[data-social="wechat"]');
+  const wechatLinks = document.querySelectorAll('.footer-social .social-link[data-social="wechat"]');
   if (!wechatLinks.length) return;
   const qrSrc = (document.body && document.body.getAttribute("data-wechat-qr")) || "https://webp.debuginn.com/20260607OpjNs1.jpg?v=20260303d";
 
@@ -210,7 +206,9 @@ function bindWechatPreview() {
     };
 
     link.addEventListener("mouseenter", open);
+    link.addEventListener("mouseleave", close);
     link.addEventListener("focus", open);
+    link.addEventListener("blur", close);
     link.addEventListener("click", (e) => {
       e.preventDefault();
       e.stopPropagation();
@@ -220,52 +218,13 @@ function bindWechatPreview() {
   });
 
   document.addEventListener("click", (e) => {
-    if (e.target instanceof Element && e.target.closest('.social-link[data-social="wechat"]')) return;
+    if (e.target instanceof Element && e.target.closest('.footer-social .social-link[data-social="wechat"]')) return;
     closeAllPopovers();
   });
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeAllPopovers();
   });
 }
-
-function bindDownloadQrPreview() {
-  const trigger = document.querySelector(".qr-trigger");
-  if (!trigger) return;
-  const pop = trigger.querySelector(".qr-popover");
-  if (!pop) return;
-
-  const open = () => {
-    closeAllPopovers();
-    pop.classList.add("open");
-    pop.setAttribute("aria-hidden", "false");
-    trigger.classList.add("open");
-    trigger.setAttribute("aria-expanded", "true");
-  };
-  const close = () => {
-    pop.classList.remove("open");
-    pop.setAttribute("aria-hidden", "true");
-    trigger.classList.remove("open");
-    trigger.setAttribute("aria-expanded", "false");
-  };
-
-  trigger.addEventListener("mouseenter", open);
-  trigger.addEventListener("focus", open);
-  trigger.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (pop.classList.contains("open")) close();
-    else open();
-  });
-
-  document.addEventListener("click", (e) => {
-    if (e.target instanceof Element && e.target.closest(".qr-trigger")) return;
-    closeAllPopovers();
-  });
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeAllPopovers();
-  });
-}
-
 
 function fillTrack(selector) {
   if (isReducedMotion()) return;
@@ -475,6 +434,32 @@ function updateThemeButton(pref, btn) {
   btn.setAttribute("title", labels[pref]);
 }
 
+function loadChainNode(node) {
+  const images = Array.from(node.querySelectorAll("img[data-src]"));
+  if (!images.length) return Promise.resolve();
+
+  return Promise.all(
+    images.map(
+      (img) =>
+        new Promise((resolve) => {
+          const done = () => resolve();
+          img.addEventListener("load", done, { once: true });
+          img.addEventListener("error", done, { once: true });
+          img.src = img.getAttribute("data-src");
+        })
+    )
+  );
+}
+
+function runImageChain() {
+  const nodes = Array.from(document.querySelectorAll("[data-img-chain]")).sort(
+    (a, b) => Number(a.getAttribute("data-img-chain")) - Number(b.getAttribute("data-img-chain"))
+  );
+  if (!nodes.length) return;
+
+  nodes.reduce((chain, node) => chain.then(() => loadChainNode(node)), Promise.resolve());
+}
+
 (function init() {
   const lang = currentPageLang();
   const themeBtn = document.querySelector(".mode-btn");
@@ -494,8 +479,8 @@ function updateThemeButton(pref, btn) {
   bindLangDropdownGlobals();
   bindMobileMenu(menuBtn, mobileMenu);
   bindWechatPreview();
-  bindDownloadQrPreview();
   bindHeroFan();
+  runImageChain();
 
   if (!isReducedMotion()) {
     fillTrack(".trust-track");
