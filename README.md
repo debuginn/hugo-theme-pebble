@@ -395,6 +395,7 @@ Optional social/contact links for the footer and profile area. Unset values are 
 - `currency`
 - `yearly`
 - `lifetime`
+- `lifetimeOriginal`: optional crossed-out lifetime price, shown only when it differs from `lifetime`
 
 These values are referenced by homepage pricing plans through `priceKey`.
 
