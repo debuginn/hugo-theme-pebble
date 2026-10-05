@@ -381,6 +381,11 @@ Optional social/contact links for the footer and profile area. Unset values are 
 - `weibo`
 - `zhihu`
 
+Use `params.social.icons` to override footer icon URLs without changing the links.
+Supported keys are `wechat`, `x`, `telegram`, `xiaohongshu`, `weibo`, and `zhihu`.
+Local paths such as `/assets/social/wechat.svg` are supported; omitted keys retain
+the theme's existing default icons.
+
 ### `params.analytics`
 
 - `googleTagID`: optional Google tag ID. No analytics script is emitted when unset.
