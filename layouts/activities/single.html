@@ -20,10 +20,7 @@
               <img src="{{ $poster }}" alt="{{ $posterAlt }}" width="{{ $posterWidth }}" height="{{ $posterHeight }}" decoding="async" fetchpriority="high" />
             </figure>
             {{- end }}
-            <div class="activity-detail-poster-meta">
-              <strong>{{ .Params.posterLabel | default "活动海报" }}</strong>
-              {{- with .Params.posterHint }}<span>{{ . }}</span>{{- end }}
-            </div>
+
           </div>
         </aside>
         <article class="activity-detail-content-side">
