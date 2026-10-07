@@ -14,17 +14,33 @@
       </a>
       <div class="activity-detail-grid">
         <aside class="activity-detail-poster-side">
-          <div class="activity-detail-poster-shell">
-            {{- if $poster }}
-            <figure class="activity-detail-poster">
-              <img src="{{ $poster }}" alt="{{ $posterAlt }}" width="{{ $posterWidth }}" height="{{ $posterHeight }}" decoding="async" fetchpriority="high" />
-            </figure>
+          <div class="activity-detail-poster-stack">
+            <div class="activity-detail-poster-shell">
+              {{- if $poster }}
+              <figure class="activity-detail-poster">
+                <img src="{{ $poster }}" alt="{{ $posterAlt }}" width="{{ $posterWidth }}" height="{{ $posterHeight }}" decoding="async" fetchpriority="high" />
+              </figure>
+              {{- end }}
+            </div>
+            {{- if .TableOfContents }}
+            <nav class="activity-detail-toc" aria-label="活动详情目录">
+              <h2>页面目录</h2>
+              {{ .TableOfContents }}
+            </nav>
             {{- end }}
-
+            {{- with .Params.note }}
+            <div class="activity-detail-side-note">
+              <h2>规则提醒</h2>
+              <p>{{ . }}</p>
+            </div>
+            {{- end }}
           </div>
         </aside>
         <article class="activity-detail-content-side">
-          {{- with .Params.eyebrow }}<p class="eyebrow activity-detail-eyebrow">{{ . }}</p>{{- end }}
+          <div class="activity-detail-label-row">
+            {{- with .Params.eyebrow }}<p class="eyebrow activity-detail-eyebrow">{{ . }}</p>{{- end }}
+            <span class="activity-detail-status">iAssets 知盈 · 活动详情</span>
+          </div>
           <h1 class="activity-detail-title">{{ .Title }}</h1>
           {{- with .Params.summary }}<p class="activity-detail-summary">{{ . }}</p>{{- end }}
           {{- with .Params.meta }}
@@ -37,9 +53,6 @@
             {{- end }}
           </div>
           {{- end }}
-          <div class="activity-detail-article">
-            {{ .Content }}
-          </div>
           {{- $primary := .Params.actions.primary -}}
           {{- $secondary := .Params.actions.secondary -}}
           {{- if or $primary $secondary }}
@@ -56,7 +69,9 @@
             {{- end }}
           </div>
           {{- end }}
-          {{- with .Params.note }}<p class="activity-detail-footnote">{{ . }}</p>{{- end }}
+          <div class="activity-detail-article">
+            {{ .Content }}
+          </div>
         </article>
       </div>
     </div>
