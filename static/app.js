@@ -405,16 +405,49 @@ function bindActivitiesCarousel() {
     const dots = Array.from(root.querySelectorAll("[data-activity-dot]"));
     const prev = root.querySelector("[data-activity-prev]");
     const next = root.querySelector("[data-activity-next]");
+    const progress = root.querySelector("[data-activity-progress]");
     if (!slides.length) return;
 
+    const interval = Number.parseInt(root.getAttribute("data-activity-interval") || "4500", 10);
+    const canAutoPlay = slides.length > 1 && !isReducedMotion() && Number.isFinite(interval) && interval > 0;
     let index = Math.max(0, slides.findIndex((slide) => slide.classList.contains("is-active")));
+    let timer = null;
     if (index < 0) index = 0;
 
-    const activate = (nextIndex) => {
+    const stop = () => {
+      root.classList.add("is-paused");
+      if (timer) window.clearTimeout(timer);
+      timer = null;
+    };
+
+    const schedule = () => {
+      if (!canAutoPlay || root.classList.contains("is-paused")) return;
+      if (timer) window.clearTimeout(timer);
+      timer = window.setTimeout(() => activate(index + 1, true), interval);
+    };
+
+    const stateFor = (i) => {
+      const offset = (i - index + slides.length) % slides.length;
+      if (offset === 0) return "active";
+      if (offset === 1) return "next";
+      if (offset === 2) return "third";
+      return "hidden";
+    };
+
+    const activate = (nextIndex, fromAuto = false) => {
       index = (nextIndex + slides.length) % slides.length;
+      const activeSlide = slides[index];
+      const accent = activeSlide ? activeSlide.style.getPropertyValue("--activity-accent") : "";
+      if (accent) root.style.setProperty("--activity-accent", accent.trim());
+
       slides.forEach((slide, i) => {
-        const on = i === index;
+        const state = stateFor(i);
+        const on = state === "active";
+        slide.dataset.activityState = state;
         slide.classList.toggle("is-active", on);
+        slide.classList.toggle("is-next", state === "next");
+        slide.classList.toggle("is-third", state === "third");
+        slide.classList.toggle("is-hidden", state === "hidden");
         slide.setAttribute("aria-hidden", on ? "false" : "true");
       });
       dots.forEach((dot, i) => {
@@ -422,6 +455,14 @@ function bindActivitiesCarousel() {
         dot.classList.toggle("is-active", on);
         dot.setAttribute("aria-pressed", on ? "true" : "false");
       });
+      if (progress) progress.style.animation = "none";
+      if (progress && canAutoPlay && !root.classList.contains("is-paused")) {
+        window.requestAnimationFrame(() => {
+          progress.style.animation = `activityProgress ${interval}ms linear forwards`;
+        });
+      }
+      if (!fromAuto) stop();
+      if (fromAuto || !root.classList.contains("is-paused")) schedule();
     };
 
     dots.forEach((dot, i) => {
@@ -429,7 +470,21 @@ function bindActivitiesCarousel() {
     });
     if (prev) prev.addEventListener("click", () => activate(index - 1));
     if (next) next.addEventListener("click", () => activate(index + 1));
-    activate(index);
+
+    root.addEventListener("mouseenter", stop);
+    root.addEventListener("focusin", stop);
+    root.addEventListener("mouseleave", () => {
+      root.classList.remove("is-paused");
+      schedule();
+      if (progress && canAutoPlay) {
+        progress.style.animation = "none";
+        window.requestAnimationFrame(() => {
+          progress.style.animation = `activityProgress ${interval}ms linear forwards`;
+        });
+      }
+    });
+
+    activate(index, true);
   });
 }
 

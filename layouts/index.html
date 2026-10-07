@@ -225,6 +225,7 @@
           {{- end }}
           {{- if gt (len $items) 1 }}
           <div class="activities-ui" aria-label="活动轮播控制">
+            <div class="activity-progress" aria-hidden="true"><span data-activity-progress></span></div>
             <div class="activity-dots">
               {{- range $index, $item := $items }}
               <button class="activity-dot{{ if eq $index 0 }} is-active{{ end }}" type="button" data-activity-dot="{{ $index }}" aria-label="{{ printf "显示活动 %d" (add $index 1) }}"></button>
