@@ -193,7 +193,8 @@
           {{- $posterWidth := $item.posterWidth | default 1086 -}}
           {{- $posterHeight := $item.posterHeight | default 1448 -}}
           {{- $href := $item.detailUrl | default $item.href | default "#" -}}
-          <article class="activity-slide{{ if eq $index 0 }} is-active{{ end }}" data-activity-slide="{{ $index }}"{{ if ne $index 0 }} aria-hidden="true"{{ end }}>
+          {{- $accent := $item.accent | default "#2b7bff" -}}
+          <article class="activity-slide{{ if eq $index 0 }} is-active{{ end }}" data-activity-slide="{{ $index }}" style="--activity-accent: {{ $accent }};"{{ if ne $index 0 }} aria-hidden="true"{{ end }}>
             <div class="activity-poster-stage">
               <div class="activity-poster-glow" aria-hidden="true"></div>
               <figure class="activity-poster-card">
@@ -213,11 +214,12 @@
               {{- with $item.subtitle }}<p class="activity-subtitle">{{ . }}</p>{{- end }}
               {{- with $item.note }}<p class="activity-note">{{ . }}</p>{{- end }}
               <div class="activity-action-row">
-                <a class="activity-icon-btn" href="{{ $href }}" aria-label="{{ $item.ctaLabel | default "去详情页查看" }}"{{ if hasPrefix $href "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <a class="activity-cta" href="{{ $href }}" aria-label="{{ $item.ctaLabel | default "查看活动详情" }}"{{ if hasPrefix $href "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>
+                  <span>{{ $item.ctaLabel | default "查看活动详情" }}</span>
+                  <span class="activity-cta-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
                 </a>
-                <div class="activity-action-text"><strong>{{ $item.ctaLabel | default "去详情页查看" }}</strong>{{- with $item.ctaHint }}<span>{{ . }}</span>{{- end }}</div>
               </div>
+              {{- with $item.ctaHint }}<p class="activity-hint">{{ . }}</p>{{- end }}
             </div>
           </article>
           {{- end }}
