@@ -1,0 +1,68 @@
+{{ define "main" }}
+{{- $poster := .Params.poster -}}
+{{- $posterAlt := .Params.posterAlt | default .Title -}}
+{{- $posterWidth := .Params.posterWidth | default 1086 -}}
+{{- $posterHeight := .Params.posterHeight | default 1448 -}}
+{{- $accent := .Params.accent | default "#2b7bff" -}}
+{{- $backHref := .Params.backHref | default ("/#activities" | relLangURL) -}}
+{{- $backLabel := .Params.backLabel | default "返回近期活动" -}}
+<main class="activity-detail-main" style="--activity-accent: {{ $accent }};">
+  <section class="section activity-detail-section">
+    <div class="container activity-detail-wrap">
+      <a class="activity-detail-back" href="{{ $backHref }}">
+        <span aria-hidden="true">‹</span>{{ $backLabel }}
+      </a>
+      <div class="activity-detail-grid">
+        <aside class="activity-detail-poster-side">
+          <div class="activity-detail-poster-shell">
+            {{- if $poster }}
+            <figure class="activity-detail-poster">
+              <img data-src="{{ $poster }}" alt="{{ $posterAlt }}" width="{{ $posterWidth }}" height="{{ $posterHeight }}" decoding="async" />
+            </figure>
+            {{- end }}
+            <div class="activity-detail-poster-meta">
+              <strong>{{ .Params.posterLabel | default "活动海报" }}</strong>
+              {{- with .Params.posterHint }}<span>{{ . }}</span>{{- end }}
+            </div>
+          </div>
+        </aside>
+        <article class="activity-detail-content-side">
+          {{- with .Params.eyebrow }}<p class="eyebrow activity-detail-eyebrow">{{ . }}</p>{{- end }}
+          <h1 class="activity-detail-title">{{ .Title }}</h1>
+          {{- with .Params.summary }}<p class="activity-detail-summary">{{ . }}</p>{{- end }}
+          {{- with .Params.meta }}
+          <div class="activity-detail-meta-grid">
+            {{- range . }}
+            <div class="activity-detail-meta-card">
+              <span>{{ .label }}</span>
+              <strong>{{ .value }}</strong>
+            </div>
+            {{- end }}
+          </div>
+          {{- end }}
+          <div class="activity-detail-article">
+            {{ .Content }}
+          </div>
+          {{- $primary := .Params.actions.primary -}}
+          {{- $secondary := .Params.actions.secondary -}}
+          {{- if or $primary $secondary }}
+          <div class="activity-detail-actions">
+            {{- with $primary }}
+            <a class="activity-detail-btn activity-detail-btn-primary" href="{{ .href | default "#" }}"{{ if hasPrefix (.href | default "#") "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>
+              <span>{{ .label | default "查看活动" }}</span><span class="activity-detail-btn-icon" aria-hidden="true">↗</span>
+            </a>
+            {{- end }}
+            {{- with $secondary }}
+            <a class="activity-detail-btn activity-detail-btn-secondary" href="{{ .href | default $backHref }}">
+              <span>{{ .label | default $backLabel }}</span><span class="activity-detail-btn-icon" aria-hidden="true">⌂</span>
+            </a>
+            {{- end }}
+          </div>
+          {{- end }}
+          {{- with .Params.note }}<p class="activity-detail-footnote">{{ . }}</p>{{- end }}
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+{{ end }}
