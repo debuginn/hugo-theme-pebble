@@ -398,6 +398,41 @@ function bindHeroFan() {
   });
 }
 
+
+function bindActivitiesCarousel() {
+  document.querySelectorAll("[data-activities-carousel]").forEach((root) => {
+    const slides = Array.from(root.querySelectorAll("[data-activity-slide]"));
+    const dots = Array.from(root.querySelectorAll("[data-activity-dot]"));
+    const prev = root.querySelector("[data-activity-prev]");
+    const next = root.querySelector("[data-activity-next]");
+    if (!slides.length) return;
+
+    let index = Math.max(0, slides.findIndex((slide) => slide.classList.contains("is-active")));
+    if (index < 0) index = 0;
+
+    const activate = (nextIndex) => {
+      index = (nextIndex + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        const on = i === index;
+        slide.classList.toggle("is-active", on);
+        slide.setAttribute("aria-hidden", on ? "false" : "true");
+      });
+      dots.forEach((dot, i) => {
+        const on = i === index;
+        dot.classList.toggle("is-active", on);
+        dot.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+    };
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener("click", () => activate(i));
+    });
+    if (prev) prev.addEventListener("click", () => activate(index - 1));
+    if (next) next.addEventListener("click", () => activate(index + 1));
+    activate(index);
+  });
+}
+
 function detectTheme() {
   return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
     ? "dark"
@@ -480,6 +515,7 @@ function runImageChain() {
   bindMobileMenu(menuBtn, mobileMenu);
   bindWechatPreview();
   bindHeroFan();
+  bindActivitiesCarousel();
   runImageChain();
 
   if (!isReducedMotion()) {
