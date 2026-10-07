@@ -17,7 +17,7 @@
           <div class="activity-detail-poster-shell">
             {{- if $poster }}
             <figure class="activity-detail-poster">
-              <img data-src="{{ $poster }}" alt="{{ $posterAlt }}" width="{{ $posterWidth }}" height="{{ $posterHeight }}" decoding="async" />
+              <img src="{{ $poster }}" alt="{{ $posterAlt }}" width="{{ $posterWidth }}" height="{{ $posterHeight }}" decoding="async" fetchpriority="high" />
             </figure>
             {{- end }}
             <div class="activity-detail-poster-meta">
