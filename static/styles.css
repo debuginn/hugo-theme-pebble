@@ -2530,29 +2530,41 @@ body[data-lang="zh-Hant"] .social-set-hant {
 }
 @media (max-width: 900px) {
   .activities-shell {
-    min-height: 880px;
+    /* Overlap the slides, but let the longest copy size the mobile layout. */
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
   }
   .activity-slide {
-    grid-template-columns: 1fr;
+    position: relative;
+    inset: auto;
+    grid-area: 1 / 1;
+    min-width: 0;
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
     gap: 18px;
+    align-self: start;
+    align-items: start;
   }
   .activity-poster-stage { height: 500px; }
   .activity-poster-card { left: 50%; margin-left: -150px; width: min(300px, 78vw); }
   .activity-slide.is-next .activity-poster-card { transform: translate3d(74px, 26px, -110px) rotateY(-18deg) rotateZ(5deg) scale(.88); }
   .activity-slide.is-third .activity-poster-card { transform: translate3d(124px, 54px, -220px) rotateY(-26deg) rotateZ(9deg) scale(.78); }
-  .activity-copy { min-height: auto; padding-bottom: 86px; }
-  .activities-ui { left: 0; right: 0; bottom: 24px; }
+  .activity-copy { min-height: 0; padding-bottom: 0; }
+  .activities-ui { position: relative; inset: auto; grid-area: 2 / 1; margin-top: 24px; }
+  .activity-progress { flex: 1; min-width: 0; max-width: 130px; }
+  .activity-dots,
+  .activity-arrows { flex-shrink: 0; }
 }
 @media (max-width: 640px) {
   .activities-section { padding-top: 72px; }
   .activities-carousel { margin-top: 44px; }
-  .activities-shell { min-height: 820px; }
   .activities-head .section-desc,
   .activity-subtitle { font-size: 17px; }
   .activity-poster-stage { height: 430px; }
   .activity-poster-card { margin-left: -135px; width: min(270px, 74vw); }
   .activity-title { font-size: 32px; }
-  .activity-progress { width: 96px; }
+  .activity-progress { max-width: 96px; }
 }
 
 /* Activity detail pages */
