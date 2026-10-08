@@ -29,6 +29,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {{- $pageTitle := .Title -}}
+    {{- $documentTitle := $pageTitle -}}
+    {{- if and .IsPage $brandName -}}
+      {{- $documentTitle = printf "%s · %s" $pageTitle $brandName -}}
+    {{- end -}}
     {{- $pageSocialTitle := .Params.socialTitle | default $pageTitle | default $defaultSocialTitle -}}
     {{- $metaDescription := .Params.description | default (printf "%s %s" $brandName .Title) -}}
     {{- $assetVersion := site.Params.assets.version -}}
@@ -49,7 +53,7 @@
       {{- $stylesURL = printf "%s?v=%v" $stylesURL $assetVersion -}}
       {{- $appURL = printf "%s?v=%v" $appURL $assetVersion -}}
     {{- end -}}
-    <title>{{ $pageTitle }}</title>
+    <title>{{ $documentTitle }}</title>
     <meta name="description" content="{{ $metaDescription }}" />
     {{- if .IsHome }}<meta name="keywords" content="{{ .Params.keywords }}" />{{ end }}
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
