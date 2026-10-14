@@ -1,0 +1,39 @@
+{{- $primary := "" -}}
+{{- $secondary := "" -}}
+{{- $onPrimary := "" -}}
+{{- with index . "primary" -}}
+  {{- $primary = strings.TrimSpace (printf "%v" .) -}}
+{{- end -}}
+{{- with index . "secondary" -}}
+  {{- $secondary = strings.TrimSpace (printf "%v" .) -}}
+{{- end -}}
+{{- with index . "onprimary" -}}
+  {{- $onPrimary = strings.TrimSpace (printf "%v" .) -}}
+{{- end -}}
+{{- if not $onPrimary -}}
+  {{- with index . "onPrimary" -}}
+    {{- $onPrimary = strings.TrimSpace (printf "%v" .) -}}
+  {{- end -}}
+{{- end -}}
+{{- if or (eq $primary "<nil>") (strings.ContainsAny $primary ";{}<>") }}{{ $primary = "" }}{{ end -}}
+{{- if or (eq $secondary "<nil>") (strings.ContainsAny $secondary ";{}<>") }}{{ $secondary = "" }}{{ end -}}
+{{- if or (eq $onPrimary "<nil>") (strings.ContainsAny $onPrimary ";{}<>") }}{{ $onPrimary = "" }}{{ end -}}
+{{- $decls := slice -}}
+{{- if $primary -}}
+  {{- $decls = $decls | append (printf "--accent:%s" $primary) -}}
+  {{- $decls = $decls | append (printf "--accent-fill:%s" $primary) -}}
+  {{- $decls = $decls | append (printf "--accent-glow:%s" $primary) -}}
+  {{- $decls = $decls | append (printf "--hero-from:%s" $primary) -}}
+{{- end -}}
+{{- if $secondary -}}
+  {{- $decls = $decls | append (printf "--accent-2:%s" $secondary) -}}
+  {{- $decls = $decls | append (printf "--accent-ink:%s" $secondary) -}}
+  {{- $decls = $decls | append (printf "--accent-icon:%s" $secondary) -}}
+  {{- $decls = $decls | append (printf "--link:%s" $secondary) -}}
+  {{- $decls = $decls | append (printf "--hero-to:%s" $secondary) -}}
+  {{- $decls = $decls | append (printf "--qr-alt:%s" $secondary) -}}
+{{- end -}}
+{{- if $onPrimary -}}
+  {{- $decls = $decls | append (printf "--on-accent:%s" $onPrimary) -}}
+{{- end -}}
+{{- return (delimit $decls ";") -}}

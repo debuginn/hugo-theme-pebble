@@ -204,7 +204,7 @@
           {{- $posterWidth := $item.posterWidth | default 1086 -}}
           {{- $posterHeight := $item.posterHeight | default 1448 -}}
           {{- $href := $item.detailUrl | default $item.href | default "#" -}}
-          {{- $accent := $item.accent | default "#2b7bff" -}}
+          {{- $accent := $item.accent | default "var(--accent)" -}}
           <article class="activity-slide{{ if eq $index 0 }} is-active{{ end }}" data-activity-slide="{{ $index }}" style="--activity-accent: {{ $accent }};"{{ if ne $index 0 }} aria-hidden="true"{{ end }}>
             <div class="activity-poster-stage">
               <div class="activity-poster-glow" aria-hidden="true"></div>

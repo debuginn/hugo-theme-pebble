@@ -5,7 +5,7 @@
 {{- $posterAlt := .Params.posterAlt | default .Title -}}
 {{- $posterWidth := .Params.posterWidth | default 1086 -}}
 {{- $posterHeight := .Params.posterHeight | default 1448 -}}
-{{- $accent := .Params.accent | default "#2b7bff" -}}
+{{- $accent := .Params.accent | default "var(--accent)" -}}
 {{- $backHref := .Params.backHref | default ("/#activities" | relLangURL) -}}
 {{- $backLabel := .Params.backLabel | default "返回近期活动" -}}
 {{- $logo := site.Params.assets.logo -}}

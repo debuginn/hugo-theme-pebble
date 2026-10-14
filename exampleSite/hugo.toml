@@ -56,6 +56,20 @@ noindex = true
 # provider = "google"
 # cssURL = "https://fonts.loli.net/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
 
+# Optional brand colors. Unset keeps the theme defaults.
+# primary: buttons, fills, and the start of the hero/button gradient.
+# secondary: links, accent text, and the end of that gradient.
+# onPrimary: text on primary buttons. Omit to keep white.
+[params.colors.light]
+primary = "#1f4f86"
+secondary = "#237380"
+onPrimary = "#ffffff"
+
+[params.colors.dark]
+primary = "#5bb5c4"
+secondary = "#7cc8d4"
+onPrimary = "#0a1220"
+
 [params.pricing]
 currency = "$"
 # ISO 4217 code for JSON-LD priceCurrency. The symbol above is display-only.

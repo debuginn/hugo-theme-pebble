@@ -118,6 +118,15 @@ defaultSocialTitle = "Pebble"
 # provider = "google" # google (default), custom, or none
 # cssURL = "https://fonts.loli.net/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
 
+# [params.colors.light]
+# primary = "#1f4f86"
+# secondary = "#237380"
+# onPrimary = "#ffffff"
+# [params.colors.dark]
+# primary = "#5bb5c4"
+# secondary = "#7cc8d4"
+# onPrimary = "#0a1220"
+
 [params.pricing]
 currency = "$"
 currencyCode = "USD"
@@ -410,6 +419,28 @@ the theme's existing default icons.
 
 - `provider`: `google` (default), `custom`, or `none`. `google` keeps the current Google Fonts tags. `custom` loads `cssURL` instead, for a mirror or self-hosted stylesheet. `none` uses the system font stack and makes no font request. Preconnect tags are emitted only for an external provider.
 - `cssURL`: stylesheet URL used when `provider` is `custom`. Ignored otherwise. A relative URL is loaded without a preconnect.
+
+### `params.colors`
+
+Optional. When unset, the theme keeps its built-in colors and does not emit an override stylesheet. Page backgrounds and body text are not part of this config.
+
+Each mode (`light`, `dark`) accepts:
+
+- `primary`: button fills and the start of the hero and button gradient
+- `secondary`: links, accent text, and the end of that gradient
+- `onPrimary`: text color on primary buttons. Omit it to keep white.
+
+```toml
+[params.colors.light]
+primary = "#1f4f86"
+secondary = "#237380"
+onPrimary = "#ffffff"
+
+[params.colors.dark]
+primary = "#5bb5c4"
+secondary = "#7cc8d4"
+onPrimary = "#0a1220"
+```
 
 Meta tags are omitted when their content is empty. That includes description, keywords, and Open Graph / Twitter fields. Homepage `keywords` may be a string or a list. A list is joined with `, `; a comma-separated string is emitted as written. The tag is omitted when the value is empty.
 

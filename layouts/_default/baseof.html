@@ -235,7 +235,8 @@
         }
       })();
     </script>
-    <link rel="stylesheet" href="{{ $stylesURL }}" />
+    <link rel="stylesheet" href="{{ $stylesURL }}" />{{ with partial "theme-colors.html" . }}
+    <style>{{ . | safeCSS }}</style>{{ end }}
     {{- with site.Params.seo.appleAppID }}
     <meta name="apple-itunes-app" content="app-id={{ . }}" />
     {{- end }}

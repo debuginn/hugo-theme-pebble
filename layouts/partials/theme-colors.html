@@ -1,0 +1,13 @@
+{{- $colors := site.Params.colors | default dict -}}
+{{- $light := index $colors "light" | default dict -}}
+{{- $dark := index $colors "dark" | default dict -}}
+{{- $lightCSS := partial "theme-color-decls.html" $light -}}
+{{- $darkCSS := partial "theme-color-decls.html" $dark -}}
+{{- $css := "" -}}
+{{- if $lightCSS -}}
+  {{- $css = printf ":root{%s}" $lightCSS -}}
+{{- end -}}
+{{- if $darkCSS -}}
+  {{- $css = printf "%s:root[data-theme=\"dark\"]{%s}" $css $darkCSS -}}
+{{- end -}}
+{{- return $css -}}
