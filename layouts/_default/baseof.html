@@ -196,18 +196,17 @@
     {{- if $canonicalURL }}{{ $jsonLd = merge $jsonLd (dict "url" $canonicalURL) }}{{ end -}}
     {{- if $langMeta.jsonLdLanguage }}{{ $jsonLd = merge $jsonLd (dict "inLanguage" $langMeta.jsonLdLanguage) }}{{ end -}}
     {{- $pricingParams := site.Params.pricing | default dict -}}
-    {{- $priceCurrency := "" -}}
-    {{- with $pricingParams.currency }}{{ $priceCurrency = printf "%v" . }}{{ end -}}
+    {{- $priceCurrency := $pricingParams.currencyCode | default "" | strings.TrimSpace -}}
+    {{- if $priceCurrency -}}
     {{- $offers := slice -}}
     {{- range $priceKey := slice "yearly" "lifetime" -}}
       {{- $rawPrice := index $pricingParams $priceKey -}}
       {{- if $rawPrice -}}
-        {{- $offer := dict "@type" "Offer" "price" (printf "%v" $rawPrice) -}}
-        {{- if $priceCurrency }}{{ $offer = merge $offer (dict "priceCurrency" $priceCurrency) }}{{ end -}}
-        {{- $offers = $offers | append $offer -}}
+        {{- $offers = $offers | append (dict "@type" "Offer" "price" (printf "%v" $rawPrice) "priceCurrency" $priceCurrency) -}}
       {{- end -}}
     {{- end -}}
     {{- if eq (len $offers) 1 }}{{ $jsonLd = merge $jsonLd (dict "offers" (index $offers 0)) }}{{ else if gt (len $offers) 1 }}{{ $jsonLd = merge $jsonLd (dict "offers" $offers) }}{{ end -}}
+    {{- end -}}
     {{- with site.Params.assets.logo -}}
       {{- $imageURL := . -}}
       {{- if and $hasAbsoluteSiteURL (not (or (hasPrefix . "https://") (hasPrefix . "http://"))) -}}

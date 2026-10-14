@@ -114,6 +114,7 @@ defaultSocialTitle = "Pebble"
 
 [params.pricing]
 currency = "$"
+currencyCode = "USD"
 yearly = "29"
 lifetime = "99"
 
@@ -401,7 +402,7 @@ the theme's existing default icons.
 
 The homepage emits one `MobileApplication` JSON-LD object (`operatingSystem` `iOS`, `applicationCategory` `FinanceApplication`). These fields are added only when the site has a value for them:
 
-- `offers`: `yearly` and/or `lifetime` from `[params.pricing]`, with `priceCurrency` set to `currency` when that param is set
+- `offers`: included only when `currencyCode` is an ISO 4217 code and at least one of `yearly` or `lifetime` is set. `priceCurrency` is that code. The display symbol `currency` is not used. If `currencyCode` is unset, `offers` is omitted.
 - `image`: `[params.assets].logo`
 - `screenshot`: homepage `home.hero.fanImages`, or `home.features.showcase.images` when the hero has none
 - `installUrl`: homepage `home.download.ctaHref` when it is an `http` or `https` URL
@@ -410,7 +411,8 @@ Name, description, canonical URL, and language are included when present. Empty 
 
 ### `params.pricing`
 
-- `currency`
+- `currency`: display symbol used in the pricing UI
+- `currencyCode`: optional ISO 4217 code, such as `USD`, used as JSON-LD `priceCurrency`. Offers are omitted when this is unset.
 - `yearly`
 - `lifetime`
 - `lifetimeOriginal`: optional crossed-out lifetime price, shown only when it differs from `lifetime`
