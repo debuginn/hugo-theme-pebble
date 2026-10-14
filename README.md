@@ -112,6 +112,10 @@ defaultSocialTitle = "Pebble"
 # noindex = false
 # appleAppID = "1234567890"
 
+[params.fonts]
+# provider = "google" # google (default), custom, or none
+# cssURL = "https://fonts.loli.net/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+
 [params.pricing]
 currency = "$"
 currencyCode = "USD"
@@ -400,6 +404,13 @@ the theme's existing default icons.
 - `noindex`: optional, default `false`. When `true`, every page emits `<meta name="robots" content="noindex,nofollow" />`. When `false` or unset, pages keep `index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1`. The 404 page always emits `noindex,follow`.
 - `appleAppID`: optional Apple App Store ID. When set, every page emits `<meta name="apple-itunes-app" content="app-id=...">`. Nothing is emitted when it is unset.
 
+### `params.fonts`
+
+- `provider`: `google` (default), `custom`, or `none`. `google` keeps the current Google Fonts tags. `custom` loads `cssURL` instead, for a mirror or self-hosted stylesheet. `none` uses the system font stack and makes no font request. Preconnect tags are emitted only for an external provider.
+- `cssURL`: stylesheet URL used when `provider` is `custom`. Ignored otherwise. A relative URL is loaded without a preconnect.
+
+Meta tags are omitted when their content is empty. That includes description, keywords, and Open Graph / Twitter fields. The homepage keywords tag is also omitted when `keywords` is unset.
+
 The homepage emits one `MobileApplication` JSON-LD object (`operatingSystem` `iOS`, `applicationCategory` `FinanceApplication`). These fields are added only when the site has a value for them:
 
 - `offers`: included only when `currencyCode` is an ISO 4217 code and at least one of `yearly` or `lifetime` is set. `priceCurrency` is that code. The display symbol `currency` is not used. If `currencyCode` is unset, `offers` is omitted.
@@ -496,7 +507,7 @@ For in-page homepage links, use fragment URLs like `#features` or `#download`. T
 
 - This theme does not ship content, images, or translation files beyond the theme code itself.
 - A runnable demo lives in `exampleSite/`, and the current demo uses iAssets sample branding and assets.
-- Google Fonts are loaded from `fonts.googleapis.com` and `fonts.gstatic.com`.
+- Fonts default to Google Fonts (`fonts.googleapis.com` and `fonts.gstatic.com`). Set `params.fonts.provider` to `custom` or `none` to avoid that request. The `google` provider still skips those tags on Simplified Chinese pages, matching the previous behavior.
 - Homepage copy is rendered at build time. The client-side script handles theme preference, menu toggles, language preference storage, and marquee behavior.
 
 ## Included

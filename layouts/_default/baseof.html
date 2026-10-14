@@ -35,6 +35,7 @@
     {{- end -}}
     {{- $pageSocialTitle := .Params.socialTitle | default $pageTitle | default $defaultSocialTitle -}}
     {{- $metaDescription := .Params.description | default (printf "%s %s" $brandName .Title) -}}
+    {{- $metaDescriptionTrim := $metaDescription | strings.TrimSpace -}}
     {{- $assetVersion := site.Params.assets.version -}}
     {{- $themeVersion := site.Params.theme.version -}}
     {{- $canonicalURL := cond $hasAbsoluteSiteURL (printf "%s%s" (strings.TrimSuffix "/" $siteURL) .RelPermalink) .RelPermalink -}}
@@ -53,24 +54,24 @@
       {{- $appURL = printf "%s?v=%v" $appURL $assetVersion -}}
     {{- end -}}
     <title>{{ $documentTitle }}</title>
-    <meta name="description" content="{{ $metaDescription }}" />
-    {{- if .IsHome }}<meta name="keywords" content="{{ .Params.keywords }}" />{{ end }}
+    {{ if $metaDescriptionTrim }}<meta name="description" content="{{ $metaDescription }}" />{{ end }}
+    {{- if and .IsHome .Params.keywords }}<meta name="keywords" content="{{ .Params.keywords }}" />{{ end }}
     {{- if eq .Kind "404" }}<meta name="robots" content="noindex,follow" />{{ else if site.Params.seo.noindex }}<meta name="robots" content="noindex,nofollow" />{{ else }}<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />{{ end }}
     <meta property="og:type" content="{{ $pageOgType }}" />
-    <meta property="og:site_name" content="{{ $brandName }}" />
-    <meta property="og:title" content="{{ $pageSocialTitle }}" />
-    <meta property="og:description" content="{{ $metaDescription }}" />
-    <meta property="og:image" content="{{ $socialImageURL }}" />
-    <meta property="og:image:alt" content="{{ $socialImageAlt }}" />
+    {{ with $brandName | strings.TrimSpace }}<meta property="og:site_name" content="{{ . }}" />{{ end }}
+    {{ with $pageSocialTitle | strings.TrimSpace }}<meta property="og:title" content="{{ . }}" />{{ end }}
+    {{ if $metaDescriptionTrim }}<meta property="og:description" content="{{ $metaDescription }}" />{{ end }}
+    {{ with $socialImageURL | strings.TrimSpace }}<meta property="og:image" content="{{ . }}" />{{ end }}
+    {{ with $socialImageAlt | strings.TrimSpace }}<meta property="og:image:alt" content="{{ . }}" />{{ end }}
     {{- with $socialImageWidth }}<meta property="og:image:width" content="{{ . }}" />{{- end }}
     {{- with $socialImageHeight }}<meta property="og:image:height" content="{{ . }}" />{{- end }}
-    <meta property="og:url" content="{{ $canonicalURL }}" />
+    {{ with $canonicalURL | strings.TrimSpace }}<meta property="og:url" content="{{ . }}" />{{ end }}
     <meta property="og:locale" content="{{ $langMeta.ogLocale }}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="{{ $pageSocialTitle }}" />
-    <meta name="twitter:description" content="{{ $metaDescription }}" />
-    <meta name="twitter:image" content="{{ $socialImageURL }}" />
-    <meta name="twitter:image:alt" content="{{ $socialImageAlt }}" />
+    {{ with $pageSocialTitle | strings.TrimSpace }}<meta name="twitter:title" content="{{ . }}" />{{ end }}
+    {{ if $metaDescriptionTrim }}<meta name="twitter:description" content="{{ $metaDescription }}" />{{ end }}
+    {{ with $socialImageURL | strings.TrimSpace }}<meta name="twitter:image" content="{{ . }}" />{{ end }}
+    {{ with $socialImageAlt | strings.TrimSpace }}<meta name="twitter:image:alt" content="{{ . }}" />{{ end }}
     {{- if ne .Kind "404" }}<link rel="canonical" href="{{ $canonicalURL }}" />{{ end }}
     {{- if gt (len $pageTranslations) 1 }}
     {{- $defaultAltHref := index $pageTranslations $defaultLang | default "/" -}}
@@ -86,12 +87,30 @@
     {{- end }}
     <link rel="icon" type="image/png" href="{{ $logo }}" />
     <link rel="shortcut icon" href="{{ $logo }}" />
-    {{- if ne $langMeta.appLang "zh-Hans" }}
+    {{- $fontConfig := site.Params.fonts | default dict -}}
+    {{- $fontProvider := "google" -}}
+    {{- with index $fontConfig "provider" -}}
+      {{- $fontProvider = lower (strings.TrimSpace (printf "%v" .)) -}}
+    {{- end -}}
+    {{- $fontCSS := strings.TrimSpace (printf "%v" (index $fontConfig "cssurl" | default (index $fontConfig "cssURL") | default "")) -}}
+    {{- if eq $fontCSS "<nil>" }}{{ $fontCSS = "" }}{{ end -}}
+    {{- if and (ne $fontProvider "none") (ne $fontProvider "custom") (ne $langMeta.appLang "zh-Hans") }}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" /></noscript>
+    {{- else if and (eq $fontProvider "custom") $fontCSS }}
+    {{- $fontOrigin := "" -}}
+    {{- if or (hasPrefix $fontCSS "https://") (hasPrefix $fontCSS "http://") -}}
+      {{- $fontScheme := cond (hasPrefix $fontCSS "https://") "https://" "http://" -}}
+      {{- $fontHost := index (split (index (split (strings.TrimPrefix $fontScheme $fontCSS) "/") 0) "?") 0 -}}
+      {{- if $fontHost }}{{ $fontOrigin = printf "%s%s" $fontScheme $fontHost }}{{ end -}}
+    {{- end -}}
+    {{- if $fontOrigin }}
+    <link rel="preconnect" href="{{ $fontOrigin }}" />
+    {{- end }}
+    <link rel="stylesheet" href="{{ $fontCSS }}" />
     {{- end }}
     <script>
       (function () {

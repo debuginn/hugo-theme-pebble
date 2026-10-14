@@ -49,6 +49,13 @@ noindex = true
 # home.hero.fanImages; installUrl uses home.download.ctaHref.
 # Fields without a configured value are omitted.
 
+[params.fonts]
+# google (default) loads fonts.googleapis.com, except on zh-Hans pages.
+# custom loads cssURL (mirror or self-hosted CSS) and preconnects only if that URL is external.
+# none uses the system font stack and emits no font request.
+# provider = "google"
+# cssURL = "https://fonts.loli.net/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+
 [params.pricing]
 currency = "$"
 # ISO 4217 code for JSON-LD priceCurrency. The symbol above is display-only.
