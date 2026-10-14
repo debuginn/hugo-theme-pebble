@@ -10,6 +10,7 @@
 <html lang="{{ $langMeta.htmlLang }}" data-default-lang="{{ $defaultLang }}" data-current-lang="{{ $langMeta.appLang }}">
   <head>
     {{- $logo := site.Params.assets.logo | default "https://static.debuginn.com/20260607h41bVQ.png" -}}
+    {{- $logoDark := site.Params.assets.logoDark | default "" -}}
     {{- $brandName := site.Params.assets.brandName | default site.Title -}}
     {{- $logoAlt := site.Params.assets.logoAlt | default (printf "%s logo" $brandName) -}}
     {{- $downloadQr := site.Params.assets.downloadQr | default "https://static.debuginn.com/20260607huIkvB.png" -}}
@@ -117,8 +118,13 @@
     <link rel="alternate" hreflang="{{ $itemMeta.htmlLang }}" href="{{ $altURL }}" />
     {{- end }}
     {{- end }}
+    {{- if $logoDark }}
+    <link rel="icon" id="site-favicon" type="image/svg+xml" href="{{ $logo }}" data-icon-light="{{ $logo }}" data-icon-dark="{{ $logoDark }}" />
+    <link rel="shortcut icon" href="{{ $logo }}" />
+    {{- else }}
     <link rel="icon" type="image/png" href="{{ $logo }}" />
     <link rel="shortcut icon" href="{{ $logo }}" />
+    {{- end }}
     {{- $fontConfig := site.Params.fonts | default dict -}}
     {{- $fontProvider := "google" -}}
     {{- with index $fontConfig "provider" -}}
@@ -157,6 +163,17 @@
           resolved = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
         }
         document.documentElement.setAttribute("data-theme", resolved);
+        var icon = document.getElementById("site-favicon");
+        if (icon) {
+          var darkIcon = icon.getAttribute("data-icon-dark");
+          var lightIcon = icon.getAttribute("data-icon-light");
+          if (darkIcon && lightIcon) {
+            var iconHref = resolved === "dark" ? darkIcon : lightIcon;
+            icon.setAttribute("href", iconHref);
+            var shortcut = document.querySelector('link[rel="shortcut icon"]');
+            if (shortcut) shortcut.setAttribute("href", iconHref);
+          }
+        }
       })();
     </script>
     <script>
@@ -235,7 +252,8 @@
         }
       })();
     </script>
-    <link rel="stylesheet" href="{{ $stylesURL }}" />
+    <link rel="stylesheet" href="{{ $stylesURL }}" />{{ with partial "theme-colors.html" . }}
+    <style>{{ . | safeCSS }}</style>{{ end }}
     {{- with site.Params.seo.appleAppID }}
     <meta name="apple-itunes-app" content="app-id={{ . }}" />
     {{- end }}
@@ -306,7 +324,12 @@
         <nav class="top-pill">
           <div class="pill-left">
             <a class="logo" href="{{ "/" | relLangURL }}">
+              {{- if $logoDark }}
+              <img class="logo-mark logo-mark-light" src="{{ $logo }}" alt="{{ $logoAlt }}" width="40" height="40" decoding="async" fetchpriority="high" />
+              <img class="logo-mark logo-mark-dark" src="{{ $logoDark }}" alt="" width="40" height="40" decoding="async" fetchpriority="high" aria-hidden="true" />
+              {{- else }}
               <img class="logo-mark" src="{{ $logo }}" alt="{{ $logoAlt }}" width="40" height="40" decoding="async" fetchpriority="high" />
+              {{- end }}
               <span data-i18n="brand">{{ T "brand" }}</span>
             </a>
             <div class="desktop-nav">
@@ -370,7 +393,12 @@
             <section class="footer-left">
               <section class="footer-brand-col">
                 <a class="logo footer-brand-wrap" href="{{ "/" | relLangURL }}">
+                  {{- if $logoDark }}
+                  <img class="logo-mark logo-mark-light" src="{{ $logo }}" alt="{{ $logoAlt }}" width="48" height="48" decoding="async" loading="lazy" />
+                  <img class="logo-mark logo-mark-dark" src="{{ $logoDark }}" alt="" width="48" height="48" decoding="async" loading="lazy" aria-hidden="true" />
+                  {{- else }}
                   <img class="logo-mark" src="{{ $logo }}" alt="{{ $logoAlt }}" width="48" height="48" decoding="async" loading="lazy" />
+                  {{- end }}
                   <span class="footer-brand-text">
                     <span data-i18n="brand">{{ T "brand" }}</span>
                     <span class="footer-tag" data-i18n="footerTag">{{ T "footerTag" }}</span>

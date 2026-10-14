@@ -5,11 +5,13 @@
 {{- $posterAlt := .Params.posterAlt | default .Title -}}
 {{- $posterWidth := .Params.posterWidth | default 1086 -}}
 {{- $posterHeight := .Params.posterHeight | default 1448 -}}
-{{- $accent := .Params.accent | default "#2b7bff" -}}
+{{- $accent := .Params.accent | default "var(--accent)" -}}
 {{- $backHref := .Params.backHref | default ("/#activities" | relLangURL) -}}
 {{- $backLabel := .Params.backLabel | default "返回近期活动" -}}
 {{- $logo := site.Params.assets.logo -}}
+{{- $logoDark := site.Params.assets.logoDark | default "" -}}
 {{- with site.Language.Params.assets.logo }}{{- $logo = . -}}{{- end -}}
+{{- with site.Language.Params.assets.logoDark }}{{- $logoDark = . -}}{{- end -}}
 {{- $primary := .Params.actions.primary -}}
 {{- $secondary := .Params.actions.secondary -}}
 <main class="activity-detail-main" style="--activity-accent: {{ $accent }};">
@@ -27,7 +29,7 @@
           {{- if not .Params.hideOverview }}
           <section class="activity-detail-overview" aria-labelledby="activity-title">
             <div class="activity-detail-overview-header">
-              {{- with $logo }}<img class="activity-detail-logo" src="{{ . }}" alt="" width="44" height="44" decoding="async" />{{- end }}
+              {{- with $logo }}<img class="activity-detail-logo{{ if $logoDark }} logo-mark-light{{ end }}" src="{{ . }}" alt="" width="44" height="44" decoding="async" />{{ if $logoDark }}<img class="activity-detail-logo logo-mark-dark" src="{{ $logoDark }}" alt="" width="44" height="44" decoding="async" aria-hidden="true" />{{ end }}{{- end }}
               <div>
                 {{- with .Params.eyebrow }}<p class="activity-detail-eyebrow">{{ . }}</p>{{- end }}
                 <h1 id="activity-title" class="activity-detail-title">{{ .Title }}</h1>

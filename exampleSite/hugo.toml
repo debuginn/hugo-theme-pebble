@@ -16,7 +16,8 @@ version = "v1.1.0"
 
 [params.assets]
 brandName = "iAssets"
-logo = "/assets/logo.png"
+logo = "/assets/pebble-light.svg"
+logoDark = "/assets/pebble-dark.svg"
 logoAlt = "iAssets logo"
 downloadQr = "/assets/qr-download.png"
 version = "example-v1.1.0"
@@ -55,6 +56,20 @@ noindex = true
 # none uses the system font stack and emits no font request.
 # provider = "google"
 # cssURL = "https://fonts.loli.net/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+
+# Optional brand colors. Unset keeps the theme defaults.
+# primary: buttons, fills, and the start of the hero/button gradient.
+# secondary: links, accent text, and the end of that gradient.
+# onPrimary: text on primary buttons. Omit to keep white.
+[params.colors.light]
+primary = "#1f4f86"
+secondary = "#237380"
+onPrimary = "#ffffff"
+
+[params.colors.dark]
+primary = "#5bb5c4"
+secondary = "#7cc8d4"
+onPrimary = "#0a1220"
 
 [params.pricing]
 currency = "$"

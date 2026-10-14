@@ -496,6 +496,13 @@ function detectTheme() {
 
 function applyTheme(theme) {
   document.documentElement.setAttribute("data-theme", theme);
+  const icon = document.getElementById("site-favicon");
+  if (!icon) return;
+  const next = theme === "dark" ? icon.getAttribute("data-icon-dark") : icon.getAttribute("data-icon-light");
+  if (!next) return;
+  icon.setAttribute("href", next);
+  const shortcut = document.querySelector('link[rel="shortcut icon"]');
+  if (shortcut) shortcut.setAttribute("href", next);
 }
 
 function readThemePref() {
