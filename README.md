@@ -110,9 +110,11 @@ googleTagID = "G-XXXXXXXXXX"
 siteURL = "https://example.com"
 defaultSocialTitle = "Pebble"
 # noindex = false
+# appleAppID = "1234567890"
 
 [params.pricing]
 currency = "$"
+currencyCode = "USD"
 yearly = "29"
 lifetime = "99"
 
@@ -396,10 +398,21 @@ the theme's existing default icons.
 - `siteURL`: absolute site URL used for canonical and hreflang URLs. Falls back to `baseURL` when unset.
 - `defaultSocialTitle`: fallback Open Graph / Twitter title
 - `noindex`: optional, default `false`. When `true`, every page emits `<meta name="robots" content="noindex,nofollow" />`. When `false` or unset, pages keep `index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1`. The 404 page always emits `noindex,follow`.
+- `appleAppID`: optional Apple App Store ID. When set, every page emits `<meta name="apple-itunes-app" content="app-id=...">`. Nothing is emitted when it is unset.
+
+The homepage emits one `MobileApplication` JSON-LD object (`operatingSystem` `iOS`, `applicationCategory` `FinanceApplication`). These fields are added only when the site has a value for them:
+
+- `offers`: included only when `currencyCode` is an ISO 4217 code and at least one of `yearly` or `lifetime` is set. `priceCurrency` is that code. The display symbol `currency` is not used. If `currencyCode` is unset, `offers` is omitted.
+- `image`: `[params.assets].logo`
+- `screenshot`: homepage `home.hero.fanImages`, or `home.features.showcase.images` when the hero has none
+- `installUrl`: homepage `home.download.ctaHref` when it is an `http` or `https` URL
+
+Name, description, canonical URL, and language are included when present. Empty values are left out.
 
 ### `params.pricing`
 
-- `currency`
+- `currency`: display symbol used in the pricing UI
+- `currencyCode`: optional ISO 4217 code, such as `USD`, used as JSON-LD `priceCurrency`. Offers are omitted when this is unset.
 - `yearly`
 - `lifetime`
 - `lifetimeOriginal`: optional crossed-out lifetime price, shown only when it differs from `lifetime`

@@ -39,9 +39,20 @@ defaultSocialTitle = "Pebble"
 # Default is false (index,follow plus large-preview snippet directives).
 # true emits noindex,nofollow on every page. The 404 page always stays noindex,follow.
 noindex = true
+# Optional Apple App Store numeric ID. When set, every page emits
+# <meta name="apple-itunes-app" content="app-id=...">. Unset emits nothing.
+# appleAppID = "1234567890"
+# Homepage JSON-LD is a MobileApplication (iOS, FinanceApplication).
+# offers use [params.pricing] yearly/lifetime and currencyCode (ISO 4217).
+# The display symbol currency is not used in JSON-LD. Offers are omitted
+# when currencyCode is unset. image uses the logo; screenshot uses
+# home.hero.fanImages; installUrl uses home.download.ctaHref.
+# Fields without a configured value are omitted.
 
 [params.pricing]
 currency = "$"
+# ISO 4217 code for JSON-LD priceCurrency. The symbol above is display-only.
+currencyCode = "USD"
 yearly = "29"
 lifetime = "99"
 

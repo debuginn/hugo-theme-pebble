@@ -46,7 +46,6 @@
     {{- $socialImageURL := cond $hasAbsoluteSocialImage $socialImage (cond $hasAbsoluteSiteURL (printf "%s%s" (strings.TrimSuffix "/" $siteURL) $socialImage) $socialImage) -}}
     {{- $socialImageWidth := .Params.socialImageWidth | default site.Params.seo.defaultSocialImageWidth -}}
     {{- $socialImageHeight := .Params.socialImageHeight | default site.Params.seo.defaultSocialImageHeight -}}
-    {{- $jsonLd := dict "@context" "https://schema.org" "@type" "SoftwareApplication" "name" $brandName "applicationCategory" "FinanceApplication" "operatingSystem" "iOS, iPadOS, macOS" "description" $metaDescription "url" $canonicalURL "inLanguage" $langMeta.jsonLdLanguage -}}
     {{- $stylesURL := "/styles.css" -}}
     {{- $appURL := "/app.js" -}}
     {{- if $assetVersion -}}
@@ -186,7 +185,58 @@
       })();
     </script>
     <link rel="stylesheet" href="{{ $stylesURL }}" />
+    {{- with site.Params.seo.appleAppID }}
+    <meta name="apple-itunes-app" content="app-id={{ . }}" />
+    {{- end }}
     {{- if .IsHome }}
+    {{- $homeData := partial "home-data.html" (dict "page" . "defaultLang" $defaultLang) | default dict -}}
+    {{- $jsonLd := dict "@context" "https://schema.org" "@type" "MobileApplication" "operatingSystem" "iOS" "applicationCategory" "FinanceApplication" -}}
+    {{- if $brandName }}{{ $jsonLd = merge $jsonLd (dict "name" $brandName) }}{{ end -}}
+    {{- if $metaDescription }}{{ $jsonLd = merge $jsonLd (dict "description" $metaDescription) }}{{ end -}}
+    {{- if $canonicalURL }}{{ $jsonLd = merge $jsonLd (dict "url" $canonicalURL) }}{{ end -}}
+    {{- if $langMeta.jsonLdLanguage }}{{ $jsonLd = merge $jsonLd (dict "inLanguage" $langMeta.jsonLdLanguage) }}{{ end -}}
+    {{- $pricingParams := site.Params.pricing | default dict -}}
+    {{- $priceCurrency := $pricingParams.currencyCode | default "" | strings.TrimSpace -}}
+    {{- if $priceCurrency -}}
+    {{- $offers := slice -}}
+    {{- range $priceKey := slice "yearly" "lifetime" -}}
+      {{- $rawPrice := index $pricingParams $priceKey -}}
+      {{- if $rawPrice -}}
+        {{- $offers = $offers | append (dict "@type" "Offer" "price" (printf "%v" $rawPrice) "priceCurrency" $priceCurrency) -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if eq (len $offers) 1 }}{{ $jsonLd = merge $jsonLd (dict "offers" (index $offers 0)) }}{{ else if gt (len $offers) 1 }}{{ $jsonLd = merge $jsonLd (dict "offers" $offers) }}{{ end -}}
+    {{- end -}}
+    {{- with site.Params.assets.logo -}}
+      {{- $imageURL := . -}}
+      {{- if and $hasAbsoluteSiteURL (not (or (hasPrefix . "https://") (hasPrefix . "http://"))) -}}
+        {{- $imageURL = printf "%s%s" (strings.TrimSuffix "/" $siteURL) . -}}
+      {{- end -}}
+      {{- if or (hasPrefix $imageURL "https://") (hasPrefix $imageURL "http://") }}{{ $jsonLd = merge $jsonLd (dict "image" $imageURL) }}{{ end -}}
+    {{- end -}}
+    {{- $shotSources := slice -}}
+    {{- with index $homeData "hero" }}{{ $shotSources = .fanImages | default slice }}{{ end -}}
+    {{- if not $shotSources -}}
+      {{- with index $homeData "features" -}}
+        {{- $showcase := .showcase | default false -}}
+        {{- if reflect.IsMap $showcase }}{{ $shotSources = $showcase.images | default slice }}{{ end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $shotURLs := slice -}}
+    {{- range $shotSources -}}
+      {{- $src := .src | default "" -}}
+      {{- if $src -}}
+        {{- $abs := $src -}}
+        {{- if and $hasAbsoluteSiteURL (not (or (hasPrefix $src "https://") (hasPrefix $src "http://"))) -}}
+          {{- $abs = printf "%s%s" (strings.TrimSuffix "/" $siteURL) $src -}}
+        {{- end -}}
+        {{- if or (hasPrefix $abs "https://") (hasPrefix $abs "http://") }}{{ $shotURLs = $shotURLs | append $abs }}{{ end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if eq (len $shotURLs) 1 }}{{ $jsonLd = merge $jsonLd (dict "screenshot" (index $shotURLs 0)) }}{{ else if gt (len $shotURLs) 1 }}{{ $jsonLd = merge $jsonLd (dict "screenshot" $shotURLs) }}{{ end -}}
+    {{- $download := index $homeData "download" | default dict -}}
+    {{- $storeURL := index $download "ctahref" | default (index $download "ctaHref") | default "" -}}
+    {{- if hasPrefix $storeURL "http" }}{{ $jsonLd = merge $jsonLd (dict "installUrl" $storeURL) }}{{ end }}
     <script type="application/ld+json" id="seo-jsonld">{{ $jsonLd | jsonify | safeJS }}</script>
     {{- end }}
     {{- with $googleAnalyticsID }}
