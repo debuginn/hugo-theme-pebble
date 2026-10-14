@@ -380,6 +380,7 @@ Supported language route keys in the theme:
 
 - `brandName`: brand name used in metadata and UI
 - `logo`: logo URL
+- `logoDark`: optional logo used when the theme is dark. When unset, `logo` is used in both modes.
 - `logoAlt`: logo alt text
 - `downloadQr`: QR image shown in the footer
 - `version`: optional static asset version string appended to `/styles.css` and `/app.js`

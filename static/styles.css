@@ -97,6 +97,20 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
 .pill-right { min-width: 0; }
 .logo { display: inline-flex; align-items: center; gap: 10px; font-size: 18px; font-weight: 600; }
 .logo-mark { width: 40px; height: 40px; border-radius: 10px; flex: 0 0 auto; }
+:root .logo-mark-dark { display: none; }
+:root[data-theme="dark"] .logo-mark-light { display: none; }
+:root[data-theme="dark"] .logo-mark-dark { display: block; }
+.logo-mark.logo-mark-light,
+.logo-mark.logo-mark-dark,
+.footer-brand-col .logo-mark.logo-mark-light,
+.footer-brand-col .logo-mark.logo-mark-dark,
+.plan-logo.logo-mark-light,
+.plan-logo.logo-mark-dark,
+.activity-detail-logo.logo-mark-light,
+.activity-detail-logo.logo-mark-dark {
+  border-radius: 0;
+  object-fit: contain;
+}
 .desktop-nav {
   display: flex;
   align-items: center;

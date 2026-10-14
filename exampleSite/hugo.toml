@@ -16,7 +16,8 @@ version = "v1.1.0"
 
 [params.assets]
 brandName = "iAssets"
-logo = "/assets/logo.png"
+logo = "/assets/pebble-light.svg"
+logoDark = "/assets/pebble-dark.svg"
 logoAlt = "iAssets logo"
 downloadQr = "/assets/qr-download.png"
 version = "example-v1.1.0"
