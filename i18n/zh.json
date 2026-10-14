@@ -1,0 +1,32 @@
+{
+  "nfEyebrow": {
+    "other": "Page not found"
+  },
+  "nfTitle": {
+    "other": "页面走丢了"
+  },
+  "nfDesc": {
+    "other": "你要找的页面不存在，或者已经搬家了。回首页看看，或者直接下载 App。"
+  },
+  "nfHome": {
+    "other": "返回首页"
+  },
+  "nfAppStore": {
+    "other": "App Store 下载"
+  },
+  "nfFeatures": {
+    "other": "特性"
+  },
+  "nfPricing": {
+    "other": "价格"
+  },
+  "nfFaq": {
+    "other": "常见问题"
+  },
+  "nfBlog": {
+    "other": "博客"
+  },
+  "nfLinksLabel": {
+    "other": "快速入口"
+  }
+}

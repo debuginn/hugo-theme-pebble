@@ -1,0 +1,32 @@
+{
+  "nfEyebrow": {
+    "other": "Page not found"
+  },
+  "nfTitle": {
+    "other": "頁面走丟了"
+  },
+  "nfDesc": {
+    "other": "你要找的頁面不存在，或者已經搬家了。回首頁看看，或者直接下載 App。"
+  },
+  "nfHome": {
+    "other": "返回首頁"
+  },
+  "nfAppStore": {
+    "other": "App Store 下載"
+  },
+  "nfFeatures": {
+    "other": "特性"
+  },
+  "nfPricing": {
+    "other": "價格"
+  },
+  "nfFaq": {
+    "other": "常見問題"
+  },
+  "nfBlog": {
+    "other": "部落格"
+  },
+  "nfLinksLabel": {
+    "other": "快速入口"
+  }
+}
