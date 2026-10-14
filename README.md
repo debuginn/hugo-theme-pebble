@@ -110,6 +110,7 @@ googleTagID = "G-XXXXXXXXXX"
 siteURL = "https://example.com"
 defaultSocialTitle = "Pebble"
 # noindex = false
+# appleAppID = "1234567890"
 
 [params.pricing]
 currency = "$"
@@ -396,6 +397,16 @@ the theme's existing default icons.
 - `siteURL`: absolute site URL used for canonical and hreflang URLs. Falls back to `baseURL` when unset.
 - `defaultSocialTitle`: fallback Open Graph / Twitter title
 - `noindex`: optional, default `false`. When `true`, every page emits `<meta name="robots" content="noindex,nofollow" />`. When `false` or unset, pages keep `index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1`. The 404 page always emits `noindex,follow`.
+- `appleAppID`: optional Apple App Store ID. When set, every page emits `<meta name="apple-itunes-app" content="app-id=...">`. Nothing is emitted when it is unset.
+
+The homepage emits one `MobileApplication` JSON-LD object (`operatingSystem` `iOS`, `applicationCategory` `FinanceApplication`). These fields are added only when the site has a value for them:
+
+- `offers`: `yearly` and/or `lifetime` from `[params.pricing]`, with `priceCurrency` set to `currency` when that param is set
+- `image`: `[params.assets].logo`
+- `screenshot`: homepage `home.hero.fanImages`, or `home.features.showcase.images` when the hero has none
+- `installUrl`: homepage `home.download.ctaHref` when it is an `http` or `https` URL
+
+Name, description, canonical URL, and language are included when present. Empty values are left out.
 
 ### `params.pricing`
 

@@ -39,6 +39,13 @@ defaultSocialTitle = "Pebble"
 # Default is false (index,follow plus large-preview snippet directives).
 # true emits noindex,nofollow on every page. The 404 page always stays noindex,follow.
 noindex = true
+# Optional Apple App Store numeric ID. When set, every page emits
+# <meta name="apple-itunes-app" content="app-id=...">. Unset emits nothing.
+# appleAppID = "1234567890"
+# Homepage JSON-LD is a MobileApplication (iOS, FinanceApplication).
+# offers use [params.pricing] yearly/lifetime and currency; image uses the logo;
+# screenshot uses home.hero.fanImages; installUrl uses home.download.ctaHref.
+# Fields without a configured value are omitted.
 
 [params.pricing]
 currency = "$"
