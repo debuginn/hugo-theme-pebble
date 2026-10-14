@@ -56,7 +56,7 @@
     <title>{{ $documentTitle }}</title>
     <meta name="description" content="{{ $metaDescription }}" />
     {{- if .IsHome }}<meta name="keywords" content="{{ .Params.keywords }}" />{{ end }}
-    {{- if eq .Kind "404" }}<meta name="robots" content="noindex,follow" />{{ else }}<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />{{ end }}
+    {{- if eq .Kind "404" }}<meta name="robots" content="noindex,follow" />{{ else if site.Params.seo.noindex }}<meta name="robots" content="noindex,nofollow" />{{ else }}<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />{{ end }}
     <meta property="og:type" content="{{ $pageOgType }}" />
     <meta property="og:site_name" content="{{ $brandName }}" />
     <meta property="og:title" content="{{ $pageSocialTitle }}" />

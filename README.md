@@ -109,6 +109,7 @@ googleTagID = "G-XXXXXXXXXX"
 [params.seo]
 siteURL = "https://example.com"
 defaultSocialTitle = "Pebble"
+# noindex = false
 
 [params.pricing]
 currency = "$"
@@ -392,8 +393,9 @@ the theme's existing default icons.
 
 ### `params.seo`
 
-- `siteURL`: absolute site URL used for canonical and hreflang URLs
+- `siteURL`: absolute site URL used for canonical and hreflang URLs. Falls back to `baseURL` when unset.
 - `defaultSocialTitle`: fallback Open Graph / Twitter title
+- `noindex`: optional, default `false`. When `true`, every page emits `<meta name="robots" content="noindex,nofollow" />`. When `false` or unset, pages keep `index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1`. The 404 page always emits `noindex,follow`.
 
 ### `params.pricing`
 
