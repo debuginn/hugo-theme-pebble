@@ -1,29 +1,69 @@
+{{- $palette := . -}}
+{{- $mode := "light" -}}
+{{- if isset . "palette" -}}
+  {{- $palette = index . "palette" | default dict -}}
+  {{- with index . "mode" -}}{{- $mode = . -}}{{- end -}}
+{{- end -}}
 {{- $primary := "" -}}
 {{- $secondary := "" -}}
 {{- $onPrimary := "" -}}
-{{- with index . "primary" -}}
+{{- with index $palette "primary" -}}
   {{- $primary = strings.TrimSpace (printf "%v" .) -}}
 {{- end -}}
-{{- with index . "secondary" -}}
+{{- with index $palette "secondary" -}}
   {{- $secondary = strings.TrimSpace (printf "%v" .) -}}
 {{- end -}}
-{{- with index . "onprimary" -}}
+{{- with index $palette "onprimary" -}}
   {{- $onPrimary = strings.TrimSpace (printf "%v" .) -}}
 {{- end -}}
 {{- if not $onPrimary -}}
-  {{- with index . "onPrimary" -}}
+  {{- with index $palette "onPrimary" -}}
     {{- $onPrimary = strings.TrimSpace (printf "%v" .) -}}
   {{- end -}}
 {{- end -}}
 {{- if or (eq $primary "<nil>") (strings.ContainsAny $primary ";{}<>") }}{{ $primary = "" }}{{ end -}}
 {{- if or (eq $secondary "<nil>") (strings.ContainsAny $secondary ";{}<>") }}{{ $secondary = "" }}{{ end -}}
 {{- if or (eq $onPrimary "<nil>") (strings.ContainsAny $onPrimary ";{}<>") }}{{ $onPrimary = "" }}{{ end -}}
+{{- $ink := $secondary | default $primary -}}
 {{- $decls := slice -}}
 {{- if $primary -}}
   {{- $decls = $decls | append (printf "--accent:%s" $primary) -}}
   {{- $decls = $decls | append (printf "--accent-fill:%s" $primary) -}}
   {{- $decls = $decls | append (printf "--accent-glow:%s" $primary) -}}
   {{- $decls = $decls | append (printf "--hero-from:%s" $primary) -}}
+  {{- $decls = $decls | append "--accent-deep:var(--accent)" -}}
+  {{- $decls = $decls | append "--tone-shadow:var(--accent)" -}}
+  {{- if eq $mode "dark" -}}
+    {{- $decls = $decls | append (printf "--bg:color-mix(in srgb,%s 10%%,#0a1220)" $primary) -}}
+    {{- $decls = $decls | append (printf "--card:rgb(from color-mix(in srgb,%s 16%%,#0a1220) r g b / 0.86)" $primary) -}}
+    {{- $decls = $decls | append (printf "--bg-2:color-mix(in srgb,%s 6%%,#070d18)" $primary) -}}
+    {{- $decls = $decls | append (printf "--line:color-mix(in srgb,%s 36%%,#0a1220)" $primary) -}}
+    {{- $decls = $decls | append (printf "--tone-wash:color-mix(in srgb,%s 28%%,#0a1220)" $primary) -}}
+    {{- $decls = $decls | append (printf "--tone-wash-2:color-mix(in srgb,%s 16%%,#0a1220)" $primary) -}}
+    {{- $decls = $decls | append (printf "--tone-chip:color-mix(in srgb,%s 18%%,#0a1220)" $primary) -}}
+    {{- $decls = $decls | append (printf "--tone-line:color-mix(in srgb,%s 34%%,#0a1220)" $primary) -}}
+    {{- $decls = $decls | append (printf "--tone-line-strong:color-mix(in srgb,%s 48%%,#0a1220)" $primary) -}}
+    {{- $decls = $decls | append (printf "--tone-surface:color-mix(in srgb,%s 16%%,#0a1220)" $primary) -}}
+    {{- $decls = $decls | append (printf "--tone-hover:color-mix(in srgb,%s 22%%,#0a1220)" $primary) -}}
+    {{- $decls = $decls | append (printf "--tone-active:color-mix(in srgb,%s 32%%,#0a1220)" $primary) -}}
+    {{- $decls = $decls | append (printf "--tone-mosaic:color-mix(in srgb,%s 18%%,#0a1220)" $primary) -}}
+    {{- $decls = $decls | append (printf "--tone-nav-border:color-mix(in srgb,%s 42%%,transparent)" $primary) -}}
+  {{- else -}}
+    {{- $decls = $decls | append (printf "--bg:color-mix(in srgb,%s 7%%,#fff)" $primary) -}}
+    {{- $decls = $decls | append (printf "--bg-2:color-mix(in srgb,%s 11%%,#fff)" $primary) -}}
+    {{- $decls = $decls | append (printf "--line:color-mix(in srgb,%s 22%%,#fff)" $primary) -}}
+    {{- $decls = $decls | append (printf "--tone-wash:color-mix(in srgb,%s 16%%,#fff)" $primary) -}}
+    {{- $decls = $decls | append (printf "--tone-wash-2:color-mix(in srgb,%s 12%%,#fff)" $primary) -}}
+    {{- $decls = $decls | append (printf "--tone-chip:color-mix(in srgb,%s 8%%,#fff)" $primary) -}}
+    {{- $decls = $decls | append (printf "--tone-line:color-mix(in srgb,%s 20%%,#fff)" $primary) -}}
+    {{- $decls = $decls | append (printf "--tone-line-strong:color-mix(in srgb,%s 46%%,#fff)" $ink) -}}
+    {{- $decls = $decls | append (printf "--tone-surface:color-mix(in srgb,%s 5%%,#fff)" $primary) -}}
+    {{- $decls = $decls | append (printf "--tone-hover:color-mix(in srgb,%s 7%%,#fff)" $primary) -}}
+    {{- $decls = $decls | append (printf "--tone-active:color-mix(in srgb,%s 12%%,#fff)" $primary) -}}
+    {{- $decls = $decls | append (printf "--tone-mosaic:color-mix(in srgb,%s 8%%,#fff)" $primary) -}}
+    {{- $decls = $decls | append (printf "--tone-nav-border:color-mix(in srgb,%s 32%%,transparent)" $primary) -}}
+    {{- $decls = $decls | append "--tone-ink:var(--accent)" -}}
+  {{- end -}}
 {{- end -}}
 {{- if $secondary -}}
   {{- $decls = $decls | append (printf "--accent-2:%s" $secondary) -}}
@@ -32,6 +72,14 @@
   {{- $decls = $decls | append (printf "--link:%s" $secondary) -}}
   {{- $decls = $decls | append (printf "--hero-to:%s" $secondary) -}}
   {{- $decls = $decls | append (printf "--qr-alt:%s" $secondary) -}}
+{{- end -}}
+{{- if $ink -}}
+  {{- if eq $mode "dark" -}}
+    {{- $decls = $decls | append (printf "--tone-icon:%s" $ink) -}}
+    {{- $decls = $decls | append (printf "--tone-ink:color-mix(in srgb,%s 22%%,#fff)" $ink) -}}
+  {{- else -}}
+    {{- $decls = $decls | append (printf "--tone-icon:%s" $ink) -}}
+  {{- end -}}
 {{- end -}}
 {{- if $onPrimary -}}
   {{- $decls = $decls | append (printf "--on-accent:%s" $onPrimary) -}}

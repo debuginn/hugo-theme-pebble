@@ -423,12 +423,12 @@ the theme's existing default icons.
 
 ### `params.colors`
 
-Optional. When unset, the theme keeps its built-in colors and does not emit an override stylesheet. Page backgrounds and body text are not part of this config.
+Optional. When unset, the theme keeps its built-in colors and does not emit an override stylesheet. Body copy stays on the built-in text colors.
 
 Each mode (`light`, `dark`) accepts:
 
-- `primary`: button fills and the start of the hero and button gradient
-- `secondary`: links, accent text, and the end of that gradient
+- `primary`: button fills, the start of the hero and button gradient, and the source of tinted backgrounds, borders, and shadows
+- `secondary`: links, accent text, icons, and the end of that gradient. Tinted surfaces are mixed from these two colors
 - `onPrimary`: text color on primary buttons. Omit it to keep white.
 
 ```toml
