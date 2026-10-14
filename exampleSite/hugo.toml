@@ -12,14 +12,14 @@ tag = "tags"
 defaultLang = "en"
 
 [params.theme]
-version = "v1.0.1"
+version = "v1.1.0"
 
 [params.assets]
 brandName = "iAssets"
 logo = "/assets/logo.png"
 logoAlt = "iAssets logo"
 downloadQr = "/assets/qr-download.png"
-version = "example-1"
+version = "example-v1.1.0"
 
 [params.contact]
 email = "hello@example.com"
