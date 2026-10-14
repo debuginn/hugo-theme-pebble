@@ -53,7 +53,7 @@ noindex = true
 # google (default) loads fonts.googleapis.com, except on zh-Hans pages.
 # custom loads cssURL (mirror or self-hosted CSS) and preconnects only if that URL is external.
 # none uses the system font stack and emits no font request.
-# provider = "google"
+provider = "none"
 # cssURL = "https://fonts.loli.net/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
 
 [params.pricing]
