@@ -5,7 +5,7 @@ description = "A product showcase Hugo theme."
 homepage = "https://github.com/debuginn/hugo-theme-pebble"
 demosite = ""
 tags = ["landing-page", "product", "showcase", "responsive", "multilingual"]
-features = ["multilingual", "product-showcase", "legal-pages"]
+features = ["multilingual", "product-showcase", "legal-pages", "activity-pages", "markdown", "channel-buttons"]
 min_version = "0.147.1"
 
 [author]

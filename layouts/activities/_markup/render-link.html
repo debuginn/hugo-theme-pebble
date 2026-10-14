@@ -1,0 +1,15 @@
+{{- $platform := dict -}}
+{{- if .Page.Params.channelButtons -}}
+  {{- $channels := site.Data.channel_links | default dict -}}
+  {{- $hosts := $channels.hosts | default dict -}}
+  {{- $platforms := $channels.platforms | default dict -}}
+  {{- $host := strings.TrimPrefix "www." ((urls.Parse .Destination).Hostname | lower) -}}
+  {{- with index $hosts $host -}}
+    {{- $platform = index $platforms . | default dict -}}
+  {{- end -}}
+{{- end -}}
+{{- if and $platform.name $platform.icon -}}
+<a class="activity-channel-link" href="{{ .Destination | safeURL }}" target="_blank" rel="noopener noreferrer"{{ with .Title }} title="{{ . }}"{{ end }}><span class="activity-channel-logo"><img src="{{ $platform.icon }}" alt="" width="24" height="24" loading="lazy" decoding="async" /></span><span class="activity-channel-name">{{ $platform.name }}</span></a>
+{{- else -}}
+<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
+{{- end -}}

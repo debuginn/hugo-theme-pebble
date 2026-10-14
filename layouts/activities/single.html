@@ -1,4 +1,6 @@
 {{ define "main" }}
+{{- $activityStyles := slice (resources.Get "css/activity-markdown.css") (resources.Get "css/activity-navigation.css") | resources.Concat "css/activity-detail.css" | fingerprint -}}
+<link rel="stylesheet" href="{{ $activityStyles.RelPermalink }}" integrity="{{ $activityStyles.Data.Integrity }}" />
 {{- $poster := .Params.poster -}}
 {{- $posterAlt := .Params.posterAlt | default .Title -}}
 {{- $posterWidth := .Params.posterWidth | default 1086 -}}
@@ -13,11 +15,16 @@
 <main class="activity-detail-main" style="--activity-accent: {{ $accent }};">
   <section class="section activity-detail-section">
     <div class="container activity-detail-wrap">
-      <a class="activity-detail-back" href="{{ $backHref }}">
-        <span aria-hidden="true">‹</span>{{ $backLabel }}
+      <a class="activity-detail-back activity-detail-btn activity-detail-btn-secondary" href="{{ $backHref }}">
+        <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="m12 5-7 7 7 7" />
+          <path d="M5 12h14" />
+        </svg>
+        {{ $backLabel }}
       </a>
       <div class="activity-detail-grid">
         <div class="activity-detail-poster-side">
+          {{- if not .Params.hideOverview }}
           <section class="activity-detail-overview" aria-labelledby="activity-title">
             <div class="activity-detail-overview-header">
               {{- with $logo }}<img class="activity-detail-logo" src="{{ . }}" alt="" width="44" height="44" decoding="async" />{{- end }}
@@ -51,6 +58,7 @@
             </div>
             {{- end }}
           </section>
+          {{- end }}
           {{- if $poster }}
           <section class="activity-detail-poster-shell" aria-labelledby="activity-poster-title">
             <div class="activity-detail-panel-heading">
@@ -62,6 +70,12 @@
               </a>
               {{- with .Params.posterHint }}<figcaption>{{ . }}</figcaption>{{- end }}
             </figure>
+          </section>
+          {{- end }}
+          {{- if and .Params.tocBelowPoster .TableOfContents }}
+          <section class="activity-detail-toc" aria-labelledby="activity-toc-title">
+            <h2 id="activity-toc-title">页面目录</h2>
+            {{ .TableOfContents }}
           </section>
           {{- end }}
         </div>
@@ -77,7 +91,7 @@
             {{- end }}
           </section>
           {{- end }}
-          {{- if .TableOfContents }}
+          {{- if and (not .Params.tocBelowPoster) .TableOfContents }}
           <section class="activity-detail-toc" aria-labelledby="activity-toc-title">
             <h2 id="activity-toc-title">页面目录</h2>
             {{ .TableOfContents }}
@@ -85,6 +99,19 @@
           {{- end }}
           <article class="activity-detail-article">
             {{ .Content }}
+            {{- with .Params.redemption }}
+            {{- if site.Params.contact.email }}
+            <div class="activity-detail-redemption">
+              <a class="activity-detail-btn activity-detail-btn-primary" href="{{ printf "mailto:%s?subject=%s" site.Params.contact.email ((.subject | default $.Title) | urlquery) | safeURL }}">
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="5" width="18" height="14" rx="3" />
+                  <path d="m3 7 9 6 9-6" />
+                </svg>
+                {{ .label }}
+              </a>
+            </div>
+            {{- end }}
+            {{- end }}
           </article>
         </div>
       </div>
