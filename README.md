@@ -409,7 +409,7 @@ the theme's existing default icons.
 - `provider`: `google` (default), `custom`, or `none`. `google` keeps the current Google Fonts tags. `custom` loads `cssURL` instead, for a mirror or self-hosted stylesheet. `none` uses the system font stack and makes no font request. Preconnect tags are emitted only for an external provider.
 - `cssURL`: stylesheet URL used when `provider` is `custom`. Ignored otherwise. A relative URL is loaded without a preconnect.
 
-Meta tags are omitted when their content is empty. That includes description, keywords, and Open Graph / Twitter fields. The homepage keywords tag is also omitted when `keywords` is unset.
+Meta tags are omitted when their content is empty. That includes description, keywords, and Open Graph / Twitter fields. Homepage `keywords` may be a string or a list. A list is joined with `, `; a comma-separated string is emitted as written. The tag is omitted when the value is empty.
 
 The homepage emits one `MobileApplication` JSON-LD object (`operatingSystem` `iOS`, `applicationCategory` `FinanceApplication`). These fields are added only when the site has a value for them:
 

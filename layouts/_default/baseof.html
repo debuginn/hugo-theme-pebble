@@ -36,6 +36,38 @@
     {{- $pageSocialTitle := .Params.socialTitle | default $pageTitle | default $defaultSocialTitle -}}
     {{- $metaDescription := .Params.description | default (printf "%s %s" $brandName .Title) -}}
     {{- $metaDescriptionTrim := $metaDescription | strings.TrimSpace -}}
+    {{- $keywordsContent := "" -}}
+    {{- with .Params.keywords -}}
+      {{- if reflect.IsSlice . -}}
+        {{- $keywordParts := slice -}}
+        {{- range . -}}
+          {{- $keywordPart := strings.TrimSpace (printf "%v" .) -}}
+          {{- if $keywordPart -}}
+            {{- $keywordParts = $keywordParts | append $keywordPart -}}
+          {{- end -}}
+        {{- end -}}
+        {{- if $keywordParts -}}
+          {{/* A comma-separated string is already split on whitespace; rejoin those tokens with a space. A real list is joined with ", ". */}}
+          {{- $commaSeparatedString := true -}}
+          {{- $sawComma := false -}}
+          {{- range $keywordParts -}}
+            {{- if strings.Contains . " " -}}
+              {{- $commaSeparatedString = false -}}
+            {{- end -}}
+            {{- if strings.Contains . "," -}}
+              {{- $sawComma = true -}}
+            {{- end -}}
+          {{- end -}}
+          {{- if and $commaSeparatedString $sawComma -}}
+            {{- $keywordsContent = delimit $keywordParts " " -}}
+          {{- else -}}
+            {{- $keywordsContent = delimit $keywordParts ", " -}}
+          {{- end -}}
+        {{- end -}}
+      {{- else -}}
+        {{- $keywordsContent = strings.TrimSpace (printf "%v" .) -}}
+      {{- end -}}
+    {{- end -}}
     {{- $assetVersion := site.Params.assets.version -}}
     {{- $themeVersion := site.Params.theme.version -}}
     {{- $canonicalURL := cond $hasAbsoluteSiteURL (printf "%s%s" (strings.TrimSuffix "/" $siteURL) .RelPermalink) .RelPermalink -}}
@@ -55,7 +87,7 @@
     {{- end -}}
     <title>{{ $documentTitle }}</title>
     {{ if $metaDescriptionTrim }}<meta name="description" content="{{ $metaDescription }}" />{{ end }}
-    {{- if and .IsHome .Params.keywords }}<meta name="keywords" content="{{ .Params.keywords }}" />{{ end }}
+    {{- if and .IsHome $keywordsContent }}<meta name="keywords" content="{{ $keywordsContent }}" />{{ end }}
     {{- if eq .Kind "404" }}<meta name="robots" content="noindex,follow" />{{ else if site.Params.seo.noindex }}<meta name="robots" content="noindex,nofollow" />{{ else }}<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />{{ end }}
     <meta property="og:type" content="{{ $pageOgType }}" />
     {{ with $brandName | strings.TrimSpace }}<meta property="og:site_name" content="{{ . }}" />{{ end }}
