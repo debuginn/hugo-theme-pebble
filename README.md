@@ -4,8 +4,8 @@
 
 [![Minimum Hugo Version](https://img.shields.io/static/v1?label=min-HUGO-version&message=%3E%3Dv0.147.1&color=blue&logo=hugo)](https://github.com/gohugoio/hugo/releases/tag/v0.147.1)
 [![License](https://img.shields.io/github/license/debuginn/hugo-theme-pebble)](https://github.com/debuginn/hugo-theme-pebble/blob/main/LICENSE)
-[![ExampleSite](https://img.shields.io/badge/exampleSite-included-2b7bff)](/Users/debuginn/Code/src/github.com/debuginn/hugo-theme-pebble/exampleSite)
-[![Multilingual](https://img.shields.io/badge/i18n-supported-1f9d55)](/Users/debuginn/Code/src/github.com/debuginn/hugo-theme-pebble/README.md#i18n)
+[![ExampleSite](https://img.shields.io/badge/exampleSite-included-2b7bff)](exampleSite)
+[![Multilingual](https://img.shields.io/badge/i18n-supported-1f9d55)](#i18n)
 
 Pebble is a Hugo theme for product showcase sites with:
 
@@ -96,9 +96,9 @@ defaultContentLanguage = "en"
 defaultLang = "en"
 
 [params.assets]
-brandName = "iAssets"
+brandName = "Your App"
 logo = "/assets/logo.png"
-logoAlt = "iAssets logo"
+logoAlt = "Your app logo"
 downloadQr = "/assets/qr-download.png"
 version = "example-1"
 
@@ -240,7 +240,7 @@ home:
           alt: "Pebble download backdrop 2"
   reviews:
     eyebrow: "Reviews"
-    title: "People build better financial habits with iAssets."
+    title: "People build better financial habits with your app."
     description: "From recording one item to understanding full trends."
   pricing:
     eyebrow: "Pricing"
