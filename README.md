@@ -404,6 +404,70 @@ the theme's existing default icons.
 
 These values are referenced by homepage pricing plans through `priceKey`.
 
+## Activity pages
+
+Use `type = "activities"` in Markdown front matter to render an activity detail
+page. The theme provides the poster/body layout, a return button, a hierarchical
+sidebar directory, Markdown typography and optional channel buttons. Content,
+contact addresses, platform names and brand assets belong to the consuming site.
+
+```toml
++++
+title = "Community activity"
+type = "activities"
+poster = "/assets/my-poster.png"
+posterAlt = "Activity poster"
+backHref = "/#activities"
+backLabel = "Back to activities"
+hideOverview = true
+tocBelowPoster = true
+channelButtons = true
+
+[redemption]
+label = "Contact us"
+subject = "Activity enquiry"
++++
+```
+
+- `hideOverview`: hides the title/metadata/action panel; defaults to `false`.
+- `tocBelowPoster`: places the directory in the poster column; defaults to `false`.
+- `channelButtons`: turns recognized Markdown links into logo/name buttons;
+  defaults to `false`. Unrecognized links keep their Markdown label and format.
+- `redemption`: optional footer contact button, using `params.contact.email`.
+  Its subject defaults to the page title. No button is rendered without an email.
+- `posterHint`, `summary` and `note`: optional panels or captions; omit these
+  fields when the page should only show the poster and Markdown body.
+
+Markdown supports heading levels, emphasis, nested lists, task lists, quotes,
+tables, code blocks, images, definition lists and footnotes through Hugo's
+Markdown renderer. Wide tables and code blocks scroll within the article.
+The activity stylesheet is loaded only on activity detail pages, fingerprinted
+for caching, and follows the site's light/dark theme.
+
+### Configuring channel buttons
+
+Create `data/channel_links.json` in your site:
+
+```json
+{
+  "platforms": {
+    "community": {
+      "name": "Our community",
+      "icon": "/assets/community-logo.svg"
+    }
+  },
+  "hosts": {
+    "community.example.com": "community"
+  }
+}
+```
+
+The theme matches the link's hostname case-insensitively, removing a leading
+`www.`. Each recognized button preserves its original destination and displays
+the configured logo in its original colors. Buttons use three flexible columns
+on wide screens and one column on narrow phones. Missing configuration or an
+incomplete platform entry falls back to a regular link.
+
 ## Menus
 
 Pebble reads:
@@ -423,5 +487,6 @@ For in-page homepage links, use fragment URLs like `#features` or `#download`. T
 ## Included
 
 - `layouts/`
+- `assets/css/` for activity Markdown and navigation styles
 - `static/app.js`
 - `static/styles.css`
