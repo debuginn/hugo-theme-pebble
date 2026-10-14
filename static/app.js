@@ -525,7 +525,9 @@ function updateThemeButton(pref, btn) {
 }
 
 function loadChainNode(node) {
-  const images = Array.from(node.querySelectorAll("img[data-src]"));
+  const images = Array.from(node.querySelectorAll("img[data-src]")).filter(
+    (img) => !img.getAttribute("src")
+  );
   if (!images.length) return Promise.resolve();
 
   return Promise.all(

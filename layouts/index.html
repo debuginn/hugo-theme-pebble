@@ -62,7 +62,8 @@
       {{- with .title }}<h2 class="section-title">{{ . }}</h2>{{- end }}
       {{- with .description }}<p class="section-desc">{{ . }}</p>{{- end }}
       <div class="features-layout">
-        {{- with .items }}
+        {{- $featureItems := .items | default slice -}}
+        {{- with $featureItems }}
         <div class="feature-list">
           {{ range . }}
           <article class="feature-item">
@@ -84,17 +85,27 @@
         {{- end -}}
         {{- if $showcaseEnabled }}
         {{- $featureShots := $showcaseConfig.images | default (slice
-          (dict "src" "https://static.debuginn.com/20260607wsFhmF.png" "alt" "Pebble feature screenshot main")
-          (dict "src" "https://static.debuginn.com/20260607bKUTA5.png" "alt" "Pebble feature screenshot left")
-          (dict "src" "https://static.debuginn.com/20260607qszD9v.png" "alt" "Pebble feature screenshot right")
+          (dict "src" "https://static.debuginn.com/20260607wsFhmF.png")
+          (dict "src" "https://static.debuginn.com/20260607bKUTA5.png")
+          (dict "src" "https://static.debuginn.com/20260607qszD9v.png")
         ) -}}
         <aside class="feature-showcase">
           {{- range $index, $item := first 3 $featureShots }}
           {{- $slot := cond (eq $index 0) "big" (cond (eq $index 1) "mid" "small") -}}
           {{- $imgWidth := $item.width | default 1410 -}}
           {{- $imgHeight := $item.height | default 2770 -}}
+          {{- $shotAlt := $item.alt | default "" | strings.TrimSpace -}}
+          {{- if or (not $shotAlt) (hasPrefix $shotAlt "Pebble feature screenshot") -}}
+            {{- $shotAlt = "" -}}
+            {{- if lt $index (len $featureItems) -}}
+              {{- with index $featureItems $index -}}
+                {{- $shotAlt = .title | default "" | strings.TrimSpace -}}
+              {{- end -}}
+            {{- end -}}
+            {{- $shotAlt = $shotAlt | default (printf "Feature screenshot %d" (add $index 1)) -}}
+          {{- end -}}
           <figure class="showbox {{ $slot }}">
-            <img data-src="{{ $item.src }}" alt="{{ $item.alt | default "Pebble feature screenshot" }}" width="{{ $imgWidth }}" height="{{ $imgHeight }}" decoding="async" />
+            <img src="{{ $item.src }}" alt="{{ $shotAlt }}" width="{{ $imgWidth }}" height="{{ $imgHeight }}" loading="lazy" decoding="async" />
           </figure>
           {{- end }}
         </aside>
