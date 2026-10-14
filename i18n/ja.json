@@ -1,0 +1,32 @@
+{
+  "nfEyebrow": {
+    "other": "Page not found"
+  },
+  "nfTitle": {
+    "other": "ページが見つかりません"
+  },
+  "nfDesc": {
+    "other": "お探しのページは存在しないか、移動した可能性があります。ホームに戻るか、アプリをダウンロードしてください。"
+  },
+  "nfHome": {
+    "other": "ホームに戻る"
+  },
+  "nfAppStore": {
+    "other": "App Store でダウンロード"
+  },
+  "nfFeatures": {
+    "other": "機能"
+  },
+  "nfPricing": {
+    "other": "料金"
+  },
+  "nfFaq": {
+    "other": "よくある質問"
+  },
+  "nfBlog": {
+    "other": "ブログ"
+  },
+  "nfLinksLabel": {
+    "other": "クイックリンク"
+  }
+}

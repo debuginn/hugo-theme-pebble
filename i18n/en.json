@@ -1,0 +1,32 @@
+{
+  "nfEyebrow": {
+    "other": "Page not found"
+  },
+  "nfTitle": {
+    "other": "This page wandered off"
+  },
+  "nfDesc": {
+    "other": "The page you're looking for doesn't exist or has moved. Head back home, or grab the app."
+  },
+  "nfHome": {
+    "other": "Back to home"
+  },
+  "nfAppStore": {
+    "other": "Download on App Store"
+  },
+  "nfFeatures": {
+    "other": "Features"
+  },
+  "nfPricing": {
+    "other": "Pricing"
+  },
+  "nfFaq": {
+    "other": "FAQ"
+  },
+  "nfBlog": {
+    "other": "Blog"
+  },
+  "nfLinksLabel": {
+    "other": "Quick links"
+  }
+}

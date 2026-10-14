@@ -1,0 +1,32 @@
+{
+  "nfEyebrow": {
+    "other": "Page not found"
+  },
+  "nfTitle": {
+    "other": "페이지를 찾을 수 없어요"
+  },
+  "nfDesc": {
+    "other": "찾으시는 페이지가 없거나 이동되었습니다. 홈으로 돌아가거나 앱을 다운로드해 보세요."
+  },
+  "nfHome": {
+    "other": "홈으로 돌아가기"
+  },
+  "nfAppStore": {
+    "other": "App Store에서 다운로드"
+  },
+  "nfFeatures": {
+    "other": "기능"
+  },
+  "nfPricing": {
+    "other": "가격"
+  },
+  "nfFaq": {
+    "other": "자주 묻는 질문"
+  },
+  "nfBlog": {
+    "other": "블로그"
+  },
+  "nfLinksLabel": {
+    "other": "바로가기"
+  }
+}

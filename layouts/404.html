@@ -1,0 +1,36 @@
+{{ define "main" }}
+{{- $home := .Site.Home -}}
+{{- $appStore := (index ($home.Params.home | default dict) "download" | default dict).ctaHref | default "https://apps.apple.com/" -}}
+<main class="nf-main">
+  <section class="section">
+    <div class="container nf-wrap">
+      <div class="nf-code" aria-hidden="true">4<span class="nf-zero"></span>4</div>
+      <p class="eyebrow nf-eyebrow">{{ T "nfEyebrow" | default "Page not found" }}</p>
+      <h1 class="section-title nf-title">{{ T "nfTitle" | default "This page wandered off" }}</h1>
+      <p class="nf-desc">{{ T "nfDesc" | default "The page you're looking for doesn't exist or has moved. Head back home, or grab the app." }}</p>
+      <div class="nf-actions">
+        <a class="btn btn-solid" href="{{ "/" | relLangURL }}">{{ T "nfHome" | default "Back to home" }}</a>
+        <a class="btn btn-ghost" href="{{ $appStore }}" target="_blank" rel="noopener noreferrer">{{ T "nfAppStore" | default "Download on App Store" }}</a>
+      </div>
+      <nav class="nf-links" aria-label="{{ T "nfLinksLabel" | default "Quick links" }}">
+        <a href="{{ "/#features" | relLangURL }}">{{ T "nfFeatures" | default "Features" }}</a>
+        <a href="{{ "/#pricing" | relLangURL }}">{{ T "nfPricing" | default "Pricing" }}</a>
+        <a href="{{ "/#faq" | relLangURL }}">{{ T "nfFaq" | default "FAQ" }}</a>
+        <a href="{{ "/blog/" | relLangURL }}">{{ T "nfBlog" | default "Blog" }}</a>
+      </nav>
+    </div>
+  </section>
+</main>
+<style>
+.nf-main{min-height:70vh;display:flex;align-items:center}.nf-main>.section{width:100%}
+.nf-wrap{text-align:center;max-width:640px;margin:0 auto;padding:80px 0}
+.nf-code{font-size:clamp(96px,18vw,168px);font-weight:800;line-height:1;letter-spacing:-4px;background:linear-gradient(140deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;display:flex;justify-content:center;align-items:center;gap:6px;margin:0 auto 24px}
+.nf-zero{width:.62em;height:.86em;border-radius:50%;border:.14em solid var(--accent);box-shadow:0 18px 40px rgba(43,123,255,.35);display:inline-block}
+.nf-title{margin:8px 0 12px}
+.nf-desc{opacity:.72;font-size:17px;line-height:1.7;margin:0 auto 32px}
+.nf-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
+.nf-links{display:flex;gap:22px;justify-content:center;flex-wrap:wrap;font-size:15px}
+.nf-links a{opacity:.7;text-decoration:none;color:inherit}.nf-links a:hover{opacity:1;color:var(--accent)}
+.nf-eyebrow{display:inline-block;margin:0 auto}
+</style>
+{{ end }}
