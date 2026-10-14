@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="280 275 450 440" width="450" height="440">
+<defs><linearGradient id="g" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#a3a6aa"/><stop offset="1" stop-color="#6f757b"/></linearGradient>
+<clipPath id="c"><path d="M565 288 C640 290 700 360 714 470 C726 580 690 680 600 694 C540 702 470 700 420 690 C340 675 290 620 292 540 C294 440 360 340 450 305 C490 290 530 287 565 288 Z"/></clipPath></defs>
+<g clip-path="url(#c)">
+<rect x="280" y="275" width="450" height="440" fill="url(#g)"/>
+<path d="M290 560 C370 520 440 555 520 610 L520 720 L280 720 Z" fill="#000" opacity="0.08"/>
+<path d="M575 280 C595 340 560 390 520 430 C480 470 470 520 510 570 C545 610 540 660 480 710 L760 710 L760 280 Z" fill="#0f2a4a"/>
+</g>
+<g fill="none" stroke="#5bb5c4" stroke-linecap="round" stroke-linejoin="round" stroke-width="5">
+<path d="M570 412 H596 L614 382"/><path d="M570 438 H648"/><path d="M535 632 H602 L625 595 H662"/>
+<g stroke-width="7"><path d="M565 488 L530 515 L565 542"/><path d="M612 470 L584 556"/><path d="M630 488 L665 515 L630 542"/></g></g>
+<g fill="#5bb5c4"><circle cx="618" cy="377" r="10"/><circle cx="655" cy="438" r="10"/><circle cx="670" cy="592" r="10"/><circle cx="628" cy="636" r="9"/></g>
+</svg>
