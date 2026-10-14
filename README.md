@@ -1,3 +1,5 @@
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="images/logo/pebble-dark.svg"><img src="images/logo/pebble-light.svg" alt="Pebble logo" width="120"></picture></p>
+
 # hugo-theme-pebble
 
 [![Minimum Hugo Version](https://img.shields.io/static/v1?label=min-HUGO-version&message=%3E%3Dv0.147.1&color=blue&logo=hugo)](https://github.com/gohugoio/hugo/releases/tag/v0.147.1)
