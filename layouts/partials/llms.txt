@@ -1,0 +1,109 @@
+{{- /*
+  One site-root llms.txt for the default language.
+  Precedence: headless content/llms.md body, then that page's front matter,
+  then data/llms.*, then params.llms, then pages discovered on the site.
+*/ -}}
+{{- $page := site.GetPage "/llms" -}}
+{{- $data := site.Data.llms | default dict -}}
+{{- $param := site.Params.llms | default dict -}}
+{{- $raw := "" -}}
+{{- with $page -}}
+  {{- $raw = strings.TrimSpace .RawContent -}}
+{{- end -}}
+{{- if $raw -}}
+{{- printf "%s\n" $raw -}}
+{{- else -}}
+{{- $title := "" -}}
+{{- $summary := "" -}}
+{{- $sections := slice -}}
+{{- with $page -}}
+  {{- $title = index .Params "title" | default .Title -}}
+  {{- $summary = index .Params "summary" | default (index .Params "description") | default .Description -}}
+  {{- with index .Params "sections" -}}{{- $sections = . -}}{{- end -}}
+{{- end -}}
+{{- if not $title -}}{{- $title = index $data "title" | default "" -}}{{- end -}}
+{{- if not $summary -}}{{- $summary = index $data "summary" | default (index $data "description") | default "" -}}{{- end -}}
+{{- if not $sections -}}{{- with index $data "sections" -}}{{- $sections = . -}}{{- end -}}{{- end -}}
+{{- if not $title -}}{{- $title = index $param "title" | default "" -}}{{- end -}}
+{{- if not $summary -}}{{- $summary = index $param "summary" | default (index $param "description") | default "" -}}{{- end -}}
+{{- if not $sections -}}{{- with index $param "sections" -}}{{- $sections = . -}}{{- end -}}{{- end -}}
+{{- if not $title -}}{{- $title = site.Params.assets.brandName | default site.Title | default "Site" -}}{{- end -}}
+{{- if not $summary -}}{{- $summary = .Description | default site.Params.description | default "Information about this site for language models and other agents." -}}{{- end -}}
+{{- $title = strings.TrimSpace (replace (printf "%v" $title) "\n" " ") -}}
+{{- $summary = strings.TrimSpace (replaceRE `\s+` " " (printf "%v" $summary)) -}}
+{{- $defaultLang := site.Params.i18n.defaultLang | default site.Language.Lang -}}
+{{- $langMeta := partial "lang-meta.html" (dict "lang" site.Language "defaultLang" $defaultLang) -}}
+{{- $canonical := strings.TrimSpace .Permalink -}}
+{{- if not $sections -}}
+  {{- $homeURL := strings.TrimSuffix "/" .Permalink -}}
+  {{- $links := slice -}}
+  {{- $homeNote := strings.TrimSpace (replaceRE `\s+` " " (.Description | plainify)) -}}
+  {{- $links = $links | append (dict "name" (.Title | default "Home") "url" .Permalink "note" $homeNote) -}}
+  {{- with .Params.home -}}
+    {{- with .features -}}
+      {{- $note := .description | default .title | default "" -}}
+      {{- $links = $links | append (dict "name" (.eyebrow | default "Features") "url" (printf "%s/#features" $homeURL) "note" $note) -}}
+    {{- end -}}
+    {{- with .pricing -}}
+      {{- $note := .description | default .title | default "" -}}
+      {{- $links = $links | append (dict "name" (.eyebrow | default "Pricing") "url" (printf "%s/#pricing" $homeURL) "note" $note) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- range sort site.Sections "RelPermalink" -}}
+    {{- $sectionNote := strings.TrimSpace (replaceRE `\s+` " " (.Description | plainify)) -}}
+    {{- $links = $links | append (dict "name" (.Title | default .LinkTitle) "url" .Permalink "note" $sectionNote) -}}
+    {{- range .RegularPages -}}
+      {{- $pageNote := strings.TrimSpace (replaceRE `\s+` " " (.Description | plainify)) -}}
+      {{- $links = $links | append (dict "name" (.Title | default .LinkTitle) "url" .Permalink "note" $pageNote) -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $sections = slice (dict "title" "Pages" "links" $links) -}}
+  {{- $langLinks := slice -}}
+  {{- range site.Sites -}}
+    {{- $name := .Language.LanguageName | default .Language.Lang -}}
+    {{- $note := "" -}}
+    {{- with .Home -}}
+      {{- $note = strings.TrimSpace (replaceRE `\s+` " " (.Description | plainify)) -}}
+    {{- end -}}
+    {{- $langLinks = $langLinks | append (dict "name" $name "url" .Home.Permalink "note" $note) -}}
+  {{- end -}}
+  {{- if gt (len $langLinks) 1 -}}
+    {{- $sections = $sections | append (dict "title" "Languages" "links" $langLinks) -}}
+  {{- end -}}
+{{- end -}}
+{{- $lines := slice -}}
+{{- $lines = $lines | append (printf "# %s" $title) -}}
+{{- $lines = $lines | append "" -}}
+{{- $lines = $lines | append (printf "> %s" $summary) -}}
+{{- $lines = $lines | append "" -}}
+{{- $lines = $lines | append (printf "Canonical: %s" $canonical) -}}
+{{- $lines = $lines | append "" -}}
+{{- $lines = $lines | append (printf "Language: %s" $langMeta.htmlLang) -}}
+{{- $lines = $lines | append "" -}}
+{{- range $sections -}}
+  {{- $heading := index . "title" | default (index . "heading") | default "Pages" -}}
+  {{- $heading = strings.TrimSpace (replace (printf "%v" $heading) "\n" " ") -}}
+  {{- $lines = $lines | append (printf "## %s" $heading) -}}
+  {{- $lines = $lines | append "" -}}
+  {{- $sectionLinks := index . "links" | default (index . "pages") | default slice -}}
+  {{- range $sectionLinks -}}
+    {{- $name := index . "name" | default (index . "title") | default "Page" -}}
+    {{- $name = strings.TrimSpace (replace (replace (printf "%v" $name) "[" "(") "]" ")") -}}
+    {{- $url := index . "url" | default (index . "href") | default "" -}}
+    {{- $url = strings.TrimSpace (printf "%v" $url) -}}
+    {{- if and $url (not (or (hasPrefix $url "https://") (hasPrefix $url "http://") (hasPrefix $url "mailto:"))) -}}
+      {{- $url = $url | absURL -}}
+    {{- end -}}
+    {{- $note := index . "note" | default (index . "description") | default "" -}}
+    {{- $note = strings.TrimSpace (replaceRE `\s+` " " (printf "%v" $note)) -}}
+    {{- if eq $note "<nil>" -}}{{- $note = "" -}}{{- end -}}
+    {{- if and $url (ne $url "<nil>") -}}
+    {{- $line := printf "- [%s](%s)" $name $url -}}
+    {{- if and $note (ne $note "<nil>") -}}{{- $line = printf "%s: %s" $line $note -}}{{- end -}}
+    {{- $lines = $lines | append $line -}}
+    {{- $lines = $lines | append "" -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- printf "%s\n" (delimit $lines "\n") -}}
+{{- end -}}

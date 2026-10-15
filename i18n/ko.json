@@ -28,5 +28,8 @@
   },
   "nfLinksLabel": {
     "other": "바로가기"
+  },
+  "llmsAria": {
+    "other": "AI가 읽을 수 있는 llms.txt 보기"
   }
 }

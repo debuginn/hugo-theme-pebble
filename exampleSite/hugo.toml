@@ -33,6 +33,13 @@ xiaohongshu = "https://www.xiaohongshu.com/user/profile/example"
 weibo = "https://weibo.com/example"
 zhihu = "https://www.zhihu.com/people/example"
 
+# Footer pill and /llms.txt. Generation is the default-language home output below.
+# Set enable = false to hide the pill and the text/plain alternate link.
+[params.llms]
+enable = true
+title = "Pebble"
+summary = "A demo site for the Pebble Hugo theme: a multilingual product landing page with features, pricing, a blog, and legal pages."
+
 [params.seo]
 # Social and JSON-LD images use siteURL when it is absolute, then baseURL.
 # Canonical, og:url, hreflang, and the sitemap URL come from the page permalink.
@@ -89,6 +96,11 @@ year = "2026"
 [languages.en]
 languageName = "English"
 weight = 1
+
+# One /llms.txt at the site root. Other languages keep the default home outputs
+# and are linked from that file. RSS stays on the English home.
+[languages.en.outputs]
+home = ["HTML", "RSS", "llms"]
 
 [[languages.en.menu.main]]
 identifier = "navFeatures"

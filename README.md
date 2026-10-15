@@ -416,6 +416,40 @@ the theme's existing default icons.
 - `noindex`: optional, default `false`. When `true`, every page emits `<meta name="robots" content="noindex,nofollow" />`. When `false` or unset, pages keep `index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1`. The 404 page always emits `noindex,follow`.
 - `appleAppID`: optional Apple App Store ID. When set, every page emits `<meta name="apple-itunes-app" content="app-id=...">`. Nothing is emitted when it is unset.
 
+### `params.llms`
+
+One plain-text file at `/llms.txt` (the site root, not a language prefix) plus a footer capsule that links to it. The file follows [llmstxt.org](https://llmstxt.org/): an H1, a blockquote summary, `Canonical` and `Language` lines, then Markdown lists of absolute URLs. Locale homepages are listed in that single file. Language-prefixed copies are not generated, so crawlers have one URL to fetch.
+
+The theme defines the `llms` output format (`text/plain`, base name `llms`). A site turns generation on by adding that format to the **default language** home outputs and keeping RSS if the site wants the default feed:
+
+```toml
+[params.llms]
+enable = true
+# label = "llms.txt"
+# ariaLabel = "View the AI-readable llms.txt"
+# href = "/llms.txt"
+# title = "Your product"
+# summary = "One-paragraph summary for agents."
+
+[languages.en.outputs]
+home = ["HTML", "RSS", "llms"]
+```
+
+`enable` shows the footer pill and `<link rel="alternate" type="text/plain">`. `false` hides both. The example site sets `enable = true`. Unset is off, so existing sites do not grow a link until they opt in.
+
+Optional `label`, `ariaLabel`, and `href` override the pill. `ariaLabel` falls back to the `llmsAria` i18n string. A relative `href` is passed through `absURL`.
+
+`title` and `summary` (or `description`) override the H1 and blockquote. Without them, the theme uses the brand name, then the site title, and the default-language home description.
+
+`sections` replaces the generated page list. Each section has a `title` and `links` (`name`, `url`, optional `note`). Relative URLs are made absolute. When `sections` is omitted, the file lists the home page, `#features` and `#pricing` when those homepage blocks exist, every top-level section and its pages (blog, docs, privacy, terms, and anything else present), then one `Languages` entry per locale.
+
+A content file overrides params:
+
+- `content/llms.md` with `headless: true`. A non-empty body is published as the whole file. Otherwise `title`, `summary`, and `sections` in front matter are used.
+- `data/llms.toml` or `data/llms.yaml` (`site.Data.llms`) with the same `title`, `summary`, and `sections` fields.
+
+Order is the headless page, then `data/llms`, then `params.llms`, then the discovered pages.
+
 ### `params.fonts`
 
 - `provider`: `google` (default), `custom`, or `none`. `google` keeps the current Google Fonts tags. `custom` loads `cssURL` instead, for a mirror or self-hosted stylesheet. `none` uses the system font stack and makes no font request. Preconnect tags are emitted only for an external provider.
