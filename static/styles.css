@@ -1017,10 +1017,11 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
 .pricing-compare-section .section-desc {
   text-align: center;
 }
-.pricing-compare-section .eyebrow {
+.pricing-compare-section .eyebrow,
+:root[data-theme="dark"] .pricing-compare-section .eyebrow {
   display: block;
-  width: auto;
-  margin: 0 0 8px;
+  width: fit-content;
+  margin: 0 auto 8px;
   min-height: 0;
   padding: 0;
   border: 0;
