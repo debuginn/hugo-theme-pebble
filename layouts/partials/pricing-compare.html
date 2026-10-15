@@ -12,53 +12,6 @@
   {{- end -}}
 {{- end -}}
 {{- $lastRow := sub (len $rows) 1 -}}
-{{- $collapseAfter := 8 -}}
-{{- if isset $compare "collapseafter" -}}
-  {{- $collapseAfter = int $compare.collapseafter -}}
-{{- end -}}
-{{- $featureCount := 0 -}}
-{{- range $rows -}}
-  {{- $isGroup := true -}}
-  {{- with .values -}}{{- if gt (len .) 0 -}}{{- $isGroup = false -}}{{- end -}}{{- end -}}
-  {{- if not $isGroup }}{{ $featureCount = add $featureCount 1 }}{{ end -}}
-{{- end -}}
-{{- $fold := gt $featureCount $collapseAfter -}}
-{{- $featureExtra := slice -}}
-{{- $featureSeen := 0 -}}
-{{- range $rows -}}
-  {{- $isGroup := true -}}
-  {{- with .values -}}{{- if gt (len .) 0 -}}{{- $isGroup = false -}}{{- end -}}{{- end -}}
-  {{- if $isGroup -}}
-    {{- $featureExtra = $featureExtra | append false -}}
-  {{- else -}}
-    {{- $featureExtra = $featureExtra | append (and $fold (ge $featureSeen $collapseAfter)) -}}
-    {{- $featureSeen = add $featureSeen 1 -}}
-  {{- end -}}
-{{- end -}}
-{{- $extraFlags := slice -}}
-{{- range $ri, $row := $rows -}}
-  {{- $isGroup := true -}}
-  {{- with $row.values -}}{{- if gt (len .) 0 -}}{{- $isGroup = false -}}{{- end -}}{{- end -}}
-  {{- if not $isGroup -}}
-    {{- $extraFlags = $extraFlags | append (index $featureExtra $ri) -}}
-  {{- else -}}
-    {{- $hide := $fold -}}
-    {{- $stop := false -}}
-    {{- range $j, $later := $rows -}}
-      {{- if and (not $stop) (gt $j $ri) -}}
-        {{- $laterGroup := true -}}
-        {{- with $later.values -}}{{- if gt (len .) 0 -}}{{- $laterGroup = false -}}{{- end -}}{{- end -}}
-        {{- if $laterGroup -}}
-          {{- $stop = true -}}
-        {{- else if not (index $featureExtra $j) -}}
-          {{- $hide = false -}}
-          {{- $stop = true -}}
-        {{- end -}}
-      {{- end -}}
-    {{- end -}}
-    {{- $extraFlags = $extraFlags | append $hide -}}
-  {{- end -}}
-{{- end -}}
 <div class="pc-compare" data-pc-tabs>
   <div class="pc-desktop" style="--pc-plans: {{ $planCount }}; --pc-featured: {{ $featuredIndex }};">
     <div class="pc-elev" aria-hidden="true"></div>
@@ -102,11 +55,9 @@
         {{- $isGroup := true -}}
         {{- with $row.values -}}{{- if gt (len .) 0 -}}{{- $isGroup = false -}}{{- end -}}{{- end -}}
         {{- $isLast := eq $ri $lastRow -}}
-        {{- $extra := index $extraFlags $ri -}}
         {{- $rowClass := "" -}}
         {{- if $isGroup }}{{ $rowClass = "pc-group" }}{{ end -}}
         {{- if $isLast }}{{ $rowClass = trim (printf "%s is-last" $rowClass) " " }}{{ end -}}
-        {{- if $extra }}{{ $rowClass = trim (printf "%s pc-extra" $rowClass) " " }}{{ end -}}
         {{- if $isGroup }}
         <tr{{ with $rowClass }} class="{{ . }}"{{ end }}>
           <th scope="row">{{ $row.label }}</th>
@@ -166,11 +117,10 @@
       {{- $row := . -}}
       {{- $isGroup := true -}}
       {{- with $row.values -}}{{- if gt (len .) 0 -}}{{- $isGroup = false -}}{{- end -}}{{- end -}}
-      {{- $extra := index $extraFlags $ri -}}
       {{- if $isGroup }}
-      <div class="pc-mgroup{{ if $extra }} pc-extra{{ end }}">{{ $row.label }}</div>
+      <div class="pc-mgroup">{{ $row.label }}</div>
       {{- else }}
-      <div class="pc-mrow{{ if $extra }} pc-extra{{ end }}">
+      <div class="pc-mrow">
         <div class="pc-mlabel">{{ $row.label }}{{- with $row.note }}<span class="pc-note">{{ . }}</span>{{- end }}</div>
         <div class="pc-mvalue">
           {{- $val := false -}}
@@ -191,10 +141,4 @@
     </div>
     {{- end }}
   </div>
-  {{- if $fold }}
-  <button type="button" class="pc-fold" data-pc-fold aria-expanded="false">
-    <span class="pc-fold-more">{{ T "compareExpand" }}</span>
-    <span class="pc-fold-less">{{ T "compareCollapse" }}</span>
-  </button>
-  {{- end }}
 </div>

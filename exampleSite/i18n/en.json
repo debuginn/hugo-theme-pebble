@@ -10,7 +10,5 @@
   "downloadHint": { "other": "Scan to preview the install flow" },
   "legalUpdated": { "other": "Last updated" },
   "privacyEyebrow": { "other": "Privacy" },
-  "termsEyebrow": { "other": "Terms" },
-  "compareExpand": { "other": "Show all" },
-  "compareCollapse": { "other": "Show less" }
+  "termsEyebrow": { "other": "Terms" }
 }

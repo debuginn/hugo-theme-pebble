@@ -1049,7 +1049,7 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
 .pc-head {
   scroll-margin-top: 110px;
 }
-.pc-compare { margin: 44px auto 0; max-width: 1040px; overflow-anchor: none; }
+.pc-compare { margin: 44px auto 0; max-width: 1040px; }
 .pc-desktop {
   --pc-label: 1.25;
   --pc-elev: var(--pc-featured);
@@ -1330,52 +1330,6 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
 .pc-mrow:last-child { border-bottom: 0; }
 .pc-mlabel { color: var(--text); }
 .pc-mvalue { flex: 0 0 auto; text-align: right; }
-.pc-fold {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  gap: 8px;
-  margin: 22px auto 0;
-  min-width: 148px;
-  height: 44px;
-  padding: 0 18px;
-  border-radius: 12px;
-  border: 1.5px solid var(--line);
-  border-left-width: 1.5px;
-  background: transparent;
-  color: var(--text);
-  font: inherit;
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1.2;
-  cursor: pointer;
-}
-.pc-fold:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-.pc-fold::after {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-right: 1.5px solid currentColor;
-  border-bottom: 1.5px solid currentColor;
-  border-left: 0;
-  transform: rotate(45deg) translateY(-2px);
-}
-.pc-fold-less { display: none; }
-.pc-compare:not(.is-open) .pc-extra { display: none; }
-.pc-compare:not(.is-open) .pc-table tr:not(.pc-extra):has(+ .pc-extra) > th,
-.pc-compare:not(.is-open) .pc-table tr:not(.pc-extra):has(+ .pc-extra) > td,
-.pc-compare:not(.is-open) .pc-mrow:not(.pc-extra):has(+ .pc-extra) {
-  border-bottom: 0;
-}
-.pc-compare.is-open .pc-fold-more { display: none; }
-.pc-compare.is-open .pc-fold-less { display: inline; }
-.pc-compare.is-open .pc-fold::after {
-  transform: rotate(225deg) translateY(-1px);
-}
 :root[data-theme="dark"] .pc-no { background: #46566c; }
 :root[data-theme="dark"] .pc-elev {
   background-image: linear-gradient(color-mix(in srgb, var(--text) 8%, var(--card)), color-mix(in srgb, var(--text) 8%, var(--card)));
