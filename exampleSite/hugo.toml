@@ -34,7 +34,8 @@ weibo = "https://weibo.com/example"
 zhihu = "https://www.zhihu.com/people/example"
 
 [params.seo]
-# Canonical, Open Graph, and hreflang use siteURL, then baseURL.
+# Social and JSON-LD images use siteURL when it is absolute, then baseURL.
+# Canonical, og:url, hreflang, and the sitemap URL come from the page permalink.
 siteURL = "https://pebble.debuginn.com"
 defaultSocialTitle = "Pebble"
 # Default is false (index,follow plus large-preview snippet directives).
