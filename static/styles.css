@@ -1071,6 +1071,9 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
   pointer-events: none;
   transition: left .28s ease;
 }
+.pc-desktop:not(:hover) .pc-elev {
+  transition-delay: 90ms;
+}
 .pc-table {
   position: relative;
   z-index: 2;
@@ -1100,6 +1103,30 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
   font-weight: 400;
 }
 .pc-head { height: 1px; padding: 0; vertical-align: top; }
+.pc-table th.pc-head,
+.pc-table td[data-pc-col] { position: relative; z-index: 1; }
+.pc-table th.pc-head::before,
+.pc-table tr.is-last td[data-pc-col]::before,
+.pc-table th.pc-head::after,
+.pc-table td[data-pc-col]::after {
+  content: "";
+  position: absolute;
+}
+.pc-table th.pc-head::before,
+.pc-table tr.is-last td[data-pc-col]::before {
+  left: 0;
+  right: -2px;
+  height: 22px;
+}
+.pc-table th.pc-head::before { top: -22px; }
+.pc-table tr.is-last td[data-pc-col]::before { bottom: -22px; }
+.pc-table th.pc-head::after,
+.pc-table td[data-pc-col]::after {
+  top: -22px;
+  bottom: -22px;
+  right: -2px;
+  width: 2px;
+}
 .pc-head-inner {
   display: flex;
   flex-direction: column;
@@ -1323,7 +1350,8 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
   .pc-desktop:has([data-pc-col="7"]:hover) { --pc-elev: 7; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .pc-elev { transition: none; }
+  .pc-elev,
+  .pc-desktop:not(:hover) .pc-elev { transition: none; }
 }
 @media (max-width: 1100px) {
   .pc-head-inner { padding: 28px 12px 22px; }

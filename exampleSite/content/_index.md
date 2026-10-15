@@ -215,6 +215,12 @@ home:
         values: [false, true, true]
       - label: "Lifetime updates"
         values: [false, false, true]
+      - label: "Family sharing"
+        values: [false, true, true]
+      - label: "Budget alerts"
+        values: [false, true, true]
+      - label: "Attachments and notes"
+        values: [true, true, true]
 
   trust:
     eyebrow: "TRUST"

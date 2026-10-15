@@ -550,6 +550,19 @@ function loadChainNode(node) {
   );
 }
 
+function initCompareElev() {
+  document.querySelectorAll(".pc-desktop").forEach((root) => {
+    root.addEventListener("mouseover", (event) => {
+      const col = event.target.closest("[data-pc-col]");
+      if (!col || !root.contains(col)) return;
+      root.style.setProperty("--pc-elev", col.getAttribute("data-pc-col"));
+    });
+    root.addEventListener("mouseleave", () => {
+      root.style.removeProperty("--pc-elev");
+    });
+  });
+}
+
 function initCompareTabs() {
   document.querySelectorAll("[data-pc-tabs]").forEach((root) => {
     const tabs = Array.from(root.querySelectorAll("[data-pc-tab]"));
@@ -604,6 +617,7 @@ function runImageChain() {
   bindHeroFan();
   bindActivitiesCarousel();
   initCompareTabs();
+  initCompareElev();
   runImageChain();
 
   if (!isReducedMotion()) {
