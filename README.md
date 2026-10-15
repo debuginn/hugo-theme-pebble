@@ -411,7 +411,7 @@ the theme's existing default icons.
 
 ### `params.seo`
 
-- `siteURL`: absolute origin used to prefix root-relative social and JSON-LD image URLs. Falls back to `baseURL` when unset. Canonical, `og:url`, hreflang, and the robots.txt sitemap URL use the page permalink, so they include the `baseURL` host.
+- `siteURL`: absolute origin used to prefix root-relative social and JSON-LD image URLs. Falls back to `baseURL` when unset. Canonical, `og:url`, hreflang, and the robots.txt sitemap URL use the page permalink, so they include the `baseURL` host. The 404 page omits canonical, `og:url`, and hreflang.
 - `defaultSocialTitle`: fallback Open Graph / Twitter title
 - `noindex`: optional, default `false`. When `true`, every page emits `<meta name="robots" content="noindex,nofollow" />`. When `false` or unset, pages keep `index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1`. The 404 page always emits `noindex,follow`.
 - `appleAppID`: optional Apple App Store ID. When set, every page emits `<meta name="apple-itunes-app" content="app-id=...">`. Nothing is emitted when it is unset.

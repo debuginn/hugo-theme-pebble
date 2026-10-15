@@ -98,7 +98,7 @@
     {{ with $socialImageAlt | strings.TrimSpace }}<meta property="og:image:alt" content="{{ . }}" />{{ end }}
     {{- with $socialImageWidth }}<meta property="og:image:width" content="{{ . }}" />{{- end }}
     {{- with $socialImageHeight }}<meta property="og:image:height" content="{{ . }}" />{{- end }}
-    {{ with $canonicalURL | strings.TrimSpace }}<meta property="og:url" content="{{ . }}" />{{ end }}
+    {{ if ne .Kind "404" }}{{ with $canonicalURL | strings.TrimSpace }}<meta property="og:url" content="{{ . }}" />{{ end }}{{ end }}
     <meta property="og:locale" content="{{ $langMeta.ogLocale }}" />
     <meta name="twitter:card" content="summary_large_image" />
     {{ with $pageSocialTitle | strings.TrimSpace }}<meta name="twitter:title" content="{{ . }}" />{{ end }}
@@ -106,7 +106,7 @@
     {{ with $socialImageURL | strings.TrimSpace }}<meta name="twitter:image" content="{{ . }}" />{{ end }}
     {{ with $socialImageAlt | strings.TrimSpace }}<meta name="twitter:image:alt" content="{{ . }}" />{{ end }}
     {{- if ne .Kind "404" }}<link rel="canonical" href="{{ $canonicalURL }}" />{{ end }}
-    {{- if gt (len $pageTranslations) 1 }}
+    {{- if and (ne .Kind "404") (gt (len $pageTranslations) 1) }}
     {{- $defaultAltURL := index $pageTranslations $defaultLang | default "/" | absURL -}}
     <link rel="alternate" hreflang="x-default" href="{{ $defaultAltURL }}" />
     {{- range site.Languages }}
