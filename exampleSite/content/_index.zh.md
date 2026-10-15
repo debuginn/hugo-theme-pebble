@@ -147,32 +147,34 @@ home:
       - title: "免费版"
         priceKey: "free"
         price: "0"
-        suffix: "/永久"
+        suffix: "永久"
         cta:
-          label: "免费开始"
+          label: "免费下载"
           href: "#download"
-      - title: "Pro 年度"
+      - title: "Pro 年度订阅"
         priceKey: "yearly"
-        badge: "热门"
-        suffix: "/年"
+        suffix: "按年续费"
+        cta:
+          label: "订阅"
+          href: "#download"
+      - title: "Pro 永久订阅"
+        priceKey: "lifetime"
+        suffix: "一次买断"
+        badge: "推荐"
         featured: true
         cta:
-          label: "选择年付"
-          highlight: true
-          href: "#download"
-      - title: "Pro 永久"
-        priceKey: "lifetime"
-        suffix: "一次性"
-        cta:
-          label: "购买终身"
+          label: "立即购买"
           href: "#download"
     rows:
+      - label: "核心功能"
       - label: "账本 / 账户数"
-        values: ["最多 1 个", "不限", "不限"]
+        values: ["5 个", "不限", "不限"]
       - label: "云端同步"
+        note: "说明文字，可选"
         values: [false, true, true]
       - label: "自定义分类"
         values: [true, true, true]
+      - label: "更多"
       - label: "多币种支持"
         values: [false, true, true]
       - label: "数据导出"

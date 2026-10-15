@@ -1,0 +1,13 @@
+{{- $val := .value -}}
+{{- $kind := printf "%T" $val -}}
+{{- if eq $kind "bool" -}}
+  {{- if $val -}}
+  <span class="pc-yes" aria-label="Yes">✓</span>
+  {{- else -}}
+  <span class="pc-no" aria-label="No">—</span>
+  {{- end -}}
+{{- else if or (eq $kind "<nil>") (eq (strings.TrimSpace (printf "%v" $val)) "") (eq (printf "%v" $val) "<nil>") -}}
+  <span class="pc-no" aria-label="No">—</span>
+{{- else -}}
+  <span class="pc-limit{{ if .featured }} pc-strong{{ end }}">{{ $val }}</span>
+{{- end -}}

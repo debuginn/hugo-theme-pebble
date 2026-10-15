@@ -1,0 +1,132 @@
+{{- $compare := .compare -}}
+{{- $pricing := .pricing | default dict -}}
+{{- $columns := $compare.columns -}}
+{{- $rows := $compare.rows | default slice -}}
+{{- $featuredIndex := 0 -}}
+{{- $foundFeatured := false -}}
+{{- range $i, $col := $columns -}}
+  {{- if and $col.featured (not $foundFeatured) -}}
+    {{- $featuredIndex = $i -}}
+    {{- $foundFeatured = true -}}
+  {{- end -}}
+{{- end -}}
+<div class="pc-compare" data-pc-tabs>
+  <div class="pc-desktop">
+    <table class="pc-table">
+      <thead>
+        <tr>
+          <th scope="col"><span class="pc-sr">Feature</span></th>
+          {{- range $ci, $col := $columns }}
+          <th scope="col" class="{{ if $col.featured }}pc-hl{{ end }}">
+            <div class="pc-name">{{ $col.title }}{{- with $col.badge }}<span class="pc-badge">{{ . }}</span>{{- end }}</div>
+            <div class="pc-price"><span class="pc-currency">{{ $pricing.currency }}</span>{{ partial "pricing-compare-price.html" (dict "col" $col "pricing" $pricing) }}</div>
+            {{- if and (eq $col.priceKey "lifetime") $pricing.lifetimeOriginal (ne (printf "%v" $pricing.lifetimeOriginal) (printf "%v" $pricing.lifetime)) -}}
+            <div class="pc-original"><del>{{ $pricing.currency }}{{ $pricing.lifetimeOriginal }}</del></div>
+            {{- end -}}
+            {{- with $col.suffix }}<div class="pc-period">{{ . }}</div>{{- end }}
+            {{- with $col.description }}<div class="pc-period">{{ . }}</div>{{- end }}
+          </th>
+          {{- end }}
+        </tr>
+      </thead>
+      <tbody>
+        {{- range $rows }}
+        {{- $row := . -}}
+        {{- $isGroup := true -}}
+        {{- with $row.values -}}{{- if gt (len .) 0 -}}{{- $isGroup = false -}}{{- end -}}{{- end -}}
+        {{- if $isGroup }}
+        <tr class="pc-group">
+          <td>{{ $row.label }}</td>
+          {{- range $columns }}<td{{ if .featured }} class="pc-hl"{{ end }}></td>{{- end }}
+        </tr>
+        {{- else }}
+        <tr>
+          <td>{{ $row.label }}{{- with $row.note }}<span class="pc-note">{{ . }}</span>{{- end }}</td>
+          {{- range $ci, $col := $columns }}
+          {{- $val := false -}}
+          {{- $has := false -}}
+          {{- if lt $ci (len $row.values) -}}
+            {{- $val = index $row.values $ci -}}
+            {{- $has = true -}}
+          {{- end -}}
+          <td{{ if $col.featured }} class="pc-hl"{{ end }}>
+            {{- if $has -}}
+            {{ partial "pricing-compare-value.html" (dict "value" $val "featured" $col.featured) }}
+            {{- else -}}
+            <span class="pc-no" aria-label="No">—</span>
+            {{- end -}}
+          </td>
+          {{- end }}
+        </tr>
+        {{- end }}
+        {{- end }}
+        <tr class="pc-cta">
+          <td></td>
+          {{- range $columns }}
+          {{- $col := . -}}
+          <td{{ if $col.featured }} class="pc-hl"{{ end }}>
+            {{- with $col.cta }}
+            {{- $solid := $col.featured -}}
+            {{- if .style }}{{ $solid = eq .style "btn-solid" }}{{ else if .highlight }}{{ $solid = true }}{{ end -}}
+            <a class="pc-btn{{ if $solid }} is-solid{{ end }}" href="{{ .href | default "#download" }}"{{ if hasPrefix (.href | default "#download") "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }}</a>
+            {{- end }}
+          </td>
+          {{- end }}
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pc-mobile">
+    <div class="pc-tabs" role="tablist">
+      {{- range $ci, $col := $columns }}
+      <button type="button" class="pc-tab{{ if eq $ci $featuredIndex }} is-on{{ end }}" role="tab" data-pc-tab="{{ $ci }}" aria-selected="{{ if eq $ci $featuredIndex }}true{{ else }}false{{ end }}">{{ $col.title }}</button>
+      {{- end }}
+    </div>
+    {{- range $ci, $col := $columns }}
+    {{- $col := $col -}}
+    <div class="pc-mcard{{ if $col.featured }} is-featured{{ end }}" data-pc-panel="{{ $ci }}"{{ if ne $ci $featuredIndex }} hidden{{ end }}>
+      <div class="pc-mhead">
+        <div class="pc-name">{{ $col.title }}{{- with $col.badge }}<span class="pc-badge">{{ . }}</span>{{- end }}</div>
+        <div class="pc-mprice"><span class="pc-currency">{{ $pricing.currency }}</span>{{ partial "pricing-compare-price.html" (dict "col" $col "pricing" $pricing) }}</div>
+        {{- if and (eq $col.priceKey "lifetime") $pricing.lifetimeOriginal (ne (printf "%v" $pricing.lifetimeOriginal) (printf "%v" $pricing.lifetime)) -}}
+        <div class="pc-original"><del>{{ $pricing.currency }}{{ $pricing.lifetimeOriginal }}</del></div>
+        {{- end -}}
+        {{- with $col.suffix }}<div class="pc-period">{{ . }}</div>{{- end }}
+        {{- with $col.description }}<div class="pc-period">{{ . }}</div>{{- end }}
+      </div>
+      <div class="pc-mcta">
+        {{- with $col.cta }}
+        {{- $solid := $col.featured -}}
+        {{- if .style }}{{ $solid = eq .style "btn-solid" }}{{ else if .highlight }}{{ $solid = true }}{{ end -}}
+        <a class="pc-btn{{ if $solid }} is-solid{{ end }}" href="{{ .href | default "#download" }}"{{ if hasPrefix (.href | default "#download") "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }}</a>
+        {{- end }}
+      </div>
+      {{- range $rows }}
+      {{- $row := . -}}
+      {{- $isGroup := true -}}
+      {{- with $row.values -}}{{- if gt (len .) 0 -}}{{- $isGroup = false -}}{{- end -}}{{- end -}}
+      {{- if $isGroup }}
+      <div class="pc-mgroup">{{ $row.label }}</div>
+      {{- else }}
+      <div class="pc-mrow">
+        <div class="pc-mlabel">{{ $row.label }}{{- with $row.note }}<span class="pc-note">{{ . }}</span>{{- end }}</div>
+        <div class="pc-mvalue">
+          {{- $val := false -}}
+          {{- $has := false -}}
+          {{- if lt $ci (len $row.values) -}}
+            {{- $val = index $row.values $ci -}}
+            {{- $has = true -}}
+          {{- end -}}
+          {{- if $has -}}
+          {{ partial "pricing-compare-value.html" (dict "value" $val "featured" $col.featured) }}
+          {{- else -}}
+          <span class="pc-no" aria-label="No">—</span>
+          {{- end -}}
+        </div>
+      </div>
+      {{- end }}
+      {{- end }}
+    </div>
+    {{- end }}
+  </div>
+</div>

@@ -464,6 +464,8 @@ Name, description, canonical URL, and language are included when present. Empty 
 
 These values are referenced by homepage pricing plans through `priceKey`.
 
+`home.pricingCompare` still uses `columns` and `rows`. Column fields are `title`, `priceKey`, `price`, `suffix`, `description`, `badge`, `featured`, and `cta` (`label`, `href`, `style`, `highlight`). `priceKey` of `yearly` or `lifetime` reads `params.pricing`; any other key uses the column `price`. Row `values` is a positional list aligned with `columns`. Booleans render as a check or a dash. Other values render as text. A row with no `values` is a group header. `note` is an optional line under the row label.
+
 ## Activity pages
 
 Use `type = "activities"` in Markdown front matter to render an activity detail

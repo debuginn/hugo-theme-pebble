@@ -1,0 +1,9 @@
+{{- $col := .col -}}
+{{- $pricing := .pricing | default dict -}}
+{{- if eq $col.priceKey "lifetime" -}}
+{{- $pricing.lifetime -}}
+{{- else if eq $col.priceKey "yearly" -}}
+{{- $pricing.yearly -}}
+{{- else -}}
+{{- $col.price -}}
+{{- end -}}

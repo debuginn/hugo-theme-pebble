@@ -147,32 +147,34 @@ home:
       - title: "免費版"
         priceKey: "free"
         price: "0"
-        suffix: "/永久"
+        suffix: "永久"
         cta:
-          label: "免費開始"
+          label: "免費下載"
           href: "#download"
-      - title: "Pro 年度"
+      - title: "Pro 年度訂閱"
         priceKey: "yearly"
-        badge: "熱門"
-        suffix: "/年"
+        suffix: "按年續費"
+        cta:
+          label: "訂閱"
+          href: "#download"
+      - title: "Pro 永久訂閱"
+        priceKey: "lifetime"
+        suffix: "一次買斷"
+        badge: "推薦"
         featured: true
         cta:
-          label: "選擇年付"
-          highlight: true
-          href: "#download"
-      - title: "Pro 永久"
-        priceKey: "lifetime"
-        suffix: "一次性"
-        cta:
-          label: "購買終身"
+          label: "立即購買"
           href: "#download"
     rows:
+      - label: "核心功能"
       - label: "帳本 / 帳戶數"
-        values: ["最多 1 個", "不限", "不限"]
+        values: ["5 個", "不限", "不限"]
       - label: "雲端同步"
+        note: "說明文字，可選"
         values: [false, true, true]
       - label: "自訂分類"
         values: [true, true, true]
+      - label: "更多"
       - label: "多幣種支援"
         values: [false, true, true]
       - label: "資料匯出"
