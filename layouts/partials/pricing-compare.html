@@ -27,10 +27,8 @@
           {{- range $ci, $col := $columns }}
           <th scope="col" class="pc-head{{ if $col.featured }} is-featured{{ end }}" data-pc-col="{{ $ci }}">
             <div class="pc-head-inner">
-              <div class="pc-head-sticky">
-                <div class="pc-badge-slot">{{- with $col.badge }}<span class="pc-badge">{{ . }}</span>{{- end }}</div>
-                <div class="pc-name">{{ $col.title }}</div>
-              </div>
+              <div class="pc-badge-slot">{{- with $col.badge }}<span class="pc-badge">{{ . }}</span>{{- end }}</div>
+              <div class="pc-name">{{ $col.title }}</div>
               <div class="pc-price"><span class="pc-currency">{{ $pricing.currency }}</span>{{ partial "pricing-compare-price.html" (dict "col" $col "pricing" $pricing) }}</div>
               {{- if and (eq $col.priceKey "lifetime") $pricing.lifetimeOriginal (ne (printf "%v" $pricing.lifetimeOriginal) (printf "%v" $pricing.lifetime)) -}}
               <div class="pc-original"><del>{{ $pricing.currency }}{{ $pricing.lifetimeOriginal }}</del></div>
