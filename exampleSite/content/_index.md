@@ -178,32 +178,34 @@ home:
       - title: "Free"
         priceKey: "free"
         price: "0"
-        suffix: "/forever"
+        suffix: "Forever"
         cta:
           label: "Get started"
           href: "#download"
-      - title: "Pro Yearly"
+      - title: "Pro Annual"
         priceKey: "yearly"
-        badge: "Popular"
-        suffix: "/year"
-        featured: true
+        suffix: "Billed yearly"
         cta:
-          label: "Choose yearly"
-          highlight: true
+          label: "Subscribe"
           href: "#download"
       - title: "Pro Lifetime"
         priceKey: "lifetime"
-        suffix: "one-time"
+        suffix: "One-time"
+        badge: "Recommended"
+        featured: true
         cta:
-          label: "Buy lifetime"
+          label: "Buy now"
           href: "#download"
     rows:
+      - label: "Core"
       - label: "Books & accounts"
         values: ["Up to 1", "Unlimited", "Unlimited"]
       - label: "Cloud sync"
+        note: "Optional note"
         values: [false, true, true]
       - label: "Custom categories"
         values: [true, true, true]
+      - label: "More"
       - label: "Multi-currency support"
         values: [false, true, true]
       - label: "Data export"

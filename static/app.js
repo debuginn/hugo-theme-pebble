@@ -550,6 +550,29 @@ function loadChainNode(node) {
   );
 }
 
+function initCompareTabs() {
+  document.querySelectorAll("[data-pc-tabs]").forEach((root) => {
+    const tabs = Array.from(root.querySelectorAll("[data-pc-tab]"));
+    const panels = Array.from(root.querySelectorAll("[data-pc-panel]"));
+    if (!tabs.length || !panels.length) return;
+
+    const show = (id) => {
+      tabs.forEach((tab) => {
+        const on = tab.getAttribute("data-pc-tab") === id;
+        tab.classList.toggle("is-on", on);
+        tab.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      panels.forEach((panel) => {
+        panel.hidden = panel.getAttribute("data-pc-panel") !== id;
+      });
+    };
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => show(tab.getAttribute("data-pc-tab")));
+    });
+  });
+}
+
 function runImageChain() {
   const nodes = Array.from(document.querySelectorAll("[data-img-chain]")).sort(
     (a, b) => Number(a.getAttribute("data-img-chain")) - Number(b.getAttribute("data-img-chain"))
@@ -580,6 +603,7 @@ function runImageChain() {
   bindWechatPreview();
   bindHeroFan();
   bindActivitiesCarousel();
+  initCompareTabs();
   runImageChain();
 
   if (!isReducedMotion()) {
