@@ -60,9 +60,6 @@
   {{- end -}}
 {{- end -}}
 <div class="pc-compare" data-pc-tabs>
-  {{- if $fold }}
-  <input class="pc-fold-input" type="checkbox" id="pc-fold" />
-  {{- end }}
   <div class="pc-desktop" style="--pc-plans: {{ $planCount }}; --pc-featured: {{ $featuredIndex }};">
     <div class="pc-elev" aria-hidden="true"></div>
     <table class="pc-table">
@@ -195,9 +192,9 @@
     {{- end }}
   </div>
   {{- if $fold }}
-  <label class="pc-fold" for="pc-fold">
+  <button type="button" class="pc-fold" data-pc-fold aria-expanded="false">
     <span class="pc-fold-more">{{ T "compareExpand" }}</span>
     <span class="pc-fold-less">{{ T "compareCollapse" }}</span>
-  </label>
+  </button>
   {{- end }}
 </div>

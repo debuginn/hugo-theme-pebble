@@ -550,6 +550,23 @@ function loadChainNode(node) {
   );
 }
 
+function initCompareFold() {
+  document.querySelectorAll("[data-pc-fold]").forEach((btn) => {
+    const root = btn.closest(".pc-compare");
+    if (!root) return;
+    btn.addEventListener("click", (event) => {
+      event.preventDefault();
+      const y = window.scrollY;
+      const open = !root.classList.contains("is-open");
+      root.classList.toggle("is-open", open);
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      const keep = () => window.scrollTo(0, y);
+      keep();
+      requestAnimationFrame(keep);
+    });
+  });
+}
+
 function initCompareTabs() {
   document.querySelectorAll("[data-pc-tabs]").forEach((root) => {
     const tabs = Array.from(root.querySelectorAll("[data-pc-tab]"));
@@ -604,6 +621,7 @@ function runImageChain() {
   bindHeroFan();
   bindActivitiesCarousel();
   initCompareTabs();
+  initCompareFold();
   runImageChain();
 
   if (!isReducedMotion()) {
