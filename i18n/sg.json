@@ -28,5 +28,8 @@
   },
   "nfLinksLabel": {
     "other": "快速連結"
+  },
+  "llmsAria": {
+    "other": "查看 AI 可讀的 llms.txt"
   }
 }

@@ -1,0 +1,8 @@
+# Custom output used to publish one plain-text /llms.txt.
+# Sites opt in by adding "llms" to the default language home outputs.
+# See the README. This file does not change HTML, RSS, or sitemap outputs.
+[outputFormats.llms]
+mediaType = "text/plain"
+baseName = "llms"
+isPlainText = true
+notAlternative = true
