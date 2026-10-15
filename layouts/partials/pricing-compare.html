@@ -16,7 +16,49 @@
 {{- if isset $compare "collapseafter" -}}
   {{- $collapseAfter = int $compare.collapseafter -}}
 {{- end -}}
-{{- $fold := gt (len $rows) $collapseAfter -}}
+{{- $featureCount := 0 -}}
+{{- range $rows -}}
+  {{- $isGroup := true -}}
+  {{- with .values -}}{{- if gt (len .) 0 -}}{{- $isGroup = false -}}{{- end -}}{{- end -}}
+  {{- if not $isGroup }}{{ $featureCount = add $featureCount 1 }}{{ end -}}
+{{- end -}}
+{{- $fold := gt $featureCount $collapseAfter -}}
+{{- $featureExtra := slice -}}
+{{- $featureSeen := 0 -}}
+{{- range $rows -}}
+  {{- $isGroup := true -}}
+  {{- with .values -}}{{- if gt (len .) 0 -}}{{- $isGroup = false -}}{{- end -}}{{- end -}}
+  {{- if $isGroup -}}
+    {{- $featureExtra = $featureExtra | append false -}}
+  {{- else -}}
+    {{- $featureExtra = $featureExtra | append (and $fold (ge $featureSeen $collapseAfter)) -}}
+    {{- $featureSeen = add $featureSeen 1 -}}
+  {{- end -}}
+{{- end -}}
+{{- $extraFlags := slice -}}
+{{- range $ri, $row := $rows -}}
+  {{- $isGroup := true -}}
+  {{- with $row.values -}}{{- if gt (len .) 0 -}}{{- $isGroup = false -}}{{- end -}}{{- end -}}
+  {{- if not $isGroup -}}
+    {{- $extraFlags = $extraFlags | append (index $featureExtra $ri) -}}
+  {{- else -}}
+    {{- $hide := $fold -}}
+    {{- $stop := false -}}
+    {{- range $j, $later := $rows -}}
+      {{- if and (not $stop) (gt $j $ri) -}}
+        {{- $laterGroup := true -}}
+        {{- with $later.values -}}{{- if gt (len .) 0 -}}{{- $laterGroup = false -}}{{- end -}}{{- end -}}
+        {{- if $laterGroup -}}
+          {{- $stop = true -}}
+        {{- else if not (index $featureExtra $j) -}}
+          {{- $hide = false -}}
+          {{- $stop = true -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $extraFlags = $extraFlags | append $hide -}}
+  {{- end -}}
+{{- end -}}
 <div class="pc-compare" data-pc-tabs>
   {{- if $fold }}
   <input class="pc-fold-input" type="checkbox" id="pc-fold" />
@@ -35,8 +77,10 @@
           {{- range $ci, $col := $columns }}
           <th scope="col" class="pc-head{{ if $col.featured }} is-featured{{ end }}" data-pc-col="{{ $ci }}">
             <div class="pc-head-inner">
-              <div class="pc-badge-slot">{{- with $col.badge }}<span class="pc-badge">{{ . }}</span>{{- end }}</div>
-              <div class="pc-name">{{ $col.title }}</div>
+              <div class="pc-head-sticky">
+                <div class="pc-badge-slot">{{- with $col.badge }}<span class="pc-badge">{{ . }}</span>{{- end }}</div>
+                <div class="pc-name">{{ $col.title }}</div>
+              </div>
               <div class="pc-price"><span class="pc-currency">{{ $pricing.currency }}</span>{{ partial "pricing-compare-price.html" (dict "col" $col "pricing" $pricing) }}</div>
               {{- if and (eq $col.priceKey "lifetime") $pricing.lifetimeOriginal (ne (printf "%v" $pricing.lifetimeOriginal) (printf "%v" $pricing.lifetime)) -}}
               <div class="pc-original"><del>{{ $pricing.currency }}{{ $pricing.lifetimeOriginal }}</del></div>
@@ -61,7 +105,7 @@
         {{- $isGroup := true -}}
         {{- with $row.values -}}{{- if gt (len .) 0 -}}{{- $isGroup = false -}}{{- end -}}{{- end -}}
         {{- $isLast := eq $ri $lastRow -}}
-        {{- $extra := and $fold (ge $ri $collapseAfter) -}}
+        {{- $extra := index $extraFlags $ri -}}
         {{- $rowClass := "" -}}
         {{- if $isGroup }}{{ $rowClass = "pc-group" }}{{ end -}}
         {{- if $isLast }}{{ $rowClass = trim (printf "%s is-last" $rowClass) " " }}{{ end -}}
@@ -105,8 +149,10 @@
     {{- $col := $col -}}
     <div class="pc-mcard{{ if $col.featured }} is-featured{{ end }}" id="pc-panel-{{ $ci }}" role="tabpanel" aria-labelledby="pc-tab-{{ $ci }}" data-pc-panel="{{ $ci }}"{{ if ne $ci $featuredIndex }} hidden{{ end }}>
       <div class="pc-mhead">
-        <div class="pc-badge-slot">{{- with $col.badge }}<span class="pc-badge">{{ . }}</span>{{- end }}</div>
-        <div class="pc-name">{{ $col.title }}</div>
+        <div class="pc-head-sticky">
+          <div class="pc-badge-slot">{{- with $col.badge }}<span class="pc-badge">{{ . }}</span>{{- end }}</div>
+          <div class="pc-name">{{ $col.title }}</div>
+        </div>
         <div class="pc-mprice"><span class="pc-currency">{{ $pricing.currency }}</span>{{ partial "pricing-compare-price.html" (dict "col" $col "pricing" $pricing) }}</div>
         {{- if and (eq $col.priceKey "lifetime") $pricing.lifetimeOriginal (ne (printf "%v" $pricing.lifetimeOriginal) (printf "%v" $pricing.lifetime)) -}}
         <div class="pc-original"><del>{{ $pricing.currency }}{{ $pricing.lifetimeOriginal }}</del></div>
@@ -123,7 +169,7 @@
       {{- $row := . -}}
       {{- $isGroup := true -}}
       {{- with $row.values -}}{{- if gt (len .) 0 -}}{{- $isGroup = false -}}{{- end -}}{{- end -}}
-      {{- $extra := and $fold (ge $ri $collapseAfter) -}}
+      {{- $extra := index $extraFlags $ri -}}
       {{- if $isGroup }}
       <div class="pc-mgroup{{ if $extra }} pc-extra{{ end }}">{{ $row.label }}</div>
       {{- else }}

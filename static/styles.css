@@ -1044,12 +1044,18 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
   font-size: 16px;
   line-height: 1.6;
 }
+.pricing-compare-section,
+.pc-desktop,
+.pc-head {
+  scroll-margin-top: 110px;
+}
 .pc-compare { margin: 44px auto 0; max-width: 1040px; }
 .pc-desktop {
   --pc-label: 1.25;
   --pc-elev: var(--pc-featured);
   position: relative;
   border-radius: 20px;
+  padding-top: 18px;
   background-color: var(--bg);
   background-image: linear-gradient(var(--card), var(--card));
   box-shadow: 0 10px 40px rgba(15, 42, 74, .07);
@@ -1057,7 +1063,7 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
 .pc-elev {
   position: absolute;
   z-index: 1;
-  top: -18px;
+  top: 0;
   bottom: -18px;
   left: calc((var(--pc-label) + var(--pc-elev)) / (var(--pc-label) + var(--pc-plans)) * 100%);
   width: calc(1 / (var(--pc-label) + var(--pc-plans)) * 100%);
@@ -1134,6 +1140,18 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
 .pc-original { margin-top: 4px; color: var(--sub); font-size: 14px; font-weight: 500; }
 .pc-original del { text-decoration-thickness: 1px; }
 .pc-cta-slot { width: 100%; margin-top: 20px; display: flex; justify-content: center; }
+.pc-head-sticky {
+  position: sticky;
+  top: 96px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 2px;
+  background-color: var(--bg);
+  background-image: linear-gradient(var(--card), var(--card));
+}
 .pc-badge {
   display: inline-block;
   padding: 4px 12px;
@@ -1357,7 +1375,8 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
   transform: rotate(225deg) translateY(-1px);
 }
 :root[data-theme="dark"] .pc-no { background: #46566c; }
-:root[data-theme="dark"] .pc-elev {
+:root[data-theme="dark"] .pc-elev,
+:root[data-theme="dark"] .pc-head.is-featured .pc-head-sticky {
   background-image: linear-gradient(color-mix(in srgb, var(--text) 8%, var(--card)), color-mix(in srgb, var(--text) 8%, var(--card)));
   box-shadow:
     0 0 0 1.5px color-mix(in srgb, var(--accent) 35%, transparent),
