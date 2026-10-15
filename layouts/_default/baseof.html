@@ -71,7 +71,7 @@
     {{- end -}}
     {{- $assetVersion := site.Params.assets.version -}}
     {{- $themeVersion := site.Params.theme.version -}}
-    {{- $canonicalURL := cond $hasAbsoluteSiteURL (printf "%s%s" (strings.TrimSuffix "/" $siteURL) .RelPermalink) .RelPermalink -}}
+    {{- $canonicalURL := .Permalink -}}
     {{- $pageOgType := .Params.ogType | default (cond .IsPage "article" "website") -}}
     {{- $defaultSocialImage := site.Params.seo.defaultSocialImage | default $logo -}}
     {{- $socialImage := .Params.socialImage | default $defaultSocialImage -}}
@@ -98,7 +98,7 @@
     {{ with $socialImageAlt | strings.TrimSpace }}<meta property="og:image:alt" content="{{ . }}" />{{ end }}
     {{- with $socialImageWidth }}<meta property="og:image:width" content="{{ . }}" />{{- end }}
     {{- with $socialImageHeight }}<meta property="og:image:height" content="{{ . }}" />{{- end }}
-    {{ with $canonicalURL | strings.TrimSpace }}<meta property="og:url" content="{{ . }}" />{{ end }}
+    {{ if ne .Kind "404" }}{{ with $canonicalURL | strings.TrimSpace }}<meta property="og:url" content="{{ . }}" />{{ end }}{{ end }}
     <meta property="og:locale" content="{{ $langMeta.ogLocale }}" />
     <meta name="twitter:card" content="summary_large_image" />
     {{ with $pageSocialTitle | strings.TrimSpace }}<meta name="twitter:title" content="{{ . }}" />{{ end }}
@@ -106,16 +106,14 @@
     {{ with $socialImageURL | strings.TrimSpace }}<meta name="twitter:image" content="{{ . }}" />{{ end }}
     {{ with $socialImageAlt | strings.TrimSpace }}<meta name="twitter:image:alt" content="{{ . }}" />{{ end }}
     {{- if ne .Kind "404" }}<link rel="canonical" href="{{ $canonicalURL }}" />{{ end }}
-    {{- if gt (len $pageTranslations) 1 }}
-    {{- $defaultAltHref := index $pageTranslations $defaultLang | default "/" -}}
-    {{- $defaultAltURL := cond $hasAbsoluteSiteURL (printf "%s%s" (strings.TrimSuffix "/" $siteURL) $defaultAltHref) $defaultAltHref -}}
+    {{- if and (ne .Kind "404") (gt (len $pageTranslations) 1) }}
+    {{- $defaultAltURL := index $pageTranslations $defaultLang | default "/" | absURL -}}
     <link rel="alternate" hreflang="x-default" href="{{ $defaultAltURL }}" />
     {{- range site.Languages }}
     {{- $itemMeta := partial "lang-meta.html" (dict "lang" . "defaultLang" $defaultLang) -}}
     {{- $altHref := index $pageTranslations $itemMeta.appLang -}}
     {{- if not $altHref }}{{- continue -}}{{- end -}}
-    {{- $altURL := cond $hasAbsoluteSiteURL (printf "%s%s" (strings.TrimSuffix "/" $siteURL) $altHref) $altHref -}}
-    <link rel="alternate" hreflang="{{ $itemMeta.htmlLang }}" href="{{ $altURL }}" />
+    <link rel="alternate" hreflang="{{ $itemMeta.htmlLang }}" href="{{ $altHref | absURL }}" />
     {{- end }}
     {{- end }}
     {{- if $logoDark }}
