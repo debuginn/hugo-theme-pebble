@@ -139,9 +139,9 @@ home:
           label: "購買終身"
           href: "#download"
   pricingCompare:
-    eyebrow: "方案對比"
-    title: "找到適合你的方案"
-    description: "詳細了解每個方案支援的功能。"
+    eyebrow: "Pricing"
+    title: "選擇適合你的方案"
+    description: "一次買斷，終身可用；也可以按年訂閱"
     disclaimer: "* 功能範圍可能隨產品迭代調整。"
     columns:
       - title: "免費版"
@@ -160,7 +160,7 @@ home:
       - title: "Pro 永久訂閱"
         priceKey: "lifetime"
         suffix: "一次買斷"
-        badge: "推薦"
+        badge: "推薦 · 最划算"
         featured: true
         cta:
           label: "立即購買"
