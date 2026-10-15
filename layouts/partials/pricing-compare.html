@@ -94,10 +94,8 @@
     {{- $col := $col -}}
     <div class="pc-mcard{{ if $col.featured }} is-featured{{ end }}" id="pc-panel-{{ $ci }}" role="tabpanel" aria-labelledby="pc-tab-{{ $ci }}" data-pc-panel="{{ $ci }}"{{ if ne $ci $featuredIndex }} hidden{{ end }}>
       <div class="pc-mhead">
-        <div class="pc-head-sticky">
-          <div class="pc-badge-slot">{{- with $col.badge }}<span class="pc-badge">{{ . }}</span>{{- end }}</div>
-          <div class="pc-name">{{ $col.title }}</div>
-        </div>
+        <div class="pc-badge-slot">{{- with $col.badge }}<span class="pc-badge">{{ . }}</span>{{- end }}</div>
+        <div class="pc-name">{{ $col.title }}</div>
         <div class="pc-mprice"><span class="pc-currency">{{ $pricing.currency }}</span>{{ partial "pricing-compare-price.html" (dict "col" $col "pricing" $pricing) }}</div>
         {{- if and (eq $col.priceKey "lifetime") $pricing.lifetimeOriginal (ne (printf "%v" $pricing.lifetimeOriginal) (printf "%v" $pricing.lifetime)) -}}
         <div class="pc-original"><del>{{ $pricing.currency }}{{ $pricing.lifetimeOriginal }}</del></div>

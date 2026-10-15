@@ -184,6 +184,12 @@ home:
         values: [false, true, true]
       - label: "終身更新"
         values: [false, false, true]
+      - label: "家庭共享"
+        values: [false, true, true]
+      - label: "預算提醒"
+        values: [false, true, true]
+      - label: "附件與備註"
+        values: [true, true, true]
 
   trust:
     eyebrow: "TRUST"

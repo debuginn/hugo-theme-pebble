@@ -1077,6 +1077,9 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
   pointer-events: none;
   transition: left .28s ease;
 }
+.pc-desktop:not(:hover) .pc-elev {
+  transition-delay: 90ms;
+}
 .pc-table {
   position: relative;
   z-index: 2;
@@ -1105,7 +1108,31 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
   text-align: left;
   font-weight: 400;
 }
+.pc-table th.pc-head,
+.pc-table td[data-pc-col] { position: relative; z-index: 1; }
 .pc-table th.pc-head { height: 1px; padding: 0; vertical-align: top; }
+.pc-table th.pc-head::before,
+.pc-table tr.is-last td[data-pc-col]::before,
+.pc-table th.pc-head::after,
+.pc-table td[data-pc-col]::after {
+  content: "";
+  position: absolute;
+}
+.pc-table th.pc-head::before,
+.pc-table tr.is-last td[data-pc-col]::before {
+  left: 0;
+  right: -2px;
+  height: 24px;
+}
+.pc-table th.pc-head::before { top: -24px; }
+.pc-table tr.is-last td[data-pc-col]::before { bottom: -24px; }
+.pc-table th.pc-head::after,
+.pc-table td[data-pc-col]::after {
+  top: 0;
+  bottom: 0;
+  right: -2px;
+  width: 2px;
+}
 .pc-head-inner {
   display: flex;
   flex-direction: column;
@@ -1140,7 +1167,7 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
 .pc-original { margin-top: 4px; color: var(--sub); font-size: 14px; font-weight: 500; }
 .pc-original del { text-decoration-thickness: 1px; }
 .pc-cta-slot { width: 100%; margin-top: 20px; display: flex; justify-content: center; }
-.pc-head-sticky {
+.pc-head .pc-head-sticky {
   --pc-sticky-fill: var(--card);
   position: sticky;
   top: 96px;
@@ -1151,19 +1178,12 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
   align-self: stretch;
   box-sizing: border-box;
   width: auto;
-  padding: 0 0 8px;
+  margin-inline: -21px;
+  padding: 0 21px 8px;
   background-color: var(--bg);
   background-image:
     linear-gradient(var(--pc-sticky-fill), var(--pc-sticky-fill)),
     linear-gradient(var(--bg), var(--bg));
-}
-.pc-head .pc-head-sticky {
-  margin-inline: -20px;
-  padding-inline: 20px;
-}
-.pc-mhead .pc-head-sticky {
-  margin-inline: -22px;
-  padding-inline: 22px;
 }
 .pc-badge {
   display: inline-block;
@@ -1371,11 +1391,12 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .pc-elev { transition: none; }
+  .pc-elev,
+  .pc-desktop:not(:hover) .pc-elev { transition: none; }
 }
 @media (max-width: 1100px) {
   .pc-head-inner { padding: 28px 12px 22px; }
-  .pc-head .pc-head-sticky { margin-inline: -12px; padding-inline: 12px; }
+  .pc-head .pc-head-sticky { margin-inline: -13px; padding-inline: 13px; }
   .pc-table th,
   .pc-table td { padding-left: 14px; padding-right: 14px; }
   .pc-price { font-size: 36px; }
