@@ -55,16 +55,13 @@
         {{- $isGroup := true -}}
         {{- with $row.values -}}{{- if gt (len .) 0 -}}{{- $isGroup = false -}}{{- end -}}{{- end -}}
         {{- $isLast := eq $ri $lastRow -}}
-        {{- $rowClass := "" -}}
-        {{- if $isGroup }}{{ $rowClass = "pc-group" }}{{ end -}}
-        {{- if $isLast }}{{ $rowClass = trim (printf "%s is-last" $rowClass) " " }}{{ end -}}
         {{- if $isGroup }}
-        <tr{{ with $rowClass }} class="{{ . }}"{{ end }}>
+        <tr class="pc-group{{ if $isLast }} is-last{{ end }}">
           <th scope="row">{{ $row.label }}</th>
           {{- range $ci, $col := $columns }}<td data-pc-col="{{ $ci }}"></td>{{- end }}
         </tr>
         {{- else }}
-        <tr{{ with $rowClass }} class="{{ . }}"{{ end }}>
+        <tr{{ if $isLast }} class="is-last"{{ end }}>
           <th scope="row">{{ $row.label }}{{- with $row.note }}<span class="pc-note">{{ . }}</span>{{- end }}</th>
           {{- range $ci, $col := $columns }}
           {{- $val := false -}}
@@ -113,7 +110,7 @@
         <a class="pc-btn{{ if $solid }} is-solid{{ end }}" href="{{ .href | default "#download" }}"{{ if hasPrefix (.href | default "#download") "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }}</a>
         {{- end }}
       </div>
-      {{- range $ri, $row := $rows }}
+      {{- range $rows }}
       {{- $row := . -}}
       {{- $isGroup := true -}}
       {{- with $row.values -}}{{- if gt (len .) 0 -}}{{- $isGroup = false -}}{{- end -}}{{- end -}}
