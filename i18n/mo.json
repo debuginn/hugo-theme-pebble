@@ -28,5 +28,11 @@
   },
   "nfLinksLabel": {
     "other": "快速入口"
+  },
+  "compareExpand": {
+    "other": "展開全部"
+  },
+  "compareCollapse": {
+    "other": "收起"
   }
 }

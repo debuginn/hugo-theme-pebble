@@ -10,5 +10,7 @@
   "downloadHint": { "other": "扫码预览安装流程" },
   "legalUpdated": { "other": "最近更新" },
   "privacyEyebrow": { "other": "隐私" },
-  "termsEyebrow": { "other": "条款" }
+  "termsEyebrow": { "other": "条款" },
+  "compareExpand": { "other": "展开全部" },
+  "compareCollapse": { "other": "收起" }
 }

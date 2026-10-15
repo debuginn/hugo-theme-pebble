@@ -28,5 +28,11 @@
   },
   "nfLinksLabel": {
     "other": "Quick links"
+  },
+  "compareExpand": {
+    "other": "Show all"
+  },
+  "compareCollapse": {
+    "other": "Show less"
   }
 }

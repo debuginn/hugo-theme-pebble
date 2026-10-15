@@ -12,7 +12,15 @@
   {{- end -}}
 {{- end -}}
 {{- $lastRow := sub (len $rows) 1 -}}
+{{- $collapseAfter := 8 -}}
+{{- if isset $compare "collapseafter" -}}
+  {{- $collapseAfter = int $compare.collapseafter -}}
+{{- end -}}
+{{- $fold := gt (len $rows) $collapseAfter -}}
 <div class="pc-compare" data-pc-tabs>
+  {{- if $fold }}
+  <input class="pc-fold-input" type="checkbox" id="pc-fold" />
+  {{- end }}
   <div class="pc-desktop" style="--pc-plans: {{ $planCount }}; --pc-featured: {{ $featuredIndex }};">
     <div class="pc-elev" aria-hidden="true"></div>
     <table class="pc-table">
@@ -53,13 +61,18 @@
         {{- $isGroup := true -}}
         {{- with $row.values -}}{{- if gt (len .) 0 -}}{{- $isGroup = false -}}{{- end -}}{{- end -}}
         {{- $isLast := eq $ri $lastRow -}}
+        {{- $extra := and $fold (ge $ri $collapseAfter) -}}
+        {{- $rowClass := "" -}}
+        {{- if $isGroup }}{{ $rowClass = "pc-group" }}{{ end -}}
+        {{- if $isLast }}{{ $rowClass = trim (printf "%s is-last" $rowClass) " " }}{{ end -}}
+        {{- if $extra }}{{ $rowClass = trim (printf "%s pc-extra" $rowClass) " " }}{{ end -}}
         {{- if $isGroup }}
-        <tr class="pc-group{{ if $isLast }} is-last{{ end }}">
+        <tr{{ with $rowClass }} class="{{ . }}"{{ end }}>
           <th scope="row">{{ $row.label }}</th>
           {{- range $ci, $col := $columns }}<td data-pc-col="{{ $ci }}"></td>{{- end }}
         </tr>
         {{- else }}
-        <tr{{ if $isLast }} class="is-last"{{ end }}>
+        <tr{{ with $rowClass }} class="{{ . }}"{{ end }}>
           <th scope="row">{{ $row.label }}{{- with $row.note }}<span class="pc-note">{{ . }}</span>{{- end }}</th>
           {{- range $ci, $col := $columns }}
           {{- $val := false -}}
@@ -106,14 +119,15 @@
         <a class="pc-btn{{ if $solid }} is-solid{{ end }}" href="{{ .href | default "#download" }}"{{ if hasPrefix (.href | default "#download") "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ .label }}</a>
         {{- end }}
       </div>
-      {{- range $rows }}
+      {{- range $ri, $row := $rows }}
       {{- $row := . -}}
       {{- $isGroup := true -}}
       {{- with $row.values -}}{{- if gt (len .) 0 -}}{{- $isGroup = false -}}{{- end -}}{{- end -}}
+      {{- $extra := and $fold (ge $ri $collapseAfter) -}}
       {{- if $isGroup }}
-      <div class="pc-mgroup">{{ $row.label }}</div>
+      <div class="pc-mgroup{{ if $extra }} pc-extra{{ end }}">{{ $row.label }}</div>
       {{- else }}
-      <div class="pc-mrow">
+      <div class="pc-mrow{{ if $extra }} pc-extra{{ end }}">
         <div class="pc-mlabel">{{ $row.label }}{{- with $row.note }}<span class="pc-note">{{ . }}</span>{{- end }}</div>
         <div class="pc-mvalue">
           {{- $val := false -}}
@@ -134,4 +148,10 @@
     </div>
     {{- end }}
   </div>
+  {{- if $fold }}
+  <label class="pc-fold" for="pc-fold">
+    <span class="pc-fold-more">{{ T "compareExpand" }}</span>
+    <span class="pc-fold-less">{{ T "compareCollapse" }}</span>
+  </label>
+  {{- end }}
 </div>

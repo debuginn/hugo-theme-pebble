@@ -1299,6 +1299,63 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
 .pc-mrow:last-child { border-bottom: 0; }
 .pc-mlabel { color: var(--text); }
 .pc-mvalue { flex: 0 0 auto; text-align: right; }
+.pc-fold-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.pc-fold {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  gap: 8px;
+  margin: 22px auto 0;
+  min-width: 148px;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 12px;
+  border: 1.5px solid var(--line);
+  border-left-width: 1.5px;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+}
+.pc-compare:has(.pc-fold-input:focus-visible) .pc-fold {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.pc-fold::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  border-left: 0;
+  transform: rotate(45deg) translateY(-2px);
+}
+.pc-fold-less { display: none; }
+.pc-compare:not(:has(.pc-fold-input:checked)) .pc-extra { display: none; }
+.pc-compare:not(:has(.pc-fold-input:checked)) .pc-table tr:not(.pc-extra):has(+ .pc-extra) > th,
+.pc-compare:not(:has(.pc-fold-input:checked)) .pc-table tr:not(.pc-extra):has(+ .pc-extra) > td,
+.pc-compare:not(:has(.pc-fold-input:checked)) .pc-mrow:not(.pc-extra):has(+ .pc-extra) {
+  border-bottom: 0;
+}
+.pc-compare:has(.pc-fold-input:checked) .pc-fold-more { display: none; }
+.pc-compare:has(.pc-fold-input:checked) .pc-fold-less { display: inline; }
+.pc-compare:has(.pc-fold-input:checked) .pc-fold::after {
+  transform: rotate(225deg) translateY(-1px);
+}
 :root[data-theme="dark"] .pc-no { background: #46566c; }
 :root[data-theme="dark"] .pc-elev {
   background-image: linear-gradient(color-mix(in srgb, var(--text) 8%, var(--card)), color-mix(in srgb, var(--text) 8%, var(--card)));
