@@ -170,9 +170,9 @@ home:
           label: "Buy lifetime"
           href: "#download"
   pricingCompare:
-    eyebrow: "Compare plans"
-    title: "Find the plan that fits"
-    description: "A closer look at what each plan includes."
+    eyebrow: "Pricing"
+    title: "Choose the plan that fits"
+    description: "Buy once and use it for life, or subscribe yearly."
     disclaimer: "* Feature availability may change as the product evolves."
     columns:
       - title: "Free"
@@ -191,7 +191,7 @@ home:
       - title: "Pro Lifetime"
         priceKey: "lifetime"
         suffix: "One-time"
-        badge: "Recommended"
+        badge: "Recommended · Best value"
         featured: true
         cta:
           label: "Buy now"
