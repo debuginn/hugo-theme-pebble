@@ -130,13 +130,18 @@ main .container { width: min(var(--main-w), calc(100% - 64px)); }
   display: none;
   width: 40px;
   height: 40px;
+  padding: 0;
   border-radius: 999px;
   border: 1px solid var(--line);
   background: #fff;
   color: var(--tone-icon, #5f7fa5);
-  font-size: 18px;
-  line-height: 1;
+  line-height: 0;
   cursor: pointer;
+}
+.menu-btn svg {
+  display: block;
+  width: 18px;
+  height: 18px;
 }
 .header-lang-dropdown {
   position: relative;
@@ -1986,7 +1991,21 @@ body[data-lang="zh-Hant"] .social-set-hant {
   }
   .pill-left { gap: 14px; }
   .desktop-nav { display: none; }
-  .menu-btn { display: inline-flex; align-items: center; justify-content: center; }
+  .menu-btn,
+  .header-lang-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 0;
+  }
+  .menu-btn svg,
+  .header-lang-icon,
+  .header-lang-icon svg {
+    display: block;
+    width: 18px;
+    height: 18px;
+  }
   .pill-right .btn { display: none; }
   .header-lang-dropdown { display: inline-flex; }
   .header-lang-trigger {
@@ -2116,7 +2135,14 @@ body[data-lang="zh-Hant"] .social-set-hant {
   .topbar { padding-top: 12px; }
   .top-pill { padding: 8px 12px; border-radius: 20px; }
   .mode-btn { display: none; }
-  .menu-btn { display: inline-flex; align-items: center; justify-content: center; }
+  .menu-btn,
+  .header-lang-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    line-height: 0;
+  }
   .header-lang-dropdown { display: inline-flex; }
   .hero-copy h1 { font-size: 38px; }
   .hero-desc { font-size: 17px; }
@@ -3274,6 +3300,12 @@ body.lang-modal-open { overflow: hidden; }
 :root[data-theme="dark"] .lang-modal-tab,
 :root[data-theme="dark"] .lang-modal-grid a {
   color: var(--tone-icon, #c6d8f3);
+}
+:root[data-theme="dark"] .lang-modal-title-icon {
+  color: #fff;
+}
+:root[data-theme="dark"] .lang-modal-globe {
+  stroke-width: 2;
 }
 :root[data-theme="dark"] .lang-modal-head {
   border-bottom-color: var(--tone-line, #314762);
