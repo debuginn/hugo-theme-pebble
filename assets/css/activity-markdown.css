@@ -24,6 +24,10 @@
   vertical-align: middle;
   accent-color: var(--accent);
 }
+html[dir="rtl"] .activity-detail-article input[type="checkbox"] {
+  margin-right: 0;
+  margin-left: 6px;
+}
 .activity-detail-article blockquote > :first-child { margin-top: 0; }
 .activity-detail-article blockquote > :last-child { margin-bottom: 0; }
 .activity-detail-article :is(code, pre, kbd, samp) {

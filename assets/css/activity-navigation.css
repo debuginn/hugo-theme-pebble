@@ -33,6 +33,13 @@
   padding-left: 12px;
   border-left: 1px solid var(--line);
 }
+html[dir="rtl"] .activity-detail-poster-side .activity-detail-toc ul ul {
+  margin: 2px 12px 8px 0;
+  padding-left: 0;
+  padding-right: 12px;
+  border-left: 0;
+  border-right: 1px solid var(--line);
+}
 .activity-detail-poster-side .activity-detail-toc ul ul a {
   min-height: 38px;
   padding: 8px 10px;
