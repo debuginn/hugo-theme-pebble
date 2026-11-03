@@ -3250,9 +3250,12 @@ body.lang-modal-open { overflow: hidden; }
   background: var(--tone-hover, #1a304a);
   border-color: var(--tone-line, #314762);
 }
-:root[data-theme="dark"] .lang-modal-tab.active,
+:root[data-theme="dark"] .lang-modal-grid a:hover {
+  background: color-mix(in srgb, var(--tone-ink, #eef6ff) 7%, transparent);
+  border-color: transparent;
+}
 :root[data-theme="dark"] .lang-modal-grid a.active {
-  background: var(--tone-active, #223c5b);
-  border-color: var(--tone-line-strong, #486489);
+  background: transparent;
+  border-color: color-mix(in srgb, var(--tone-ink, #eef6ff) 28%, transparent);
   color: var(--tone-ink, #eef6ff);
 }
