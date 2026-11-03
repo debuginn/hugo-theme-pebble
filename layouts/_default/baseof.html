@@ -7,7 +7,7 @@
   {{- $pageTranslations = merge $pageTranslations (dict $itemMeta.appLang .RelPermalink) -}}
 {{- end -}}
 <!doctype html>
-<html lang="{{ $langMeta.htmlLang }}" data-default-lang="{{ $defaultLang }}" data-current-lang="{{ $langMeta.appLang }}">
+<html lang="{{ $langMeta.htmlLang }}" dir="{{ $langMeta.dir }}" data-default-lang="{{ $defaultLang }}" data-current-lang="{{ $langMeta.appLang }}">
   <head>
     {{- $logo := site.Params.assets.logo | default "https://static.debuginn.com/20260607h41bVQ.png" -}}
     {{- $logoDark := site.Params.assets.logoDark | default "" -}}

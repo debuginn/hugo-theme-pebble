@@ -2,43 +2,46 @@
 {{- $defaultLang := .defaultLang -}}
 {{- $key := $lang.Lang -}}
 {{- $route := cond (eq $key $defaultLang) "/" (printf "/%s/" $key) -}}
-{{- $appLang := "" -}}
-{{- $htmlLang := "" -}}
-{{- $ogLocale := "" -}}
-{{- $jsonLdLanguage := "" -}}
-
-{{- if eq $key "zh" -}}
-  {{- $appLang = "zh-Hans" -}}
-  {{- $htmlLang = "zh-CN" -}}
-  {{- $ogLocale = "zh_CN" -}}
-  {{- $jsonLdLanguage = "zh-Hans" -}}
-{{- else if eq $key "zh-hant" -}}
-  {{- $appLang = "zh-Hant" -}}
-  {{- $htmlLang = "zh-Hant" -}}
-  {{- $ogLocale = "zh_TW" -}}
-  {{- $jsonLdLanguage = "zh-Hant" -}}
-{{- else if eq $key "ja" -}}
-  {{- $appLang = "ja" -}}
-  {{- $htmlLang = "ja" -}}
-  {{- $ogLocale = "ja_JP" -}}
-  {{- $jsonLdLanguage = "ja" -}}
-{{- else if eq $key "ko" -}}
-  {{- $appLang = "ko" -}}
-  {{- $htmlLang = "ko" -}}
-  {{- $ogLocale = "ko_KR" -}}
-  {{- $jsonLdLanguage = "ko" -}}
-{{- else -}}
-  {{- $appLang = "en" -}}
-  {{- $htmlLang = "en" -}}
-  {{- $ogLocale = "en_US" -}}
-  {{- $jsonLdLanguage = "en" -}}
-{{- end -}}
-
+{{- $meta := dict
+  "zh" (dict "app" "zh-Hans" "html" "zh-CN" "og" "zh_CN" "json" "zh-Hans" "dir" "ltr")
+  "zh-hant" (dict "app" "zh-Hant" "html" "zh-Hant" "og" "zh_TW" "json" "zh-Hant" "dir" "ltr")
+  "en" (dict "app" "en" "html" "en" "og" "en_US" "json" "en" "dir" "ltr")
+  "ja" (dict "app" "ja" "html" "ja" "og" "ja_JP" "json" "ja" "dir" "ltr")
+  "ko" (dict "app" "ko" "html" "ko" "og" "ko_KR" "json" "ko" "dir" "ltr")
+  "th" (dict "app" "th" "html" "th" "og" "th_TH" "json" "th" "dir" "ltr")
+  "vi" (dict "app" "vi" "html" "vi" "og" "vi_VN" "json" "vi" "dir" "ltr")
+  "ms" (dict "app" "ms" "html" "ms" "og" "ms_MY" "json" "ms" "dir" "ltr")
+  "de" (dict "app" "de" "html" "de" "og" "de_DE" "json" "de" "dir" "ltr")
+  "fr" (dict "app" "fr" "html" "fr" "og" "fr_FR" "json" "fr" "dir" "ltr")
+  "it" (dict "app" "it" "html" "it" "og" "it_IT" "json" "it" "dir" "ltr")
+  "es" (dict "app" "es" "html" "es" "og" "es_ES" "json" "es" "dir" "ltr")
+  "nl" (dict "app" "nl" "html" "nl" "og" "nl_NL" "json" "nl" "dir" "ltr")
+  "pt-br" (dict "app" "pt-BR" "html" "pt-BR" "og" "pt_BR" "json" "pt-BR" "dir" "ltr")
+  "ar" (dict "app" "ar" "html" "ar" "og" "ar_SA" "json" "ar" "dir" "rtl")
+  "id" (dict "app" "id" "html" "id" "og" "id_ID" "json" "id" "dir" "ltr")
+  "hi" (dict "app" "hi" "html" "hi" "og" "hi_IN" "json" "hi" "dir" "ltr")
+  "tr" (dict "app" "tr" "html" "tr" "og" "tr_TR" "json" "tr" "dir" "ltr")
+  "pl" (dict "app" "pl" "html" "pl" "og" "pl_PL" "json" "pl" "dir" "ltr")
+  "sv" (dict "app" "sv" "html" "sv" "og" "sv_SE" "json" "sv" "dir" "ltr")
+  "da" (dict "app" "da" "html" "da" "og" "da_DK" "json" "da" "dir" "ltr")
+  "nb" (dict "app" "nb" "html" "nb" "og" "nb_NO" "json" "nb" "dir" "ltr")
+  "fi" (dict "app" "fi" "html" "fi" "og" "fi_FI" "json" "fi" "dir" "ltr")
+  "cs" (dict "app" "cs" "html" "cs" "og" "cs_CZ" "json" "cs" "dir" "ltr")
+  "ro" (dict "app" "ro" "html" "ro" "og" "ro_RO" "json" "ro" "dir" "ltr")
+  "ru" (dict "app" "ru" "html" "ru" "og" "ru_RU" "json" "ru" "dir" "ltr")
+  "uk" (dict "app" "uk" "html" "uk" "og" "uk_UA" "json" "uk" "dir" "ltr")
+  "hu" (dict "app" "hu" "html" "hu" "og" "hu_HU" "json" "hu" "dir" "ltr")
+  "el" (dict "app" "el" "html" "el" "og" "el_GR" "json" "el" "dir" "ltr")
+  "pt-pt" (dict "app" "pt-PT" "html" "pt-PT" "og" "pt_PT" "json" "pt-PT" "dir" "ltr")
+  "he" (dict "app" "he" "html" "he" "og" "he_IL" "json" "he" "dir" "rtl")
+-}}
+{{- $item := index $meta $key | default (dict "app" "en" "html" "en" "og" "en_US" "json" "en" "dir" "ltr") -}}
 {{- return (dict
   "key" $key
   "route" $route
-  "appLang" $appLang
-  "htmlLang" $htmlLang
-  "ogLocale" $ogLocale
-  "jsonLdLanguage" $jsonLdLanguage
+  "appLang" (index $item "app")
+  "htmlLang" (index $item "html")
+  "ogLocale" (index $item "og")
+  "jsonLdLanguage" (index $item "json")
+  "dir" (index $item "dir")
 ) -}}
