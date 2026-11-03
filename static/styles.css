@@ -3174,6 +3174,23 @@ html[dir="rtl"] .hero-stage.is-ready .hero-stack-card[data-pos="4"] {
   padding: 16px 20px 12px;
   border-bottom: 1px solid var(--line);
 }
+.lang-modal-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.lang-modal-title-icon {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  color: var(--tone-ink, #27476d);
+}
+.lang-modal-globe {
+  width: 16px;
+  height: 16px;
+}
 .lang-modal-head h2 {
   margin: 0;
   font-size: 15px;

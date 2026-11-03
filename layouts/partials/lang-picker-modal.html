@@ -11,7 +11,10 @@
   <div class="lang-modal-backdrop" data-lang-modal-close></div>
   <div class="lang-modal-panel" role="dialog" aria-modal="true" aria-labelledby="lang-modal-title">
     <div class="lang-modal-head">
-      <h2 id="lang-modal-title">{{ index $titles $current | default "Choose a language" }}</h2>
+      <div class="lang-modal-title">
+        <span class="lang-modal-title-icon" aria-hidden="true">{{ partial "icon.html" (dict "name" "globe" "class" "lang-modal-globe") }}</span>
+        <h2 id="lang-modal-title">{{ index $titles $current | default "Choose a language" }}</h2>
+      </div>
       <button class="lang-modal-close" type="button" data-lang-modal-close aria-label="{{ index $closeLabels $current | default "Close" }}">×</button>
     </div>
     <div class="lang-modal-grid">
