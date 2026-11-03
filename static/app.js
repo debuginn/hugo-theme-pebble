@@ -121,19 +121,6 @@ function desktopLangModal() {
   return window.matchMedia && window.matchMedia("(min-width: 961px)").matches;
 }
 
-function showLangContinent(continent) {
-  const modal = document.querySelector(".lang-modal");
-  if (!modal) return;
-  modal.querySelectorAll("[data-lang-continent]").forEach((tab) => {
-    const on = tab.getAttribute("data-lang-continent") === continent;
-    tab.classList.toggle("active", on);
-    tab.setAttribute("aria-selected", on ? "true" : "false");
-  });
-  modal.querySelectorAll("[data-continent]").forEach((link) => {
-    link.hidden = link.getAttribute("data-continent") !== continent;
-  });
-}
-
 function closeLangModal() {
   const modal = document.querySelector(".lang-modal");
   if (!modal || modal.hidden) return;
@@ -147,9 +134,6 @@ function openLangModal(trigger) {
   const modal = document.querySelector(".lang-modal");
   if (!modal) return;
   closeLangDropdowns();
-  const active = modal.querySelector("[data-lang-modal-option].active");
-  const continent = active ? active.getAttribute("data-continent") : "asia";
-  showLangContinent(continent || "asia");
   modal.hidden = false;
   modal._returnFocus = trigger;
   document.body.classList.add("lang-modal-open");
@@ -163,9 +147,6 @@ function bindLangModal() {
   modal.dataset.bound = "true";
   modal.querySelectorAll("[data-lang-modal-close]").forEach((node) => {
     node.addEventListener("click", closeLangModal);
-  });
-  modal.querySelectorAll("[data-lang-continent]").forEach((tab) => {
-    tab.addEventListener("click", () => showLangContinent(tab.getAttribute("data-lang-continent")));
   });
   modal.querySelectorAll("[data-lang-modal-option]").forEach((option) => {
     option.addEventListener("click", () => {

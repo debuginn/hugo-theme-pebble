@@ -3166,6 +3166,7 @@ html[dir="rtl"] .hero-stage.is-ready .hero-stack-card[data-pos="4"] {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  margin-bottom: 16px;
 }
 .lang-modal-head h2 {
   margin: 0;
@@ -3211,7 +3212,6 @@ html[dir="rtl"] .hero-stage.is-ready .hero-stack-card[data-pos="4"] {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
-  margin-top: 16px;
 }
 .lang-modal-grid a[hidden] { display: none; }
 .lang-modal-grid a {

@@ -1,22 +1,12 @@
 {{- $pageTranslations := .pageTranslations -}}
 {{- $defaultLang := .defaultLang -}}
 {{- $current := site.Language.Lang -}}
-{{- $continentOf := dict
-  "zh" "asia" "zh-hant" "asia" "ja" "asia" "ko" "asia" "th" "asia" "vi" "asia" "ms" "asia" "id" "asia" "hi" "asia" "ar" "asia" "he" "asia" "tr" "asia"
-  "en" "europe" "de" "europe" "fr" "europe" "it" "europe" "es" "europe" "nl" "europe" "pl" "europe" "sv" "europe" "da" "europe" "nb" "europe" "fi" "europe" "cs" "europe" "ro" "europe" "ru" "europe" "uk" "europe" "hu" "europe" "el" "europe" "pt-pt" "europe"
-  "pt-br" "americas"
--}}
 {{- $titles := dict
   "zh" "选择语言" "zh-hant" "選擇語言" "en" "Choose a language" "ja" "言語を選択" "ko" "언어 선택" "th" "เลือกภาษา" "vi" "Chọn ngôn ngữ" "ms" "Pilih bahasa" "id" "Pilih bahasa" "hi" "भाषा चुनें" "tr" "Dil seçin" "de" "Sprache wählen" "fr" "Choisir une langue" "it" "Scegli la lingua" "es" "Elegir idioma" "nl" "Taal kiezen" "pt-br" "Escolher idioma" "pt-pt" "Escolher idioma" "ar" "اختيار اللغة" "pl" "Wybierz język" "sv" "Välj språk" "da" "Vælg sprog" "nb" "Velg språk" "fi" "Valitse kieli" "cs" "Vyberte jazyk" "ro" "Alege limba" "ru" "Выберите язык" "uk" "Виберіть мову" "hu" "Nyelv választása" "el" "Επιλογή γλώσσας" "he" "בחירת שפה"
 -}}
 {{- $closeLabels := dict
   "zh" "关闭" "zh-hant" "關閉" "en" "Close" "ja" "閉じる" "ko" "닫기" "th" "ปิด" "vi" "Đóng" "ms" "Tutup" "id" "Tutup" "hi" "बंद करें" "tr" "Kapat" "de" "Schließen" "fr" "Fermer" "it" "Chiudi" "es" "Cerrar" "nl" "Sluiten" "pt-br" "Fechar" "pt-pt" "Fechar" "ar" "إغلاق" "pl" "Zamknij" "sv" "Stäng" "da" "Luk" "nb" "Lukk" "fi" "Sulje" "cs" "Zavřít" "ro" "Închide" "ru" "Закрыть" "uk" "Закрити" "hu" "Bezárás" "el" "Κλείσιμο" "he" "סגירה"
 -}}
-{{- $asia := dict "zh" "亚洲" "zh-hant" "亞洲" "en" "Asia" "ja" "アジア" "ko" "아시아" "th" "เอเชีย" "vi" "Châu Á" "ms" "Asia" "id" "Asia" "hi" "एशिया" "tr" "Asya" "de" "Asien" "fr" "Asie" "it" "Asia" "es" "Asia" "nl" "Azië" "pt-br" "Ásia" "pt-pt" "Ásia" "ar" "آسيا" "pl" "Azja" "sv" "Asien" "da" "Asien" "nb" "Asia" "fi" "Aasia" "cs" "Asie" "ro" "Asia" "ru" "Азия" "uk" "Азія" "hu" "Ázsia" "el" "Ασία" "he" "אסיה" -}}
-{{- $europe := dict "zh" "欧洲" "zh-hant" "歐洲" "en" "Europe" "ja" "ヨーロッパ" "ko" "유럽" "th" "ยุโรป" "vi" "Châu Âu" "ms" "Eropah" "id" "Eropa" "hi" "यूरोप" "tr" "Avrupa" "de" "Europa" "fr" "Europe" "it" "Europa" "es" "Europa" "nl" "Europa" "pt-br" "Europa" "pt-pt" "Europa" "ar" "أوروبا" "pl" "Europa" "sv" "Europa" "da" "Europa" "nb" "Europa" "fi" "Eurooppa" "cs" "Evropa" "ro" "Europa" "ru" "Европа" "uk" "Європа" "hu" "Európa" "el" "Ευρώπη" "he" "אירופה" -}}
-{{- $americas := dict "zh" "美洲" "zh-hant" "美洲" "en" "Americas" "ja" "アメリカ" "ko" "아메리카" "th" "อเมริกา" "vi" "Châu Mỹ" "ms" "Amerika" "id" "Amerika" "hi" "अमेरिका" "tr" "Amerika" "de" "Amerika" "fr" "Amériques" "it" "Americhe" "es" "América" "nl" "Amerika" "pt-br" "Américas" "pt-pt" "Américas" "ar" "الأمريكتان" "pl" "Ameryka" "sv" "Amerika" "da" "Amerika" "nb" "Amerika" "fi" "Amerikka" "cs" "Amerika" "ro" "America" "ru" "Америка" "uk" "Америка" "hu" "Amerika" "el" "Αμερική" "he" "אמריקה" -}}
-{{- $labelOf := dict "asia" $asia "europe" $europe "americas" $americas -}}
-{{- $order := slice "asia" "europe" "americas" -}}
 <div class="lang-modal" hidden>
   <div class="lang-modal-backdrop" data-lang-modal-close></div>
   <div class="lang-modal-panel" role="dialog" aria-modal="true" aria-labelledby="lang-modal-title">
@@ -24,18 +14,11 @@
       <h2 id="lang-modal-title">{{ index $titles $current | default "Choose a language" }}</h2>
       <button class="lang-modal-close" type="button" data-lang-modal-close aria-label="{{ index $closeLabels $current | default "Close" }}">×</button>
     </div>
-    <div class="lang-modal-tabs" role="tablist">
-      {{- range $order }}
-      {{- $id := . -}}
-      <button class="lang-modal-tab" type="button" role="tab" data-lang-continent="{{ $id }}" aria-selected="false">{{ index (index $labelOf $id) $current | default (index (index $labelOf $id) "en") }}</button>
-      {{- end }}
-    </div>
     <div class="lang-modal-grid">
       {{- range site.Languages }}
       {{- $itemMeta := partial "lang-meta.html" (dict "lang" . "defaultLang" $defaultLang) -}}
       {{- $langHref := index $pageTranslations $itemMeta.appLang | default $itemMeta.route -}}
-      {{- $continent := index $continentOf .Lang | default "europe" -}}
-      <a href="{{ $langHref }}" data-lang-modal-option="{{ $itemMeta.appLang }}" data-continent="{{ $continent }}">{{ .LanguageName }}</a>
+      <a href="{{ $langHref }}" data-lang-modal-option="{{ $itemMeta.appLang }}">{{ .LanguageName }}</a>
       {{- end }}
     </div>
   </div>
