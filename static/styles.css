@@ -3213,6 +3213,7 @@ html[dir="rtl"] .hero-stage.is-ready .hero-stack-card[data-pos="4"] {
   gap: 8px;
   margin-top: 16px;
 }
+.lang-modal-grid a[hidden] { display: none; }
 .lang-modal-grid a {
   min-height: 44px;
   padding: 8px 12px;
