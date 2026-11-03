@@ -450,7 +450,33 @@ function bindHeroFan() {
 }
 
 
+function hideExpiredActivities() {
+  const today = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Shanghai",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).format(new Date()).replaceAll("-", "");
+  document.querySelectorAll("[data-activity-end]").forEach((slide) => {
+    const end = slide.getAttribute("data-activity-end") || "";
+    if (end && today > end) slide.remove();
+  });
+  document.querySelectorAll("[data-activities-carousel]").forEach((root) => {
+    const slides = root.querySelectorAll("[data-activity-slide]");
+    const ui = root.querySelector(".activities-ui");
+    if (slides.length < 2 && ui) ui.remove();
+    if (!slides.length) {
+      const section = root.closest("section");
+      if (section) section.remove();
+    }
+  });
+  if (!document.querySelector("#activities")) {
+    document.querySelectorAll('a[href$="#activities"]').forEach((link) => link.remove());
+  }
+}
+
 function bindActivitiesCarousel() {
+  hideExpiredActivities();
   document.querySelectorAll("[data-activities-carousel]").forEach((root) => {
     const slides = Array.from(root.querySelectorAll("[data-activity-slide]"));
     const dots = Array.from(root.querySelectorAll("[data-activity-dot]"));

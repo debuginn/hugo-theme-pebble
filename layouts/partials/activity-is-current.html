@@ -1,0 +1,8 @@
+{{- $raw := .item.date | default "" -}}
+{{- $dates := findRE `\d{4}\.\d{2}\.\d{2}` $raw -}}
+{{- $keep := true -}}
+{{- if gt (len $dates) 0 -}}
+  {{- $end := index $dates (sub (len $dates) 1) | replace "." "" -}}
+  {{- if gt .today $end }}{{ $keep = false }}{{ end -}}
+{{- end -}}
+{{- return $keep -}}

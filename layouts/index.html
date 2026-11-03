@@ -188,7 +188,7 @@
   </section>
   {{- end }}{{- end }}
   {{- with $home.activities }}{{- if not .disabled }}
-  {{- $items := .items | default slice -}}
+  {{- $items := partial "current-activities.html" (dict "items" (.items | default slice) "today" (now.Format "20060102")) }}
   {{- if gt (len $items) 0 }}
   <section id="activities" class="section activities-section" data-img-chain="4">
     <div class="container">
@@ -206,7 +206,10 @@
           {{- $posterHeight := $item.posterHeight | default 1448 -}}
           {{- $href := $item.detailUrl | default $item.href | default "#" -}}
           {{- $accent := $item.accent | default "var(--accent)" -}}
-          <article class="activity-slide{{ if eq $index 0 }} is-active{{ end }}" data-activity-slide="{{ $index }}" style="--activity-accent: {{ $accent }};"{{ if ne $index 0 }} aria-hidden="true"{{ end }}>
+          {{- $dates := findRE `\d{4}\.\d{2}\.\d{2}` ($item.date | default "") -}}
+          {{- $end := "" -}}
+          {{- if gt (len $dates) 0 }}{{ $end = index $dates (sub (len $dates) 1) | replace "." "" }}{{ end -}}
+          <article class="activity-slide{{ if eq $index 0 }} is-active{{ end }}" data-activity-slide="{{ $index }}"{{ with $end }} data-activity-end="{{ . }}"{{ end }} style="--activity-accent: {{ $accent }};"{{ if ne $index 0 }} aria-hidden="true"{{ end }}>
             <div class="activity-poster-stage">
               <div class="activity-poster-glow" aria-hidden="true"></div>
               <figure class="activity-poster-card">

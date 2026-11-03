@@ -358,10 +358,15 @@
               <span data-i18n="brand">{{ T "brand" }}</span>
             </a>
             <div class="desktop-nav">
+              {{- $activityConfig := site.Home.Params.home.activities -}}
+              {{- $currentActivities := partial "current-activities.html" (dict "items" ($activityConfig.items | default slice) "today" (now.Format "20060102")) -}}
+              {{- if $activityConfig.disabled }}{{ $currentActivities = slice }}{{ end -}}
               {{- range site.Menus.main }}
+              {{- if and (eq .URL "#activities") (eq (len $currentActivities) 0) }}{{ else }}
               {{- $target := .URL -}}
               {{- if hasPrefix $target "#" }}{{ $target = printf "%s%s" ("/" | relLangURL) $target }}{{ end -}}
               <a href="{{ $target }}" data-i18n="{{ .Identifier }}"{{ if hasPrefix $target "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ T .Identifier }}</a>
+              {{- end }}
               {{- end }}
             </div>
           </div>
@@ -399,10 +404,15 @@
           </div>
         </nav>
         <nav id="mobile-menu" class="mobile-menu" aria-hidden="true">
+          {{- $activityConfig := site.Home.Params.home.activities -}}
+          {{- $currentActivities := partial "current-activities.html" (dict "items" ($activityConfig.items | default slice) "today" (now.Format "20060102")) -}}
+          {{- if $activityConfig.disabled }}{{ $currentActivities = slice }}{{ end -}}
           {{- range site.Menus.main }}
+          {{- if and (eq .URL "#activities") (eq (len $currentActivities) 0) }}{{ else }}
           {{- $target := .URL -}}
           {{- if hasPrefix $target "#" }}{{ $target = printf "%s%s" ("/" | relLangURL) $target }}{{ end -}}
           <a href="{{ $target }}" data-i18n="{{ .Identifier }}"{{ if hasPrefix $target "http" }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ T .Identifier }}</a>
+          {{- end }}
           {{- end }}
           <a href="{{ "/" | relLangURL }}#download" data-i18n="navDownload">{{ T "navDownload" }}</a>
         </nav>

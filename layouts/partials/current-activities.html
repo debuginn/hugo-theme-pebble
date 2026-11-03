@@ -1,0 +1,9 @@
+{{- $items := .items | default slice -}}
+{{- $today := .today -}}
+{{- $active := slice -}}
+{{- range $items -}}
+  {{- if partial "activity-is-current.html" (dict "item" . "today" $today) -}}
+    {{- $active = $active | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- return $active -}}
