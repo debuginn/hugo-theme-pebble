@@ -535,6 +535,8 @@
       </div>
     </footer>
 
+    {{ partial "lang-picker-modal.html" (dict "pageTranslations" $pageTranslations "defaultLang" $defaultLang) }}
+
     <script type="module" src="{{ $appURL }}"></script>
   </body>
 </html>

@@ -106,11 +106,76 @@ function updateFooterLangDropdown(activeLang) {
 
 function updateHeaderLangDropdown(activeLang) {
   const dropdown = document.querySelector(".header-lang-dropdown");
-  if (!dropdown) return;
-  const current = dropdown.querySelector(".header-lang-current");
-  const options = dropdown.querySelectorAll("[data-lang-option]");
-  const activeText = setActiveOption(options, "data-lang-option", activeLang, "EN");
-  if (current) current.textContent = activeText;
+  if (dropdown) {
+    const current = dropdown.querySelector(".header-lang-current");
+    const options = dropdown.querySelectorAll("[data-lang-option]");
+    const activeText = setActiveOption(options, "data-lang-option", activeLang, "EN");
+    if (current) current.textContent = activeText;
+  }
+  document.querySelectorAll("[data-lang-modal-option]").forEach((option) => {
+    option.classList.toggle("active", option.getAttribute("data-lang-modal-option") === activeLang);
+  });
+}
+
+function desktopLangModal() {
+  return window.matchMedia && window.matchMedia("(min-width: 961px)").matches;
+}
+
+function showLangContinent(continent) {
+  const modal = document.querySelector(".lang-modal");
+  if (!modal) return;
+  modal.querySelectorAll("[data-lang-continent]").forEach((tab) => {
+    const on = tab.getAttribute("data-lang-continent") === continent;
+    tab.classList.toggle("active", on);
+    tab.setAttribute("aria-selected", on ? "true" : "false");
+  });
+  modal.querySelectorAll("[data-continent]").forEach((link) => {
+    link.hidden = link.getAttribute("data-continent") !== continent;
+  });
+}
+
+function closeLangModal() {
+  const modal = document.querySelector(".lang-modal");
+  if (!modal || modal.hidden) return;
+  modal.hidden = true;
+  document.body.classList.remove("lang-modal-open");
+  const trigger = modal._returnFocus;
+  if (trigger) trigger.focus();
+}
+
+function openLangModal(trigger) {
+  const modal = document.querySelector(".lang-modal");
+  if (!modal) return;
+  closeLangDropdowns();
+  const active = modal.querySelector("[data-lang-modal-option].active");
+  const continent = active ? active.getAttribute("data-continent") : "asia";
+  showLangContinent(continent || "asia");
+  modal.hidden = false;
+  modal._returnFocus = trigger;
+  document.body.classList.add("lang-modal-open");
+  const closeBtn = modal.querySelector(".lang-modal-close");
+  if (closeBtn) closeBtn.focus();
+}
+
+function bindLangModal() {
+  const modal = document.querySelector(".lang-modal");
+  if (!modal || modal.dataset.bound === "true") return;
+  modal.dataset.bound = "true";
+  modal.querySelectorAll("[data-lang-modal-close]").forEach((node) => {
+    node.addEventListener("click", closeLangModal);
+  });
+  modal.querySelectorAll("[data-lang-continent]").forEach((tab) => {
+    tab.addEventListener("click", () => showLangContinent(tab.getAttribute("data-lang-continent")));
+  });
+  modal.querySelectorAll("[data-lang-modal-option]").forEach((option) => {
+    option.addEventListener("click", () => {
+      const next = option.getAttribute("data-lang-modal-option");
+      if (supportedLangs().includes(next)) safeStorageSet(USER_LANG_KEY, next);
+    });
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeLangModal();
+  });
 }
 
 function bindDropdown(dropdownSelector, triggerSelector, optionSelector, attrName) {
@@ -125,6 +190,11 @@ function bindDropdown(dropdownSelector, triggerSelector, optionSelector, attrNam
 
     trigger.addEventListener("click", (e) => {
       e.stopPropagation();
+      if (desktopLangModal()) {
+        e.preventDefault();
+        openLangModal(trigger);
+        return;
+      }
       closeLangDropdowns(e.target instanceof Element ? e.target : null);
       const nextOpen = !dropdown.classList.contains("open");
       dropdown.classList.toggle("open", nextOpen);
@@ -611,6 +681,7 @@ function runImageChain() {
 
   bindDropdown(".header-lang-dropdown", ".header-lang-trigger", "[data-lang-option]", "data-lang-option");
   bindDropdown(".footer-lang-dropdown", ".footer-lang-trigger", "[data-footer-lang-option]", "data-footer-lang-option");
+  bindLangModal();
   bindLangDropdownGlobals();
   bindMobileMenu(menuBtn, mobileMenu);
   bindWechatPreview();
