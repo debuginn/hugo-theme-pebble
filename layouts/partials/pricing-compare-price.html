@@ -1,9 +1,12 @@
 {{- $col := .col -}}
-{{- $pricing := .pricing | default dict -}}
-{{- if eq $col.priceKey "lifetime" -}}
-{{- $pricing.lifetime -}}
-{{- else if eq $col.priceKey "yearly" -}}
-{{- $pricing.yearly -}}
+{{- $price := $col.price -}}
+{{- $key := $col.priceKey -}}
+{{- if in (slice "yearly" "lifetime") $key -}}
+  {{- $price = index .pricing $key -}}
+{{- end -}}
+{{- $schedule := partialCached "pricing-schedule.html" site site.Language.Lang -}}
+{{- if and $key (index $schedule $key) -}}
+  <span data-scheduled-price="{{ $key }}">{{ $price }}</span>
 {{- else -}}
-{{- $col.price -}}
+  {{- $price -}}
 {{- end -}}

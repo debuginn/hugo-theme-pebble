@@ -293,9 +293,15 @@
     {{- $priceCurrency := $pricingParams.currencyCode | default "" | strings.TrimSpace -}}
     {{- if $priceCurrency -}}
     {{- $offers := slice -}}
+    {{- $scheduledPlans := dict -}}
+    {{- with index $homeData "pricingcompare" -}}
+      {{- if not .disabled -}}
+        {{- $scheduledPlans = partialCached "pricing-schedule.html" site site.Language.Lang -}}
+      {{- end -}}
+    {{- end -}}
     {{- range $priceKey := slice "yearly" "lifetime" -}}
       {{- $rawPrice := index $pricingParams $priceKey -}}
-      {{- if $rawPrice -}}
+      {{- if and $rawPrice (not (index $scheduledPlans $priceKey)) -}}
         {{- $offers = $offers | append (dict "@type" "Offer" "price" (printf "%v" $rawPrice) "priceCurrency" $priceCurrency) -}}
       {{- end -}}
     {{- end -}}

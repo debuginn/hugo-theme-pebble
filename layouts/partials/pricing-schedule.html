@@ -1,0 +1,71 @@
+{{- $schedule := dict -}}
+{{- $languages := slice -}}
+{{- range .Languages -}}
+  {{- $languages = $languages | append .Lang -}}
+{{- end -}}
+{{- range $lang, $plans := .Data.pricing_schedule -}}
+  {{- if not (and (in $languages $lang) (reflect.IsMap $plans)) -}}
+    {{- errorf "pricing_schedule: expected a table for a configured language, got %q" $lang -}}
+    {{- continue -}}
+  {{- end -}}
+  {{- range $plan, $entries := $plans -}}
+    {{- if not (and (in (slice "yearly" "lifetime") $plan) (reflect.IsSlice $entries)) -}}
+      {{- errorf "pricing_schedule.%s.%s: expected an array of yearly or lifetime entries" $lang $plan -}}
+      {{- continue -}}
+    {{- end -}}
+    {{- $slots := slice -}}
+    {{- range $index, $entry := $entries -}}
+      {{- $path := printf "pricing_schedule.%s.%s[%d]" $lang $plan $index -}}
+      {{- if not (reflect.IsMap $entry) -}}
+        {{- errorf "%s: expected a schedule entry" $path -}}
+        {{- continue -}}
+      {{- end -}}
+      {{- range $field, $_ := $entry -}}
+        {{- if not (in (slice "starts_at" "ends_at" "price" "original_price") $field) -}}
+          {{- errorf "%s: unknown field %q" $path $field -}}
+        {{- end -}}
+      {{- end -}}
+      {{- $slot := dict -}}
+      {{- range $field, $key := dict "starts_at" "startsAt" "ends_at" "endsAt" -}}
+        {{- if or (eq $field "starts_at") (isset $entry $field) -}}
+          {{- $value := index $entry $field | string -}}
+          {{- if findRE `^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(Z|[+-]([01][0-9]|2[0-3]):[0-5][0-9])$` $value -}}
+            {{- $slot = merge $slot (dict $key (mul (time.AsTime $value).Unix 1000)) -}}
+          {{- else -}}
+            {{- errorf "%s.%s: use a date and time with explicit timezone, e.g. 2027-01-01T00:00:00+08:00" $path $field -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+      {{- if not (isset $slot "startsAt") -}}
+        {{- continue -}}
+      {{- end -}}
+      {{- if and (isset $slot "endsAt") (le $slot.endsAt $slot.startsAt) -}}
+        {{- errorf "%s: ends_at must be after starts_at" $path -}}
+      {{- end -}}
+      {{- $price := $entry.price | string -}}
+      {{- $original := $entry.original_price | string -}}
+      {{- $amountPattern := `^[0-9]{1,12}(\.[0-9]{1,4})?$` -}}
+      {{- if not (findRE $amountPattern $price) -}}
+        {{- errorf "%s.price: expected an amount without a currency symbol" $path -}}
+      {{- else if isset $entry "original_price" -}}
+        {{- if or (not (findRE $amountPattern $original)) (le (float $original) (float $price)) -}}
+          {{- errorf "%s.original_price: expected an amount greater than price" $path -}}
+        {{- end -}}
+      {{- end -}}
+      {{- $slots = $slots | append (merge $slot (dict "price" $price "originalPrice" $original)) -}}
+    {{- end -}}
+    {{- $slots = sort $slots "startsAt" -}}
+    {{- range $i, $slot := $slots -}}
+      {{- if gt $i 0 -}}
+        {{- $previous := index $slots (sub $i 1) -}}
+        {{- if or (not (isset $previous "endsAt")) (gt $previous.endsAt $slot.startsAt) -}}
+          {{- errorf "pricing_schedule.%s.%s: scheduled price windows overlap" $lang $plan -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if and (eq $lang $.Language.Lang) $slots -}}
+      {{- $schedule = merge $schedule (dict $plan $slots) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $schedule -}}

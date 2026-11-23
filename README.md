@@ -500,6 +500,28 @@ These values are referenced by homepage pricing plans through `priceKey`.
 
 `home.pricingCompare` still uses `columns` and `rows`. Column fields are `title`, `priceKey`, `price`, `suffix`, `description`, `badge`, `featured`, and `cta` (`label`, `href`, `style`, `highlight`). `priceKey` of `yearly` or `lifetime` reads `params.pricing`; any other key uses the column `price`. Row `values` is a positional list aligned with `columns`. Booleans render as a check or a dash. Other values render as text. A row with no `values` is a group header. `note` is an optional line under the row label. The featured column is an elevated card. On a desktop pointer, hovering another plan column moves that elevation with CSS; it returns to the featured column when the pointer leaves.
 
+### Scheduled prices
+
+To schedule prices in the comparison table, add `data/pricing_schedule.toml`
+to the consuming site. Each table names a configured Hugo language and the
+`yearly` or `lifetime` plan.
+
+```toml
+[[en.lifetime]]
+starts_at = "2027-01-01T00:00:00Z"
+ends_at = "2027-01-08T00:00:00Z"
+price = "8.99"
+original_price = "9.99"
+```
+
+The start is inclusive and the end is exclusive. Omit `ends_at` for an
+open-ended price and `original_price` to omit the strike-through during that
+window. Dates require an explicit time zone, and windows for the same
+language and plan must not overlap. Desktop and mobile switch prices using
+the device clock; without JavaScript or outside a window, the table uses
+`params.pricing`. Scheduled prices are embedded in the page and are excluded
+from static structured data.
+
 ## Activity pages
 
 Use `type = "activities"` in Markdown front matter to render an activity detail

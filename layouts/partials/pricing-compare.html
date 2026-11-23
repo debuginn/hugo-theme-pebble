@@ -135,3 +135,8 @@
     {{- end }}
   </div>
 </div>
+{{- with partialCached "pricing-schedule.html" site site.Language.Lang }}
+  {{- $script := resources.Get "pebble/pricing-schedule.js" | fingerprint }}
+  <script id="pricing-schedule" type="application/json">{{ . | jsonify | safeJS }}</script>
+  <script src="{{ $script.RelPermalink }}" defer></script>
+{{- end }}
